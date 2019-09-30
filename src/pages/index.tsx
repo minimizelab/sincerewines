@@ -13,7 +13,7 @@ const Index: FunctionComponent = () => (
           Den här sidan är under uppbyggnad
         </h1>
         <h4 className="pb-16 text-lg font-body font-light text-center">
-          Välkomna tillbaka till lanseringen av vår nya webbplats i november!
+          Välkommen tillbaka till lanseringen av vår nya webbplats i november!
         </h4>
       </div>
     </main>
