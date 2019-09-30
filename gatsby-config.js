@@ -52,18 +52,18 @@ module.exports = {
     //     // Accepts all options defined by `babel-plugin-emotion` plugin.
     //   },
     // },
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: 'Sincere Wines',
-    //     short_name: config.shortTitle,
-    //     start_url: '/',
-    //     background_color: config.backgroundColor,
-    //     theme_color: config.themeColor,
-    //     display: 'minimal-ui',
-    //     icon: config.siteIcon, // This path is relative to the root of the site.
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Sincere Wines',
+        short_name: config.shortTitle,
+        start_url: '/',
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'minimal-ui',
+        icon: config.siteIcon, // This path is relative to the root of the site.
+      },
+    },
     'gatsby-plugin-offline',
   ],
 };
