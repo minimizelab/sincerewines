@@ -2,7 +2,7 @@
   "name": "sincerewines",
   "version": "0.1.0",
   "description": "Website for Sincere Wines",
-  "main": "index.js",
+  "main": "gatsby-config.js",
   "repository": "git@github.com:sincerewines/sincerewines.git",
   "author": "minimize",
   "private": true,
@@ -15,7 +15,9 @@
     "gatsby-plugin-typescript": "^2.1.11",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
   },
   "engines": {
     "node": "10.x"
@@ -34,6 +36,7 @@
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
     "@types/react-helmet": "^5.0.11",
+    "@types/react-redux": "^7.1.4",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
     "eslint": "^6.5.0",
@@ -42,6 +45,7 @@
     "eslint-plugin-react": "^7.14.3",
     "gatsby-cli": "^2.7.53",
     "prettier": "^1.18.2",
+    "redux-devtools-extension": "^2.13.8",
     "tailwindcss": "^1.1.2",
     "typescript": "^3.6.3"
   }
