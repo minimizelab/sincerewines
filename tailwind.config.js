@@ -9,7 +9,11 @@ module.exports = {
       'sincere-grape': '#808EB4',
       'sincere-wine': '#711D25',
     },
-    extend: {},
+    extend: {
+      minWidth: {
+        '250': '250px',
+      },
+    },
   },
   variants: {},
   plugins: [],
