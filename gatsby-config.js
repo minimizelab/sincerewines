@@ -8,50 +8,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'images',
-    //     path: `${__dirname}/src/content/images`,
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'markdown-pages',
-    //     path: `${__dirname}/src/content/pages`,
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'json',
-    //     path: `${__dirname}/src/content/json`,
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-transformer-remark',
-    //   options: {
-    //     plugins: [
-    //       {
-    //         resolve: 'gatsby-remark-images',
-    //         options: {
-    //           maxWidth: 960,
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
-    // 'gatsby-transformer-json',
-    // 'gatsby-plugin-sharp',
-    // 'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
-    // {
-    //   resolve: 'gatsby-plugin-emotion',
-    //   options: {
-    //     // Accepts all options defined by `babel-plugin-emotion` plugin.
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

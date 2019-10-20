@@ -1,0 +1,12 @@
+{
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false
+}
