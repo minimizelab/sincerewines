@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { Helmet } from 'react-helmet';
 import Layout from '../organisms/Layout';
 
 const Index: FunctionComponent = () => (

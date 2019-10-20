@@ -8,15 +8,15 @@ interface Props {
 
 const Layout: FunctionComponent<Props> = ({ title, children }) => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col w-full bg-sincere-background">
       <Helmet>
         <meta charSet="utf-8" />
         <title>{title}</title>
       </Helmet>
       <header>Header</header>
-      <main>{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 
