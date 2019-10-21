@@ -6,7 +6,7 @@ interface Props {
 
 const Button: FunctionComponent<Props> = ({ text }) => (
   <button className="border border-black py-3 px-5">
-    <h5 className="uppercase tracking-wider text-xs">{text}</h5>
+    <span className="uppercase tracking-wider text-xs">{text}</span>
   </button>
 );
 
