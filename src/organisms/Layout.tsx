@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
 import Footer from './Footer';
 import { combineClasses } from '../utils/helpers';
+import CookieDialog from './CookieDialog';
 
 interface Props {
   title: string;
@@ -23,6 +24,7 @@ const Layout: FunctionComponent<Props> = ({ title, children, className }) => {
       <header>Header</header>
       <main className="flex-grow">{children}</main>
       <Footer />
+      <CookieDialog />
     </div>
   );
 };

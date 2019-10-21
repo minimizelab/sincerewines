@@ -2,9 +2,14 @@ import React, { FunctionComponent } from 'react';
 import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
 import { combineClasses } from '../utils/helpers';
 
-const Link: FunctionComponent<GatsbyLinkProps<{}>> = ({
+interface Props extends GatsbyLinkProps<{}> {
+  defaultStyling?: boolean;
+}
+
+const Link: FunctionComponent<Props> = ({
   children,
   to,
+  defaultStyling = true,
   activeClassName,
   partiallyActive,
   className,
@@ -15,7 +20,7 @@ const Link: FunctionComponent<GatsbyLinkProps<{}>> = ({
   const file = /\.[0-9a-z]+$/i.test(to);
 
   const combinedClassName = combineClasses([
-    'font-sans text-base text-sincere-green',
+    { 'font-sans text-base text-sincere-green': defaultStyling },
     className,
   ]);
 
