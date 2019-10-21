@@ -18,7 +18,9 @@ const Index: FunctionComponent = () => (
       </div>
     </main>
     <footer className="absolute bottom-0 w-screen py-8 flex flex-row justify-center">
-      <h4 className="md:text-2xl text-xl font-serif font-title text-sincere-green">Sincere Wines</h4>
+      <h4 className="md:text-2xl text-xl font-serif font-title text-sincere-green">
+        Sincere Wines
+      </h4>
     </footer>
   </div>
 );
