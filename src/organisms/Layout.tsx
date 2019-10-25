@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import Footer from './Footer';
 import { combineClasses } from '../utils/helpers';
 import CookieDialog from './CookieDialog';
+import Header from './Header';
 
 interface Props {
   title: string;
@@ -21,7 +22,7 @@ const Layout: FunctionComponent<Props> = ({ title, children, className }) => {
         <meta charSet="utf-8" />
         <title>{title}</title>
       </Helmet>
-      <header>Header</header>
+      <Header />
       <main className="flex-grow">{children}</main>
       <Footer />
       <CookieDialog />

@@ -16,7 +16,7 @@ const reducer: Reducer<State, ActionTypes> = (state = initialState, action) => {
     case SET_COOKIE_DIALOG_OPEN:
       return {
         ...state,
-        cookieDialogOpen: action.payload
+        cookieDialogOpen: action.payload,
       }
     default:
       return {

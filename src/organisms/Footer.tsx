@@ -5,7 +5,7 @@ import Logotype from '../atoms/Logotype';
 import Link from '../atoms/Link';
 
 const Footer: FunctionComponent = () => (
-  <footer className="flex flex-row w-screen items-end justify-between p-8 flex-wrap bg-white">
+  <footer className="flex flex-row w-screen items-end justify-between p-6 flex-wrap bg-white">
     <div className="flex flex-row items-start lg:w-auto w-full flex-wrap">
       <FooterSection title="Kontakt">
         <Link to="mailto:mail@sincerewines.com">mail@sincerewines.com</Link>
