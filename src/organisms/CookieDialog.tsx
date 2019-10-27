@@ -14,7 +14,7 @@ const CookieDialog: FunctionComponent = () => {
   return isOpen ? (
     <div className={classes.fadeBg}>
       <div className="relative bg-white rounded-sm p-3 md:px-16 md:pt-6 md:pb-8 inset-0 w-full max-w-lg m-auto flex-col flex">
-        <div className="text-center p-2">
+        <div className="flex flex-col items-center text-center p-2">
           <H4>Välkommen till Sincere Wines</H4>
           <Text className="py-4">
             Denna sida innehåller information om alkoholhaltiga drycker och

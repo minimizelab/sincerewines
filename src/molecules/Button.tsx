@@ -10,7 +10,7 @@ const Button: FunctionComponent<Props> = ({ children, white, onClick }) => (
   <button
     onClick={onClick}
     className={combineClasses([
-      'border py-3 px-5',
+      'border py-3 px-6 flex items-center justify-center',
       { 'border-black': !white, 'border-white': white },
     ])}
   >
