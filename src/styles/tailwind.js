@@ -15,6 +15,9 @@ module.exports = {
         '150': '150px',
         '250': '250px',
       },
+      maxWidth: {
+        content: '1440px',
+      },
     },
   },
   variants: {},

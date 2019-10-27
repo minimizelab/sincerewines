@@ -7,7 +7,8 @@ const headerImg = require('../assets/headerimg.png');
 
 const HeaderImage: FunctionComponent = () => (
   <div className="flex flex-col justify-end items-start">
-    <img className="w-screen relative" src={headerImg} />
+    <img className="w-screen" src={headerImg} />
+
     <div className="py-20 px-16 absolute">
       <H4 white className="text-white">
         A Swedish Premium Wine Importer

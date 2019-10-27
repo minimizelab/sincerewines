@@ -11,7 +11,7 @@ const Button: FunctionComponent<Props> = ({ children, white, onClick }) => (
     onClick={onClick}
     className={combineClasses([
       'border py-3 px-6 flex items-center justify-center',
-      { 'border-black': !white, 'border-white': white },
+      { 'border-sincere-green': !white, 'border-white': white },
     ])}
   >
     <span
