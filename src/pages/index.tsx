@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import Layout from '../organisms/Layout';
+import HeaderImage from '../organisms/HeaderImage';
 
 const Index: FunctionComponent = () => (
   <Layout title="Sincere Wines">
+    <HeaderImage />
     <div className="flex flex-col justify-center items-center">
       <h1 className="pb-6 md:text-5xl text-3xl font-serif text-sincere-green text-center">
         Den här sidan är under uppbyggnad

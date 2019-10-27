@@ -16,23 +16,17 @@ const CookieDialog: FunctionComponent = () => {
       <div className="relative bg-white rounded-sm p-3 md:px-16 md:pt-6 md:pb-8 inset-0 w-full max-w-lg m-auto flex-col flex">
         <div className="text-center p-2">
           <H4>Välkommen till Sincere Wines</H4>
-          <div className="py-4">
-            <Text>
-              Denna sida innehåller information om alkoholhaltiga drycker och
-              riktar sig till dig som fyllt 25 år.
-            </Text>
-          </div>
-          <div className="pb-6">
-            <Text>
-              När jag bekräftar att jag är 25 år eller äldre godkänner jag också
-              att webbplatsen använder cookies för bättre användarupplevelse.
-            </Text>
-          </div>
-          <Button
-            dark
-            text="Jag är över 25 år och godkänner cookies"
-            onClick={closeDialog}
-          />
+          <Text className="py-4">
+            Denna sida innehåller information om alkoholhaltiga drycker och
+            riktar sig till dig som fyllt 25 år.
+          </Text>
+          <Text className="pb-6">
+            När jag bekräftar att jag är 25 år eller äldre godkänner jag också
+            att webbplatsen använder cookies för bättre användarupplevelse.
+          </Text>
+          <Button onClick={closeDialog}>
+            Jag är över 25 år och godkänner cookies
+          </Button>
         </div>
       </div>
     </div>

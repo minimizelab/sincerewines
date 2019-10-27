@@ -2,7 +2,7 @@ const addClassName = (classNames: string, newClassName: string) =>
   classNames.length ? classNames.concat(' ', newClassName) : newClassName;
 
 export const combineClasses = (
-  classNames: Array<string | undefined | { [key: string]: boolean }>
+  classNames: Array<string | undefined | { [key: string]: boolean | undefined }>
 ) => {
   let result = '';
   classNames.forEach(item => {
