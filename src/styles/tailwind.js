@@ -12,6 +12,7 @@ module.exports = {
         'sincere-background': '#F3F4ED',
       },
       minWidth: {
+        '150': '150px',
         '250': '250px',
       },
     },
