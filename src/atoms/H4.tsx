@@ -11,6 +11,7 @@ const H4: FunctionComponent<Props> = ({ children, white, className }) => (
     className={combineClasses([
       'font-serif text-2xl',
       { 'text-sincere-green': !white, 'text-white': white },
+      className,
     ])}
   >
     {children}
