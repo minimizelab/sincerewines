@@ -5,7 +5,6 @@ import Button from '../molecules/Button';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
-import Block from '../molecules/Block';
 
 // const headerImg = require('../assets/headerimg.png');
 
@@ -27,11 +26,14 @@ const HeaderImage: FunctionComponent = () => (
         }
       `}
       render={data => (
-        <Img className="w-full" fluid={data.file.childImageSharp.fluid}></Img>
+        <Img
+          className="w-full min-h-half"
+          fluid={data.file.childImageSharp.fluid}
+        ></Img>
       )}
     />
     <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
-      <div className="p-4 sm:p-6 mb-10">
+      <div className="p-4 sm:p-6 mb-10 xl:mb-40">
         <H4 white className="text-white m-2">
           A Swedish Premium Wine Importer
         </H4>

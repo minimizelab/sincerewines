@@ -18,6 +18,9 @@ module.exports = {
       maxWidth: {
         content: '1440px',
       },
+      minHeight: {
+        half: '50vh',
+      },
     },
   },
   variants: {},
