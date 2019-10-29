@@ -9,12 +9,12 @@ import Section from '../atoms/Section';
 const menuIcon = require('../assets/menu.png');
 
 const navList = [
-  { path: '', text: 'Sortiment' },
-  { path: '', text: 'Producenter' },
-  { path: '', text: 'Regionen' },
-  { path: '', text: 'Beställningar' },
-  { path: '', text: 'Företaget' },
-  { path: '', text: 'Nyheter' },
+  { path: '/', text: 'Sortiment' },
+  { path: '/', text: 'Producenter' },
+  { path: '/', text: 'Regionen' },
+  { path: '/', text: 'Beställningar' },
+  { path: '/', text: 'Företaget' },
+  { path: '/', text: 'Nyheter' },
 ];
 
 const Header: FunctionComponent = () => {

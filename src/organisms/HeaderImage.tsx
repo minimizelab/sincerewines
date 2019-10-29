@@ -18,7 +18,7 @@ const HeaderImage: FunctionComponent = () => (
             sourceInstanceName: { eq: "images" }
           ) {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 2560) {
                 ...GatsbyImageSharpFluid
               }
             }
