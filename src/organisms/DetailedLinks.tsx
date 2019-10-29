@@ -13,7 +13,8 @@ const DetailedLinks: FunctionComponent = () => (
       </Block>
       <Block center title="Lista">
         <Text>
-          Välj dina favoriter från vårt importsortiment av premiumviner
+          Välj bland vårt importsortiment av premiumviner och lista dina
+          favoriter för smidig beställning
         </Text>
       </Block>
       <Block center title="Beställ">
