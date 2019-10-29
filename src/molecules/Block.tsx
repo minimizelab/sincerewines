@@ -10,7 +10,7 @@ interface Props {
 const Block: FunctionComponent<Props> = ({ title, children, center }) => (
   <div
     className={combineClasses([
-      'flex flex-col p-4 w-full sm:w-1/3 min-w-0 lg:min-w-250 h-full',
+      'flex flex-col pt-4 pb-6 px-6 w-full sm:w-1/3 min-w-0 lg:min-w-250 h-full',
       { 'text-center': center, 'text-left': !center },
     ])}
   >

@@ -3,7 +3,7 @@ import Block from '../molecules/Block';
 import Text from '../atoms/Text';
 
 const DetailedLinks: FunctionComponent = () => (
-  <div className="flex flex-row w-11/12 items-end justify-between p-6 flex-wrap bg-white -mt-8 z-30">
+  <div className="flex flex-row w-full items-end justify-between m-6 p-6 flex-wrap bg-white -mt-8 z-30">
     <div className="flex flex-row items-start lg:w-auto w-full flex-wrap">
       <Block center title="Utforska">
         <Text>
