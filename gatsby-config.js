@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const config = require('./src/config/siteConfig');
+const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
@@ -9,6 +10,15 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, 'assets', `images`),
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
