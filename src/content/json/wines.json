@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Kammern",
+        "producer": "Hirsch",
+        "year": "2016",
+        "grape": "Grüner Veltliner",
+        "region": "Kamptal, Österrike",
+        "type": "white",
+        "price": "Kontakta oss!",
+        "food": "Utmärkt till lite kraftigare fiskrätter, men även rätter med fågel och fläskkött.",
+        "alcohol": 12.5,
+        "description": "Druvorna till denna Grüner Veltliner är hämtade från yngre vinstockar enbart odlade på Hirschs Erste Lage-områden. Det låga skördeuttaget ligger på 35-40 hL/hektar. Både jäsning och lagring sker på ståltank. I näsan upplevs tydliga Grüner Veltliner-attribut i form av ren, frisk grön frukt med dominans av päron kombinerat med citrus och diskreta inslag av tropisk frukt. Päron och citrus återkommer i smaken tillsammans med en lätt pepprighet. Inslag av mineral i kombination med distinkta syror och en mindre krämighet skapar en ljuvlig balans och en god längd. Redan nu levererar vinet på en hög nivå, men några års lagring kommer att dra fram fler mognadstoner som ger vinet ett ytterligare lyft."
+    },
+    {
+        "name": "Kammern",
+        "producer": "Hirsch",
+        "year": "2017",
+        "grape": "Grüner Veltliner",
+        "region": "Kamptal, Österrike",
+        "type": "white",
+        "price": "199",
+        "food": "Utmärkt till lite kraftigare fiskrätter, men även rätter med fågel och fläskkött.",
+        "alcohol": 12,
+        "description": "Druvorna till denna Grüner Veltliner är hämtade från yngre vinstockar enbart odlade på Hirschs Erste Lage-områden. Biodynamisk odling. Både jäsning och lagring sker på ståltank. Ljus gul-grön färg med fin arom från äpplen och päron. Krispig syra med delikata citrontoner. Vinmagasinet Falstaff ger 92 poäng till årgången 2017."
+    },
+    {
+        "name": "Zöbing",
+        "producer": "Hirsch",
+        "year": "2016",
+        "grape": "Riesling",
+        "region": "Kamptal, Österrike",
+        "type": "white",
+        "price": "199",
+        "food": "Alla fisk- och skaldjursrätter, gärna till asiatisk stil med kryddig hetta.",
+        "alcohol": 12.5,
+        "description": "Vinet är hämtade från yngre vinstockar enbart odlade på Hirsch’s Erste Lage-områden. Det låga skördeuttaget ligger på 35-40 hL/hektar. Både jäsning och lagring sker på ståltank. Medelstor doft av gröna äpplen och lime/citrus med lätta Rieslingtoner i bakgrunden. I munnen mer dominans av citrus tillsammans med en mer nedtonad grön frukt. Vinet upplevs väldigt rent och stramt med högkvalitativa syror och betydande inslag av mineral. Underbart i nuläget och lagring några år kommer resultera i ett annorlunda och mera ”runt” vin med en tydligt mogen Rieslingkaraktär."
+    },
+    {
+        "name": "Ried Gaisberg 1ÖTW",
+        "producer": "Hirsch",
+        "year": "2016",
+        "grape": "Grüner Veltliner",
+        "region": "Kamptal, Österrike",
+        "type": "white",
+        "price": "Kontakta oss!",
+        "food": "I sin nuvarande friska elegans bäst till fisk- och skaldjursrätter.",
+        "alcohol": 13,
+        "description": "Ried Gaisberg är ett av Hirschs fyra Erste Lagen för Grüner Veltliner. En del av vinet är lagrat på gamla österrikiska ekfat i 6 månader för att sedan lagras tillsammans med den resterande delen på ståltank. Den samlade lagringstiden är omkring 10 månader. Vinmagasinet Falstaff gav 94 poäng till årgången 2017, något att hålla i utkik efter. Ung, mer komplex doft än Kammern GV med större inslag av citrus än pärontoner, men även blommiga inslag. I nuläget är smaken ungdomligt stram med grön frukt och citrus samt mer framträdande kryddighet. Fräscha, höga syror med utmärkande mineralitet som förstärker vinets ”rena”, ungdomliga uttryck. Stor lagringspotential."
+    },
+    {
+        "name": "Johanneshöhe",
+        "producer": "Prieler",
+        "year": "2015",
+        "grape": "Blaufränkisch ",
+        "region": "Kamptal, Österrike",
+        "type": "red",
+        "price": "Kontakta oss!",
+        "food": "Mycket flexibelt vin, passar till det mesta tack vare sin ”juiciness” av frukt och syra",
+        "alcohol": 13,
+        "description": "Druvorna skördas för hand från 9 olika vingårdslägen, i princip alla med järn- och fossilrik jordmån. Naturlig jäsning på ståltank och därefter lagrade i 12 månader på 5000 liters neutrala österrikiska ekfat. Bred mörkröd frukt med dominans av mörka körsbär både i näsa och mun tillsammans med en elegant lätthet skapad av mineralitet och framträdande syror. Dessutom finns inslag av pepprighet och örter, medan de lätta tanninerna som finns i bakgrunden bidrar till en bra balans. Vinmagasinet Falstaff gav 91 poäng till årgången 2015."
+    },
+    {
+        "name": "Johanneshöhe",
+        "producer": "Prieler",
+        "year": "2017",
+        "grape": "Blaufränkisch ",
+        "region": "Burgenland, Österrike",
+        "type": "red",
+        "price": "185",
+        "food": "Mycket flexibelt vin, passar till det mesta tack vare sin 'juiciness' av frukt och syra",
+        "alcohol": 13,
+        "description": "Druvorna skördas för hand från 9 olika vingårdslägen, i princip alla med järn- och fossilrik jordmån. Naturlig jäsning på ståltank och därefter lagrade i 12 månader på 5000 liters neutrala österrikiska ekfat. Bred mörkröd frukt med dominans av mörka körsbär både i näsa och mun tillsammans med en elegant lätthet skapad av mineralitet och framträdande syror. Dessutom finns inslag av pepprighet och örter, medan de lätta tanninerna som finns i bakgrunden bidrar till en bra balans."
+    },
+    {
+        "name": "Seeberg",
+        "producer": "Prieler",
+        "year": "2017",
+        "grape": "Pinot Blanc ",
+        "region": "Burgenland, Österrike",
+        "type": "white",
+        "price": "Kontakta oss!",
+        "food": "Mycket mångsidigt vin till mat, utmärkt till fiskrätter och vegetariska rätter.",
+        "alcohol": 13,
+        "description": "I vingårdsläget Seeberg domineras jordmånen av marin kalksten och glimmerskiffer och här trivs de upp till 70 år gamla Pinot Blanc-vinstockarna utmärkt. Handskördade druvor med jäsning två dagar på skalen och därefter lagring tillsammans med sin jästfällning på ståltankar i 7 månader. Söt citrus, mandarinzest, röda/gula äpplen i doft och smak tillsammans med en ren, mineralisk, syrafrisk doft och med ett djup som överraskar. Prielers aromatiska och uttrycksfulla Pinot Blancviner är lovprisade av internationella vinskribenter som Stephen Brook, Jancis Robinson och Terry Theis. Årgången 2017 fick 92 poäng av vinmagasinet Falstaff."
+    },
+    {
+        "name": "Seeberg",
+        "producer": "Prieler",
+        "year": "2018",
+        "grape": "Pinot Blanc",
+        "region": "Burgenland, Österrike",
+        "type": "white",
+        "price": "199",
+        "food": "Mycket mångsidigt vin till mat, utmärkt till fiskrätter och vegetariska rätter.",
+        "alcohol": 13,
+        "description": "I vingårdsläget Seeberg domineras jordmånen av marin kalksten och glimmerskiffer och här trivs de upp till 70 år gamla Pinot Blanc-vinstockarna utmärkt. Handskördade druvor med jäsning tre dagar på skalen och därefter lagring tillsammans med sin jästfällning på ståltankar nästan ända fram till buteljering. Mogna päron tillsammans med toner av blomster och öppna fält, inbäddad i en balanserad och saftig struktur. Prielers aromatiska och uttrycksfulla Pinot Blancviner är lovprisade av internationella vinskribenter som Stephen Brook, Jancis Robinson och Terry Theis."
+    },
+    {
+        "name": "Sinner",
+        "producer": "",
+        "year": "2018",
+        "grape": "Chardonnay",
+        "region": "",
+        "type": "white",
+        "price": "189",
+        "food": "Grillad fisk och skaldjursrätter.",
+        "alcohol": 13.5,
+        "description": "I vingårdsläget Sinner växer äldre vinstockar i mager kalkstens- och glimmerskifferjord. Fermenteringen sker i rostfria ståltankar och därefter lagras vinet tillsammans med jästfällningen nästan fram till buteljeringen. En klassisk Chardonnay med utpräglade toner av kvitten, Williamspäron och sockerkaka. Elegant mineralisk kryddighet i munnen, graciös och tät spunnen, fyllig och krämig. Årgången 2018 får 92 poäng av vinmagasinet Falstaff."
+    },
+    {
+        "name": "Rosé vom Stein",
+        "producer": "Prieler",
+        "year": "2018",
+        "grape": "Blaufränkish",
+        "region": "Burgenland, Österrike",
+        "type": "rose",
+        "price": "Kontakta oss!",
+        "food": "Väldigt gott och läskande, passar till det mesta tack vare sin ”juiciness” av frukt och syra.",
+        "alcohol": 13,
+        "description": "Rosévin gjord av 100% organiskt odlad Blaufränkisch. Druvorna skördas för hand från 3 olika vingårdslägen med jordar av övervägande kalksten. Vinrankorna har en genomsnittlig ålder på 25 år. Jäsningen sker på ståltank och vinet lagras sedan på jästfällningen i 3 månader och efter ytterligare 5 månader buteljeras vinet. Bred ljusröd frukt med dominans av hallon, jordgubbar och röda vinbär både i näsa och mun tillsammans med ett elegant djup skapat av mineralitet, lätta örttoner och framträdande syror."
+    }
+]
