@@ -3,6 +3,7 @@ import Layout from '../organisms/Layout';
 import HeaderImage from '../organisms/HeaderImage';
 import DetailedLinks from '../organisms/DetailedLinks';
 import Section from '../atoms/Section';
+import H3 from '../atoms/H3';
 
 const Index: FunctionComponent = () => (
   <Layout title="Sincere Wines">
@@ -10,6 +11,9 @@ const Index: FunctionComponent = () => (
     <Section>
       <DetailedLinks />
       {/* <div className="flex flex-col justify-center items-center"> */}
+    </Section>
+    <Section>
+      <H3>Våra senaste viner</H3>
     </Section>
     <h1 className="pb-6 md:text-5xl text-3xl font-serif text-sincere-green text-center">
       Den här sidan är under uppbyggnad

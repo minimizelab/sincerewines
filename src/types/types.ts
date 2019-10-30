@@ -1,4 +1,4 @@
-export interface Wines {
+export interface Wine {
   name: string;
   producer: string;
   year: string;
