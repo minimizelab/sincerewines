@@ -7,7 +7,7 @@ interface Props {
 }
 
 const ProductCardList: FunctionComponent<Props> = ({ short }) => (
-  <div className="flex flex-row flex-wrap justify-start w-full">
+  <div className="flex flex-row flex-wrap w-full justify-start self-center">
     <StaticQuery
       query={graphql`
         query ProductItemsQuery {

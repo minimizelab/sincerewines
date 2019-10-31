@@ -21,6 +21,7 @@ module.exports = {
       minWidth: {
         '150': '150px',
         '250': '250px',
+        card: '300px',
       },
       maxWidth: {
         content: '1440px',
