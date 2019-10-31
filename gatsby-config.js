@@ -10,7 +10,6 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-json',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -22,11 +21,12 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: path.join(__dirname, 'src', 'assets', 'images'),
+        path: path.join(__dirname, 'src', 'content', 'images'),
       },
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

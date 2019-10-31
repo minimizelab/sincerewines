@@ -13,13 +13,10 @@ const Index: FunctionComponent = () => (
       <DetailedLinks />
       {/* <div className="flex flex-col justify-center items-center"> */}
     </Section>
-    <H3>Våra senaste viner</H3>
-    <Section className="p-2">
+    <Section className="flex-col my-6">
+      <H3 className="m-6">Våra senaste viner</H3>
       <ProductCardList short />
     </Section>
-    <h1 className="pb-6 md:text-5xl text-3xl font-serif text-sincere-green text-center">
-      Den här sidan är under uppbyggnad
-    </h1>
   </Layout>
 );
 

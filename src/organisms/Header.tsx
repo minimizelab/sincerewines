@@ -9,7 +9,7 @@ import Section from '../atoms/Section';
 const menuIcon = require('../assets/menu.png');
 
 const navList = [
-  { path: '/', text: 'Sortiment' },
+  { path: '/sortiment', text: 'Sortiment' },
   { path: '/', text: 'Producenter' },
   { path: '/', text: 'Regionen' },
   { path: '/', text: 'Beställningar' },

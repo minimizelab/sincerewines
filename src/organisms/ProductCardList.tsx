@@ -7,7 +7,7 @@ interface Props {
 }
 
 const ProductCardList: FunctionComponent<Props> = ({ short }) => (
-  <div className="flex flex-wrap justify-between w-full">
+  <div className="flex flex-row flex-wrap justify-start w-full">
     <StaticQuery
       query={graphql`
         query ProductItemsQuery {
@@ -23,7 +23,13 @@ const ProductCardList: FunctionComponent<Props> = ({ short }) => (
                 price
                 food
                 alcohol
-                image
+                image {
+                  childImageSharp {
+                    fixed(height: 140) {
+                      ...GatsbyImageSharpFixed
+                    }
+                  }
+                }
                 description
               }
             }
@@ -36,7 +42,7 @@ const ProductCardList: FunctionComponent<Props> = ({ short }) => (
             return index < 4 ? (
               <ProductCard key={index} item={edge.node} />
             ) : null;
-          else <ProductCard key={index} item={edge.node} />;
+          return <ProductCard key={index} item={edge.node} />;
         })
       }
     />

@@ -10,6 +10,7 @@ const H3: FunctionComponent<Props> = ({ children, white, className }) => (
   <h3
     className={combineClasses([
       'font-serif text-3xl',
+      className,
       { 'text-sincere-green': !white, 'text-white': white },
     ])}
   >

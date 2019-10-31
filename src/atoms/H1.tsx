@@ -9,7 +9,7 @@ interface Props {
 const H1: FunctionComponent<Props> = ({ children, white, className }) => (
   <h1
     className={combineClasses([
-      'font-serif text-5xl',
+      'font-serif text-4xl',
       { 'text-sincere-green': !white, 'text-white': white },
     ])}
   >
