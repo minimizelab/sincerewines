@@ -8,5 +8,6 @@ export interface Wine {
   price: string;
   food: string;
   alcohol: number;
+  image: string,
   description: string;
 }
