@@ -6,8 +6,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
 
-// const headerImg = require('../assets/headerimg.png');
-
 const HeaderImage: FunctionComponent = () => (
   <div className="flex flex-col justify-end items-start relative">
     <StaticQuery
@@ -33,7 +31,7 @@ const HeaderImage: FunctionComponent = () => (
       )}
     />
     <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
-      <div className="p-4 sm:p-6 mb-10 xl:mb-40">
+      <div className="p-4 sm:p-6 mb-10 xl:mb-32">
         <H4 white className="text-white m-2">
           A Swedish Premium Wine Importer
         </H4>
