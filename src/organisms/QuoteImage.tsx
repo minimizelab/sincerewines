@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import Text from '../atoms/Text';
 import Button from '../molecules/Button';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
