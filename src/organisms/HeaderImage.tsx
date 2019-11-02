@@ -5,6 +5,7 @@ import Button from '../molecules/Button';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
+import Quote from '../atoms/Quote';
 
 const HeaderImage: FunctionComponent = () => (
   <div className="flex flex-col justify-end items-start relative">
@@ -35,10 +36,9 @@ const HeaderImage: FunctionComponent = () => (
         <H4 white className="text-white m-2">
           A Swedish Premium Wine Importer
         </H4>
-        <Text white className="pb-8 pt-2 m-2">
-          Österrikiska premiumviner med naturlig karaktär och traditionell
-          kvalitet
-        </Text>
+        <Quote white className="pb-8 pt-2 m-2">
+          Viner från Österrike med fokus på kvalitet och ekologiskt tänk
+        </Quote>
         <Button className="m-2" white onClick={() => console.log('click')}>
           Våra viner
         </Button>
