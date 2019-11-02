@@ -10,11 +10,11 @@ const menuIcon = require('../assets/menu.png');
 
 const navList = [
   { path: '/sortiment', text: 'Sortiment' },
-  { path: '/', text: 'Producenter' },
-  { path: '/', text: 'Regionen' },
-  { path: '/', text: 'Beställningar' },
-  { path: '/', text: 'Företaget' },
-  { path: '/', text: 'Nyheter' },
+  { path: '/producenter', text: 'Producenter' },
+  { path: '/regionen', text: 'Regionen' },
+  { path: '/beställningar', text: 'Beställningar' },
+  { path: '/om-oss', text: 'Om Oss' },
+  // { path: '/', text: 'Nyheter' },
 ];
 
 const Header: FunctionComponent = () => {
