@@ -8,6 +8,7 @@ import H1 from '../atoms/H1';
 import TypeIndicator from '../atoms/TypeIndicator';
 import Text from '../atoms/Text';
 import WineRow from '../molecules/WineRow';
+import TextUppercase from '../atoms/TextUppercase';
 
 interface Props {
   data: any;
@@ -47,15 +48,15 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
             <div className="flex flex-col w-full lg:w-1/2">
               <div className="lg:mr-6">
                 <WineRow>
-                  <Text>DRUVA</Text>
+                  <TextUppercase>DRUVA</TextUppercase>
                   <Text>{wine.grape}</Text>
                 </WineRow>
                 <WineRow>
-                  <Text>DISTRIKT</Text>
+                  <TextUppercase>DISTRIKT</TextUppercase>
                   <Text>{wine.district}</Text>
                 </WineRow>
                 <WineRow>
-                  <Text>PRODUCENT</Text>
+                  <TextUppercase>PRODUCENT</TextUppercase>
                   <Text>{wine.producer}</Text>
                 </WineRow>
               </div>
@@ -63,18 +64,18 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
             <div className="flex flex-col w-full lg:w-1/2">
               <div className="lg:ml-6">
                 <WineRow>
-                  <Text>ALKOHOLHALT</Text>
+                  <TextUppercase>ALKOHOLHALT</TextUppercase>
                   <Text>{wine.alcohol}</Text>
                 </WineRow>
                 <WineRow>
-                  <Text>PRIS</Text>
+                  <TextUppercase>PRIS</TextUppercase>
                   <Text>
                     {wine.price} (
                     {wine.kollikrav ? 'Kollikrav' : 'Inget kollikrav'})
                   </Text>
                 </WineRow>
                 <WineRow>
-                  <Text>VOLYM</Text>
+                  <TextUppercase>VOLYM</TextUppercase>
                   <Text>{wine.volume} cl</Text>
                 </WineRow>
               </div>
