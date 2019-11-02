@@ -18,7 +18,7 @@ const ProductCardList: FunctionComponent<Props> = ({ short }) => (
                 producer
                 year
                 grape
-                region
+                district
                 type
                 price
                 food

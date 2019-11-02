@@ -3,7 +3,7 @@ export interface Wine {
   producer: string;
   year: string;
   grape: string;
-  region: string;
+  district: string;
   slug: string;
   type: 'white' | 'red' | 'rose';
   price: string;

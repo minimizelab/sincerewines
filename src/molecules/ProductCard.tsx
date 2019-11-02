@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { Wine } from '../types/types';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
-import { combineClasses } from '../utils/helpers';
 import Img from 'gatsby-image';
 import { navigate } from 'gatsby';
+import TypeIndicator from '../atoms/TypeIndicator';
 
 interface Props {
   item: Wine;
@@ -24,16 +24,7 @@ const ProductCard: FunctionComponent<Props> = ({ item }) => (
         <H5>{item.name}</H5>
         <H5>{item.year}</H5>
         <Text>{item.grape}</Text>
-        <div
-          className={combineClasses([
-            'flex self-end rounded-full w-6 h-6',
-            {
-              'bg-sincere-wine': item.type === 'red',
-              'bg-sincere-riesling': item.type === 'white',
-              'bg-sincere-rose': item.type === 'rose',
-            },
-          ])}
-        ></div>
+        <TypeIndicator className="self-end" type={item.type} />
       </div>
     </div>
   </div>
