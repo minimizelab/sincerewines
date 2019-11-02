@@ -4,6 +4,7 @@ export interface Wine {
   year: string;
   grape: string;
   region: string;
+  slug: string;
   type: 'white' | 'red' | 'rose';
   price: string;
   food: string;

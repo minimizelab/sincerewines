@@ -22,6 +22,7 @@ const ProductCardList: FunctionComponent<Props> = ({ short }) => (
                 type
                 price
                 food
+                slug
                 alcohol
                 image {
                   childImageSharp {
