@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import H4 from '../atoms/H4';
 import Button from '../molecules/Button';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, navigate } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
 import TextLarge from '../atoms/TextLarge';
@@ -38,7 +38,7 @@ const HeaderImage: FunctionComponent = () => (
         <TextLarge white className="pb-8 pt-2 m-2">
           Viner från Österrike med passion, tradition och ambition
         </TextLarge>
-        <Button className="m-2" white onClick={() => console.log('click')}>
+        <Button className="m-2" white onClick={() => navigate('/sortiment')}>
           Våra viner
         </Button>
       </div>
