@@ -7,6 +7,7 @@ import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
 import TypeIndicator from '../atoms/TypeIndicator';
 import Text from '../atoms/Text';
+import WineRow from '../molecules/WineRow';
 
 interface Props {
   data: any;
@@ -41,43 +42,48 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
               <Text className="pl-2">{wineType(wine.type)}</Text>
             </div>
           </div>
-          <hr></hr>
-          <div className="flex flex-row">
-            <div className="flex flex-col w-full">
-              <div className="flex flex-row justify-between">
-                <Text>DRUVA</Text>
-                <Text>{wine.grape}</Text>
-              </div>
-              <div className="flex flex-row justify-between">
-                <Text>DISTRIKT</Text>
-                <Text>{wine.district}</Text>
-              </div>
-              <div className="flex flex-row justify-between">
-                <Text>PRODUCENT</Text>
-                <Text>{wine.producer}</Text>
+          <hr className="my-4"></hr>
+          <div className="flex flex-wrap flex-row">
+            <div className="flex flex-col w-full lg:w-1/2">
+              <div className="lg:mr-6">
+                <WineRow>
+                  <Text>DRUVA</Text>
+                  <Text>{wine.grape}</Text>
+                </WineRow>
+                <WineRow>
+                  <Text>DISTRIKT</Text>
+                  <Text>{wine.district}</Text>
+                </WineRow>
+                <WineRow>
+                  <Text>PRODUCENT</Text>
+                  <Text>{wine.producer}</Text>
+                </WineRow>
               </div>
             </div>
-            <div className="flex flex-col w-full">
-              <div className="flex flex-row justify-between">
-                <Text>ALKOHOLHALT</Text>
-                <Text>{wine.alcohol}</Text>
-              </div>
-              <div className="flex flex-row justify-between">
-                <Text>PRIS</Text>
-                <Text>
-                  {wine.price} (
-                  {wine.kollikrav ? 'Kollikrav' : 'Inget kollikrav'})
-                </Text>
-              </div>
-              <div className="flex flex-row justify-between">
-                <Text>VOLYM</Text>
-                <Text>{wine.volume} cl</Text>
+            <div className="flex flex-col w-full lg:w-1/2">
+              <div className="lg:ml-6">
+                <WineRow>
+                  <Text>ALKOHOLHALT</Text>
+                  <Text>{wine.alcohol}</Text>
+                </WineRow>
+                <WineRow>
+                  <Text>PRIS</Text>
+                  <Text>
+                    {wine.price} (
+                    {wine.kollikrav ? 'Kollikrav' : 'Inget kollikrav'})
+                  </Text>
+                </WineRow>
+                <WineRow>
+                  <Text>VOLYM</Text>
+                  <Text>{wine.volume} cl</Text>
+                </WineRow>
               </div>
             </div>
             <div className="flex flex-col"></div>
           </div>
+          <hr className="my-4"></hr>
 
-          <div>Info</div>
+          <Text>{wine.description}</Text>
         </div>
       </div>
     </Section>
