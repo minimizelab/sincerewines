@@ -36,8 +36,7 @@ const HeaderImage: FunctionComponent = () => (
           Välkomna till Sincere Wines!
         </H4>
         <TextLarge white className="pb-8 pt-2 m-2">
-          Vi importerar viner från Österrike med fokus på kvalitet och
-          ekologiskt tänk
+          Österrikiska viner med passion, tradition och ambition
         </TextLarge>
         <Button className="m-2" white onClick={() => console.log('click')}>
           Våra viner
