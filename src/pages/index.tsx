@@ -6,6 +6,7 @@ import Section from '../atoms/Section';
 import H3 from '../atoms/H3';
 import ProductCardList from '../organisms/ProductCardList';
 import QuoteImage from '../organisms/QuoteImage';
+import Greeting from '../organisms/Greeting';
 
 const Index: FunctionComponent = () => (
   <Layout title="Sincere Wines">
@@ -18,6 +19,9 @@ const Index: FunctionComponent = () => (
       <ProductCardList short />
     </Section>
     <QuoteImage />
+    <Section>
+      <Greeting />
+    </Section>
   </Layout>
 );
 

@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import H4 from '../atoms/H4';
-import Text from '../atoms/Text';
 import Button from '../molecules/Button';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
-import Quote from '../atoms/Quote';
+import TextLarge from '../atoms/TextLarge';
 
 const HeaderImage: FunctionComponent = () => (
   <div className="flex flex-col justify-end items-start relative">
@@ -34,11 +33,12 @@ const HeaderImage: FunctionComponent = () => (
     <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
       <div className="p-4 sm:p-6 mb-10 xl:mb-32">
         <H4 white className="text-white m-2">
-          Sincere Wines
+          Välkomna till Sincere Wines!
         </H4>
-        <Quote white className="pb-8 pt-2 m-2">
-          Viner från Österrike med fokus på kvalitet och ekologiskt tänk
-        </Quote>
+        <TextLarge white className="pb-8 pt-2 m-2">
+          Vi importerar viner från Österrike med fokus på kvalitet och
+          ekologiskt tänk
+        </TextLarge>
         <Button className="m-2" white onClick={() => console.log('click')}>
           Våra viner
         </Button>
