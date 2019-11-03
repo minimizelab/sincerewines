@@ -9,6 +9,7 @@ export interface Wine {
   price: string;
   food: string;
   alcohol: number;
-  image: any,
+  image: any;
+  reward: string;
   description: string;
 }

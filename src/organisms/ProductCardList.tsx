@@ -32,6 +32,7 @@ const ProductCardList: FunctionComponent<Props> = ({ short }) => (
                   }
                 }
                 description
+                reward
               }
             }
           }

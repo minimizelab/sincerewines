@@ -31,14 +31,14 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
           ></Img>
         </div>
 
-        <div className="flex flex-col w-2/3">
+        <div className="flex flex-col w-full lg:w-2/3">
           <div className="flex flex-wrap flex-row items-between">
             <div className="w-2/3">
               <H1>{wine.name}</H1>
               <H3>{wine.year}</H3>
             </div>
 
-            <div className="w-1/3 flex flex-row">
+            <div className="w-full sm:w-1/3 flex flex-row justify-end mt-3">
               <TypeIndicator type={wine.type} />
               <Text className="pl-2">{wineType(wine.type)}</Text>
             </div>
@@ -70,7 +70,7 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
                 <WineRow>
                   <TextUppercase>PRIS</TextUppercase>
                   <Text>
-                    {wine.price} (
+                    {wine.price} kr (
                     {wine.kollikrav ? 'Kollikrav' : 'Inget kollikrav'})
                   </Text>
                 </WineRow>
@@ -84,7 +84,8 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
           </div>
           <hr className="my-4"></hr>
 
-          <Text>{wine.description}</Text>
+          <Text className="py-2">{wine.description}</Text>
+          <Text className="py-2">{wine.reward}</Text>
         </div>
       </div>
     </Section>
@@ -105,6 +106,7 @@ export const pageQuery = graphql`
         }
       }
       description
+      reward
       food
       grape
       name
