@@ -13,7 +13,7 @@ interface Props {
 
 const Producer: FunctionComponent<Props> = ({ data }) => (
   <Layout title={data.markdownRemark.frontmatter.title}>
-    <Section className="flex-row justify-center p-8 mt-12 mb-6">
+    <Section className="flex-row justify-center pt-3 mt-12 mb-6">
       <H1>{data.markdownRemark.frontmatter.title}</H1>
     </Section>
     <Section className="p-8">
@@ -45,7 +45,7 @@ const Producer: FunctionComponent<Props> = ({ data }) => (
         </div>
       </div>
     </Section>
-    <Section className="p-2 flex-wrap">
+    <Section className="px-2 pt-2 pb-10 flex-wrap">
       {data.markdownRemark.frontmatter.images.map((img: any) => (
         <div className="w-full md:w-1/3 p-6 max-h-500">
           <Img className="w-full h-full" fluid={img.childImageSharp.fluid} />

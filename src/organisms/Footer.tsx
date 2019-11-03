@@ -19,8 +19,8 @@ const Footer: FunctionComponent = () => (
           <Text>Sweden</Text>
         </Block>
         <Block title="Snabblänkar">
-          <Link to="/">Ställ en fråga</Link>
-          <Link to="/">Läs mer om hur du beställer</Link>
+          <Link to="/om-oss">Ställ en fråga</Link>
+          <Link to="/bestallningar">Läs mer om hur du beställer</Link>
         </Block>
       </div>
       <div className="flex flex-col items-end justify-end p-4 flex-grow">
