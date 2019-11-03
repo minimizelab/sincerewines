@@ -25,7 +25,7 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
     <Section className="justify-center">
       <div className="m-10 flex flex-row flex-wrap w-full lg:w-2/3 bg-white p-10">
         <div className="flex flex-col w-1/3 pr-4 mb-4 lg: mb-0">
-          <div className="w-full h-400 lg:h-800">
+          <div className="w-full h-400 lg:h-500">
             <Img
               imgStyle={{
                 objectFit: 'contain',
@@ -105,7 +105,7 @@ export const pageQuery = graphql`
       alcohol
       image {
         childImageSharp {
-          fluid(maxHeight: 800) {
+          fluid(maxHeight: 500) {
             ...GatsbyImageSharpFluid
           }
         }
