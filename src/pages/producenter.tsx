@@ -86,7 +86,7 @@ const Sortiment: FunctionComponent = () => {
                 Läs mer om producenten
               </Link>
             </div>
-            <div className="w-full lg:w-5/12 max-h-producer-intro">
+            <div className="w-full lg:w-5/12 max-h-400">
               <Img
                 className="h-full w-full"
                 fluid={

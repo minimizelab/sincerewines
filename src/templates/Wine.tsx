@@ -109,7 +109,7 @@ export const pageQuery = graphql`
       alcohol
       image {
         childImageSharp {
-          fluid(maxWidth: 300, maxHeight: 600, fit: COVER) {
+          fluid(maxWidth: 300, maxHeight: 600) {
             ...GatsbyImageSharpFluid
           }
         }

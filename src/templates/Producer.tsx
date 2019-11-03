@@ -5,6 +5,7 @@ import H1 from '../atoms/H1';
 import { graphql } from 'gatsby';
 import H4 from '../atoms/H4';
 import MarkdownWrapper from '../molecules/MarkdownWrapper';
+import Img from 'gatsby-image';
 
 interface Props {
   data: any;
@@ -16,13 +17,37 @@ const Producer: FunctionComponent<Props> = ({ data }) => (
       <H1>{data.markdownRemark.frontmatter.title}</H1>
     </Section>
     <Section className="p-8">
-      <div className="flex flex-row bg-white">
-        <div className="flex flex-col w-1/5"></div>
-        <div className="flex flex-col w-4/5 p-6">
+      <div className="flex flex-row flex-wrap-reverse bg-white p-2">
+        <div className="flex flex-col p-4 w-full md:w-1/4">
+          {data.allMakersJson.edges
+            .filter(
+              ({ node }: any) =>
+                node.producer === data.markdownRemark.frontmatter.title
+            )
+            .map(({ node }: any) => (
+              <div className="flex flex-col w-full">
+                <div className="mb-3 w-full max-h-400 h-400">
+                  <Img
+                    className="w-full h-full"
+                    fluid={node.img.childImageSharp.fluid}
+                  />
+                </div>
+                <H4>{node.name}</H4>
+              </div>
+            ))}
+        </div>
+        <div className="flex flex-col w-full md:w-3/4 p-4">
           <H4 className="py-4">Om Producenten</H4>
           <MarkdownWrapper html={data.markdownRemark.html}></MarkdownWrapper>
         </div>
       </div>
+    </Section>
+    <Section className="p-2 flex-wrap">
+      {data.markdownRemark.frontmatter.images.map((img: any) => (
+        <div className="w-full md:w-1/3 p-6 max-h-500">
+          <Img className="w-full h-full" fluid={img.childImageSharp.fluid} />
+        </div>
+      ))}
     </Section>
   </Layout>
 );
@@ -34,8 +59,30 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        images {
+          childImageSharp {
+            fluid(maxWidth: 720, maxHeight: 500) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
       html
+    }
+    allMakersJson {
+      edges {
+        node {
+          name
+          producer
+          img {
+            childImageSharp {
+              fluid(maxWidth: 720, maxHeight: 400) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;
