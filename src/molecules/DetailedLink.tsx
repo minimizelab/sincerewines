@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import Block from '../molecules/Block';
-import ArrowRightGreen from '../atoms/ArrowRightGreen';
+import ArrowRightGreen from '../atoms/ArrowRight';
 import { navigate } from 'gatsby';
 import Text from '../atoms/Text';
 
@@ -19,7 +19,7 @@ const DetailedLink: FunctionComponent<Props> = ({ title, to, children }) => {
       center
       title={title}
     >
-      <Text className="mb-3">{children}</Text>
+      <Text className="mb-4">{children}</Text>
       <ArrowRightGreen hover={hover} />
     </Block>
   );

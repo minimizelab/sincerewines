@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import H4 from '../atoms/H4';
 import TextLarge from '../atoms/TextLarge';
+import ArrowLink from '../atoms/ArrowLink';
 
 const Greeting: FunctionComponent = () => (
   <div className="flex flex-row justify-between bg-white sm:mx-6 my-20">
@@ -23,6 +24,8 @@ const Greeting: FunctionComponent = () => (
         också gärna bidra till att väcka en större nyfikenhet om Österrike som
         vinland och öka kunskapen om österrikiska viner i Sverige.
       </TextLarge>
+      <TextLarge>Vill du veta mer?</TextLarge>
+      <ArrowLink to="/nyheter">skriv upp dig på vårt nyhetsbrev</ArrowLink>
     </div>
     <StaticQuery
       query={graphql`

@@ -61,7 +61,7 @@ const Sortiment: FunctionComponent = () => {
   `);
   return (
     <Layout title="Producenter">
-      <Section className="flex-row justify-center p-8 mt-12 mb-6">
+      <Section className="flex-row justify-center pt-3 mt-12 mb-6">
         <H1>Producenter</H1>
       </Section>
       <Section className="mb-6 flex-col items-center px-8">

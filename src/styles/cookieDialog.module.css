@@ -1,4 +1,0 @@
-.fade-bg {
-  background-color: rgba(0, 0, 0, 0.7);
-  @apply fixed w-full h-screen z-50 flex;
-}
