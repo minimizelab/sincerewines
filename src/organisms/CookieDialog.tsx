@@ -1,19 +1,22 @@
 import React, { FunctionComponent } from 'react';
-import classes from '../styles/cookieDialog.module.css';
 import Button from '../molecules/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '../store/types';
 import { setDialogOpen } from '../store/actions';
 import H4 from '../atoms/H4';
 import Text from '../atoms/Text';
-import { combineClasses } from '../utils/helpers';
 
 const CookieDialog: FunctionComponent = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector<State, boolean>(state => state.cookieDialogOpen);
   const closeDialog = () => dispatch(setDialogOpen(false));
   return isOpen ? (
-    <div className={combineClasses([classes.fadeBg, 'z-20'])}>
+    <div
+      style={{
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      }}
+      className="z-20 fixed w-full h-screen z-50 flex"
+    >
       <div className="relative bg-white rounded-sm p-3 md:px-16 md:pt-6 md:pb-8 inset-0 w-full max-w-lg m-auto flex-col flex">
         <div className="flex flex-col items-center text-center p-2">
           <H4>Välkommen till Sincere Wines</H4>

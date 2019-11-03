@@ -1,0 +1,28 @@
+import React, { FunctionComponent, useState } from 'react';
+import Block from '../molecules/Block';
+import ArrowRightGreen from '../atoms/ArrowRightGreen';
+import { navigate } from 'gatsby';
+import Text from '../atoms/Text';
+
+interface Props {
+  title: string;
+  to: string;
+}
+const DetailedLink: FunctionComponent<Props> = ({ title, to, children }) => {
+  const [hover, setHover] = useState(false);
+  return (
+    <Block
+      className="cursor-pointer"
+      onClick={() => navigate(to)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      center
+      title={title}
+    >
+      <Text className="mb-3">{children}</Text>
+      <ArrowRightGreen hover={hover} />
+    </Block>
+  );
+};
+
+export default DetailedLink;

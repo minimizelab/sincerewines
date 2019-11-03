@@ -9,12 +9,12 @@ import Section from '../atoms/Section';
 const menuIcon = require('../assets/menu.png');
 
 const navList = [
-  { path: '/', text: 'Sortiment' },
-  { path: '/', text: 'Producenter' },
-  { path: '/', text: 'Regionen' },
-  { path: '/', text: 'Beställningar' },
-  { path: '/', text: 'Företaget' },
-  { path: '/', text: 'Nyheter' },
+  { path: '/sortiment', text: 'Sortiment' },
+  { path: '/producenter', text: 'Producenter' },
+  { path: '/regionen', text: 'Regionen' },
+  { path: '/beställningar', text: 'Beställningar' },
+  { path: '/om-oss', text: 'Om Oss' },
+  // { path: '/', text: 'Nyheter' },
 ];
 
 const Header: FunctionComponent = () => {

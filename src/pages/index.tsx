@@ -3,17 +3,29 @@ import Layout from '../organisms/Layout';
 import HeaderImage from '../organisms/HeaderImage';
 import DetailedLinks from '../organisms/DetailedLinks';
 import Section from '../atoms/Section';
+import H3 from '../atoms/H3';
+import ProductCardList from '../organisms/ProductCardList';
+import QuoteImage from '../organisms/QuoteImage';
+import Greeting from '../organisms/Greeting';
+import ArrowLink from '../atoms/ArrowLink';
 
 const Index: FunctionComponent = () => (
   <Layout title="Sincere Wines">
     <HeaderImage />
     <Section>
       <DetailedLinks />
-      {/* <div className="flex flex-col justify-center items-center"> */}
     </Section>
-    <h1 className="pb-6 md:text-5xl text-3xl font-serif text-sincere-green text-center">
-      Den här sidan är under uppbyggnad
-    </h1>
+    <Section className="flex-col my-6">
+      <H3 className="m-6">Våra senaste viner</H3>
+      <ProductCardList short />
+      <div className="self-end mr-6">
+        <ArrowLink to="/sortiment">Våra viner</ArrowLink>
+      </div>
+    </Section>
+    <QuoteImage />
+    <Section>
+      <Greeting />
+    </Section>
   </Layout>
 );
 
