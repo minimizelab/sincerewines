@@ -4,7 +4,7 @@ const greenArrow = require('../assets/arrow-right-green.svg');
 const redArrow = require('../assets/arrow-right-red.svg');
 
 interface Props {
-  hover: boolean;
+  hover?: boolean;
 }
 
 const ArrowRightGreen: FunctionComponent<Props> = ({ hover }) => {
