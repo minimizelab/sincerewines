@@ -1,9 +1,14 @@
 import { Reducer } from 'redux';
-import { State, ActionTypes, SET_MENU_OPEN, SET_COOKIE_DIALOG_OPEN } from './types';
+import {
+  State,
+  ActionTypes,
+  SET_MENU_OPEN,
+  SET_COOKIE_DIALOG_OPEN,
+} from './types';
 
 const initialState: State = {
   menuOpen: false,
-  cookieDialogOpen: true,
+  cookieDialogOpen: false,
 };
 
 const reducer: Reducer<State, ActionTypes> = (state = initialState, action) => {
@@ -17,7 +22,7 @@ const reducer: Reducer<State, ActionTypes> = (state = initialState, action) => {
       return {
         ...state,
         cookieDialogOpen: action.payload,
-      }
+      };
     default:
       return {
         ...state,

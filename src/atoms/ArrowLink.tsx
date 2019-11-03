@@ -29,7 +29,7 @@ const ArrowLink: FunctionComponent<Props> = ({
         className={combineClasses([
           'ml-2 tracking-wide',
           className,
-          { 'text-sincere-grape': hover, 'text-sincere-wine': !hover },
+          { 'text-sincere-grape': hover, 'text-sincere-green': !hover },
           { lowercase: lowercase, uppercase: !lowercase },
         ])}
       >

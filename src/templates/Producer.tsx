@@ -17,7 +17,7 @@ const Producer: FunctionComponent<Props> = ({ data }) => (
       <H1>{data.markdownRemark.frontmatter.title}</H1>
     </Section>
     <Section className="p-8">
-      <div className="flex flex-row flex-wrap-reverse bg-white p-4">
+      <div className="flex flex-row flex-wrap-reverse bg-white rounded shadow p-4">
         <div className="flex flex-col p-4 w-full md:w-2/5 lg:w-1/4">
           {data.allMakersJson.edges
             .filter(
@@ -48,7 +48,10 @@ const Producer: FunctionComponent<Props> = ({ data }) => (
     <Section className="px-2 pt-2 pb-10 flex-wrap">
       {data.markdownRemark.frontmatter.images.map((img: any) => (
         <div className="w-full md:w-1/3 p-6 max-h-500">
-          <Img className="w-full h-full" fluid={img.childImageSharp.fluid} />
+          <Img
+            className="w-full h-full rounded shadow"
+            fluid={img.childImageSharp.fluid}
+          />
         </div>
       ))}
     </Section>

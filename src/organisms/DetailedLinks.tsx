@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import DetailedLink from '../molecules/DetailedLink';
 
 const DetailedLinks: FunctionComponent = () => (
-  <div className="flex flex-row w-full items-end justify-between m-6 p-6 flex-wrap bg-white -mt-8 z-30">
+  <div className="flex flex-row w-full items-end justify-between m-6 p-6 flex-wrap bg-white rounded shadow -mt-8 z-30">
     <div className="flex flex-row items-start lg:w-auto w-full flex-wrap">
       <DetailedLink to="/producenter" title="Arbetet på gården">
         Läs mer om hur våra producenter arbetar för att leverera viner av högsta

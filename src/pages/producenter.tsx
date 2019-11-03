@@ -69,7 +69,7 @@ const Sortiment: FunctionComponent = () => {
         {data.allFile.edges.map(({ node }) => (
           <div
             key={node.childMarkdownRemark.frontmatter.slug}
-            className="flex flex-row flex-wrap w-full bg-white my-10"
+            className="flex flex-row flex-wrap w-full rounded shadow bg-white my-10"
           >
             <div className="p-8 w-full lg:w-7/12 flex flex-col">
               <H4 className="mb-4">

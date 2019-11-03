@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ArrowRightGreen: FunctionComponent<Props> = ({ hover }) => {
-  return <img className="w-12" src={hover ? grapeArrow : redArrow} />;
+  return <img className="w-12" src={hover ? grapeArrow : greenArrow} />;
 };
 
 export default ArrowRightGreen;

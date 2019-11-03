@@ -21,7 +21,7 @@ const Greeting: FunctionComponent = () => {
     }
   `);
   return (
-    <div className="flex flex-row flex-wrap justify-between bg-white sm:mx-6 my-20">
+    <div className="flex flex-row flex-wrap justify-between rounded shadow bg-white sm:mx-6 my-20">
       <div className="w-full md:w-2/3 p-10">
         <H4 className="mb-3">Välkomna till Sincere Wines!</H4>
         <TextLarge className="py-5">
