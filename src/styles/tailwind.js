@@ -18,6 +18,16 @@ module.exports = {
         'sincere-rose': '#E4CEC4',
         'sincere-background': '#F3F4ED',
       },
+      height: {
+        '400': '400px',
+        '500': '500px',
+        '800': '800px',
+      },
+      width: {
+        '300': '300px',
+        '400': '400px',
+        '500': '500px',
+      },
       minWidth: {
         '150': '150px',
         '250': '250px',
@@ -27,8 +37,9 @@ module.exports = {
         content: '1440px',
       },
       maxHeight: {
-        'product-image': '800px',
-        'producer-intro': '400px',
+        '800': '800px',
+        '400': '400px',
+        '500': '500px',
       },
       minHeight: {
         half: '50vh',

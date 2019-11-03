@@ -8,6 +8,7 @@ import Text from '../atoms/Text';
 import Link from '../atoms/Link';
 import Img from 'gatsby-image';
 import TextUppercase from '../atoms/TextUppercase';
+import ArrowLink from '../atoms/ArrowLink';
 
 interface Node {
   node: {
@@ -79,14 +80,13 @@ const Sortiment: FunctionComponent = () => {
               </Text>
               <TextUppercase>Druvor</TextUppercase>
               <Text>{node.childMarkdownRemark.frontmatter.grapes}</Text>
-              <Link
-                className="uppercase self-end my-4"
-                to={node.childMarkdownRemark.frontmatter.slug}
-              >
-                Läs mer om producenten
-              </Link>
+              <div className="flex flex-row justify-end">
+                <ArrowLink to={node.childMarkdownRemark.frontmatter.slug}>
+                  Läs mer om producenten
+                </ArrowLink>
+              </div>
             </div>
-            <div className="w-full lg:w-5/12 max-h-producer-intro">
+            <div className="w-full lg:w-5/12 max-h-400">
               <Img
                 className="h-full w-full"
                 fluid={
