@@ -28,6 +28,7 @@ module.exports = {
       },
       maxHeight: {
         'product-image': '800px',
+        'producer-intro': '400px',
       },
       minHeight: {
         half: '50vh',
