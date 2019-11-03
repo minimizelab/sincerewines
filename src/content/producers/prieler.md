@@ -2,6 +2,12 @@
 title: Weingut Prieler
 slug: /producenter/prieler
 short: Prieler har fått stort genomslag som vinmakare och gör viner av hög kvalitet. 2018 blev han utnämnd till Årets Vinmakare av det ansedda vinmagasinet Falstaff. Han har fått ett flertal priser och utmärkelser på senare år.
+grapes: Blaufränkisch, Pinot Blanc, Chardonnay
+introImage: '../images/Intro_Prieler.jpeg'
+images:
+  - '../images/Atmos_1_Prieler.jpeg'
+  - '../images/Atmos_2_Prieler.jpg'
+  - '../images/Atmos_3_Prieler.jpeg'
 ---
 
 **Den röda druvan Blaufränkisch sitter i generna hos Burgenlands vinmakare i Leithaberg. Det är Georg Prieler övertygad om. Här känner man sedan lång tid tillbaka väl till druvans lynnighet och de krav som ställs på odlarna. Prieler odlar även framgångsrikt både Pinot Blanc och Chardonnay i området utöver några andra utvalda druvsorter och har fått ett flertal priser och utmärkelser.**

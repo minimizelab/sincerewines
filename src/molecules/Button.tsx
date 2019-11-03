@@ -22,7 +22,7 @@ const Button: FunctionComponent<Props> = ({
       className,
     ])}
   >
-    <TextUppercase white>{children}</TextUppercase>
+    <TextUppercase white={white}>{children}</TextUppercase>
   </button>
 );
 

@@ -2,6 +2,12 @@
 title: Weingut Gross/Vino Gross
 slug: /producenter/gross
 short: Med viner från både Südsteiermark och angränsande Slovenien förvaltar bröderna Gross både områdets stolta vintraditioner samtidigt som de utför ett imponerande pionjärarbete.
+grapes: Sauvignon Blanc, Furmint
+introImage: '../images/Intro_Gross.jpeg'
+images:
+  - '../images/Atmos_2_Gross.jpeg'
+  - '../images/Atmos_1_Gross.jpg'
+  - '../images/Atmos_3_Gross.jpg'
 ---
 
 **Med viner från både Südsteiermark och angränsande Slovenien förvaltar bröderna Gross både områdets stolta vintraditioner samtidigt som de utför ett imponerande pionjärarbete.**
