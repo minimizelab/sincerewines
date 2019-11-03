@@ -23,21 +23,17 @@ const wineType = (type: string) => {
 const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
   <Layout title={wine.name}>
     <Section className="justify-center">
-      <div className="m-10 flex flex-row flex-wrap w-2/3 bg-white p-10">
-        <div
-          style={{
-            maxHeight: '600px',
-            height: '100%',
-          }}
-          className="flex flex-col w-1/3 sm:w-1/3 justify-center items-center"
-        >
-          <Img
-            className="h-full min-w-full"
-            imgStyle={{
-              objectFit: 'contain',
-            }}
-            fluid={wine.image.childImageSharp.fluid}
-          ></Img>
+      <div className="m-10 flex flex-row flex-wrap w-full lg:w-2/3 bg-white p-10">
+        <div className="flex flex-col w-1/3 pr-4 mb-4 lg: mb-0">
+          <div className="w-full h-400 lg:h-800">
+            <Img
+              imgStyle={{
+                objectFit: 'contain',
+              }}
+              className="h-full w-full"
+              fluid={wine.image.childImageSharp.fluid}
+            ></Img>
+          </div>
         </div>
 
         <div className="flex flex-col w-full lg:w-2/3">
@@ -109,7 +105,7 @@ export const pageQuery = graphql`
       alcohol
       image {
         childImageSharp {
-          fluid(maxWidth: 300, maxHeight: 600) {
+          fluid(maxHeight: 800) {
             ...GatsbyImageSharpFluid
           }
         }
