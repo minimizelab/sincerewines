@@ -28,14 +28,14 @@ const HeaderImage: FunctionComponent = () => {
         fluid={data.file.childImageSharp.fluid}
       ></Img>
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
-        <div className="p-4 sm:p-6 mb-10 xl:mb-32">
-          <H4 white className="text-white m-2">
+        <div className="p-6 mb-10 xl:mb-32">
+          <H4 white className="text-white ">
             Välkomna till Sincere Wines!
           </H4>
-          <TextLarge white className="pb-8 pt-2 m-2">
+          <TextLarge white className="pb-8 pt-2">
             Viner från Österrike med passion, tradition och ambition
           </TextLarge>
-          <Button className="m-2" white onClick={() => navigate('/sortiment')}>
+          <Button white onClick={() => navigate('/sortiment')}>
             Våra viner
           </Button>
         </div>
