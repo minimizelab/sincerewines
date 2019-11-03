@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
 import Quote from '../atoms/Quote';
+import { navigate } from 'gatsby';
 
 const QuoteImage: FunctionComponent = () => (
   <div className="flex flex-col justify-end items-start relative">
@@ -35,7 +36,7 @@ const QuoteImage: FunctionComponent = () => (
           Vår vision är att representera våra producenter och deras viner med
           samma höga ambition och innerlighet som producenterna själva
         </Quote>
-        <Button className="m-2" white onClick={() => console.log('click')}>
+        <Button className="m-2" white onClick={() => navigate('/producenter')}>
           Våra producenter
         </Button>
       </div>
