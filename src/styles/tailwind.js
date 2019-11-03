@@ -26,6 +26,9 @@ module.exports = {
       maxWidth: {
         content: '1440px',
       },
+      maxHeight: {
+        'product-image': '800px',
+      },
       minHeight: {
         half: '50vh',
       },
