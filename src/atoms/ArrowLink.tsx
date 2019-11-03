@@ -1,14 +1,16 @@
 import React, { FunctionComponent, useState } from 'react';
 import Link from './Link';
-import ArrowRightGreen from './ArrowRightGreen';
+import ArrowRightGreen from './ArrowRight';
 import Text from './Text';
 import { combineClasses } from '../utils/helpers';
 
 interface Props {
   to: string;
+  lowercase?: boolean;
+  className?: string;
 }
 
-const ArrowLink: FunctionComponent<Props> = ({ children, to }) => {
+const ArrowLink: FunctionComponent<Props> = ({ children, to, lowercase, className }) => {
   const [hover, setHover] = useState(false);
   return (
     <Link
@@ -20,8 +22,10 @@ const ArrowLink: FunctionComponent<Props> = ({ children, to }) => {
       <ArrowRightGreen hover={hover} />
       <Text
         className={combineClasses([
-          'uppercase ml-2',
-          { 'text-sincere-wine ': hover, 'text-sincere-green': !hover },
+          'ml-2',
+          className,
+          { 'text-sincere-grape': hover, 'text-sincere-green': !hover },
+          { lowercase: lowercase, uppercase: !lowercase },
         ])}
       >
         {children}

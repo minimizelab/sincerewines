@@ -12,7 +12,7 @@ module.exports = {
       },
       colors: {
         'sincere-green': '#153621',
-        'sincere-grape': '#808EB4',
+        'sincere-grape': '#7D9AB2',
         'sincere-wine': '#711D25',
         'sincere-riesling': '#D6E49D',
         'sincere-rose': '#E4CEC4',

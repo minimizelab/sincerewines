@@ -14,7 +14,7 @@ const TextLarge: FunctionComponent<Props> = ({
   <p
     className={combineClasses([
       className,
-      'font-sans text-xl',
+      'font-sans text-lg',
       { 'text-sincere-green': !white, 'text-white': white },
     ])}
   >

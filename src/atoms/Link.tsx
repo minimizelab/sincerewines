@@ -20,7 +20,7 @@ const Link: FunctionComponent<Props> = ({
   const file = /\.[0-9a-z]+$/i.test(to);
 
   const combinedClassName = combineClasses([
-    { 'font-sans text-base text-sincere-green': defaultStyling },
+    { 'font-sans text-lg sm:text-base text-sincere-green': defaultStyling },
     className,
   ]);
 
