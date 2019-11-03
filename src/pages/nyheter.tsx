@@ -6,9 +6,9 @@ import TextLarge from '../atoms/TextLarge';
 import MailLink from '../molecules/MailLink';
 
 const Nyheter: FunctionComponent = () => (
-  <Layout title="Om oss">
+  <Layout title="Nyheter">
     <Section className="justify-center">
-      <div className="w-2/5 flex flex-col m-12">
+      <div className="w-2/5 flex flex-col pt-3 mt-12 mb-6">
         <H1>Nyhetsbrev</H1>
         <TextLarge>
           Vill du hålla dig uppdaterad på vad som händer kring Sincere Wines?

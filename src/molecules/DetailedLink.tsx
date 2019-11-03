@@ -19,7 +19,7 @@ const DetailedLink: FunctionComponent<Props> = ({ title, to, children }) => {
       center
       title={title}
     >
-      <Text className="mb-3">{children}</Text>
+      <Text className="mb-4">{children}</Text>
       <ArrowRightGreen hover={hover} />
     </Block>
   );

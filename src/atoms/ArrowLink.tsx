@@ -10,7 +10,12 @@ interface Props {
   className?: string;
 }
 
-const ArrowLink: FunctionComponent<Props> = ({ children, to, lowercase, className }) => {
+const ArrowLink: FunctionComponent<Props> = ({
+  children,
+  to,
+  lowercase,
+  className,
+}) => {
   const [hover, setHover] = useState(false);
   return (
     <Link
@@ -22,9 +27,9 @@ const ArrowLink: FunctionComponent<Props> = ({ children, to, lowercase, classNam
       <ArrowRightGreen hover={hover} />
       <Text
         className={combineClasses([
-          'ml-2',
+          'ml-2 tracking-wide',
           className,
-          { 'text-sincere-grape': hover, 'text-sincere-green': !hover },
+          { 'text-sincere-grape': hover, 'text-sincere-wine': !hover },
           { lowercase: lowercase, uppercase: !lowercase },
         ])}
       >

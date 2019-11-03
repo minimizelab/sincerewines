@@ -6,21 +6,19 @@ import TextLarge from '../atoms/TextLarge';
 import ArrowLink from '../atoms/ArrowLink';
 
 const Bestallningar: FunctionComponent = () => (
-  <Layout title="Beställningar">
+  <Layout title="Regionen">
     <Section className="justify-center">
       <div className="w-2/5 flex flex-col pt-3 mt-12 mb-6">
-        <H1>Beställningar</H1>
+        <H1>Regionen</H1>
         <TextLarge>
-          Snart kommer mer information om hur du beställer våra viner från
-          systembolaget här.
+          Snart kommer mer information om vinlandet Österrike och dess olika
+          regioner.
         </TextLarge>
         <TextLarge className="my-4">
-          Kontakta oss, eller besök systembolagets webbplats för mer
-          information.
+          Under tiden kan du läsa mer om hur våra producenter arbetar för att
+          leverera viner av högsta kvalitet.
         </TextLarge>
-        <ArrowLink to="https://www.systembolaget.se/bestalla-drycker/">
-          beställa drycker via systembolaget
-        </ArrowLink>
+        <ArrowLink to="/producenter">läs mer om våra producenter</ArrowLink>
       </div>
     </Section>
   </Layout>

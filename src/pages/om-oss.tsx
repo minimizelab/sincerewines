@@ -8,7 +8,7 @@ import MailLink from '../molecules/MailLink';
 const About: FunctionComponent = () => (
   <Layout title="Om oss">
     <Section className="justify-center">
-      <div className="w-3/5 flex flex-col m-12">
+      <div className="w-3/5 flex flex-col pt-3 mt-12 mb-6">
         <H1>Om oss</H1>
         <TextLarge>
           Vi är en svensk vinimportör med fokus på viner från Österrike. Vi vill
