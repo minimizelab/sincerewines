@@ -12,7 +12,7 @@ const DetailedLinks: FunctionComponent = () => (
         Välj bland vårt importsortiment av viner och lista dina favoriter för
         smidig beställning
       </DetailedLink>
-      <DetailedLink to="/beställningar" title="Beställningar">
+      <DetailedLink to="/bestallningar" title="Beställningar">
         Så här går det till när du enkelt beställer hem dina viner genom
         Systembolaget
       </DetailedLink>

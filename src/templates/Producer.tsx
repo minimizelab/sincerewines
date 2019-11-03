@@ -17,17 +17,20 @@ const Producer: FunctionComponent<Props> = ({ data }) => (
       <H1>{data.markdownRemark.frontmatter.title}</H1>
     </Section>
     <Section className="p-8">
-      <div className="flex flex-row flex-wrap-reverse bg-white p-2">
-        <div className="flex flex-col p-4 w-full md:w-1/4">
+      <div className="flex flex-row flex-wrap-reverse bg-white p-4">
+        <div className="flex flex-col p-4 w-full md:w-2/5 lg:w-1/4">
           {data.allMakersJson.edges
             .filter(
               ({ node }: any) =>
                 node.producer === data.markdownRemark.frontmatter.title
             )
             .map(({ node }: any) => (
-              <div className="flex flex-col w-full">
-                <div className="mb-3 w-full max-h-400 h-400">
+              <div className="flex flex-col w-full mb-4">
+                <div className="mb-2 w-full h-500 md:h-400">
                   <Img
+                    imgStyle={{
+                      objectPosition: '50% 0',
+                    }}
                     className="w-full h-full"
                     fluid={node.img.childImageSharp.fluid}
                   />
@@ -36,8 +39,8 @@ const Producer: FunctionComponent<Props> = ({ data }) => (
               </div>
             ))}
         </div>
-        <div className="flex flex-col w-full md:w-3/4 p-4">
-          <H4 className="py-4">Om Producenten</H4>
+        <div className="flex flex-col w-full md:w-3/5 lg:w-3/4 p-4">
+          <H4 className="pb-4">Om Producenten</H4>
           <MarkdownWrapper html={data.markdownRemark.html}></MarkdownWrapper>
         </div>
       </div>
@@ -76,7 +79,7 @@ export const pageQuery = graphql`
           producer
           img {
             childImageSharp {
-              fluid(maxWidth: 720, maxHeight: 400) {
+              fluid(maxWidth: 640, maxHeight: 800) {
                 ...GatsbyImageSharpFluid
               }
             }
