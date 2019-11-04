@@ -8,7 +8,6 @@ import H1 from '../atoms/H1';
 import TypeIndicator from '../atoms/TypeIndicator';
 import Text from '../atoms/Text';
 import WineRow from '../molecules/WineRow';
-import TextUppercase from '../atoms/TextUppercase';
 
 interface Props {
   data: any;
@@ -23,8 +22,8 @@ const wineType = (type: string) => {
 const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
   <Layout title={wine.name}>
     <Section className="justify-center">
-      <div className="m-10 flex flex-row flex-wrap w-full lg:w-2/3 bg-white p-10">
-        <div className="flex flex-col w-1/3 pr-4 mb-4 lg: mb-0">
+      <div className="m-4 sm:m-8 flex flex-row flex-wrap w-full lg:w-2/3 bg-white rounded shadow p-10">
+        <div className="flex flex-col w-full lg:w-1/3 pr-4 mb-4 lg:mb-0">
           <div className="w-full h-400 lg:h-500">
             <Img
               imgStyle={{
@@ -52,43 +51,34 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
           <div className="flex flex-wrap flex-row">
             <div className="flex flex-col w-full lg:w-1/2">
               <div className="lg:mr-6">
-                <WineRow>
-                  <TextUppercase>DRUVA</TextUppercase>
-                  <Text>{wine.grape}</Text>
-                </WineRow>
-                <WineRow>
-                  <TextUppercase>DISTRIKT</TextUppercase>
-                  <Text>{wine.district}</Text>
-                </WineRow>
-                <WineRow>
-                  <TextUppercase>PRODUCENT</TextUppercase>
-                  <Text>{wine.producer}</Text>
-                </WineRow>
+                <WineRow title="Druva" value={wine.grape}></WineRow>
+                <WineRow title="Distrikt" value={wine.district}></WineRow>
+                <WineRow title="Producent" value={wine.producer}></WineRow>
               </div>
             </div>
             <div className="flex flex-col w-full lg:w-1/2">
               <div className="lg:ml-6">
-                <WineRow>
-                  <TextUppercase>ALKOHOLHALT</TextUppercase>
-                  <Text>{wine.alcohol} %</Text>
-                </WineRow>
-                <WineRow>
-                  <TextUppercase>PRIS</TextUppercase>
-                  <Text>
-                    {wine.price} kr (
-                    {wine.kollikrav ? 'Kollikrav' : 'Inget kollikrav'})
-                  </Text>
-                </WineRow>
-                <WineRow>
-                  <TextUppercase>VOLYM</TextUppercase>
-                  <Text>{wine.volume} cl</Text>
-                </WineRow>
+                <WineRow
+                  title="Alkoholhalt"
+                  value={`${wine.alcohol} %`}
+                ></WineRow>
+                {wine.price === 0 ? (
+                  <WineRow title="Pris" value="Kontakta oss"></WineRow>
+                ) : (
+                  <WineRow
+                    title="Pris"
+                    value={`${wine.price} kr (
+                  ${wine.kollikrav ? 'Kollikrav' : 'Inget kollikrav'})`}
+                  ></WineRow>
+                )}
+                {wine.systembolaget === true && (
+                  <WineRow title="Artikel #" value={wine.articleNr}></WineRow>
+                )}
               </div>
             </div>
             <div className="flex flex-col"></div>
           </div>
           <hr className="my-4"></hr>
-
           <Text className="py-2">{wine.description}</Text>
           <Text className="py-2">{wine.reward}</Text>
         </div>
@@ -113,7 +103,9 @@ export const pageQuery = graphql`
       description
       reward
       food
+      kollikrav
       grape
+      systembolaget
       name
       price
       producer
@@ -121,6 +113,7 @@ export const pageQuery = graphql`
       type
       volume
       year
+      articleNr
     }
   }
 `;
