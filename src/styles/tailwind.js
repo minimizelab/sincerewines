@@ -15,7 +15,7 @@ module.exports = {
         'sincere-grape': '#7D9AB2',
         'sincere-wine': '#711D25',
         'sincere-riesling': '#D6E49D',
-        'sincere-rose': '#E4CEC4',
+        'sincere-rose': '#ECC4B5',
         'sincere-background': '#F3F4ED',
       },
       height: {

@@ -4,12 +4,13 @@ export interface Wine {
   year: string;
   grape: string;
   district: string;
-  slug: string;
   type: 'white' | 'red' | 'rose';
-  price: string;
+  price: number;
   food: string;
   alcohol: number;
+  systembolaget: boolean;
   image: any;
+  slug: string;
   reward: string;
   description: string;
 }

@@ -4,9 +4,13 @@ import ProductCard from '../molecules/ProductCard';
 
 interface Props {
   short?: boolean;
+  systembolaget?: boolean;
 }
 
-const ProductCardList: FunctionComponent<Props> = ({ short }) => {
+const ProductCardList: FunctionComponent<Props> = ({
+  short,
+  systembolaget,
+}) => {
   const data = useStaticQuery(graphql`
     query ProductItemsQuery {
       allWinesJson {
@@ -17,11 +21,13 @@ const ProductCardList: FunctionComponent<Props> = ({ short }) => {
             year
             grape
             district
-            type
             price
+            type
             food
             slug
             alcohol
+            systembolaget
+            kollikrav
             image {
               childImageSharp {
                 fixed(height: 140) {
@@ -43,7 +49,15 @@ const ProductCardList: FunctionComponent<Props> = ({ short }) => {
           return index < 4 ? (
             <ProductCard key={index} item={edge.node} />
           ) : null;
-        return <ProductCard key={index} item={edge.node} />;
+        if (systembolaget) {
+          return edge.node.systembolaget ? (
+            <ProductCard key={index} item={edge.node} />
+          ) : null;
+        } else {
+          return !edge.node.systembolaget ? (
+            <ProductCard key={index} item={edge.node} />
+          ) : null;
+        }
       })}
     </div>
   );
