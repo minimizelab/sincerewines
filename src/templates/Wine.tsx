@@ -70,7 +70,7 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
               <div className="lg:ml-6">
                 <WineRow>
                   <TextUppercase>ALKOHOLHALT</TextUppercase>
-                  <Text>{wine.alcohol}</Text>
+                  <Text>{wine.alcohol} %</Text>
                 </WineRow>
                 <WineRow>
                   <TextUppercase>PRIS</TextUppercase>
