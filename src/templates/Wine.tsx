@@ -81,6 +81,7 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
           <hr className="my-4"></hr>
           <Text className="py-2">{wine.description}</Text>
           <Text className="py-2">{wine.reward}</Text>
+          <Text className="py-2">{wine.food}</Text>
         </div>
       </div>
     </Section>
