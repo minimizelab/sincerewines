@@ -5,7 +5,6 @@ import H1 from '../atoms/H1';
 import { useStaticQuery, graphql } from 'gatsby';
 import H4 from '../atoms/H4';
 import Text from '../atoms/Text';
-import Link from '../atoms/Link';
 import Img from 'gatsby-image';
 import TextUppercase from '../atoms/TextUppercase';
 import ArrowLink from '../atoms/ArrowLink';
@@ -62,14 +61,14 @@ const Sortiment: FunctionComponent = () => {
   `);
   return (
     <Layout title="Producenter">
-      <Section className="flex-row justify-center pt-3 mt-12 mb-6">
-        <H1>Producenter</H1>
+      <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">
+        <H1 className="text-center">Producenter</H1>
       </Section>
       <Section className="mb-6 flex-col items-center px-8">
         {data.allFile.edges.map(({ node }) => (
           <div
             key={node.childMarkdownRemark.frontmatter.slug}
-            className="flex flex-row flex-wrap w-full rounded shadow bg-white my-10"
+            className="flex flex-row flex-wrap w-full rounded shadow bg-white my-4 md:my-6 "
           >
             <div className="p-8 w-full lg:w-7/12 flex flex-col">
               <H4 className="mb-4">
@@ -80,7 +79,7 @@ const Sortiment: FunctionComponent = () => {
               </Text>
               <TextUppercase>Druvor</TextUppercase>
               <Text>{node.childMarkdownRemark.frontmatter.grapes}</Text>
-              <div className="flex flex-row justify-end">
+              <div className="flex flex-row flex-grow items-end mt-2 justify-end">
                 <ArrowLink to={node.childMarkdownRemark.frontmatter.slug}>
                   Läs mer om producenten
                 </ArrowLink>

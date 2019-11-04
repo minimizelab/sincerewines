@@ -24,21 +24,24 @@ const Header: FunctionComponent = () => {
   return (
     <header className="bg-white z-10">
       <Section className="flex-col">
-        <div className="bg-white flex flex-row justify-between w-full p-4 sm:p-6 flex-wrap">
+        <div className="bg-white flex flex-row justify-between w-full p-4 lg:p-6 flex-wrap">
           <div className="flex flex-col items-start justify-center p-2">
             <Logotype />
           </div>
-          <nav className="flex flex-row items-center justify-end hidden md:flex">
+          <nav className="flex flex-row items-center justify-end hidden lg:flex">
             {navList.map(item => (
               <NavLink to={item.path} key={item.text} text={item.text} />
             ))}
           </nav>
-          <div className="flex flex-col md:hidden m-2 justify-center">
-            <img className="w-5" onClick={toggleMenu} src={menuIcon} />
+          <div
+            onClick={toggleMenu}
+            className="flex flex-col lg:hidden m-2 justify-center"
+          >
+            <img className="w-5" src={menuIcon} />
           </div>
         </div>
         {open && (
-          <nav className="flex flex-col px-1 -mt-2 pb-6 md:hidden">
+          <nav className="flex flex-col px-1 -mt-2 pb-6 lg:hidden">
             {navList.map(item => (
               <NavLink to={item.path} key={item.text} text={item.text} />
             ))}

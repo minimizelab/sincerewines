@@ -13,8 +13,8 @@ interface Props {
 
 const Producer: FunctionComponent<Props> = ({ data }) => (
   <Layout title={data.markdownRemark.frontmatter.title}>
-    <Section className="flex-row justify-center pt-3 mt-12 mb-6">
-      <H1>{data.markdownRemark.frontmatter.title}</H1>
+    <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">
+      <H1 className="text-center">{data.markdownRemark.frontmatter.title}</H1>
     </Section>
     <Section className="p-8">
       <div className="flex flex-row flex-wrap-reverse bg-white rounded shadow p-4">
@@ -25,7 +25,7 @@ const Producer: FunctionComponent<Props> = ({ data }) => (
                 node.producer === data.markdownRemark.frontmatter.title
             )
             .map(({ node }: any) => (
-              <div className="flex flex-col w-full mb-4">
+              <div className="flex flex-col w-full mb-6">
                 <div className="mb-2 w-full h-500 md:h-400">
                   <Img
                     imgStyle={{

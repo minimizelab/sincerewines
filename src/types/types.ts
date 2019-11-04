@@ -13,4 +13,5 @@ export interface Wine {
   slug: string;
   reward: string;
   description: string;
+  articleNr: string;
 }

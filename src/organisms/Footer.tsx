@@ -7,7 +7,7 @@ import Section from '../atoms/Section';
 
 const Footer: FunctionComponent = () => (
   <footer className="bg-white">
-    <Section className="flex-row items-end justify-between p-6 flex-wrap bg-white">
+    <Section className="flex-row items-end justify-between py-6 flex-wrap bg-white">
       <div className="flex flex-row items-start lg:w-auto w-full flex-wrap">
         <Block title="Kontakt">
           <Link to="mailto:mail@sincerewines.com">mail@sincerewines.com</Link>
@@ -23,7 +23,7 @@ const Footer: FunctionComponent = () => (
           <Link to="/bestallningar">Läs mer om hur du beställer</Link>
         </Block>
       </div>
-      <div className="flex flex-col items-end justify-end p-4 flex-grow">
+      <div className="flex flex-col items-end justify-end py-6 px-8 flex-grow">
         <Logotype />
         <Text>Copyright © All rights reserved</Text>
       </div>

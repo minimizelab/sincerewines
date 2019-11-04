@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import Link from './Link';
 import ArrowRightGreen from './ArrowRight';
-import Text from './Text';
 import { combineClasses } from '../utils/helpers';
 
 interface Props {
@@ -25,16 +24,16 @@ const ArrowLink: FunctionComponent<Props> = ({
       onMouseLeave={() => setHover(false)}
     >
       <ArrowRightGreen hover={hover} />
-      <Text
+      <span
         className={combineClasses([
-          'ml-2 tracking-wide',
+          'ml-2 tracking-wide font-sans text-sm sm:text-base',
           className,
           { 'text-sincere-grape': hover, 'text-sincere-green': !hover },
           { lowercase: lowercase, uppercase: !lowercase },
         ])}
       >
         {children}
-      </Text>
+      </span>
     </Link>
   );
 };
