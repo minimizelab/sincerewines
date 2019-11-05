@@ -43,7 +43,12 @@ const Header: FunctionComponent = () => {
         {open && (
           <nav className="flex flex-col px-1 -mt-2 pb-6 lg:hidden">
             {navList.map(item => (
-              <NavLink to={item.path} key={item.text} text={item.text} />
+              <NavLink
+                onClick={toggleMenu}
+                to={item.path}
+                key={item.text}
+                text={item.text}
+              />
             ))}
           </nav>
         )}

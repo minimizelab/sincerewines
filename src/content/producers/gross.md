@@ -17,4 +17,4 @@ Weingut Gross (45 ha) i Südsteiermark och byn Ratsch på gränsen till Slovenie
 
 Familjen Gross erbjöds 2004 att köpa en mindre vinodling i Gorca i norra Slovenien, cirka 60 km från odlingarna i Südsteiermark. Det blev startskottet för Vino Gross, som idag drivs av Johannes yngre bror Michael och hustru Maria med fokus på Sauvignon Blanc och poppis-druvan Furmint. Området har ett lika fördelaktigt klimat och likande jordmån som i Südsteiermark, och med samma noggranna hantverk och höga ambitioner som broder Johannes, får Vino Gross redan idag lovord för sin enormt höga kvalitet och uttrycksfullhet i sina viner.
 
-Vi föll pladask för det som både Johannes och Michael skapar och kommer att introducera en eller två varianter av Sauvignon Blanc från Weingut Gross och en Furmint från Vino Gross på BS i början av 2020.
+Vi blev imponerade av det som både Johannes och Georg skapar och kommer introducera en eller två varianter av Sauvignon Blanc från Weingut Gross och en Furmint från Vino Gross på Beställningssortimentet i början av 2020.
