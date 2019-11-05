@@ -17,6 +17,7 @@ interface Node {
         slug: string;
         title: string;
         grapes: string;
+        order: number;
         introImage: {
           childImageSharp: {
             fluid: any;
@@ -45,6 +46,7 @@ const Sortiment: FunctionComponent = () => {
                 slug
                 title
                 grapes
+                order
                 introImage {
                   childImageSharp {
                     fluid(maxWidth: 720, maxHeight: 400) {
@@ -65,37 +67,43 @@ const Sortiment: FunctionComponent = () => {
         <H1 className="text-center">Producenter</H1>
       </Section>
       <Section className="mb-6 flex-col items-center px-8">
-        {data.allFile.edges.map(({ node }) => (
-          <div
-            key={node.childMarkdownRemark.frontmatter.slug}
-            className="flex flex-row flex-wrap w-full rounded shadow bg-white my-4 md:my-6 "
-          >
-            <div className="p-8 w-full lg:w-7/12 flex flex-col">
-              <H4 className="mb-4">
-                {node.childMarkdownRemark.frontmatter.title}
-              </H4>
-              <Text className="my-4">
-                {node.childMarkdownRemark.frontmatter.short}
-              </Text>
-              <TextUppercase>Druvor</TextUppercase>
-              <Text>{node.childMarkdownRemark.frontmatter.grapes}</Text>
-              <div className="flex flex-row flex-grow items-end mt-2 justify-end">
-                <ArrowLink to={node.childMarkdownRemark.frontmatter.slug}>
-                  Läs mer om producenten
-                </ArrowLink>
+        {data.allFile.edges
+          .sort(
+            (a, b) =>
+              a.node.childMarkdownRemark.frontmatter.order -
+              b.node.childMarkdownRemark.frontmatter.order
+          )
+          .map(({ node }) => (
+            <div
+              key={node.childMarkdownRemark.frontmatter.slug}
+              className="flex flex-row flex-wrap w-full rounded shadow bg-white my-4 md:my-6 "
+            >
+              <div className="p-8 w-full lg:w-7/12 flex flex-col">
+                <H4 className="mb-4">
+                  {node.childMarkdownRemark.frontmatter.title}
+                </H4>
+                <Text className="my-4">
+                  {node.childMarkdownRemark.frontmatter.short}
+                </Text>
+                <TextUppercase>Druvor</TextUppercase>
+                <Text>{node.childMarkdownRemark.frontmatter.grapes}</Text>
+                <div className="flex flex-row flex-grow items-end mt-2 justify-end">
+                  <ArrowLink to={node.childMarkdownRemark.frontmatter.slug}>
+                    Läs mer om producenten
+                  </ArrowLink>
+                </div>
+              </div>
+              <div className="w-full lg:w-5/12 max-h-400">
+                <Img
+                  className="h-full w-full"
+                  fluid={
+                    node.childMarkdownRemark.frontmatter.introImage
+                      .childImageSharp.fluid
+                  }
+                ></Img>
               </div>
             </div>
-            <div className="w-full lg:w-5/12 max-h-400">
-              <Img
-                className="h-full w-full"
-                fluid={
-                  node.childMarkdownRemark.frontmatter.introImage
-                    .childImageSharp.fluid
-                }
-              ></Img>
-            </div>
-          </div>
-        ))}
+          ))}
       </Section>
     </Layout>
   );

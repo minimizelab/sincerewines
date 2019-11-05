@@ -11,11 +11,11 @@ const Sortiment: FunctionComponent = () => (
       <H1>Våra Viner</H1>
     </Section>
     <Section className="my-6 flex-col">
-      <H4 className="mx-6">Systembolaget (Beställning)</H4>
+      <H4 className="mx-6">Systembolagets beställningssortiment</H4>
       <ProductCardList systembolaget />
     </Section>
     <Section className="mb-8 flex-col">
-      <H4 className="mx-6">Restauranger</H4>
+      <H4 className="mx-6">Restaurangsortiment</H4>
       <ProductCardList />
     </Section>
   </Layout>

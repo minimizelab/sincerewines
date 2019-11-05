@@ -4,6 +4,7 @@ slug: /producenter/glatzer
 short: Walter Glatzer är en passionerad vinmakare som förenar Carnuntums vintraditioner med ett starkt fokus på innovation. 2018 utsågs Ried Altenberg St. Laurent 2016 till Österrikes bästa rödvin alla kategorier av vinmagasinet Falstaff.
 grapes: Zweigelt, St. Laurent, Pinot Noir
 introImage: '../images/Intro_Glatzer.jpg'
+order: 3
 images:
   - '../images/Atmos_1_Glatzer.jpg'
   - '../images/Atmos_2_Glatzer.jpeg'

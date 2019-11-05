@@ -32,7 +32,7 @@ const partnerInfo = [
 const About: FunctionComponent = () => (
   <Layout title="Om oss">
     <Section className="justify-center px-6">
-      <div className="sm:w-8/12 flex flex-col pt-3 mt-12 mb-6">
+      <div className="sm:w-10/12 flex flex-col pt-3 mt-12 mb-6">
         <H1>Om oss</H1>
         <div className="flex flex-row w-full justify-between flex-wrap">
           <div className="lg:w-1/2">

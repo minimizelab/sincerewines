@@ -4,6 +4,7 @@ slug: /producenter/prieler
 short: Prieler har fått stort genomslag som vinmakare och gör viner av hög kvalitet. 2018 blev han utnämnd till Årets Vinmakare av det ansedda vinmagasinet Falstaff. Han har fått ett flertal priser och utmärkelser på senare år.
 grapes: Blaufränkisch, Pinot Blanc, Chardonnay
 introImage: '../images/Intro_Prieler.jpeg'
+order: 2
 images:
   - '../images/Atmos_1_Prieler.jpeg'
   - '../images/Atmos_2_Prieler.jpg'

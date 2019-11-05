@@ -7,7 +7,7 @@ interface Props {
 }
 
 const NavLink: FunctionComponent<Props> = ({ to, text }) => (
-  <Link className="capitalize px-5 my-2 lg:m-0 hover:text-sincere-grape" activeClassName="text-sincere-grape" to={to}>
+  <Link className="capitalize px-5 my-2 text-lg lg:m-0 hover:text-sincere-grape" activeClassName="text-sincere-grape" to={to}>
     {text}
   </Link>
 );

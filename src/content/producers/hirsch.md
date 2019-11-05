@@ -4,6 +4,7 @@ slug: /producenter/hirsch
 short: Johannes Hirsch är en egensinnig vinmakare. Det har lönat sig. 2011 blev han utnämnd till Årets vinmakare i Österrike av det ansedda vinmagasinet Falstaff. 2016 Heiligenstein Riesling rankades som ett av de tio bästa vinerna alla kategorier i Österrike av James Suckling med 97 av 100 poäng.
 grapes: Grüner Veltliner, Riesling
 introImage: '../images/Intro_Hirsch.png'
+order: 1
 images:
   - '../images/Atmos_1_Hirsch.png'
   - '../images/Atmos_2_Hirsch.jpg'
