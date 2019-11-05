@@ -39,15 +39,14 @@ const About: FunctionComponent = () => (
             <div className="lg:mr-8">
               <TextLarge className="mb-3">
                 Vi är en svensk vinimportör med fokus på viner från Österrike.
-                Vi vill uppfattas som en pålitlig och passionerad partner till
-                den nya generationens vinmakare från området. De producenter vi
-                väljer att samarbeta med har höga ambitioner avseende både
-                kvalitet och hållbarhet, är innovativa och visar stor lyhördhet
-                för vinmarknadens utveckling. Våra kunder är restauranger samt
-                privatpersoner med försäljning genom Systembolagets olika
-                sortimentsalternativ och genom privatimport. Vår filosofi bygger
-                på förtroende, kvalitet, öppenhet och tillförlitlighet. Passion
-                i vad vi gör och vad vi representerar – Sincere Wines.
+                De producenter vi väljer att samarbeta med har höga ambitioner
+                avseende både kvalitet och hållbarhet, är innovativa och visar
+                stor lyhördhet för vinmarknadens utveckling. Våra kunder är
+                restauranger samt privatpersoner med försäljning genom
+                Systembolagets olika sortimentsalternativ och genom
+                privatimport. Vår filosofi bygger på förtroende, kvalitet,
+                öppenhet och tillförlitlighet. Passion i vad vi gör och vad vi
+                representerar – Sincere Wines.
               </TextLarge>
               <MailLink />
             </div>
