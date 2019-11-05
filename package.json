@@ -1,6 +1,6 @@
 {
   "name": "sincerewines",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Website for Sincere Wines",
   "main": "gatsby-config.js",
   "repository": "git@github.com:sincerewines/sincerewines.git",
