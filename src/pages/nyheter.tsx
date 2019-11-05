@@ -7,8 +7,8 @@ import MailLink from '../molecules/MailLink';
 
 const Nyheter: FunctionComponent = () => (
   <Layout title="Nyheter">
-    <Section className="justify-center px-6">
-      <div className="sm:w-8/12 xl:w-2/5 flex flex-col pt-3 mt-12 mb-6">
+    <Section className="justify-center p-6">
+      <div className="sm:w-8/12 xl:w-2/5 flex flex-col pt-3 mt-6 mb-6">
         <H1>Nyhetsbrev</H1>
         <TextLarge>
           Vill du hålla dig uppdaterad på vad som händer kring Sincere Wines?
