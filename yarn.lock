@@ -5476,6 +5476,11 @@ gatsby-plugin-typescript@^2.1.11:
     "@babel/runtime" "^7.6.3"
     babel-plugin-remove-graphql-queries "^2.7.14"
 
+gatsby-plugin-zeit-now@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-zeit-now/-/gatsby-plugin-zeit-now-0.1.0.tgz#764abb04008e94e6615f1afb0901a19c981127f7"
+  integrity sha512-aO0KpeWTwXkEMXYpqvm0KiPNyKPbHhQ1ic+LPujqSChO25OVNdGfSW0k0lCZCJDRYFSQOL4bQLvNSRY8mEVYcw==
+
 gatsby-react-router-scroll@^2.1.14:
   version "2.1.14"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.1.14.tgz#ca88e736f8ef8ca44d7ad827391292b2077811db"
