@@ -40,7 +40,7 @@ const Greeting: FunctionComponent = () => {
           vinland och öka kunskapen om österrikiska viner i Sverige.
         </TextLarge>
         <TextLarge className="mb-4">Vill du veta mer?</TextLarge>
-        <ArrowLink to="/nyheter">skriv upp dig på vårt nyhetsbrev</ArrowLink>
+        <ArrowLink to="/nyheter">anmäl dig till vårt nyhetsbrev</ArrowLink>
       </div>
       <div className="w-full md:w-1/3 max-h-800">
         <Img

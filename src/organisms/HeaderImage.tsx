@@ -35,8 +35,8 @@ const HeaderImage: FunctionComponent = () => {
           <TextLarge white className="pb-8 pt-2">
             Viner från Österrike med passion, tradition och ambition
           </TextLarge>
-          <Button white onClick={() => navigate('/sortiment')}>
-            Våra viner
+          <Button white onClick={() => navigate('/nyheter')}>
+            anmälan nyhetsbrev
           </Button>
         </div>
       </Section>
