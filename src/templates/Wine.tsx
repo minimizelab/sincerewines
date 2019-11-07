@@ -23,7 +23,7 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
   <Layout title={wine.name}>
     <Section className="justify-center">
       <div className="m-4 sm:m-8 flex flex-row flex-wrap w-full lg:w-2/3 bg-white rounded shadow p-10">
-        <div className="flex flex-col w-full lg:w-1/3 pr-4 mb-4 lg:mb-0">
+        <div className="flex flex-col w-full lg:w-1/3 sm:pr-4 mb-4 lg:mb-0">
           <div className="w-full h-400 lg:h-500">
             <Img
               imgStyle={{
