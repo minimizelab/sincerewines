@@ -18,7 +18,7 @@ const ArrowLink: FunctionComponent<Props> = ({
   const [hover, setHover] = useState(false);
   return (
     <Link
-      className="flex flex-row"
+      className="flex flex-row items-center"
       to={to}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
