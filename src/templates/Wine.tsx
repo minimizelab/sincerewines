@@ -37,7 +37,7 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
 
         <div className="flex flex-col w-full lg:w-2/3">
           <div className="flex flex-wrap flex-row items-between">
-            <div className="w-2/3">
+            <div className="w-full sm:w-2/3">
               <H1>{wine.name}</H1>
               <H3>{wine.year}</H3>
             </div>
