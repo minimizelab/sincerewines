@@ -16,7 +16,7 @@ interface Props {
 const wineType = (type: string) => {
   if (type === 'red') return 'RÖDA VINER';
   if (type === 'white') return 'VITA VINER';
-  if (type === 'rose') return 'ROSÈVINER';
+  if (type === 'rose') return 'ROSÉVINER';
 };
 
 const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
