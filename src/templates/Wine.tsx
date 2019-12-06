@@ -8,6 +8,7 @@ import H1 from '../atoms/H1';
 import TypeIndicator from '../atoms/TypeIndicator';
 import Text from '../atoms/Text';
 import WineRow from '../molecules/WineRow';
+import ArrowLink from '../atoms/ArrowLink';
 
 interface Props {
   data: any;
@@ -81,7 +82,8 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
           <hr className="my-4"></hr>
           <Text className="py-2">{wine.description}</Text>
           <Text className="py-2">{wine.reward}</Text>
-          <Text className="py-2">{wine.food}</Text>
+          <Text className="py-2 pb-6">{wine.food}</Text>
+          {wine.link ?  <ArrowLink to={wine.link}>VINET HOS SYSTEMBOLAGET</ArrowLink> : null}
         </div>
       </div>
     </Section>
@@ -107,6 +109,7 @@ export const pageQuery = graphql`
       kollikrav
       grape
       systembolaget
+      link
       name
       price
       producer

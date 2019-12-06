@@ -45,7 +45,14 @@ const Link: FunctionComponent<Props> = ({
     }
   } else {
     return (
-      <a className={combinedClassName} href={to} ref={ref} {...other}>
+      <a
+        className={combinedClassName}
+        href={to}
+        ref={ref}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...other}
+      >
         {children}
       </a>
     );
