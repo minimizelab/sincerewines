@@ -26,6 +26,12 @@ const Footer: FunctionComponent = () => (
       <div className="flex flex-col items-end justify-end py-6 px-8 flex-grow">
         <Logotype />
         <Text>Copyright © All rights reserved</Text>
+        <Text>
+          Site created by{' '}
+          <Link className="text-sincere-grape hover:text-sincere-green" to="https://minimize.se/">
+            minimize
+          </Link>
+        </Text>
       </div>
     </Section>
   </footer>
