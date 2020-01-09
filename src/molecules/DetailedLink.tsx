@@ -13,9 +13,11 @@ const DetailedLink: FunctionComponent<Props> = ({ title, to, children }) => {
   return (
     <Block
       className="cursor-pointer"
-      onClick={() => navigate(to)}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onClick={(): void => {
+        navigate(to);
+      }}
+      onMouseEnter={(): void => setHover(true)}
+      onMouseLeave={(): void => setHover(false)}
       center
       title={title}
     >

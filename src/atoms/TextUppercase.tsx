@@ -1,12 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { combineClasses } from '../utils/helpers';
+import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   className?: string;
   white?: boolean;
 }
 
-const TextUppercase: FunctionComponent<Props> = ({ className, children, white }) => (
+const TextUppercase: FunctionComponent<Props> = ({
+  className,
+  children,
+  white,
+}) => (
   <p
     className={combineClasses([
       className,

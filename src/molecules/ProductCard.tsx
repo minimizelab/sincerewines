@@ -13,7 +13,9 @@ interface Props {
 const ProductCard: FunctionComponent<Props> = ({ item }) => (
   <div className="w-full md:w-1/2 lg:w-1/4">
     <div
-      onClick={() => navigate(item.slug)}
+      onClick={(): void => {
+        navigate(item.slug);
+      }}
       className="bg-white rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
     >
       <div className="flex flex-col w-16 justify-center items-center">

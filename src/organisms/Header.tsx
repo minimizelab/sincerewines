@@ -5,8 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { State } from '../store/types';
 import { setMenuOpen } from '../store/actions';
 import Section from '../atoms/Section';
-
-const menuIcon = require('../assets/menu.png');
+import menuIcon from '../assets/menu.png';
 
 const navList = [
   { path: '/sortiment', text: 'Sortiment' },
@@ -20,7 +19,9 @@ const navList = [
 const Header: FunctionComponent = () => {
   const dispatch = useDispatch();
   const open = useSelector<State, boolean>(state => state.menuOpen);
-  const toggleMenu = () => dispatch(setMenuOpen(!open));
+  const toggleMenu = (): void => {
+    dispatch(setMenuOpen(!open));
+  };
   return (
     <header className="bg-white z-10">
       <Section className="flex-col">

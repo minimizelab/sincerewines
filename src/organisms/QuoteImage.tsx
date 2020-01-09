@@ -36,7 +36,9 @@ const QuoteImage: FunctionComponent = () => {
           <Button
             className="m-2"
             white
-            onClick={() => navigate('/producenter')}
+            onClick={(): void => {
+              navigate('/producenter');
+            }}
           >
             Våra producenter
           </Button>

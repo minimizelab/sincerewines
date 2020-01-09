@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { combineClasses } from '../utils/helpers';
+import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   white?: boolean;

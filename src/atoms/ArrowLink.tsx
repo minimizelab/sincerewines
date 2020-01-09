@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import Link from './Link';
 import ArrowRightGreen from './ArrowRight';
-import { combineClasses } from '../utils/helpers';
+import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   to: string;
@@ -20,8 +20,8 @@ const ArrowLink: FunctionComponent<Props> = ({
     <Link
       className="flex flex-row items-center"
       to={to}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onMouseEnter={(): void => setHover(true)}
+      onMouseLeave={(): void => setHover(false)}
     >
       <ArrowRightGreen hover={hover} />
       <span

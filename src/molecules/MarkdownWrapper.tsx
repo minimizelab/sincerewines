@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import classes from '../styles/markdownWrapper.module.css';
-import { combineClasses } from '../utils/helpers';
+import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   html: string;
