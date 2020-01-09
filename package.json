@@ -7,6 +7,7 @@
   "author": "minimize",
   "private": true,
   "dependencies": {
+    "@minimizelab/mini_utils": "^1.0.0",
     "gatsby": "^2.15.28",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-manifest": "^2.2.20",
@@ -15,7 +16,7 @@
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-sharp": "^2.2.34",
     "gatsby-plugin-typescript": "^2.1.11",
-    "gatsby-plugin-zeit-now": "^0.1.0",
+    "gatsby-plugin-zeit-now": "^0.2.0",
     "gatsby-remark-images": "^3.1.28",
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-json": "^2.2.16",
@@ -40,7 +41,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "@types/node": "^12.7.8",
+    "@types/node": "^13.1.5",
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
     "@types/react-helmet": "^5.0.11",
