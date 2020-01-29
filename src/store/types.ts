@@ -11,9 +11,9 @@ interface SetMenuOpenAction {
   payload: boolean;
 }
 
-interface setCookieDialogOpenAction {
+interface SetCookieDialogOpenAction {
   type: typeof SET_COOKIE_DIALOG_OPEN;
   payload: boolean;
 }
 
-export type ActionTypes = SetMenuOpenAction | setCookieDialogOpenAction;
+export type ActionTypes = SetMenuOpenAction | SetCookieDialogOpenAction;

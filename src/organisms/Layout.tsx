@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
 import Footer from './Footer';
-import { combineClasses } from '../utils/helpers';
+import { combineClasses } from '@minimizelab/mini_utils';
 import CookieDialog from './CookieDialog';
 import Header from './Header';
 

@@ -11,7 +11,7 @@ const storageKey = 'acceptCookies';
 const CookieDialog: FunctionComponent = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector<State, boolean>(state => state.cookieDialogOpen);
-  const closeDialog = () => {
+  const closeDialog = (): void => {
     dispatch(setDialogOpen(false));
     if (window) {
       window.localStorage.setItem(storageKey, 'true');

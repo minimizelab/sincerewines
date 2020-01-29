@@ -9,8 +9,8 @@ const DetailedLinks: FunctionComponent = () => (
         kvalitet
       </DetailedLink>
       <DetailedLink to="/sortiment" title="Utvalda viner">
-        Välj bland vårt sortiment av viner och lista dina favoriter för
-        smidig beställning
+        Välj bland vårt sortiment av viner och lista dina favoriter för smidig
+        beställning
       </DetailedLink>
       <DetailedLink to="/bestallningar" title="Beställningar">
         Så här går det till när du enkelt beställer hem dina viner genom

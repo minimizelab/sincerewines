@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { combineClasses } from '../utils/helpers';
+import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   className?: string;
@@ -7,12 +7,7 @@ interface Props {
 
 const Section: FunctionComponent<Props> = ({ children, className }) => (
   <section className="flex flex-row justify-center w-full">
-    <div
-      className={combineClasses([
-        'flex w-full max-w-content',
-        className,
-      ])}
-    >
+    <div className={combineClasses(['flex w-full max-w-content', className])}>
       {children}
     </div>
   </section>

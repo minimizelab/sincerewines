@@ -1,6 +1,6 @@
 import React, { FunctionComponent, HTMLProps } from 'react';
 import H4 from '../atoms/H4';
-import { combineClasses } from '../utils/helpers';
+import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props extends HTMLProps<HTMLDivElement> {
   center?: boolean;
