@@ -36,6 +36,15 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
     {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '3',
+        matomoUrl: 'https://stats.minimize.se',
+        siteUrl: 'https://www.sincerewines.com',
+        disableCookies: true,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
