@@ -11,13 +11,14 @@ import WineRow from '../molecules/WineRow';
 import ArrowLink from '../atoms/ArrowLink';
 
 interface Props {
-  data: any;
+  data: any; // TODO: Add types here
 }
 
-const wineType = (type: string) => {
+const wineType = (type: string): string | null => {
   if (type === 'red') return 'RÖDA VINER';
   if (type === 'white') return 'VITA VINER';
   if (type === 'rose') return 'ROSÉVINER';
+  return null;
 };
 
 const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
@@ -83,7 +84,9 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
           <Text className="py-2">{wine.description}</Text>
           <Text className="py-2">{wine.reward}</Text>
           <Text className="py-2 pb-6">{wine.food}</Text>
-          {wine.link ?  <ArrowLink to={wine.link}>VINET HOS SYSTEMBOLAGET</ArrowLink> : null}
+          {wine.link && (
+            <ArrowLink to={wine.link}>VINET HOS SYSTEMBOLAGET</ArrowLink>
+          )}
         </div>
       </div>
     </Section>
