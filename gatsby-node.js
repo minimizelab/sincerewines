@@ -6,16 +6,11 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const winesQuery = await graphql(`
     {
-      allFile(
-        filter: {
-          sourceInstanceName: { eq: "json" }
-          relativePath: { eq: "wines.json" }
-        }
-      ) {
+      allSanityWine {
         edges {
           node {
-            childrenWinesJson {
-              slug
+            path {
+              current
             }
           }
         }
@@ -27,15 +22,13 @@ exports.createPages = async ({ actions, graphql }) => {
     throw new Error(winesQuery.errors);
   }
 
-  winesQuery.data.allFile.edges.forEach(({ node }) => {
-    node.childrenWinesJson.forEach(({ slug }) => {
-      createPage({
-        path: slug,
-        component: path.resolve('src/templates/Wine.tsx'),
-        context: {
-          slug,
-        },
-      });
+  winesQuery.data.allSanityWine.edges.forEach(({ node }) => {
+    createPage({
+      path: `/sortiment/${node.path.current}`,
+      component: path.resolve('src/templates/Wine.tsx'),
+      context: {
+        slug: node.path.current,
+      },
     });
   });
 

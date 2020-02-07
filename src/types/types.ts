@@ -1,18 +1,38 @@
+import { FluidObject, FixedObject } from 'gatsby-image';
+
 export interface Wine {
   name: string;
-  producer: string;
+  producer: Producer;
   year: string;
-  grape: string;
+  grapes: Array<Grape>;
   district: string;
-  type: 'white' | 'red' | 'rose';
+  type: WineType;
   price: number;
-  food: string;
-  alcohol: number;
-  systembolaget: boolean;
+  alc: number;
   link?: string;
-  image: any;
-  slug: string;
-  reward: string;
-  description: string;
-  articleNr: string;
+  image: Image;
+  path: Slug;
+  articleNumber: string;
+  packageRequirement: boolean;
+}
+
+export type WineType = 'white' | 'red' | 'rose';
+
+export interface Producer {
+  name: string;
+}
+
+export interface Grape {
+  name: string;
+}
+
+export interface Slug {
+  current: string;
+}
+
+export interface Image {
+  asset: {
+    fluid: FluidObject;
+    fixed: FixedObject;
+  };
 }
