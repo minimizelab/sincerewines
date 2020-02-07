@@ -9,6 +9,7 @@ export interface Wine {
   type: WineType;
   price: number;
   alc: number;
+  id: string;
   link?: string;
   image: Image;
   path: Slug;

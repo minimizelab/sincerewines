@@ -37,15 +37,15 @@ const ProductCardList: FunctionComponent<Props> = ({
       {data.allSanityWine.edges.map((edge, index) => {
         if (short)
           return index < 4 ? (
-            <ProductCard key={index} item={edge.node} />
+            <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
         if (systembolaget) {
           return edge.node.link ? (
-            <ProductCard key={index} item={edge.node} />
+            <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
         } else {
           return !edge.node.link ? (
-            <ProductCard key={index} item={edge.node} />
+            <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
         }
       })}
