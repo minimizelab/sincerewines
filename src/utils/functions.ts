@@ -8,5 +8,5 @@ export const wineType = (type: WineType): string | null => {
 };
 
 export const createGrapeString = (array: Array<Grape>): string => {
-  return array.length > 1 ? array[0].name : '';
+  return array.length <= 1 ? array[0].name : '';
 };
