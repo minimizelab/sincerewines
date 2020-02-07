@@ -17,6 +17,23 @@ export interface Wine {
   packageRequirement: boolean;
 }
 
+export interface Producer {
+  name: string;
+  id: string;
+  grapes: Array<Grape>;
+  intro: string;
+  makers: Array<Maker>;
+  images: Array<Image>;
+  path: Slug;
+  mainImg: Image;
+}
+
+export interface Maker {
+  name: string;
+  id: string;
+  image: Image;
+}
+
 export type WineType = 'white' | 'red' | 'rose';
 
 export interface Producer {
@@ -33,6 +50,7 @@ export interface Slug {
 
 export interface Image {
   asset: {
+    id: string;
     fluid: FluidObject;
     fixed: FixedObject;
   };

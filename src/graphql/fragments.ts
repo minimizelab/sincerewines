@@ -23,3 +23,29 @@ export const wineFragment = graphql`
     }
   }
 `;
+
+export const producerFragment = graphql`
+  fragment Producer on SanityProducer {
+    id
+    name
+    intro
+    path {
+      current
+    }
+    grapes {
+      name
+    }
+    _rawDesc
+    makers {
+      id
+      name
+      image {
+        asset {
+          fluid(maxWidth: 640, maxHeight: 800) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
+    }
+  }
+`;
