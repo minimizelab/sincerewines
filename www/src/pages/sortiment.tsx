@@ -6,7 +6,7 @@ import H1 from '../atoms/H1';
 import H4 from '../atoms/H4';
 
 const Sortiment: FunctionComponent = () => (
-  <Layout title="Sortiment">
+  <Layout title="Sortiment" description="Våra viner">
     <Section className="flex-row justify-center pt-3 mt-12 mb-6">
       <H1>Våra Viner</H1>
     </Section>

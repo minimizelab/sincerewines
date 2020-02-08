@@ -35,7 +35,7 @@ const Sortiment: FunctionComponent = () => {
     }
   `);
   return (
-    <Layout title="Producenter">
+    <Layout title="Producenter" description="Våra vinproducenter">
       <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">
         <H1 className="text-center">Producenter</H1>
       </Section>

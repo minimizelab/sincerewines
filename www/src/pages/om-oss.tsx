@@ -30,7 +30,13 @@ const partnerInfo = [
 ];
 
 const About: FunctionComponent = () => (
-  <Layout title="Om oss">
+  <Layout
+    title="Om oss"
+    description="Vi är en svensk vinimportör med fokus på viner från Österrike.
+                De producenter vi väljer att samarbeta med har höga ambitioner
+                avseende både kvalitet och hållbarhet, är innovativa och visar
+                stor lyhördhet för vinmarknadens utveckling."
+  >
     <Section className="justify-center px-6">
       <div className="sm:w-10/12 flex flex-col pt-3 mt-12 mb-6">
         <H1>Om oss</H1>

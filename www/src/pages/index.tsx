@@ -10,7 +10,13 @@ import Greeting from '../organisms/Greeting';
 import ArrowLink from '../atoms/ArrowLink';
 
 const Index: FunctionComponent = () => (
-  <Layout title="Sincere Wines">
+  <Layout
+    title="Sincere Wines"
+    description="Vi är en svensk vinimportör med fokus på viner från Österrike.
+                De producenter vi väljer att samarbeta med har höga ambitioner
+                avseende både kvalitet och hållbarhet, är innovativa och visar
+                stor lyhördhet för vinmarknadens utveckling."
+  >
     <HeaderImage />
     <Section>
       <DetailedLinks />
