@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "project": {
+    "name": "Sincere Wines",
+    "basePath": "/admin"
+  },
+  "api": {
+    "projectId": "49w8mf8m",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/sincerewines.js"
+    }
+  ]
+}

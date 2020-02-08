@@ -1,7 +1,8 @@
-# Created by https://www.gitignore.io/api/node,linux,macos,windows,jetbrains+all,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=node,linux,macos,windows,jetbrains+all,visualstudiocode
 
-### JetBrains+all ###
+# Created by https://www.gitignore.io/api/node,linux,macos,windows,jetbrains,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=node,linux,macos,windows,jetbrains,visualstudiocode
+
+### JetBrains ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
@@ -35,6 +36,8 @@
 # .idea/modules.xml
 # .idea/*.iml
 # .idea/modules
+# *.iml
+# *.ipr
 
 # CMake
 cmake-build-*/
@@ -69,18 +72,23 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-### JetBrains+all Patch ###
-# Ignores the whole .idea folder and all .iml files
-# See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
+### JetBrains Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-.idea/
+# *.iml
+# modules.xml
+# .idea/misc.xml
+# *.ipr
 
-# Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
+# Sonarlint plugin
+.idea/**/sonarlint/
 
-*.iml
-modules.xml
-.idea/misc.xml
-*.ipr
+# SonarQube Plugin
+.idea/**/sonarIssues.xml
+
+# Markdown Navigator plugin
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator/
 
 ### Linux ###
 *~
@@ -132,6 +140,10 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Runtime data
 pids
@@ -144,6 +156,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+*.lcov
 
 # nyc test coverage
 .nyc_output
@@ -167,6 +180,9 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
+# TypeScript cache
+*.tsbuildinfo
+
 # Optional npm cache directory
 .npm
 
@@ -184,6 +200,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -194,14 +211,33 @@ typings/
 # nuxt.js build output
 .nuxt
 
+# rollup.js default build output
+dist/
+
+# Uncomment the public line if your project uses Gatsby
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# https://create-react-app.dev/docs/using-the-public-folder/#docsNav
+# public
+
+# Storybook build outputs
+.out
+.storybook-out
+
 # vuepress build output
 .vuepress/dist
 
 # Serverless directories
-.serverless
+.serverless/
 
 # FuseBox cache
 .fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# Temporary folders
+tmp/
+temp/
 
 ### VisualStudioCode ###
 .vscode/*
@@ -210,9 +246,14 @@ typings/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
@@ -235,8 +276,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/node,linux,macos,windows,jetbrains+all,visualstudiocode
-
-# Custom rules
-
-public
+# End of https://www.gitignore.io/api/node,linux,macos,windows,jetbrains,visualstudiocode

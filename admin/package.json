@@ -1,0 +1,42 @@
+{
+  "name": "sincerewines_admin",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Sincere Wines CMS",
+  "main": "package.json",
+  "author": "mini_dev <hello@minimize.se>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minimizelab/sincerewines",
+    "directory": "admin"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check",
+    "build": "sanity build public -y",
+    "deploy": "sanity graphql deploy"
+  },
+  "dependencies": {
+    "@sanity/base": "^0.147.8",
+    "@sanity/components": "^0.147.9",
+    "@sanity/core": "^0.147.9",
+    "@sanity/default-layout": "^0.147.9",
+    "@sanity/default-login": "^0.147.0",
+    "@sanity/desk-tool": "^0.147.9",
+    "@sanity/vision": "^0.147.9",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@sanity/cli": "^0.147.8",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "prettier": "^1.19.1"
+  }
+}
