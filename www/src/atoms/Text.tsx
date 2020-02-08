@@ -6,7 +6,11 @@ interface Props {
   white?: boolean;
 }
 
-const Text: FunctionComponent<Props> = ({ className, children, white }) => (
+const Text: FunctionComponent<Props> = ({
+  className = '',
+  children,
+  white = false,
+}) => (
   <p
     className={combineClasses([
       className,

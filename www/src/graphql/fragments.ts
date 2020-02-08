@@ -7,6 +7,7 @@ export const wineFragment = graphql`
     id
     link
     name
+    _rawDesc
     packageRequirement
     price
     type

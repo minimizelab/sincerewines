@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import Content from '@sanity/block-content-to-react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import H3 from '../atoms/H3';
@@ -11,6 +12,7 @@ import WineRow from '../molecules/WineRow';
 import ArrowLink from '../atoms/ArrowLink';
 import { Wine } from '../types/types';
 import { wineType, createGrapeString } from '../utils/functions';
+import { wineSerializers } from '../utils/serializers';
 
 interface Props {
   data: {
@@ -85,9 +87,7 @@ const WineTemplate: FunctionComponent<Props> = ({
             <div className="flex flex-col"></div>
           </div>
           <hr className="my-4"></hr>
-          {/* <Text className="py-2">{wine.description}</Text>
-          <Text className="py-2">{wine.reward}</Text>
-          <Text className="py-2 pb-6">{wine.food}</Text> */}
+          <Content blocks={wine._rawDesc} serializers={wineSerializers} />
           {wine.link && (
             <ArrowLink to={wine.link}>VINET HOS SYSTEMBOLAGET</ArrowLink>
           )}

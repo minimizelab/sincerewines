@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import Content from '@sanity/block-content-to-react';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
@@ -6,6 +7,7 @@ import { graphql } from 'gatsby';
 import H4 from '../atoms/H4';
 import Img from 'gatsby-image';
 import { Producer } from '../types/types';
+import { producerSerializers } from '../utils/serializers';
 
 interface Props {
   data: {
@@ -40,7 +42,10 @@ const ProducerTemplate: FunctionComponent<Props> = ({
         </div>
         <div className="flex flex-col w-full md:w-3/5 lg:w-3/4 p-4">
           <H4 className="pb-4">Om Producenten</H4>
-          {/* <MarkdownWrapper html={data.markdownRemark.html}></MarkdownWrapper> */}
+          <Content
+            blocks={producer._rawDesc}
+            serializers={producerSerializers}
+          />
         </div>
       </div>
     </Section>
