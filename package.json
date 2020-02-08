@@ -12,5 +12,7 @@
   "engines": {
     "node": "10.x"
   },
-  "scripts": {}
+  "scripts": {
+    "dev": "now dev --listen 3333"
+  }
 }
