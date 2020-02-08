@@ -9,19 +9,18 @@ import TypeIndicator from '../atoms/TypeIndicator';
 import Text from '../atoms/Text';
 import WineRow from '../molecules/WineRow';
 import ArrowLink from '../atoms/ArrowLink';
+import { Wine } from '../types/types';
+import { wineType, createGrapeString } from '../utils/functions';
 
 interface Props {
-  data: any; // TODO: Add types here
+  data: {
+    sanityWine: Wine;
+  };
 }
 
-const wineType = (type: string): string | null => {
-  if (type === 'red') return 'RÖDA VINER';
-  if (type === 'white') return 'VITA VINER';
-  if (type === 'rose') return 'ROSÉVINER';
-  return null;
-};
-
-const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
+const WineTemplate: FunctionComponent<Props> = ({
+  data: { sanityWine: wine },
+}) => (
   <Layout title={wine.name}>
     <Section className="justify-center">
       <div className="m-4 sm:m-8 flex flex-row flex-wrap w-full lg:w-2/3 bg-white rounded shadow p-10">
@@ -32,7 +31,7 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
                 objectFit: 'contain',
               }}
               className="h-full w-full"
-              fluid={wine.image.childImageSharp.fluid}
+              fluid={wine.image.asset.fluid}
             ></Img>
           </div>
         </div>
@@ -53,37 +52,42 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
           <div className="flex flex-wrap flex-row">
             <div className="flex flex-col w-full lg:w-1/2">
               <div className="lg:mr-6">
-                <WineRow title="Druva" value={wine.grape}></WineRow>
+                <WineRow
+                  title="Druva"
+                  value={createGrapeString(wine.grapes)}
+                ></WineRow>
                 <WineRow title="Distrikt" value={wine.district}></WineRow>
-                <WineRow title="Producent" value={wine.producer}></WineRow>
+                <WineRow title="Producent" value={wine.producer.name}></WineRow>
               </div>
             </div>
             <div className="flex flex-col w-full lg:w-1/2">
               <div className="lg:ml-6">
-                <WineRow
-                  title="Alkoholhalt"
-                  value={`${wine.alcohol} %`}
-                ></WineRow>
+                <WineRow title="Alkoholhalt" value={`${wine.alc} %`}></WineRow>
                 {wine.price === 0 ? (
                   <WineRow title="Pris" value="Kontakta oss"></WineRow>
                 ) : (
                   <WineRow
                     title="Pris"
                     value={`${wine.price} kr (
-                  ${wine.kollikrav ? 'Kollikrav' : 'Inget kollikrav'})`}
+                  ${
+                    wine.packageRequirement ? 'Kollikrav' : 'Inget kollikrav'
+                  })`}
                   ></WineRow>
                 )}
-                {wine.systembolaget === true && (
-                  <WineRow title="Artikel #" value={wine.articleNr}></WineRow>
+                {wine.link && (
+                  <WineRow
+                    title="Artikel #"
+                    value={wine.articleNumber}
+                  ></WineRow>
                 )}
               </div>
             </div>
             <div className="flex flex-col"></div>
           </div>
           <hr className="my-4"></hr>
-          <Text className="py-2">{wine.description}</Text>
+          {/* <Text className="py-2">{wine.description}</Text>
           <Text className="py-2">{wine.reward}</Text>
-          <Text className="py-2 pb-6">{wine.food}</Text>
+          <Text className="py-2 pb-6">{wine.food}</Text> */}
           {wine.link && (
             <ArrowLink to={wine.link}>VINET HOS SYSTEMBOLAGET</ArrowLink>
           )}
@@ -93,34 +97,19 @@ const Wine: FunctionComponent<Props> = ({ data: { winesJson: wine } }) => (
   </Layout>
 );
 
-export default Wine;
+export default WineTemplate;
 
 export const pageQuery = graphql`
   query WinePage($slug: String!) {
-    winesJson(slug: { eq: $slug }) {
-      alcohol
+    sanityWine(path: { current: { eq: $slug } }) {
+      ...Wine
       image {
-        childImageSharp {
+        asset {
           fluid(maxHeight: 500) {
-            ...GatsbyImageSharpFluid
+            ...GatsbySanityImageFluid
           }
         }
       }
-      description
-      reward
-      food
-      kollikrav
-      grape
-      systembolaget
-      link
-      name
-      price
-      producer
-      district
-      type
-      volume
-      year
-      articleNr
     }
   }
 `;

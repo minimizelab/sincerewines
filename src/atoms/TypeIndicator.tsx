@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { combineClasses } from '@minimizelab/mini_utils';
+import { WineType } from '../types/types';
 
 interface Props {
   className?: string;
-  type: string;
+  type: WineType;
 }
 
 const TypeIndicator: FunctionComponent<Props> = ({ className, type }) => (

@@ -32,6 +32,13 @@ module.exports = {
         path: path.join(__dirname, 'src', 'content', 'producers'),
       },
     },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: '49w8mf8m',
+        dataset: 'production',
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',

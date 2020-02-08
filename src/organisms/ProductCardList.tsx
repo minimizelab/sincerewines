@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import ProductCard from '../molecules/ProductCard';
+import { Wine } from '../types/types';
 
 interface Props {
   short?: boolean;
@@ -11,32 +12,21 @@ const ProductCardList: FunctionComponent<Props> = ({
   short,
   systembolaget,
 }) => {
-  const data = useStaticQuery(graphql`
+  const data: {
+    allSanityWine: { edges: Array<{ node: Wine }> };
+  } = useStaticQuery(graphql`
     query ProductItemsQuery {
-      allWinesJson {
+      allSanityWine {
         edges {
           node {
-            name
-            producer
-            year
-            grape
-            district
-            price
-            type
-            food
-            slug
-            alcohol
-            systembolaget
-            kollikrav
+            ...Wine
             image {
-              childImageSharp {
+              asset {
                 fixed(height: 140) {
-                  ...GatsbyImageSharpFixed
+                  ...GatsbySanityImageFixed
                 }
               }
             }
-            description
-            reward
           }
         }
       }
@@ -44,18 +34,18 @@ const ProductCardList: FunctionComponent<Props> = ({
   `);
   return (
     <div className="flex flex-row flex-wrap w-full justify-start self-center">
-      {data.allWinesJson.edges.map((edge: any, index: number) => {
+      {data.allSanityWine.edges.map((edge, index) => {
         if (short)
           return index < 4 ? (
-            <ProductCard key={index} item={edge.node} />
+            <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
         if (systembolaget) {
-          return edge.node.systembolaget ? (
-            <ProductCard key={index} item={edge.node} />
+          return edge.node.link ? (
+            <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
         } else {
-          return !edge.node.systembolaget ? (
-            <ProductCard key={index} item={edge.node} />
+          return !edge.node.link ? (
+            <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
         }
       })}
