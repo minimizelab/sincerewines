@@ -76,6 +76,13 @@ module.exports = {
         icon: config.siteIcon, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        printRejected: true,
+        tailwind: true,
+      },
+    },
     'gatsby-plugin-offline',
   ],
 };
