@@ -60,7 +60,6 @@
     "eslint-plugin-react": "^7.18.0",
     "gatsby-cli": "^2.8.27",
     "prettier": "^1.18.2",
-    "redux-devtools-extension": "^2.13.8",
     "tailwindcss": "^1.1.2",
     "typescript": "^3.7.5"
   }
