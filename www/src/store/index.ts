@@ -1,7 +1,14 @@
-import { createStore, Store } from 'redux';
-import reducer from './reducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { State, ActionTypes } from './types';
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import ui from './ui';
 
-export default (): Store<State, ActionTypes> =>
-  createStore(reducer, composeWithDevTools());
+const reducer = combineReducers({
+  ui,
+});
+
+const store = configureStore({ reducer });
+
+export type State = ReturnType<typeof reducer>;
+export type AppDispatch = typeof store.dispatch;
+
+export default store;

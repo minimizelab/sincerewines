@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import Logotype from '../atoms/Logotype';
 import NavLink from '../molecules/NavLink';
 import { useSelector, useDispatch } from 'react-redux';
-import { State } from '../store/types';
-import { setMenuOpen } from '../store/actions';
+import { State, AppDispatch } from '../store';
+import { actions } from '../store/ui';
 import Section from '../atoms/Section';
 import menuIcon from '../assets/menu.png';
 
@@ -17,10 +17,10 @@ const navList = [
 ];
 
 const Header: FunctionComponent = () => {
-  const dispatch = useDispatch();
-  const open = useSelector<State, boolean>(state => state.menuOpen);
+  const dispatch = useDispatch<AppDispatch>();
+  const open = useSelector<State, boolean>(state => state.ui.menuOpen);
   const toggleMenu = (): void => {
-    dispatch(setMenuOpen(!open));
+    dispatch(actions.menuToggled(!open));
   };
   return (
     <header className="bg-white z-10">
