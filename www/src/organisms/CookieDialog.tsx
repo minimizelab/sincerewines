@@ -1,18 +1,21 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import Button from '../molecules/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { State } from '../store/types';
-import { setDialogOpen } from '../store/actions';
+import { State } from '../store';
+import { actions } from '../store/ui';
 import H4 from '../atoms/H4';
 import Text from '../atoms/Text';
+import { AppDispatch } from '../store';
 
 const storageKey = 'acceptCookies';
 
 const CookieDialog: FunctionComponent = () => {
-  const dispatch = useDispatch();
-  const isOpen = useSelector<State, boolean>(state => state.cookieDialogOpen);
+  const dispatch = useDispatch<AppDispatch>();
+  const isOpen = useSelector<State, boolean>(
+    state => state.ui.cookieDialogOpen
+  );
   const closeDialog = (): void => {
-    dispatch(setDialogOpen(false));
+    dispatch(actions.cookieDialogToggled(false));
     if (window) {
       window.localStorage.setItem(storageKey, 'true');
     }
@@ -21,10 +24,10 @@ const CookieDialog: FunctionComponent = () => {
     if (window) {
       const accepted = window.localStorage.getItem(storageKey);
       if (accepted !== 'true') {
-        dispatch(setDialogOpen(true));
+        dispatch(actions.cookieDialogToggled(true));
       }
     } else {
-      dispatch(setDialogOpen(true));
+      dispatch(actions.cookieDialogToggled(true));
     }
   }, [dispatch]);
   return isOpen ? (
