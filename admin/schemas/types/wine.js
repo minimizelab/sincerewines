@@ -12,16 +12,6 @@ export default {
       validation: R => R.required(),
     },
     {
-      Title: 'Path',
-      name: 'path',
-      type: 'slug',
-      description: 'The unique url name for the wine',
-      validation: R => R.required(),
-      options: {
-        source: doc => doc.name + '-' + doc.year,
-      },
-    },
-    {
       title: 'Year',
       name: 'year',
       type: 'number',
@@ -31,6 +21,16 @@ export default {
           .integer()
           .min(1900)
           .max(9999),
+    },
+    {
+      Title: 'Path',
+      name: 'path',
+      type: 'slug',
+      description: 'The unique url name for the wine',
+      validation: R => R.required(),
+      options: {
+        source: doc => doc.name + '-' + doc.year,
+      },
     },
     {
       title: 'Grapes',
