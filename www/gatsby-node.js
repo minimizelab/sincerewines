@@ -59,4 +59,32 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
   });
+
+  const pagesQuery = await graphql(`
+    {
+      allSanityPage {
+        edges {
+          node {
+            path {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (pagesQuery.errors) {
+    throw new Error(pagesQuery.errors);
+  }
+
+  pagesQuery.data.allSanityPage.edges.forEach(({ node }) => {
+    createPage({
+      path: `/${node.path.current}`,
+      component: path.resolve('src/templates/Page.tsx'),
+      context: {
+        slug: node.path.current,
+      },
+    });
+  });
 };

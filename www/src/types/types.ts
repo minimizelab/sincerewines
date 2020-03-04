@@ -3,7 +3,7 @@ import { FluidObject, FixedObject } from 'gatsby-image';
 export interface Wine {
   name: string;
   producer: Producer;
-  _rawDesc: any;
+  _rawDesc: unknown;
   year: string;
   grapes: Array<Grape>;
   district: string;
@@ -17,6 +17,11 @@ export interface Wine {
   articleNumber: string;
   packageRequirement: boolean;
 }
+export interface Page {
+  title: string;
+  path: Slug;
+  _rawContent: unknown;
+}
 
 export interface Producer {
   name: string;
@@ -25,7 +30,7 @@ export interface Producer {
   intro: string;
   makers: Array<Maker>;
   images: Array<Image>;
-  _rawDesc: any;
+  _rawDesc: unknown;
   path: Slug;
   mainImg: Image;
 }

@@ -119,27 +119,3 @@ export default {
     },
   },
 };
-
-// const wine = {
-//   name: 'Kammern',
-//   producer: 'Hirsch',
-//   year: '2017',
-//   grape: 'Grüner Veltliner',
-//   district: 'Kamptal, Österrike',
-//   type: 'white',
-//   price: 199,
-//   volume: 75,
-//   kollikrav: false,
-//   food:
-//     'Läskande som apéritif, och utsökt till lite kraftigare fiskrätter eller lättare rätter av kyckling/kalkon eller fläskkött, samt till det asiatiska eller indiska köket med lite hetta.',
-//   alcohol: 12,
-//   articleNr: '78991',
-//   systembolaget: true,
-//   link: 'https://www.systembolaget.se/dryck/vita-viner/hirsch-7899101',
-//   image: '../images/kammern2016.png',
-//   slug: '/sortiment/kammern2017',
-//   reward:
-//     'Årgången 2017 fick 93/100 av James Suckling och 92/100 av Wine Enthusiast och Österrikes ledande vinmagasin Falstaff.',
-//   description:
-//     'Druvorna till denna klassiska Grüner Veltliner är hämtade från yngre vinstockar enbart odlade på Hirschs Erste Lagen-områden. Både spontanjäsning och lagring sker på ståltank. Doft och smak av frisk frukt dominerad av gröna päron samt citrus tillsammans med en lätt pepprighet och örtighet i avslutet. Inslag av mineral och distinkta syror ger en ljuvlig balans. Drickfärdigt, men något eller några års lagring kommer ge läckra mognadstoner.',
-// };
