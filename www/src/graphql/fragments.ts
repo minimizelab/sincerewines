@@ -25,6 +25,16 @@ export const wineFragment = graphql`
   }
 `;
 
+export const pageFragment = graphql`
+  fragment PageFragment on SanityPage {
+    title
+    path {
+      current
+    }
+    _rawContent
+  }
+`;
+
 export const producerFragment = graphql`
   fragment Producer on SanityProducer {
     id
