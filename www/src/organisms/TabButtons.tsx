@@ -1,27 +1,23 @@
 import React, { FunctionComponent } from 'react';
 import { combineClasses } from '@minimizelab/mini_utils';
-import { useSelector, useDispatch } from 'react-redux';
-import { State, AppDispatch } from '../store';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../store';
 import { actions } from '../store/ui';
 import TextUppercase from '../atoms/TextUppercase';
 
 interface Props {
-  onClick: () => void;
-  className?: string;
-  white?: boolean;
+  className?: string | { [key: string]: boolean };
+  privateImport: boolean;
 }
 
-const Button: FunctionComponent<Props> = ({ onClick, white, className }) => {
+const Button: FunctionComponent<Props> = ({ className, privateImport }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const privateImport = useSelector<State, boolean>(
-    state => state.ui.privateImport
-  );
   return (
-    <>
+    <div className="flex flex-wrap">
       <button
         onClick={() => dispatch(actions.importTypeToggled(true))}
         className={combineClasses([
-          'border py-3 px-6 flex items-center justify-center border-sincere-green outline-none',
+          'focus:outline-none border py-3 px-6 flex items-center justify-center border-sincere-green sm:w-1/2 w-full',
           {
             'bg-sincere-green text-white': privateImport,
           },
@@ -33,7 +29,7 @@ const Button: FunctionComponent<Props> = ({ onClick, white, className }) => {
       <button
         onClick={() => dispatch(actions.importTypeToggled(false))}
         className={combineClasses([
-          'border py-3 px-6 flex items-center justify-center border-sincere-green outline-none',
+          'focus:outline-none border py-3 px-6 flex items-center justify-center border-sincere-green sm:w-1/2 w-full',
           {
             'bg-sincere-green text-white': !privateImport,
           },
@@ -42,7 +38,7 @@ const Button: FunctionComponent<Props> = ({ onClick, white, className }) => {
       >
         <TextUppercase white={!privateImport}>Restaurang</TextUppercase>
       </button>
-    </>
+    </div>
   );
 };
 
