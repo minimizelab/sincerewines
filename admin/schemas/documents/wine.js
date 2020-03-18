@@ -106,13 +106,19 @@ export default {
       description: 'The type of the assortment',
       validation: R => R.required(),
       options: {
-        list: ['Privatimport', 'Ev. privatimport', 'Restaurang'],
+        list: [
+          'Privatimport',
+          'Ev. privatimport',
+          'Beställningssortiment',
+          'Restaurangsortiment',
+        ],
       },
     },
     {
       title: 'Price',
       name: 'price',
       type: 'number',
+      description: 'Price for private customers',
     },
     {
       title: 'Link',

@@ -13,6 +13,7 @@ export const wineFragment = graphql`
     type
     vol
     year
+    assortment
     grapes {
       name
     }

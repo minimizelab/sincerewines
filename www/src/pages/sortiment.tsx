@@ -9,8 +9,8 @@ import H4 from '../atoms/H4';
 import TabButtons from '../organisms/TabButtons';
 
 const Sortiment: FunctionComponent = () => {
-  const privateImport = useSelector<State, boolean>(
-    state => state.ui.privateImport
+  const privateCustomer = useSelector<State, boolean>(
+    state => state.ui.privateCustomer
   );
 
   return (
@@ -19,16 +19,16 @@ const Sortiment: FunctionComponent = () => {
         <H1>Våra Viner</H1>
       </Section>
       <Section className="flex-row justify-center mt-8 mb-6">
-        <TabButtons privateImport={privateImport} />
+        <TabButtons privateCustomer={privateCustomer} />
       </Section>
-      {privateImport ? (
+      {privateCustomer ? (
         <Section className="my-6 flex-col">
-          <H4 className="mx-6">Beställningssortiment för privatimport</H4>
-          <ProductCardList systembolaget />
+          <H4 className="mx-6">Sortiment för privata kunder</H4>
+          <ProductCardList privateCustomer />
         </Section>
       ) : (
-        <Section className="mb-8 flex-col">
-          <H4 className="mx-6">Beställningssortiment för restauranger</H4>
+        <Section className="my-6 flex-col">
+          <H4 className="mx-6">Sortiment för restauranger</H4>
           <ProductCardList />
         </Section>
       )}

@@ -12,6 +12,7 @@ export interface Wine {
   alc: number;
   id: string;
   link?: string;
+  assortment: string;
   image: Image;
   path: Slug;
   articleNumber: string;

@@ -3,7 +3,7 @@ import { createSlice, CaseReducer, PayloadAction } from '@reduxjs/toolkit';
 const initialState = {
   menuOpen: false,
   cookieDialogOpen: false,
-  privateImport: true,
+  privateCustomer: true,
 };
 
 type UiState = typeof initialState;
@@ -22,11 +22,11 @@ const cookieDialogToggled: CaseReducer<UiState, PayloadAction<boolean>> = (
   state.cookieDialogOpen = payload;
 };
 
-const importTypeToggled: CaseReducer<UiState, PayloadAction<boolean>> = (
+const customerTypeToggled: CaseReducer<UiState, PayloadAction<boolean>> = (
   state,
   { payload }
 ) => {
-  state.privateImport = payload;
+  state.privateCustomer = payload;
 };
 
 const ui = createSlice({
@@ -35,7 +35,7 @@ const ui = createSlice({
   reducers: {
     menuToggled,
     cookieDialogToggled,
-    importTypeToggled,
+    customerTypeToggled,
   },
 });
 
