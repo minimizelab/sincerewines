@@ -10,7 +10,7 @@ interface Props {
 const WineRow: FunctionComponent<Props> = ({ title, value }) => (
   <div className="flex flex-row justify-between items-center my-2">
     <TextUppercase>{title}</TextUppercase>
-    <Text>{value}</Text>
+    <Text className="text-right">{value}</Text>
   </div>
 );
 

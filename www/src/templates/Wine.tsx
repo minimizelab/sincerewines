@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import { useSelector } from 'react-redux';
+import { State } from '../store';
 import Content from '@sanity/block-content-to-react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
@@ -22,80 +24,112 @@ interface Props {
 
 const WineTemplate: FunctionComponent<Props> = ({
   data: { sanityWine: wine },
-}) => (
-  <Layout title={wine.name}>
-    <Section className="justify-center">
-      <div className="m-4 sm:m-8 flex flex-row flex-wrap w-full lg:w-2/3 bg-white rounded shadow p-10">
-        <div className="flex flex-col w-full lg:w-1/3 sm:pr-4 mb-4 lg:mb-0">
-          <div className="w-full h-400 lg:h-500">
-            <Img
-              imgStyle={{
-                objectFit: 'contain',
-              }}
-              className="h-full w-full"
-              fluid={wine.image.asset.fluid}
-            ></Img>
-          </div>
-        </div>
-
-        <div className="flex flex-col w-full lg:w-2/3">
-          <div className="flex flex-wrap flex-row items-between">
-            <div className="w-full sm:w-2/3">
-              <H1>{wine.name}</H1>
-              <H3>{wine.year}</H3>
-            </div>
-
-            <div className="w-full sm:w-1/3 flex flex-row justify-end mt-3">
-              <TypeIndicator type={wine.type} />
-              <Text className="pl-2">{wineType(wine.type)}</Text>
+}) => {
+  const privateCustomer = useSelector<State, boolean>(
+    state => state.ui.privateCustomer
+  );
+  return (
+    <Layout title={wine.name}>
+      <Section className="justify-center">
+        <div className="m-4 sm:m-8 flex flex-row flex-wrap w-full lg:w-2/3 bg-white rounded shadow p-10">
+          <div className="flex flex-col w-full lg:w-1/3 sm:pr-4 mb-4 lg:mb-0">
+            <div className="w-full h-400 lg:h-500">
+              <Img
+                imgStyle={{
+                  objectFit: 'contain',
+                }}
+                className="h-full w-full"
+                fluid={wine.image.asset.fluid}
+              ></Img>
             </div>
           </div>
-          <hr className="my-4"></hr>
-          <div className="flex flex-wrap flex-row">
-            <div className="flex flex-col w-full lg:w-1/2">
-              <div className="lg:mr-6">
-                <WineRow
-                  title="Druva"
-                  value={createGrapeString(wine.grapes)}
-                ></WineRow>
-                <WineRow title="Distrikt" value={wine.district}></WineRow>
-                <WineRow title="Producent" value={wine.producer.name}></WineRow>
+
+          <div className="flex flex-col w-full lg:w-2/3">
+            <div className="flex flex-wrap flex-row items-between">
+              <div className="w-full sm:w-2/3">
+                <H1>{wine.name}</H1>
+                <H3>{wine.year}</H3>
+              </div>
+
+              <div className="w-full sm:w-1/3 flex flex-row justify-end mt-3">
+                <TypeIndicator type={wine.type} />
+                <Text className="pl-2">{wineType(wine.type)}</Text>
               </div>
             </div>
-            <div className="flex flex-col w-full lg:w-1/2">
-              <div className="lg:ml-6">
-                <WineRow title="Alkoholhalt" value={`${wine.alc} %`}></WineRow>
-                {wine.price === 0 ? (
-                  <WineRow title="Pris" value="Kontakta oss"></WineRow>
-                ) : (
+            <hr className="my-4"></hr>
+            <div className="flex flex-wrap flex-row">
+              <div className="flex flex-col w-full lg:w-1/2">
+                <div className="lg:mr-6">
                   <WineRow
-                    title="Pris"
-                    value={`${wine.price} kr (
-                  ${
-                    wine.packageRequirement ? 'Kollikrav' : 'Inget kollikrav'
-                  })`}
+                    title="Druva"
+                    value={createGrapeString(wine.grapes)}
                   ></WineRow>
-                )}
-                {wine.link && (
+                  <WineRow title="Distrikt" value={wine.district}></WineRow>
                   <WineRow
-                    title="Artikel #"
-                    value={wine.articleNumber}
+                    title="Producent"
+                    value={wine.producer.name}
                   ></WineRow>
-                )}
+                </div>
               </div>
+              <div className="flex flex-col w-full lg:w-1/2">
+                <div className="lg:ml-6">
+                  <WineRow
+                    title="Alkoholhalt"
+                    value={`${wine.alc} %`}
+                  ></WineRow>
+                  {privateCustomer ? (
+                    <WineRow
+                      title={`Pris ${
+                        privateCustomer ? 'privat' : 'restaurang'
+                      }`}
+                      value={`${
+                        wine.price !== null
+                          ? wine.price +
+                            ' kr ' +
+                            (wine.packageRequirement
+                              ? '(Kollikrav)'
+                              : '(Inget kollikrav)')
+                          : 'Kontakta oss!'
+                      }`}
+                    ></WineRow>
+                  ) : (
+                    <WineRow
+                      title={`Pris ${
+                        privateCustomer ? 'privat' : 'restaurang'
+                      }`}
+                      value="Separat prislista"
+                    ></WineRow>
+                  )}
+                  {wine.assortment === 'Beställningssortiment' ? (
+                    <WineRow
+                      title="Artikel #"
+                      value={wine.articleNumber}
+                    ></WineRow>
+                  ) : (
+                    <WineRow
+                      title="Sortiment"
+                      value={wine.assortment}
+                    ></WineRow>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col"></div>
             </div>
-            <div className="flex flex-col"></div>
+            <hr className="my-4"></hr>
+            <Content blocks={wine._rawDesc} serializers={wineSerializers} />
+            {wine.link && (
+              <ArrowLink to={wine.link}>
+                {wine.assortment === 'Beställningssortiment'
+                  ? 'VINET HOS SYSTEMBOLAGET'
+                  : 'BESTÄLL FRÅN SYSTEMBOLAGET'}
+              </ArrowLink>
+            )}
           </div>
-          <hr className="my-4"></hr>
-          <Content blocks={wine._rawDesc} serializers={wineSerializers} />
-          {wine.link && (
-            <ArrowLink to={wine.link}>VINET HOS SYSTEMBOLAGET</ArrowLink>
-          )}
         </div>
-      </div>
-    </Section>
-  </Layout>
-);
+      </Section>
+    </Layout>
+  );
+};
 
 export default WineTemplate;
 

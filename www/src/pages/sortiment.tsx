@@ -15,7 +15,7 @@ const Sortiment: FunctionComponent = () => {
 
   return (
     <Layout title="Sortiment" description="Våra viner">
-      <Section className="flex-row justify-center pt-3 mt-12 mb-6">
+      <Section className="flex-row justify-center pt-3 mt-12">
         <H1>Våra Viner</H1>
       </Section>
       <Section className="flex-row justify-center mt-8 mb-6">

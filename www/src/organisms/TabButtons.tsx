@@ -17,7 +17,7 @@ const Button: FunctionComponent<Props> = ({ className, privateCustomer }) => {
       <button
         onClick={() => dispatch(actions.customerTypeToggled(true))}
         className={combineClasses([
-          'focus:outline-none border py-3 px-6 flex items-center justify-center border-sincere-green sm:w-1/2 w-full',
+          'focus:outline-none border flex py-3 px-6 items-center justify-center border-sincere-green sm:w-1/2 w-full',
           {
             'bg-sincere-green text-white': privateCustomer,
           },
