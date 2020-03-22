@@ -5,13 +5,18 @@ import { Wine } from '../types/types';
 
 interface Props {
   short?: boolean;
-  systembolaget?: boolean;
+  privateCustomer?: boolean;
 }
 
 const ProductCardList: FunctionComponent<Props> = ({
   short,
-  systembolaget,
+  privateCustomer,
 }) => {
+  const privateCustomerTypes = [
+    'Privatimport',
+    'Ev. privatimport',
+    'Beställningssortiment',
+  ];
   const data: {
     allSanityWine: { edges: Array<{ node: Wine }> };
   } = useStaticQuery(graphql`
@@ -39,14 +44,12 @@ const ProductCardList: FunctionComponent<Props> = ({
           return index < 4 ? (
             <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
-        if (systembolaget) {
-          return edge.node.link ? (
+        if (privateCustomer) {
+          return privateCustomerTypes.includes(edge.node.assortment) ? (
             <ProductCard key={edge.node.id} item={edge.node} />
           ) : null;
         } else {
-          return !edge.node.link ? (
-            <ProductCard key={edge.node.id} item={edge.node} />
-          ) : null;
+          return <ProductCard key={edge.node.id} item={edge.node} />;
         }
       })}
     </div>

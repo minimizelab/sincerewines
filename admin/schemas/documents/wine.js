@@ -100,9 +100,25 @@ export default {
       description: 'The percentage of alcohol',
     },
     {
+      title: 'Assortment',
+      name: 'assortment',
+      type: 'string',
+      description: 'The type of the assortment',
+      validation: R => R.required(),
+      options: {
+        list: [
+          'Privatimport',
+          'Ev. privatimport',
+          'Beställningssortiment',
+          'Restaurangsortiment',
+        ],
+      },
+    },
+    {
       title: 'Price',
       name: 'price',
       type: 'number',
+      description: 'Price for private customers',
     },
     {
       title: 'Link',
