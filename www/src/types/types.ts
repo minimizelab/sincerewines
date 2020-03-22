@@ -6,7 +6,7 @@ export interface Wine {
   _rawDesc: unknown;
   year: string;
   grapes: Array<Grape>;
-  district: string;
+  district: District;
   type: WineType;
   price: number;
   alc: number;
@@ -17,6 +17,19 @@ export interface Wine {
   path: Slug;
   articleNumber: string;
   packageRequirement: boolean;
+}
+
+export interface WineCase {
+  name: string;
+  _rawDesc: unknown;
+  wines: Array<Wine>;
+  price: number;
+  id: string;
+  link?: string;
+  assortment: string;
+  image?: Image;
+  path: Slug;
+  articleNumber?: string;
 }
 export interface Page {
   title: string;
@@ -50,6 +63,10 @@ export interface Producer {
 
 export interface Grape {
   name: string;
+}
+export interface District {
+  name: string;
+  country: string;
 }
 
 export interface Slug {
