@@ -46,6 +46,14 @@ export default {
       validation: R => R.required(),
     },
     {
+      title: 'District',
+      name: 'district',
+      description: 'The district where the wine is produced',
+      type: 'reference',
+      to: [{ type: 'district' }],
+      validation: R => R.required(),
+    },
+    {
       title: 'Type',
       name: 'type',
       type: 'string',

@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux';
 import { State } from '../store';
 import Content from '@sanity/block-content-to-react';
 import { graphql } from 'gatsby';
-import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
-import H3 from '../atoms/H3';
+import Img from 'gatsby-image';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
@@ -12,48 +11,44 @@ import TypeIndicator from '../atoms/TypeIndicator';
 import Text from '../atoms/Text';
 import WineRow from '../molecules/WineRow';
 import ArrowLink from '../atoms/ArrowLink';
-import { Wine } from '../types/types';
+import { WineCase } from '../types/types';
 import { wineType, createGrapeString } from '../utils/functions';
 import { wineSerializers } from '../utils/serializers';
 
 interface Props {
   data: {
-    sanityWine: Wine;
+    sanityWineCase: WineCase;
   };
 }
 
-const WineTemplate: FunctionComponent<Props> = ({
-  data: { sanityWine: wine },
+const WineCaseTemplate: FunctionComponent<Props> = ({
+  data: { sanityWineCase: wineCase },
 }) => {
   const privateCustomer = useSelector<State, boolean>(
     state => state.ui.privateCustomer
   );
-  const imageProps = useSanityImage({
-    baseUrl: wine.image.asset.url,
-    size: { height: 500 },
-  });
+  console.log(wineCase.caseWines);
+  const wine = wineCase.caseWines[0];
   return (
-    <Layout title={wine.name}>
+    <Layout title={wineCase.name}>
       <Section className="justify-center">
         <div className="m-4 sm:m-8 flex flex-row flex-wrap w-full lg:w-2/3 bg-white rounded shadow p-10">
           <div className="flex flex-col w-full lg:w-1/3 sm:pr-4 mb-4 lg:mb-0">
-            <div className="w-full h-400 lg:h-500 items-center justify-center flex">
-              <Image
-                {...imageProps}
-                aspectRatio={wine.image.asset.metadata.dimensions.aspectRatio}
+            <div className="w-full h-400 lg:h-500">
+              <Img
                 imgStyle={{
                   objectFit: 'contain',
                 }}
                 className="h-full w-full"
-              />
+                fluid={wineCase.image && wineCase.image.asset.fluid}
+              ></Img>
             </div>
           </div>
 
           <div className="flex flex-col w-full lg:w-2/3">
             <div className="flex flex-wrap flex-row items-between">
               <div className="w-full sm:w-2/3">
-                <H1>{wine.name}</H1>
-                <H3>{wine.year}</H3>
+                <H1>{wineCase.name}</H1>
               </div>
 
               <div className="w-full sm:w-1/3 flex flex-row justify-end mt-3">
@@ -94,12 +89,8 @@ const WineTemplate: FunctionComponent<Props> = ({
                         privateCustomer ? 'privat' : 'restaurang'
                       }`}
                       value={`${
-                        wine.price !== null
-                          ? wine.price +
-                            ' kr ' +
-                            (wine.packageRequirement
-                              ? '(Kollikrav)'
-                              : '(Inget kollikrav)')
+                        wineCase.price !== null
+                          ? wineCase.price + ' kr '
                           : 'Kontakta oss!'
                       }`}
                     ></WineRow>
@@ -119,7 +110,7 @@ const WineTemplate: FunctionComponent<Props> = ({
                   ) : (
                     <WineRow
                       title="Sortiment"
-                      value={wine.assortment}
+                      value={wineCase.assortment}
                     ></WineRow>
                   )}
                 </div>
@@ -130,7 +121,7 @@ const WineTemplate: FunctionComponent<Props> = ({
             <Content blocks={wine._rawDesc} serializers={wineSerializers} />
             {wine.link && (
               <ArrowLink to={wine.link}>
-                {wine.assortment === 'Beställningssortiment'
+                {wineCase.assortment === 'Beställningssortiment'
                   ? 'VINET HOS SYSTEMBOLAGET'
                   : 'BESTÄLL FRÅN SYSTEMBOLAGET'}
               </ArrowLink>
@@ -142,19 +133,16 @@ const WineTemplate: FunctionComponent<Props> = ({
   );
 };
 
-export default WineTemplate;
+export default WineCaseTemplate;
 
 export const pageQuery = graphql`
-  query WinePage($slug: String!) {
-    sanityWine(path: { current: { eq: $slug } }) {
-      ...Wine
+  query WineCasePage($slug: String!) {
+    sanityWineCase(path: { current: { eq: $slug } }) {
+      ...WineCase
       image {
         asset {
-          url
-          metadata {
-            dimensions {
-              aspectRatio
-            }
+          fluid(maxHeight: 500) {
+            ...GatsbySanityImageFluid
           }
         }
       }

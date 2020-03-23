@@ -10,10 +10,15 @@ export const wineFragment = graphql`
     _rawDesc
     packageRequirement
     price
-    type
+    _type
     vol
     year
+    type
     assortment
+    district {
+      name
+      country
+    }
     grapes {
       name
     }
@@ -22,6 +27,28 @@ export const wineFragment = graphql`
     }
     producer {
       name
+    }
+  }
+`;
+
+export const wineCaseFragment = graphql`
+  fragment WineCase on SanityWineCase {
+    id
+    link
+    name
+    _type
+    _rawDesc
+    price
+    assortment
+    articleNumber
+    caseWines {
+      quantity
+      wine {
+        name
+      }
+    }
+    path {
+      current
     }
   }
 `;
