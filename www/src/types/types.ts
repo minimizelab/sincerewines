@@ -4,6 +4,7 @@ export interface Wine {
   name: string;
   producer: Producer;
   _rawDesc: unknown;
+  _type: string;
   year: string;
   grapes: Array<Grape>;
   district: District;
@@ -22,7 +23,8 @@ export interface Wine {
 export interface WineCase {
   name: string;
   _rawDesc: unknown;
-  wines: Array<Wine>;
+  _type: string;
+  caseWines: Array<Wine>;
   price: number;
   id: string;
   link?: string;

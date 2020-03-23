@@ -1,57 +1,41 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import ProductCard from '../molecules/ProductCard';
-import { Wine } from '../types/types';
+import { Wine, WineCase } from '../types/types';
 
 interface Props {
   short?: boolean;
   privateCustomer?: boolean;
+  data: { node: Wine | WineCase }[];
 }
 
 const ProductCardList: FunctionComponent<Props> = ({
   short,
   privateCustomer,
+  data,
 }) => {
   const privateCustomerTypes = [
     'Privatimport',
     'Ev. privatimport',
     'Beställningssortiment',
   ];
-  const data: {
-    allSanityWine: { edges: Array<{ node: Wine }> };
-  } = useStaticQuery(graphql`
-    query ProductItemsQuery {
-      allSanityWine {
-        edges {
-          node {
-            ...Wine
-            image {
-              asset {
-                fixed(height: 140) {
-                  ...GatsbySanityImageFixed
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
   return (
     <div className="flex flex-row flex-wrap w-full justify-start self-center">
-      {data.allSanityWine.edges.map((edge, index) => {
-        if (short)
+      {data &&
+        data.map((edge, index) => {
+          /*         if (short)
           return index < 4 ? (
             <ProductCard key={edge.node.id} item={edge.node} />
-          ) : null;
-        if (privateCustomer) {
-          return privateCustomerTypes.includes(edge.node.assortment) ? (
-            <ProductCard key={edge.node.id} item={edge.node} />
-          ) : null;
-        } else {
-          return <ProductCard key={edge.node.id} item={edge.node} />;
-        }
-      })}
+          ) : null; */
+          if (privateCustomer) {
+            return privateCustomerTypes.includes(edge.node.assortment) ? (
+              edge.node._type === 'wine' ? (
+                <ProductCard key={edge.node.id} item={edge.node as Wine} />
+              ) : null
+            ) : null;
+          } else {
+            return <ProductCard key={edge.node.id} item={edge.node as Wine} />;
+          }
+        })}
     </div>
   );
 };

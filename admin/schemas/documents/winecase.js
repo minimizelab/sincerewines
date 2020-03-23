@@ -1,6 +1,6 @@
 export default {
   title: 'Mixed Wine Case',
-  name: 'winecase',
+  name: 'wineCase',
   type: 'document',
   description: 'A mixed wine case',
   fields: [
@@ -23,7 +23,7 @@ export default {
     },
     {
       title: 'Wines',
-      name: 'casewines',
+      name: 'caseWines',
       type: 'array',
       description: 'The wines of in the mixed wine case',
       of: [

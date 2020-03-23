@@ -10,9 +10,10 @@ export const wineFragment = graphql`
     _rawDesc
     packageRequirement
     price
-    type
+    _type
     vol
     year
+    type
     assortment
     district {
       name
@@ -35,14 +36,16 @@ export const wineCaseFragment = graphql`
     id
     link
     name
+    _type
     _rawDesc
     price
     assortment
     articleNumber
-    wines {
-      name
-      year
-      producer
+    caseWines {
+      quantity
+      wine {
+        name
+      }
     }
     path {
       current

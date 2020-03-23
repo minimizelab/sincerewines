@@ -27,7 +27,8 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
   const privateCustomer = useSelector<State, boolean>(
     state => state.ui.privateCustomer
   );
-  const wine = wineCase.wines[0];
+  console.log(wineCase.caseWines);
+  const wine = wineCase.caseWines[0];
   return (
     <Layout title={wineCase.name}>
       <Section className="justify-center">

@@ -10,7 +10,7 @@ import maker from './documents/maker';
 import grape from './documents/grape';
 import district from './documents/district';
 import producer from './documents/producer';
-import winecase from './documents/winecase';
+import wineCase from './documents/wineCase';
 // import post from './types/post';
 import page from './documents/page';
 
@@ -30,7 +30,7 @@ export default createSchema({
     grape,
     district,
     producer,
-    winecase,
+    wineCase,
     page,
     arrowLink,
     wineQuantity,
