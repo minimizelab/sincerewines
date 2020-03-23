@@ -6,6 +6,7 @@ export default {
   icon: MdSettings,
   type: 'document',
   __experimental_actions: [/* 'create', 'delete', */ 'update', 'publish'],
+  fieldsets: [{ name: 'social', title: 'Social links' }],
   fields: [
     {
       title: 'Site Title',
@@ -19,6 +20,18 @@ export default {
       name: 'menuItems',
       type: 'array',
       of: [{ type: 'menuItem' }],
+    },
+    {
+      title: 'Facebook',
+      name: 'facebook',
+      type: 'string',
+      fieldset: 'social',
+    },
+    {
+      title: 'Instagram',
+      name: 'instagram',
+      type: 'string',
+      fieldset: 'social',
     },
   ],
 };
