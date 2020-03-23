@@ -11,12 +11,15 @@ import grape from './documents/grape';
 import district from './documents/district';
 import producer from './documents/producer';
 import wineCase from './documents/wineCase';
+import settings from './documents/settings';
+import homePage from './documents/homePage';
 // import post from './types/post';
 import page from './documents/page';
 
 // Import object types
 import arrowLink from './objects/arrowLink';
 import wineQuantity from './objects/wineQuantity';
+import actionLink from './objects/actionLink';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -26,6 +29,9 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     wine,
+    settings,
+    homePage,
+    actionLink,
     maker,
     grape,
     district,

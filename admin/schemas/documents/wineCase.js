@@ -26,11 +26,7 @@ export default {
       name: 'caseWines',
       type: 'array',
       description: 'The wines of in the mixed wine case',
-      of: [
-        {
-          type: 'wineQuantity',
-        },
-      ],
+      of: [{ type: 'wineQuantity' }],
       validation: R => R.required(),
     },
     {
