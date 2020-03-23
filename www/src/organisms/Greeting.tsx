@@ -1,11 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import Content from '@sanity/block-content-to-react';
 import H4 from '../atoms/H4';
 import TextLarge from '../atoms/TextLarge';
 import ArrowLink from '../atoms/ArrowLink';
+import { greetingSerializer } from '../utils/serializers';
 
-const Greeting: FunctionComponent = () => {
+interface Props {
+  title: string;
+  body: unknown;
+}
+
+const Greeting: FunctionComponent<Props> = ({ title, body }) => {
   const data: any = useStaticQuery(graphql`
     query {
       file(
@@ -23,8 +30,9 @@ const Greeting: FunctionComponent = () => {
   return (
     <div className="flex flex-row flex-wrap justify-between rounded shadow bg-white mx-2 sm:mx-6 my-8 md:my-16">
       <div className="w-full md:w-2/3 p-10">
-        <H4 className="mb-3">Välkomna till Sincere Wines!</H4>
-        <TextLarge className="py-5">
+        <H4 className="mb-4">{title}</H4>
+        <Content blocks={body} serializers={greetingSerializer} />
+        {/* <TextLarge className="py-5">
           Vi har valt att fokusera på det fantastiska vinlandet Österrike för
           att vi älskar dessa viner.
         </TextLarge>
@@ -40,7 +48,7 @@ const Greeting: FunctionComponent = () => {
           vinland och öka kunskapen om österrikiska viner i Sverige.
         </TextLarge>
         <TextLarge className="mb-4">Vill du veta mer?</TextLarge>
-        <ArrowLink to="/nyheter">anmäl dig till vårt nyhetsbrev</ArrowLink>
+        <ArrowLink to="/nyheter">anmäl dig till vårt nyhetsbrev</ArrowLink> */}
       </div>
       <div className="w-full md:w-1/3 max-h-800">
         <Img

@@ -12,9 +12,14 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Wine } from '../types/types';
 
 interface Data {
-  sanityHomePage: {
+  sanitySettings: {
     title: string;
-    subTitle: string;
+  };
+  sanityHomePage: {
+    headerTitle: string;
+    headerSubTitle: string;
+    _rawGreetingContent: unknown;
+    greetingTitle: string;
     wines: Wine[];
     links: { title: string; subTitle: string; link: string }[];
   };
@@ -22,12 +27,23 @@ interface Data {
 
 const Index: FunctionComponent = () => {
   const {
-    sanityHomePage: { title, subTitle, links, wines },
+    sanitySettings: { title },
+    sanityHomePage: {
+      headerTitle,
+      headerSubTitle,
+      links,
+      wines,
+      _rawGreetingContent,
+      greetingTitle,
+    },
   } = useStaticQuery<Data>(graphql`
     query homePageQuery {
-      sanityHomePage {
+      sanitySettings {
         title
-        subTitle
+      }
+      sanityHomePage {
+        headerTitle
+        headerSubTitle
         wines {
           ...Wine
           image {
@@ -46,18 +62,20 @@ const Index: FunctionComponent = () => {
           subTitle
           link
         }
+        greetingTitle
+        _rawGreetingContent
       }
     }
   `);
   return (
     <Layout
-      title="Sincere Wines"
+      title={title}
       description="Vi är en svensk vinimportör med fokus på viner från Österrike.
                 De producenter vi väljer att samarbeta med har höga ambitioner
                 avseende både kvalitet och hållbarhet, är innovativa och visar
                 stor lyhördhet för vinmarknadens utveckling."
     >
-      <HeaderImage title={title} subTitle={subTitle} />
+      <HeaderImage title={headerTitle} subTitle={headerSubTitle} />
       <Section>
         <DetailedLinks links={links} />
       </Section>
@@ -70,7 +88,7 @@ const Index: FunctionComponent = () => {
       </Section>
       <QuoteImage />
       <Section>
-        <Greeting />
+        <Greeting title={greetingTitle} body={_rawGreetingContent} />
       </Section>
     </Layout>
   );

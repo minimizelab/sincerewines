@@ -25,6 +25,19 @@ export const pageSerializers = {
   },
 };
 
+export const greetingSerializer = {
+  types: {
+    block: (props: any): ReactNode => (
+      <TextLarge className="py-2">{props.children}</TextLarge>
+    ),
+    arrowLink: (props: any): ReactNode => (
+      <ArrowLink className="my-4" to={props.node.link}>
+        {props.node.title}
+      </ArrowLink>
+    ),
+  },
+};
+
 export const producerSerializers = {
   types: {
     block: (props: any): ReactNode => (
