@@ -29,7 +29,7 @@ export default {
       name: 'content',
       type: 'array',
       description: 'Content of the page',
-      of: [{ type: 'block' }, { type: 'arrowLink' }],
+      of: [{ type: 'block' }, { type: 'link' }],
       validation: R => R.required(),
     },
   ],

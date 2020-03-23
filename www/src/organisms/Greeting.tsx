@@ -3,8 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Content from '@sanity/block-content-to-react';
 import H4 from '../atoms/H4';
-import TextLarge from '../atoms/TextLarge';
-import ArrowLink from '../atoms/ArrowLink';
 import { greetingSerializer } from '../utils/serializers';
 
 interface Props {

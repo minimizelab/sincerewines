@@ -19,7 +19,7 @@ export default {
       title: 'Menu items',
       name: 'menuItems',
       type: 'array',
-      of: [{ type: 'menuItem' }],
+      of: [{ type: 'link' }],
     },
     {
       title: 'Facebook',

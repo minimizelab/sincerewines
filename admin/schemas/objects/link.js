@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'menuItem',
-  title: 'Menu Item',
+  name: 'link',
+  title: 'Link',
   fields: [
     {
       title: 'Title',

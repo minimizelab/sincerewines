@@ -5,13 +5,15 @@ import { graphql, navigate, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
 import TextLarge from '../atoms/TextLarge';
+import { Link } from '../types/types';
 
 interface Props {
   title: string;
   subTitle: string;
+  link: Link;
 }
 
-const HeaderImage: FunctionComponent<Props> = ({ title, subTitle }) => {
+const HeaderImage: FunctionComponent<Props> = ({ title, subTitle, link }) => {
   const data = useStaticQuery(graphql`
     query {
       file(
@@ -43,10 +45,10 @@ const HeaderImage: FunctionComponent<Props> = ({ title, subTitle }) => {
           <Button
             white
             onClick={(): void => {
-              navigate('/nyheter');
+              navigate(link.link);
             }}
           >
-            anmälan nyhetsbrev
+            {link.title}
           </Button>
         </div>
       </Section>

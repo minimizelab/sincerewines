@@ -17,7 +17,7 @@ export const pageSerializers = {
     block: (props: any): ReactNode => (
       <TextLarge className="my-2">{props.children}</TextLarge>
     ),
-    arrowLink: (props: any): ReactNode => (
+    link: (props: any): ReactNode => (
       <ArrowLink className="my-2" to={props.node.link}>
         {props.node.title}
       </ArrowLink>
@@ -30,7 +30,7 @@ export const greetingSerializer = {
     block: (props: any): ReactNode => (
       <TextLarge className="py-2">{props.children}</TextLarge>
     ),
-    arrowLink: (props: any): ReactNode => (
+    link: (props: any): ReactNode => (
       <ArrowLink className="my-4" to={props.node.link}>
         {props.node.title}
       </ArrowLink>

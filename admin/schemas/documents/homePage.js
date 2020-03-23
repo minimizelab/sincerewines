@@ -9,6 +9,7 @@ export default {
   description: 'The home page',
   fieldsets: [
     { name: 'header', title: 'Header section' },
+    { name: 'quote', title: 'Quote section' },
     { name: 'greeting', title: 'Greeting section' },
   ],
   fields: [
@@ -30,6 +31,13 @@ export default {
       fieldset: 'header',
     },
     {
+      title: 'Button link',
+      name: 'headerAction',
+      type: 'link',
+      validation: R => R.required(),
+      fieldset: 'header',
+    },
+    {
       title: 'Links',
       name: 'links',
       type: 'array',
@@ -44,6 +52,21 @@ export default {
       validation: R => R.max(4),
     },
     {
+      title: 'Quote',
+      name: 'quote',
+      type: 'text',
+      rows: 5,
+      validation: R => R.required(),
+      fieldset: 'quote',
+    },
+    {
+      title: 'Button link',
+      name: 'quoteAction',
+      type: 'link',
+      validation: R => R.required(),
+      fieldset: 'quote',
+    },
+    {
       title: 'Title',
       name: 'greetingTitle',
       type: 'string',
@@ -56,7 +79,7 @@ export default {
       name: 'greetingContent',
       type: 'array',
       description: 'The body of the content section',
-      of: [{ type: 'block' }, { type: 'arrowLink' }],
+      of: [{ type: 'block' }, { type: 'link' }],
       validation: R => R.required(),
       fieldset: 'greeting',
     },

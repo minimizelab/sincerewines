@@ -75,6 +75,11 @@ export interface Slug {
   current: string;
 }
 
+export interface Link {
+  title: string;
+  link: string;
+}
+
 export interface Image {
   asset: {
     id: string;

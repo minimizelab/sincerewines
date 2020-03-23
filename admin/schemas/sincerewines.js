@@ -17,10 +17,9 @@ import homePage from './documents/homePage';
 import page from './documents/page';
 
 // Import object types
-import arrowLink from './objects/arrowLink';
 import wineQuantity from './objects/wineQuantity';
 import actionLink from './objects/actionLink';
-import menuItem from './objects/menuItem';
+import link from './objects/link';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -32,7 +31,7 @@ export default createSchema({
     wine,
     settings,
     homePage,
-    menuItem,
+    link,
     actionLink,
     maker,
     grape,
@@ -40,7 +39,6 @@ export default createSchema({
     producer,
     wineCase,
     page,
-    arrowLink,
     wineQuantity,
   ]),
 });

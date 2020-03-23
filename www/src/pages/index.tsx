@@ -9,7 +9,7 @@ import QuoteImage from '../organisms/QuoteImage';
 import Greeting from '../organisms/Greeting';
 import ArrowLink from '../atoms/ArrowLink';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Wine } from '../types/types';
+import { Wine, Link } from '../types/types';
 
 interface Data {
   sanitySettings: {
@@ -18,8 +18,11 @@ interface Data {
   sanityHomePage: {
     headerTitle: string;
     headerSubTitle: string;
+    headerAction: Link;
     _rawGreetingContent: unknown;
     greetingTitle: string;
+    quote: string;
+    quoteAction: Link;
     wines: Wine[];
     links: { title: string; subTitle: string; link: string }[];
   };
@@ -31,8 +34,11 @@ const Index: FunctionComponent = () => {
     sanityHomePage: {
       headerTitle,
       headerSubTitle,
+      headerAction,
       links,
       wines,
+      quote,
+      quoteAction,
       _rawGreetingContent,
       greetingTitle,
     },
@@ -44,6 +50,10 @@ const Index: FunctionComponent = () => {
       sanityHomePage {
         headerTitle
         headerSubTitle
+        headerAction {
+          title
+          link
+        }
         wines {
           ...Wine
           image {
@@ -62,6 +72,11 @@ const Index: FunctionComponent = () => {
           subTitle
           link
         }
+        quote
+        quoteAction {
+          title
+          link
+        }
         greetingTitle
         _rawGreetingContent
       }
@@ -75,7 +90,11 @@ const Index: FunctionComponent = () => {
                 avseende både kvalitet och hållbarhet, är innovativa och visar
                 stor lyhördhet för vinmarknadens utveckling."
     >
-      <HeaderImage title={headerTitle} subTitle={headerSubTitle} />
+      <HeaderImage
+        title={headerTitle}
+        subTitle={headerSubTitle}
+        link={headerAction}
+      />
       <Section>
         <DetailedLinks links={links} />
       </Section>
@@ -86,7 +105,7 @@ const Index: FunctionComponent = () => {
           <ArrowLink to="/sortiment">Våra viner</ArrowLink>
         </div>
       </Section>
-      <QuoteImage />
+      <QuoteImage text={quote} link={quoteAction} />
       <Section>
         <Greeting title={greetingTitle} body={_rawGreetingContent} />
       </Section>
