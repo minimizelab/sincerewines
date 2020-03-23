@@ -32,23 +32,6 @@ const Greeting: FunctionComponent<Props> = ({ title, body }) => {
       <div className="w-full md:w-2/3 p-10">
         <H4 className="mb-4">{title}</H4>
         <Content blocks={body} serializers={greetingSerializer} />
-        {/* <TextLarge className="py-5">
-          Vi har valt att fokusera på det fantastiska vinlandet Österrike för
-          att vi älskar dessa viner.
-        </TextLarge>
-        <TextLarge>
-          Våra utvalda producenter har en gemensam filosofi där kvalitet,
-          tradition och bevarande av druvornas och markernas naturliga karaktär
-          är det centrala i allt arbete på vingården.
-        </TextLarge>
-        <TextLarge className="py-5">
-          Vår målsättning är att representera våra producenter och deras viner
-          på ett sätt som motsvarar deras ambitionsnivå och innerlighet. Vi vill
-          också gärna bidra till att väcka en större nyfikenhet om Österrike som
-          vinland och öka kunskapen om österrikiska viner i Sverige.
-        </TextLarge>
-        <TextLarge className="mb-4">Vill du veta mer?</TextLarge>
-        <ArrowLink to="/nyheter">anmäl dig till vårt nyhetsbrev</ArrowLink> */}
       </div>
       <div className="w-full md:w-1/3 max-h-800">
         <Img
