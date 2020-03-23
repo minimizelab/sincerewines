@@ -29,8 +29,11 @@ const Sortiment: FunctionComponent = () => {
             ...Wine
             image {
               asset {
-                fixed(height: 140) {
-                  ...GatsbySanityImageFixed
+                url
+                metadata {
+                  dimensions {
+                    aspectRatio
+                  }
                 }
               }
             }
@@ -43,8 +46,11 @@ const Sortiment: FunctionComponent = () => {
             ...WineCase
             image {
               asset {
-                fixed(height: 140) {
-                  ...GatsbySanityImageFixed
+                url
+                metadata {
+                  dimensions {
+                    aspectRatio
+                  }
                 }
               }
             }
