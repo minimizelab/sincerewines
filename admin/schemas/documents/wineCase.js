@@ -1,7 +1,10 @@
+import { GiCardboardBox } from 'react-icons/gi';
+
 export default {
   title: 'Mixed Wine Case',
   name: 'wineCase',
   type: 'document',
+  icon: GiCardboardBox,
   description: 'A mixed wine case',
   fields: [
     {

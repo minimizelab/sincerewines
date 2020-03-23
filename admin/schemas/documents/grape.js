@@ -1,7 +1,10 @@
+import { GiGrapes } from 'react-icons/gi';
+
 export default {
   title: 'Grape',
   name: 'grape',
   type: 'document',
+  icon: GiGrapes,
   description: 'A type of grape',
   fields: [
     {

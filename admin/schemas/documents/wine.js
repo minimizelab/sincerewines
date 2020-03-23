@@ -1,7 +1,10 @@
+import { GiWineBottle } from 'react-icons/gi';
+
 export default {
   title: 'Wine',
   name: 'wine',
   type: 'document',
+  icon: GiWineBottle,
   description: 'A wine',
   fields: [
     {

@@ -1,7 +1,10 @@
+import { IoMdDocument } from 'react-icons/io';
+
 export default {
   title: 'Page',
   name: 'page',
   type: 'document',
+  icon: IoMdDocument,
   description: 'A Page',
   fields: [
     {
