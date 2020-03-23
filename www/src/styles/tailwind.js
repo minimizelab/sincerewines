@@ -19,6 +19,7 @@ module.exports = {
         'sincere-background': '#F3F4ED',
       },
       height: {
+        '140': '140px',
         '400': '400px',
         '500': '500px',
         '800': '800px',

@@ -44,7 +44,7 @@ export const wineCaseFragment = graphql`
     caseWines {
       quantity
       wine {
-        name
+        ...Wine
       }
     }
     path {

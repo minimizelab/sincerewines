@@ -12,7 +12,7 @@ import Text from '../atoms/Text';
 import WineRow from '../molecules/WineRow';
 import ArrowLink from '../atoms/ArrowLink';
 import { WineCase } from '../types/types';
-import { wineType, createGrapeString } from '../utils/functions';
+import { wineType, createArrayString } from '../utils/functions';
 import { wineSerializers } from '../utils/serializers';
 
 interface Props {
@@ -27,7 +27,6 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
   const privateCustomer = useSelector<State, boolean>(
     state => state.ui.privateCustomer
   );
-  console.log(wineCase.caseWines);
   const wine = wineCase.caseWines[0];
   return (
     <Layout title={wineCase.name}>
@@ -62,7 +61,9 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
                 <div className="lg:mr-6">
                   <WineRow
                     title="Druva"
-                    value={createGrapeString(wine.grapes)}
+                    value={createArrayString(
+                      wine.grapes.map(item => item.name)
+                    )}
                   ></WineRow>
                   <WineRow
                     title="Distrikt"

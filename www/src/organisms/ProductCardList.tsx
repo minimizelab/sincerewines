@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import ProductCard from '../molecules/ProductCard';
+import WineCard from '../molecules/WineCard';
+import WineCaseCard from '../molecules/WineCaseCard';
 import { Wine, WineCase } from '../types/types';
 
 interface Props {
@@ -18,6 +19,7 @@ const ProductCardList: FunctionComponent<Props> = ({
     'Ev. privatimport',
     'Beställningssortiment',
   ];
+
   return (
     <div className="flex flex-row flex-wrap w-full justify-start self-center">
       {data &&
@@ -29,11 +31,13 @@ const ProductCardList: FunctionComponent<Props> = ({
           if (privateCustomer) {
             return privateCustomerTypes.includes(edge.node.assortment) ? (
               edge.node._type === 'wine' ? (
-                <ProductCard key={edge.node.id} item={edge.node as Wine} />
-              ) : null
+                <WineCard key={edge.node.id} item={edge.node as Wine} />
+              ) : (
+                <WineCaseCard key={edge.node.id} item={edge.node as WineCase} />
+              )
             ) : null;
           } else {
-            return <ProductCard key={edge.node.id} item={edge.node as Wine} />;
+            return <WineCard key={edge.node.id} item={edge.node as Wine} />;
           }
         })}
     </div>

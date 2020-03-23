@@ -5,13 +5,13 @@ import Text from '../atoms/Text';
 import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
 import { navigate } from 'gatsby';
 import TypeIndicator from '../atoms/TypeIndicator';
-import { createGrapeString } from '../utils/functions';
+import { createArrayString } from '../utils/functions';
 
 interface Props {
   item: Wine;
 }
 
-const ProductCard: FunctionComponent<Props> = ({ item }) => {
+const WineCard: FunctionComponent<Props> = ({ item }) => {
   const imageProps = useSanityImage({
     baseUrl: item.image.asset.url,
     size: { height: 140 },
@@ -34,7 +34,7 @@ const ProductCard: FunctionComponent<Props> = ({ item }) => {
           <Text>{item.producer.name}</Text>
           <H5>{item.name}</H5>
           <H5>{item.year}</H5>
-          <Text>{createGrapeString(item.grapes)}</Text>
+          <Text>{createArrayString(item.grapes.map(item => item.name))}</Text>
           <TypeIndicator className="self-end" type={item.type} />
         </div>
       </div>
@@ -42,4 +42,4 @@ const ProductCard: FunctionComponent<Props> = ({ item }) => {
   );
 };
 
-export default ProductCard;
+export default WineCard;

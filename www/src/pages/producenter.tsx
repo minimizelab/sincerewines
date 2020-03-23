@@ -9,7 +9,7 @@ import Img from 'gatsby-image';
 import TextUppercase from '../atoms/TextUppercase';
 import ArrowLink from '../atoms/ArrowLink';
 import { Producer } from '../types/types';
-import { createGrapeString } from '../utils/functions';
+import { createArrayString } from '../utils/functions';
 
 const Sortiment: FunctionComponent = () => {
   const data: {
@@ -55,7 +55,9 @@ const Sortiment: FunctionComponent = () => {
                 <H4 className="mb-4">{producer.name}</H4>
                 <Text className="my-4">{producer.intro}</Text>
                 <TextUppercase>Druvor</TextUppercase>
-                <Text>{createGrapeString(producer.grapes)}</Text>
+                <Text>
+                  {createArrayString(producer.grapes.map(item => item.name))}
+                </Text>
                 <div className="flex flex-row flex-grow items-end mt-2 justify-end">
                   <ArrowLink to={`/producenter/${producer.path.current}`}>
                     Läs mer om producenten
