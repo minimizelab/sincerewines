@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { State } from '../store';
 import Content from '@sanity/block-content-to-react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
 import H3 from '../atoms/H3';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
@@ -28,19 +28,24 @@ const WineTemplate: FunctionComponent<Props> = ({
   const privateCustomer = useSelector<State, boolean>(
     state => state.ui.privateCustomer
   );
+  const imageProps = useSanityImage({
+    baseUrl: wine.image.asset.url,
+    size: { height: 500 },
+  });
   return (
     <Layout title={wine.name}>
       <Section className="justify-center">
         <div className="m-4 sm:m-8 flex flex-row flex-wrap w-full lg:w-2/3 bg-white rounded shadow p-10">
           <div className="flex flex-col w-full lg:w-1/3 sm:pr-4 mb-4 lg:mb-0">
-            <div className="w-full h-400 lg:h-500">
-              <Img
+            <div className="w-full h-400 lg:h-500 items-center justify-center flex">
+              <Image
+                {...imageProps}
+                aspectRatio={wine.image.asset.metadata.dimensions.aspectRatio}
                 imgStyle={{
                   objectFit: 'contain',
                 }}
                 className="h-full w-full"
-                fluid={wine.image.asset.fluid}
-              ></Img>
+              />
             </div>
           </div>
 
@@ -139,8 +144,11 @@ export const pageQuery = graphql`
       ...Wine
       image {
         asset {
-          fluid(maxHeight: 500) {
-            ...GatsbySanityImageFluid
+          url
+          metadata {
+            dimensions {
+              aspectRatio
+            }
           }
         }
       }

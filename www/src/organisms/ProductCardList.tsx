@@ -27,8 +27,11 @@ const ProductCardList: FunctionComponent<Props> = ({
             ...Wine
             image {
               asset {
-                fixed(height: 140) {
-                  ...GatsbySanityImageFixed
+                url
+                metadata {
+                  dimensions {
+                    aspectRatio
+                  }
                 }
               }
             }

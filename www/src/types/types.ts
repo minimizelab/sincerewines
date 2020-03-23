@@ -59,6 +59,12 @@ export interface Slug {
 export interface Image {
   asset: {
     id: string;
+    url: string;
+    metadata: {
+      dimensions: {
+        aspectRatio: number;
+      };
+    };
     fluid: FluidObject;
     fixed: FixedObject;
   };
