@@ -39,7 +39,7 @@ const Bestallningar: FunctionComponent<Props> = ({
         <H1>{title}</H1>
       </Section>
       {page.restaurant && (
-        <Section className="flex-row justify-center mt-8 mb-6">
+        <Section className="flex-row justify-center mt-6">
           <TabButtons privateCustomer={privateCustomer} />
         </Section>
       )}
