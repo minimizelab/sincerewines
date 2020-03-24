@@ -32,6 +32,34 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
+  const wineCasesQuery = await graphql(`
+    {
+      allSanityWineCase {
+        edges {
+          node {
+            path {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (wineCasesQuery.errors) {
+    throw new Error(wineCasesQuery.errors);
+  }
+
+  wineCasesQuery.data.allSanityWineCase.edges.forEach(({ node }) => {
+    createPage({
+      path: `/sortiment/${node.path.current}`,
+      component: path.resolve('src/templates/WineCase.tsx'),
+      context: {
+        slug: node.path.current,
+      },
+    });
+  });
+
   const producersQuery = await graphql(`
     {
       allSanityProducer {

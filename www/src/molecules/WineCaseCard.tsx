@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { WineCase, Wine } from '../types/types';
+import { WineCase, Wine, Producer, Grape } from '../types/types';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
 import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
@@ -40,8 +40,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
             {createArrayString(
               caseWines
                 .map(item => item.wine.producer)
-                .flat(1)
-                .reduce((unique: Array<string>, item: Wine) => {
+                .reduce((unique: Array<string>, item: Producer) => {
                   return unique.includes(item.name)
                     ? unique
                     : [...unique, item.name];
@@ -55,7 +54,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
               caseWines
                 .map(item => item.wine.grapes)
                 .flat(1)
-                .reduce((unique: Array<string>, item: Wine) => {
+                .reduce((unique: Array<string>, item: Grape) => {
                   return unique.includes(item.name)
                     ? unique
                     : [...unique, item.name];
