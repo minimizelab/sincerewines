@@ -18,4 +18,11 @@ export default {
       validate: R => R.required(),
     },
   ],
+  preview: {
+    select: {
+      title: 'wine.name',
+      subtitle: 'quantity',
+      media: 'wine.image',
+    },
+  },
 };

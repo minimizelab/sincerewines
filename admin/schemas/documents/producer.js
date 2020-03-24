@@ -1,7 +1,10 @@
+import { GiFactory } from 'react-icons/gi';
+
 export default {
   title: 'Producer',
   name: 'producer',
   type: 'document',
+  icon: GiFactory,
   description: 'A producer',
   fields: [
     {

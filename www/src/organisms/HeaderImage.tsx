@@ -5,8 +5,15 @@ import { graphql, navigate, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Section from '../atoms/Section';
 import TextLarge from '../atoms/TextLarge';
+import { Link } from '../types/types';
 
-const HeaderImage: FunctionComponent = () => {
+interface Props {
+  title: string;
+  subTitle: string;
+  link: Link;
+}
+
+const HeaderImage: FunctionComponent<Props> = ({ title, subTitle, link }) => {
   const data = useStaticQuery(graphql`
     query {
       file(
@@ -14,7 +21,7 @@ const HeaderImage: FunctionComponent = () => {
         sourceInstanceName: { eq: "images" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 2560, quality: 75) {
+          fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -30,18 +37,18 @@ const HeaderImage: FunctionComponent = () => {
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
         <div className="p-6 mb-10 xl:mb-32">
           <H4 white className="text-white ">
-            Välkomna till Sincere Wines!
+            {title}
           </H4>
           <TextLarge white className="pb-8 pt-2">
-            Viner från Österrike med passion, tradition och ambition
+            {subTitle}
           </TextLarge>
           <Button
             white
             onClick={(): void => {
-              navigate('/nyheter');
+              navigate(link.link);
             }}
           >
-            anmälan nyhetsbrev
+            {link.title}
           </Button>
         </div>
       </Section>

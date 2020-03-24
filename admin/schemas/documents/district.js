@@ -1,7 +1,10 @@
+import { GiSwitzerland } from 'react-icons/gi';
+
 export default {
   title: 'District',
   name: 'district',
   type: 'document',
+  icon: GiSwitzerland,
   description: 'A wine district',
   fields: [
     {

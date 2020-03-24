@@ -1,7 +1,10 @@
+import { IoMdDocument } from 'react-icons/io';
+
 export default {
   title: 'Page',
   name: 'page',
   type: 'document',
+  icon: IoMdDocument,
   description: 'A Page',
   fields: [
     {
@@ -26,7 +29,7 @@ export default {
       name: 'content',
       type: 'array',
       description: 'Content of the page',
-      of: [{ type: 'block' }, { type: 'arrowLink' }],
+      of: [{ type: 'block' }, { type: 'link' }],
       validation: R => R.required(),
     },
   ],

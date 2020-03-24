@@ -3,13 +3,11 @@ import ProductCard from '../molecules/ProductCard';
 import { Wine, WineCase } from '../types/types';
 
 interface Props {
-  short?: boolean;
   privateCustomer?: boolean;
   data: { node: Wine | WineCase }[];
 }
 
 const ProductCardList: FunctionComponent<Props> = ({
-  short,
   privateCustomer,
   data,
 }) => {
@@ -21,11 +19,7 @@ const ProductCardList: FunctionComponent<Props> = ({
   return (
     <div className="flex flex-row flex-wrap w-full justify-start self-center">
       {data &&
-        data.map((edge, index) => {
-          /*         if (short)
-          return index < 4 ? (
-            <ProductCard key={edge.node.id} item={edge.node} />
-          ) : null; */
+        data.map(edge => {
           if (privateCustomer) {
             return privateCustomerTypes.includes(edge.node.assortment) ? (
               edge.node._type === 'wine' ? (

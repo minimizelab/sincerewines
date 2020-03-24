@@ -5,8 +5,14 @@ import Img from 'gatsby-image';
 import Section from '../atoms/Section';
 import Quote from '../atoms/Quote';
 import { navigate } from 'gatsby';
+import { Link } from '../types/types';
 
-const QuoteImage: FunctionComponent = () => {
+interface Props {
+  text: string;
+  link: Link;
+}
+
+const QuoteImage: FunctionComponent<Props> = ({ text, link }) => {
   const data = useStaticQuery(graphql`
     query {
       file(
@@ -30,17 +36,16 @@ const QuoteImage: FunctionComponent = () => {
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
         <div className="p-4 sm:p-6 mb-10 sm:mb-20 xl:mb-24">
           <Quote white className="pb-8 pt-2 m-2 w-2/3 xl:w-2/5">
-            Vår vision är att representera våra producenter och deras viner med
-            samma höga ambition och innerlighet som producenterna själva
+            {text}
           </Quote>
           <Button
             className="m-2"
             white
             onClick={(): void => {
-              navigate('/producenter');
+              navigate(link.link);
             }}
           >
-            Våra producenter
+            {link.title}
           </Button>
         </div>
       </Section>

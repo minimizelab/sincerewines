@@ -1,7 +1,10 @@
+import { IoMdPerson } from 'react-icons/io';
+
 export default {
   title: 'Maker',
   name: 'maker',
   type: 'document',
+  icon: IoMdPerson,
   description: 'A wine maker',
   fields: [
     {

@@ -1,6 +1,6 @@
 export default {
   type: 'object',
-  name: 'arrowLink',
+  name: 'link',
   title: 'Link',
   fields: [
     {
