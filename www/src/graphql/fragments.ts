@@ -55,11 +55,14 @@ export const wineCaseFragment = graphql`
 
 export const pageFragment = graphql`
   fragment PageFragment on SanityPage {
-    title
+    consumerTitle
     path {
       current
     }
-    _rawContent
+    _rawConsumerContent
+    restaurant
+    restaurantTitle
+    _rawRestaurantContent
   }
 `;
 
