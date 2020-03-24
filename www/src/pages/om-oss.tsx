@@ -3,7 +3,7 @@ import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
 import TextLarge from '../atoms/TextLarge';
-import MailLink from '../molecules/MailLink';
+import BigLink from '../molecules/BigLink';
 import Partner from '../molecules/Partner';
 
 const partnerInfo = [
@@ -54,7 +54,10 @@ const About: FunctionComponent = () => (
                 öppenhet och tillförlitlighet. Passion i vad vi gör och vad vi
                 representerar – Sincere Wines.
               </TextLarge>
-              <MailLink />
+              <BigLink
+                to="mailto:info@sincerewines.com"
+                title="info@sincerewines.com"
+              />
             </div>
           </div>
           <div className="lg:w-1/2">

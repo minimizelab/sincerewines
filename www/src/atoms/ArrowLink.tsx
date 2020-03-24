@@ -12,8 +12,8 @@ interface Props {
 const ArrowLink: FunctionComponent<Props> = ({
   children,
   to,
-  lowercase,
-  className,
+  lowercase = false,
+  className = '',
 }) => {
   const [hover, setHover] = useState(false);
   return (

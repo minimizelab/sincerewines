@@ -3,7 +3,7 @@ import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
 import TextLarge from '../atoms/TextLarge';
-import MailLink from '../molecules/MailLink';
+import BigLink from '../molecules/BigLink';
 
 const Nyheter: FunctionComponent = () => (
   <Layout title="Nyheter">
@@ -16,7 +16,10 @@ const Nyheter: FunctionComponent = () => (
         <TextLarge className="my-4">
           Skicka ett email med dina kontaktuppgifter till:
         </TextLarge>
-        <MailLink />
+        <BigLink
+          to="mailto:info@sincerewines.com"
+          title="info@sincerewines.com"
+        />
       </div>
     </Section>
   </Layout>

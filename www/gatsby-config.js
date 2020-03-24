@@ -35,8 +35,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: '49w8mf8m',
-        dataset: 'production',
+        projectId: config.projectId,
+        dataset: config.dataset,
       },
     },
     'gatsby-plugin-sharp',

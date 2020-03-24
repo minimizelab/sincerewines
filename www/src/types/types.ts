@@ -40,9 +40,12 @@ interface CaseWines {
   wine: Wine;
 }
 export interface Page {
-  title: string;
+  consumerTitle: string;
   path: Slug;
-  _rawContent: unknown;
+  _rawConsumerContent: unknown;
+  restaurant: boolean;
+  restaurantTitle: string;
+  _rawRestaurantContent: unknown;
 }
 
 export interface Producer {

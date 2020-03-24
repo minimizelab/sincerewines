@@ -6,13 +6,49 @@ export default {
   type: 'document',
   icon: IoMdDocument,
   description: 'A Page',
+  fieldsets: [
+    { title: 'Default content', name: 'consumer' },
+    { title: 'Restaurant', name: 'restaurant' },
+  ],
   fields: [
     {
       title: 'Title',
-      name: 'title',
+      name: 'consumerTitle',
       type: 'string',
       description: 'The title of the page',
       validation: R => R.required(),
+      fieldset: 'consumer',
+    },
+    {
+      title: 'Content',
+      name: 'consumerContent',
+      type: 'array',
+      description: 'Content of the page',
+      of: [{ type: 'block' }, { type: 'link' }, { type: 'image' }],
+      validation: R => R.required(),
+      fieldset: 'consumer',
+    },
+    {
+      title: 'Enabled',
+      name: 'restaurant',
+      type: 'boolean',
+      description: 'Enable restaurant content',
+      fieldset: 'restaurant',
+    },
+    {
+      title: 'Title',
+      name: 'restaurantTitle',
+      type: 'string',
+      description: 'The title of the page',
+      fieldset: 'restaurant',
+    },
+    {
+      title: 'Content',
+      name: 'restaurantContent',
+      type: 'array',
+      description: 'Content of the page',
+      of: [{ type: 'block' }, { type: 'link' }, { type: 'image' }],
+      fieldset: 'restaurant',
     },
     {
       Title: 'Path',
@@ -23,14 +59,6 @@ export default {
       options: {
         source: doc => doc.title,
       },
-    },
-    {
-      title: 'Content',
-      name: 'content',
-      type: 'array',
-      description: 'Content of the page',
-      of: [{ type: 'block' }, { type: 'link' }],
-      validation: R => R.required(),
     },
   ],
 };
