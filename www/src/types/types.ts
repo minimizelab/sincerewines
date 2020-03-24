@@ -11,6 +11,7 @@ export interface Wine {
   type: WineType;
   price: number;
   alc: number;
+  vol: number;
   id: string;
   link?: string;
   assortment: string;
@@ -24,7 +25,7 @@ export interface WineCase {
   name: string;
   _rawDesc: unknown;
   _type: string;
-  caseWines: Array<Wine>;
+  caseWines: Array<CaseWines>;
   price: number;
   id: string;
   link?: string;
@@ -32,6 +33,11 @@ export interface WineCase {
   image?: Image;
   path: Slug;
   articleNumber?: string;
+}
+
+interface CaseWines {
+  quantity: number;
+  wine: Wine;
 }
 export interface Page {
   title: string;
