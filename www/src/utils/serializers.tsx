@@ -3,8 +3,8 @@ import React, { ReactNode } from 'react';
 import Text from '../atoms/Text';
 import TextLarge from '../atoms/TextLarge';
 import ArrowLink from '../atoms/ArrowLink';
-import { useSanityImage, Image } from '@minimizelab/mini_ui-react';
-import { getImageUrl } from '@sanity/block-content-to-react';
+// import { useSanityImage, Image } from '@minimizelab/mini_ui-react';
+// import { getImageUrl } from '@sanity/block-content-to-react';
 import H4 from '../atoms/H4';
 
 export const wineSerializers = {
@@ -18,7 +18,6 @@ export const wineSerializers = {
 export const pageSerializers = {
   types: {
     block: (props: any): ReactNode => {
-      console.log(props.node.style);
       return props.node.style === 'h4' ? (
         <H4 className="my-4">{props.children}</H4>
       ) : (
