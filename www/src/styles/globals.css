@@ -1,0 +1,7 @@
+a {
+  @apply text-sincere-wine;
+}
+
+a:hover {
+  @apply text-sincere-green;
+}

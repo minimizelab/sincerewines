@@ -44,7 +44,7 @@ const Bestallningar: FunctionComponent<Props> = ({
         </Section>
       )}
       <Section className="justify-center p-6">
-        <div className="sm:w-10/12 xl:w-3/5 flex flex-col pt-3 mb-6">
+        <div className="sm:w-10/12 xl:w-1/2 flex flex-col pt-3 mb-6">
           <Content
             blocks={_rawContent}
             serializers={pageSerializers}
