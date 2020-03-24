@@ -64,7 +64,7 @@ const Sortiment: FunctionComponent = () => {
       <Section className="flex-row justify-center pt-3 mt-12">
         <H1>Våra Viner</H1>
       </Section>
-      <Section className="flex-row justify-center mt-8 mb-6">
+      <Section className="flex-row justify-center mt-6 mb-6">
         <TabButtons privateCustomer={privateCustomer} />
       </Section>
       {privateCustomer ? (
