@@ -5,3 +5,7 @@ a {
 a:hover {
   @apply text-sincere-green;
 }
+
+figure {
+  margin: 0;
+}
