@@ -42,15 +42,15 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
-    {
-      resolve: 'gatsby-plugin-matomo',
-      options: {
-        siteId: '3',
-        matomoUrl: 'https://stats.minimize.se',
-        siteUrl: 'https://www.sincerewines.com',
-        disableCookies: true,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-matomo',
+    //   options: {
+    //     siteId: '3',
+    //     matomoUrl: 'https://stats.minimize.se',
+    //     siteUrl: 'https://www.sincerewines.com',
+    //     disableCookies: true,
+    //   },
+    // },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -76,13 +76,13 @@ module.exports = {
         icon: config.siteIcon, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        printRejected: true,
-        tailwind: true,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-purgecss',
+    //   options: {
+    //     printRejected: true,
+    //     tailwind: true,
+    //   },
+    // },
     'gatsby-plugin-offline',
   ],
 };
