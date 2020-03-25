@@ -122,6 +122,8 @@ export default {
           'Ev. privatimport',
           'Beställningssortiment',
           'Restaurangsortiment',
+          'Fast sortiment',
+          'Tillfälligt sortiment',
         ],
       },
     },

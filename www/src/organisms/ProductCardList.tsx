@@ -16,6 +16,8 @@ const ProductCardList: FunctionComponent<Props> = ({
     'Privatimport',
     'Ev. privatimport',
     'Beställningssortiment',
+    'Fast sortiment',
+    'Tillfälligt sortiment',
   ];
 
   return (
