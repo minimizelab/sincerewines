@@ -1,0 +1,21 @@
+{
+  "name": "sincerewines_api",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Sincere Wines API",
+  "main": "package.json",
+  "author": "mini_dev <hello@minimize.se>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minimizelab/sincerewines",
+    "directory": "api"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {},
+  "dependencies": {
+    "@now/node": "^1.5.0"
+  },
+  "devDependencies": {}
+}
