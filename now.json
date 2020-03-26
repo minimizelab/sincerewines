@@ -8,9 +8,14 @@
     {
       "src": "admin/package.json",
       "use": "@now/static-build"
+    },
+    {
+      "src": "api/deploy.ts",
+      "use": "@now/node"
     }
   ],
   "routes": [
+    { "src": "^/api/deploy", "dest": "/api/deploy.ts" },
     { "src": "^/admin/static/(.*)", "dest": "/admin/static/$1" },
     { "src": "^/admin/(.*)", "dest": "/admin/index.html" },
     {
