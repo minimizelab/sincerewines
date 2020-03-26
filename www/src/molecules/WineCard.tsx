@@ -30,12 +30,16 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
             aspectRatio={item.image.asset.metadata.dimensions.aspectRatio}
           />
         </div>
-        <div className="flex flex-col items-start flex-grow justify-center">
-          <Text>{item.producer.name}</Text>
-          <H5>{item.name}</H5>
-          <H5>{item.year}</H5>
-          <Text>{createArrayString(item.grapes.map(item => item.name))}</Text>
-          <TypeIndicator className="self-end" type={item.type} />
+        <div className="flex flex-row flex-grow">
+          <div className="flex flex-col p-2 items-start flex-grow justify-around">
+            <Text>{item.producer.name}</Text>
+            <H5>{item.name}</H5>
+            <H5>{item.year}</H5>
+            <Text>{createArrayString(item.grapes.map(item => item.name))}</Text>
+          </div>
+          <div className="flex justify-end align-end p-2">
+            <TypeIndicator className="self-end" type={item.type} />
+          </div>
         </div>
       </div>
     </div>

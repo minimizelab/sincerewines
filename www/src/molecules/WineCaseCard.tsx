@@ -34,7 +34,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
             />
           </div>
         )} */}
-        <div className="flex flex-col h-140 items-start flex-grow justify-center">
+        <div className="flex flex-col p-2 items-start flex-grow justify-around">
           {/* <Text>{item.producer.name}</Text> */}
           <Text>
             {createArrayString(
