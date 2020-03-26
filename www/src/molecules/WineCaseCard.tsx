@@ -24,7 +24,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
         onClick={(): void => {
           navigate(`/sortiment/${item.path.current}`);
         }}
-        className="bg-white rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
+        className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
         {/* {item.image && (
           <div className="flex flex-col w-16 justify-center items-center">

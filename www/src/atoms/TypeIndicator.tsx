@@ -13,9 +13,9 @@ const TypeIndicator: FunctionComponent<Props> = ({ className, type }) => (
       'flex rounded-full w-6 h-6',
       className,
       {
-        'bg-sincere-wine': type === 'red',
-        'bg-sincere-riesling': type === 'white',
-        'bg-sincere-rose': type === 'rose',
+        'bg-sincere-wine': type === 'Red',
+        'bg-sincere-riesling': type === 'White',
+        'bg-sincere-rose': type === 'Rose',
       },
     ])}
   ></div>

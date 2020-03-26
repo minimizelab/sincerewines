@@ -1,9 +1,9 @@
 import { WineType } from '../types/types';
 
 export const wineType = (type: WineType): string | null => {
-  if (type === 'red') return 'RÖDA VINER';
-  if (type === 'white') return 'VITA VINER';
-  if (type === 'rose') return 'ROSÉVINER';
+  if (type === 'Red') return 'RÖDA VINER';
+  if (type === 'White') return 'VITA VINER';
+  if (type === 'Rose') return 'ROSÉVINER';
   return null;
 };
 

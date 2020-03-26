@@ -66,7 +66,7 @@ export interface Maker {
   image: Image;
 }
 
-export type WineType = 'white' | 'red' | 'rose';
+export type WineType = 'White' | 'Red' | 'Rose';
 
 export interface Producer {
   name: string;
