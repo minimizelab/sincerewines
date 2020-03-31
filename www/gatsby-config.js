@@ -58,7 +58,7 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
-        whitelist: ['./src/styles/globals.css'],
+        ignore: ['/src/styles/globals.css'],
       },
     },
     'gatsby-plugin-offline',
