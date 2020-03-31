@@ -19,7 +19,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
   const { caseWines } = item;
   const wineQuantity = caseWines.reduce((acc, item) => acc + item.quantity, 0);
   return (
-    <div className="w-full md:w-1/2 lg:w-1/4">
+    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
       <div
         onClick={(): void => {
           navigate(`/sortiment/${item.path.current}`);
@@ -39,7 +39,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
           <Text>
             {createArrayString(
               caseWines
-                .map(item => item.wine.producer)
+                .map((item) => item.wine.producer)
                 .reduce((unique: Array<string>, item: Producer) => {
                   return unique.includes(item.name)
                     ? unique
@@ -52,8 +52,8 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
           <Text>
             {createArrayString(
               caseWines
-                .map(item => item.wine.grapes)
-                .flat(1)
+                .map((item) => item.wine.grapes)
+                .reduce((prev, current) => prev.concat(current))
                 .reduce((unique: Array<string>, item: Grape) => {
                   return unique.includes(item.name)
                     ? unique

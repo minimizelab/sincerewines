@@ -25,7 +25,7 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
   data: { sanityWineCase: wineCase },
 }) => {
   const privateCustomer = useSelector<State, boolean>(
-    state => state.ui.privateCustomer
+    (state) => state.ui.privateCustomer
   );
   const { wine } = wineCase.caseWines[0];
   const wineQuantity = wineCase.caseWines.reduce(
@@ -55,8 +55,8 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
                     title="Druva"
                     value={createArrayString(
                       wineCase.caseWines
-                        .map(item => item.wine.grapes)
-                        .flat(1)
+                        .map((item) => item.wine.grapes)
+                        .reduce((prev, current) => prev.concat(current))
                         .reduce((unique: Array<string>, item: Grape) => {
                           return unique.includes(item.name)
                             ? unique
@@ -75,7 +75,7 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
                     title="Producent"
                     value={createArrayString(
                       wineCase.caseWines
-                        .map(item => item.wine.producer)
+                        .map((item) => item.wine.producer)
                         .reduce((unique: Array<string>, item: Producer) => {
                           return unique.includes(item.name)
                             ? unique
@@ -128,6 +128,7 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
             <hr className="my-4"></hr>
             <Content blocks={wineCase._rawDesc} serializers={wineSerializers} />
             {wineCase.link && (
+              // TODO: Fix the title and link here
               <ArrowLink to={wine.link}>
                 {wineCase.assortment === 'Beställningssortiment'
                   ? 'VINET HOS SYSTEMBOLAGET'
