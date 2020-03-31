@@ -54,10 +54,11 @@ export default {
       Title: 'Path',
       name: 'path',
       type: 'slug',
-      description: 'The unique url name for the page',
+      description:
+        'The unique url name for the page, click "Genereate" and only edit if needed.',
       validation: R => R.required(),
       options: {
-        source: doc => doc.title,
+        source: doc => doc.consumerTitle,
       },
     },
   ],
