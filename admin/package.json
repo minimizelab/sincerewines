@@ -20,12 +20,12 @@
     "deploy": "sanity graphql deploy --no-playground --generation gen2"
   },
   "dependencies": {
-    "@sanity/base": "^1.149.3",
-    "@sanity/components": "^1.149.3",
-    "@sanity/core": "^1.149.2",
-    "@sanity/default-layout": "^1.149.3",
-    "@sanity/default-login": "^1.149.0",
-    "@sanity/desk-tool": "^1.149.3",
+    "@sanity/base": "^1.149.7",
+    "@sanity/components": "^1.149.7",
+    "@sanity/core": "^1.149.7",
+    "@sanity/default-layout": "^1.149.7",
+    "@sanity/default-login": "^1.149.7",
+    "@sanity/desk-tool": "^1.149.7",
     "@sanity/vision": "^1.149.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -35,11 +35,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "@sanity/cli": "^1.149.2",
+    "@sanity/cli": "^1.149.7",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.2"
   }
 }

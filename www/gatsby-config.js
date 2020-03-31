@@ -14,22 +14,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'json',
-        path: path.join(__dirname, 'src', 'content', 'json'),
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         name: 'images',
         path: path.join(__dirname, 'src', 'content', 'images'),
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'producers',
-        path: path.join(__dirname, 'src', 'content', 'producers'),
       },
     },
     {
@@ -42,15 +28,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
-    // {
-    //   resolve: 'gatsby-plugin-matomo',
-    //   options: {
-    //     siteId: '3',
-    //     matomoUrl: 'https://stats.minimize.se',
-    //     siteUrl: 'https://www.sincerewines.com',
-    //     disableCookies: true,
-    //   },
-    // },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -76,13 +53,14 @@ module.exports = {
         icon: config.siteIcon, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-purgecss',
-    //   options: {
-    //     printRejected: true,
-    //     tailwind: true,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        printRejected: true,
+        tailwind: true,
+        whitelist: ['./src/styles/globals.css'],
+      },
+    },
     'gatsby-plugin-offline',
   ],
 };
