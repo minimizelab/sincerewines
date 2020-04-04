@@ -12,7 +12,7 @@ export default {
       name: 'name',
       type: 'string',
       description: 'The name of the grape',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Description',

@@ -9,21 +9,13 @@ export default () =>
       S.listItem()
         .title('Settings')
         .icon(IoMdSettings)
-        .child(
-          S.editor()
-            .schemaType('settings')
-            .documentId('settings')
-        ),
+        .child(S.editor().schemaType('settings').documentId('settings')),
       S.listItem()
         .title('Home Page')
         .icon(IoMdHome)
-        .child(
-          S.editor()
-            .schemaType('homePage')
-            .documentId('homePage')
-        ),
+        .child(S.editor().schemaType('homePage').documentId('homePage')),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        listItem => !['settings', 'homePage'].includes(listItem.getId())
+        (listItem) => !['settings', 'homePage'].includes(listItem.getId())
       ),
     ]);

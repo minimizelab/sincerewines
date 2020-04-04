@@ -8,7 +8,7 @@ export default {
       name: 'title',
       type: 'string',
       description: 'The title of the link',
-      validate: R => R.required(),
+      validate: (R) => R.required(),
     },
     {
       title: 'Sub title',
@@ -16,14 +16,14 @@ export default {
       type: 'text',
       rows: 3,
       description: 'The sub title of the page',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Link',
       name: 'link',
       type: 'string',
       description: 'A link to somewhere',
-      validate: R => R.required(),
+      validate: (R) => R.required(),
     },
   ],
 };

@@ -25,7 +25,7 @@ const ProducerTemplate: FunctionComponent<Props> = ({
     <Section className="p-8">
       <div className="flex flex-row flex-wrap-reverse bg-white rounded shadow p-4">
         <div className="flex flex-col p-4 w-full md:w-2/5 lg:w-1/4">
-          {producer.makers.map(maker => (
+          {producer.makers.map((maker) => (
             <div key={maker.id} className="flex flex-col w-full mb-6">
               <div className="mb-2 w-full h-500 md:h-400">
                 <Img
@@ -50,7 +50,7 @@ const ProducerTemplate: FunctionComponent<Props> = ({
       </div>
     </Section>
     <Section className="px-2 pt-2 pb-10 flex-wrap">
-      {producer.images.map(img => (
+      {producer.images.map((img) => (
         <div key={img.asset.id} className="w-full md:w-1/3 p-6 max-h-500">
           <Img
             className="w-full h-full rounded shadow"

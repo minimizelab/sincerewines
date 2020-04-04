@@ -16,7 +16,7 @@ export default {
       name: 'consumerTitle',
       type: 'string',
       description: 'The title of the page',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
       fieldset: 'consumer',
     },
     {
@@ -25,7 +25,7 @@ export default {
       type: 'array',
       description: 'Content of the page',
       of: [{ type: 'block' }, { type: 'link' }, { type: 'image' }],
-      validation: R => R.required(),
+      validation: (R) => R.required(),
       fieldset: 'consumer',
     },
     {
@@ -56,9 +56,9 @@ export default {
       type: 'slug',
       description:
         'The unique url name for the page, click "Genereate" and only edit if needed.',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
       options: {
-        source: doc => doc.consumerTitle,
+        source: (doc) => doc.consumerTitle,
       },
     },
   ],

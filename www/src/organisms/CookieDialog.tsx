@@ -12,7 +12,7 @@ const storageKey = 'acceptCookies';
 const CookieDialog: FunctionComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isOpen = useSelector<State, boolean>(
-    state => state.ui.cookieDialogOpen
+    (state) => state.ui.cookieDialogOpen
   );
   const closeDialog = (): void => {
     dispatch(actions.cookieDialogToggled(false));

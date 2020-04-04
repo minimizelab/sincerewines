@@ -21,7 +21,7 @@ const Bestallningar: FunctionComponent<Props> = ({
   data: { sanityPage: page },
 }) => {
   const privateCustomer = useSelector<State, boolean>(
-    state => state.ui.privateCustomer
+    (state) => state.ui.privateCustomer
   );
   const { title, _rawContent } = useMemo(
     () =>

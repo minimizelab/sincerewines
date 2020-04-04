@@ -12,16 +12,16 @@ export default {
       name: 'name',
       type: 'string',
       description: 'The name of the mixed wine case',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       Title: 'Path',
       name: 'path',
       type: 'slug',
       description: 'The unique url name for the wine',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
       options: {
-        source: doc => doc.name,
+        source: (doc) => doc.name,
       },
     },
     {
@@ -30,7 +30,7 @@ export default {
       type: 'array',
       description: 'The wines of in the mixed wine case',
       of: [{ type: 'wineQuantity' }],
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Image',
@@ -55,7 +55,7 @@ export default {
       name: 'assortment',
       type: 'string',
       description: 'The type of the assortment',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
       options: {
         list: [
           'Privatimport',

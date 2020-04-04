@@ -12,7 +12,7 @@ import TabButtons from '../organisms/TabButtons';
 
 const Sortiment: FunctionComponent = () => {
   const privateCustomer = useSelector<State, boolean>(
-    state => state.ui.privateCustomer
+    (state) => state.ui.privateCustomer
   );
 
   const {

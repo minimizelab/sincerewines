@@ -107,7 +107,7 @@ const Index: FunctionComponent = () => {
         <H3 className="mb-4 mx-6">Våra senaste viner</H3>
         <ProductCardList
           privateCustomer
-          data={wines.map(wine => ({ node: wine }))}
+          data={wines.map((wine) => ({ node: wine }))}
         />
         <div className="self-end mr-6">
           <ArrowLink to="/sortiment">Våra viner</ArrowLink>

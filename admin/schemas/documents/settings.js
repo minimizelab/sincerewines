@@ -13,7 +13,7 @@ export default {
       name: 'title',
       type: 'string',
       description: 'The title of the site',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Menu items',

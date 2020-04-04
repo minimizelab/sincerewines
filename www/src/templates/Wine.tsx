@@ -26,7 +26,7 @@ const WineTemplate: FunctionComponent<Props> = ({
   data: { sanityWine: wine },
 }) => {
   const privateCustomer = useSelector<State, boolean>(
-    state => state.ui.privateCustomer
+    (state) => state.ui.privateCustomer
   );
   const imageProps = useSanityImage({
     baseUrl: wine.image.asset.url,
@@ -68,7 +68,7 @@ const WineTemplate: FunctionComponent<Props> = ({
                   <WineRow
                     title="Druva"
                     value={createArrayString(
-                      wine.grapes.map(item => item.name)
+                      wine.grapes.map((item) => item.name)
                     )}
                   ></WineRow>
                   <WineRow

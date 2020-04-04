@@ -10,7 +10,7 @@ import TabButtons from '../organisms/TabButtons';
 
 const Footer: FunctionComponent = () => {
   const privateCustomer = useSelector<State, boolean>(
-    state => state.ui.privateCustomer
+    (state) => state.ui.privateCustomer
   );
   return (
     <footer className="bg-white">

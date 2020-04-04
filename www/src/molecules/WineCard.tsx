@@ -35,7 +35,9 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
             <Text>{item.producer.name}</Text>
             <H5>{item.name}</H5>
             <H5>{item.year}</H5>
-            <Text>{createArrayString(item.grapes.map(item => item.name))}</Text>
+            <Text>
+              {createArrayString(item.grapes.map((item) => item.name))}
+            </Text>
           </div>
           <div className="flex justify-end align-end p-2">
             <TypeIndicator className="self-end" type={item.type} />

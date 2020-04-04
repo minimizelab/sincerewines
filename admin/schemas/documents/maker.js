@@ -12,7 +12,7 @@ export default {
       name: 'name',
       type: 'string',
       description: 'The name of the maker',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Image',

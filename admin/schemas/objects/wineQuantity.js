@@ -8,14 +8,14 @@ export default {
       name: 'wine',
       type: 'reference',
       to: [{ type: 'wine' }],
-      validate: R => R.required(),
+      validate: (R) => R.required(),
     },
     {
       title: 'Quantity',
       name: 'quantity',
       type: 'number',
       description: 'The quantity of the wine type',
-      validate: R => R.required(),
+      validate: (R) => R.required(),
     },
   ],
   preview: {

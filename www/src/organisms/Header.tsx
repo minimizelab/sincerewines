@@ -28,7 +28,7 @@ interface Data {
 
 const Header: FunctionComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const open = useSelector<State, boolean>(state => state.ui.menuOpen);
+  const open = useSelector<State, boolean>((state) => state.ui.menuOpen);
   const toggleMenu = (): void => {
     dispatch(actions.menuToggled(!open));
   };
@@ -52,7 +52,7 @@ const Header: FunctionComponent = () => {
             <Logotype />
           </div>
           <nav className="flex flex-row items-center justify-end hidden lg:flex">
-            {navList.map(item => (
+            {navList.map((item) => (
               <NavLink to={item.path} key={item.text} text={item.text} />
             ))}
           </nav>
@@ -65,7 +65,7 @@ const Header: FunctionComponent = () => {
         </div>
         {open && (
           <nav className="flex flex-col px-1 -mt-2 pb-6 lg:hidden">
-            {menuItems.map(item => (
+            {menuItems.map((item) => (
               <NavLink
                 onClick={toggleMenu}
                 to={item.link}

@@ -12,14 +12,14 @@ export default {
       name: 'name',
       type: 'string',
       description: 'The name (and quality label) of the wine district',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Country',
       name: 'country',
       type: 'string',
       description: 'The country of the wine district',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
   ],
 };

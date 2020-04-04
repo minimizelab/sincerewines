@@ -23,7 +23,7 @@ const ProductCardList: FunctionComponent<Props> = ({
   return (
     <div className="flex flex-row flex-wrap w-full justify-start self-center">
       {data &&
-        data.map(edge => {
+        data.map((edge) => {
           if (privateCustomer) {
             return privateCustomerTypes.includes(edge.node.assortment) ? (
               edge.node._type === 'wine' ? (

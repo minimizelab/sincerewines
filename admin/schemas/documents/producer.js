@@ -11,16 +11,16 @@ export default {
       title: 'Name',
       name: 'name',
       type: 'string',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       Title: 'Path',
       name: 'path',
       type: 'slug',
       description: 'The unique url name for the producer',
-      validation: R => R.required(),
+      validation: (R) => R.required(),
       options: {
-        source: doc => doc.name,
+        source: (doc) => doc.name,
       },
     },
     {
@@ -34,7 +34,7 @@ export default {
           to: [{ type: 'maker' }],
         },
       ],
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Grapes',
@@ -46,7 +46,7 @@ export default {
           to: [{ type: 'grape' }],
         },
       ],
-      validation: R => R.required(),
+      validation: (R) => R.required(),
     },
     {
       title: 'Main image',
@@ -62,7 +62,7 @@ export default {
           type: 'image',
         },
       ],
-      validation: R => R.max(3),
+      validation: (R) => R.max(3),
     },
     {
       title: 'Intro',

@@ -56,7 +56,7 @@ const Sortiment: FunctionComponent = () => {
                 <Text className="my-4">{producer.intro}</Text>
                 <TextUppercase>Druvor</TextUppercase>
                 <Text>
-                  {createArrayString(producer.grapes.map(item => item.name))}
+                  {createArrayString(producer.grapes.map((item) => item.name))}
                 </Text>
                 <div className="flex flex-row flex-grow items-end mt-2 justify-end">
                   <ArrowLink to={`/producenter/${producer.path.current}`}>

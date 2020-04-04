@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
-const greenArrow = require('../assets/arrow-right-green.svg');
-const redArrow = require('../assets/arrow-right-red.svg');
-const grapeArrow = require('../assets/arrow-right-grape.svg');
+import greenArrow from '../assets/arrow-right-green.svg';
+import grapeArrow from '../assets/arrow-right-grape.svg';
 
 interface Props {
   hover?: boolean;

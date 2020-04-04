@@ -15,7 +15,9 @@ const Button: FunctionComponent<Props> = ({ className, privateCustomer }) => {
   return (
     <div className="flex flex-wrap">
       <button
-        onClick={() => dispatch(actions.customerTypeToggled(true))}
+        onClick={(): void => {
+          dispatch(actions.customerTypeToggled(true));
+        }}
         className={combineClasses([
           'focus:outline-none border flex py-1 px-8 items-center justify-center border-sincere-green sm:w-1/2 w-full',
           {
@@ -27,7 +29,9 @@ const Button: FunctionComponent<Props> = ({ className, privateCustomer }) => {
         <TextUppercase white={privateCustomer}>Privat</TextUppercase>
       </button>
       <button
-        onClick={() => dispatch(actions.customerTypeToggled(false))}
+        onClick={(): void => {
+          dispatch(actions.customerTypeToggled(false));
+        }}
         className={combineClasses([
           'focus:outline-none border py-1 px-8 flex items-center justify-center border-sincere-green sm:w-1/2 w-full',
           {

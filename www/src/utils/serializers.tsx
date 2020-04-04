@@ -29,6 +29,7 @@ export const pageSerializers = {
         {props.node.title}
       </ArrowLink>
     ),
+    // TODO: Use custom image component here
     // image: (props: any): ReactNode => {
     //   const imgProps = useSanityImage({
     //     baseUrl: getImageUrl(props),

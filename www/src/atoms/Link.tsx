@@ -11,7 +11,6 @@ const Link: FunctionComponent<Props> = ({
   to,
   defaultStyling = true,
   activeClassName,
-  partiallyActive,
   className,
   ref,
   ...other

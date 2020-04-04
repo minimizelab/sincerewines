@@ -67,7 +67,7 @@ const About: FunctionComponent = () => (
                 partners.
               </TextLarge>
               <div className="flex flex-row w-full flex-wrap">
-                {partnerInfo.map(partner => (
+                {partnerInfo.map((partner) => (
                   <Partner key={partner.name} {...partner} />
                 ))}
               </div>
