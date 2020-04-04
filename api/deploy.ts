@@ -1,12 +1,9 @@
 import { NowRequest, NowResponse } from '@now/node';
 import got from 'got';
 
-const mini_teamId = 'TEAM ID HERE';
-
-const nowApi = got.extend({
-  prefixUrl: 'https://api.zeit.co',
+const nowAPI = got.extend({
   headers: {
-    Authorization: `Bearer ${process.env.NOW_TOKEN}`,
+    Authorization: `bearer ${process.env.NOW_TOKEN}`,
     'Content-Type': 'application/json',
   },
 });
@@ -14,9 +11,21 @@ const nowApi = got.extend({
 type Deploy = (req: NowRequest, res: NowResponse) => void;
 
 const deploy: Deploy = async (req, res) => {
+  const { projectId, teamId, deployUrl } = req.query;
   try {
-    const data = await nowApi(`/v5/now/deployments?teamId=${mini_teamId}`);
-    res.status(200).send(JSON.parse(data.body));
+    const { body } = await nowAPI(
+      `https://zeit.co/api/v5/now/deployments?projectId=${projectId}&limit=10&teamId=${teamId}`
+    );
+    const isActive =
+      JSON.parse(body).deployments.filter(item => item.state === 'QUEUED')
+        .length > 0;
+    console.log(isActive);
+    if (!isActive) {
+      await got(deployUrl as string);
+    }
+    res
+      .status(200)
+      .send(isActive ? 'Build already in progress' : 'Build started or queued');
   } catch (error) {
     res.status(503).send(`Error: ${error}`);
   }
