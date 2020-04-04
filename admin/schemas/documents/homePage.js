@@ -48,7 +48,7 @@ export default {
       title: 'Wines',
       name: 'wines',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'wine' }] }],
+      of: [{ type: 'reference', to: [{ type: 'wine' }, { type: 'wineCase' }] }],
       validation: R => R.max(4),
     },
     {

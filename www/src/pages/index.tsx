@@ -55,13 +55,18 @@ const Index: FunctionComponent = () => {
           link
         }
         wines {
-          ...Wine
-          image {
-            asset {
-              url
-              metadata {
-                dimensions {
-                  aspectRatio
+          ... on SanityWineCase {
+            ...WineCase
+          }
+          ... on SanityWine {
+            ...Wine
+            image {
+              asset {
+                url
+                metadata {
+                  dimensions {
+                    aspectRatio
+                  }
                 }
               }
             }
@@ -100,7 +105,10 @@ const Index: FunctionComponent = () => {
       </Section>
       <Section className="flex-col mb-10 mt-8">
         <H3 className="mb-4 mx-6">Våra senaste viner</H3>
-        <ProductCardList data={wines.map(wine => ({ node: wine }))} />
+        <ProductCardList
+          privateCustomer
+          data={wines.map(wine => ({ node: wine }))}
+        />
         <div className="self-end mr-6">
           <ArrowLink to="/sortiment">Våra viner</ArrowLink>
         </div>
