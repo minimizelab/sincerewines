@@ -6,7 +6,6 @@ import { State, AppDispatch } from '../store';
 import { actions } from '../store/ui';
 import Section from '../atoms/Section';
 import menuIcon from '../assets/menu.png';
-import { useStaticQuery, graphql } from 'gatsby';
 
 const navList = [
   { path: '/sortiment', text: 'Sortiment' },
@@ -17,33 +16,12 @@ const navList = [
   { path: '/nyheter', text: 'Nyheter' },
 ];
 
-interface Data {
-  sanitySettings: {
-    menuItems: {
-      title: string;
-      link: string;
-    }[];
-  };
-}
-
 const Header: FunctionComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
   const open = useSelector<State, boolean>((state) => state.ui.menuOpen);
   const toggleMenu = (): void => {
     dispatch(actions.menuToggled(!open));
   };
-  const {
-    sanitySettings: { menuItems },
-  } = useStaticQuery<Data>(graphql`
-    query headerQuery {
-      sanitySettings {
-        menuItems {
-          title
-          link
-        }
-      }
-    }
-  `);
   return (
     <header className="bg-white z-10">
       <Section className="flex-col">
@@ -65,12 +43,12 @@ const Header: FunctionComponent = () => {
         </div>
         {open && (
           <nav className="flex flex-col px-1 -mt-2 pb-6 lg:hidden">
-            {menuItems.map((item) => (
+            {navList.map((item) => (
               <NavLink
                 onClick={toggleMenu}
-                to={item.link}
-                key={item.title}
-                text={item.title}
+                to={item.path}
+                key={item.text}
+                text={item.text}
               />
             ))}
           </nav>

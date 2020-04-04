@@ -53,19 +53,6 @@ export const wineCaseFragment = graphql`
   }
 `;
 
-export const pageFragment = graphql`
-  fragment PageFragment on SanityPage {
-    consumerTitle
-    path {
-      current
-    }
-    _rawConsumerContent
-    restaurant
-    restaurantTitle
-    _rawRestaurantContent
-  }
-`;
-
 export const producerFragment = graphql`
   fragment Producer on SanityProducer {
     id

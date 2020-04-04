@@ -13,6 +13,8 @@ import producer from './documents/producer';
 import wineCase from './documents/wineCase';
 import settings from './documents/settings';
 import homePage from './documents/homePage';
+import ordersPage from './documents/ordersPage';
+import regionPage from './documents/regionPage';
 // import post from './types/post';
 import page from './documents/page';
 
@@ -28,6 +30,9 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    ordersPage,
+    regionPage,
+    page,
     wine,
     settings,
     homePage,
@@ -38,7 +43,6 @@ export default createSchema({
     district,
     producer,
     wineCase,
-    page,
     wineQuantity,
   ]),
 });

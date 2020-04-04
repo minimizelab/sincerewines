@@ -1,5 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder';
-import { IoMdHome, IoMdSettings } from 'react-icons/io';
+import { IoMdHome, IoMdSettings, IoMdDocument } from 'react-icons/io';
 
 export default () =>
   S.list()
@@ -14,8 +14,19 @@ export default () =>
         .title('Home Page')
         .icon(IoMdHome)
         .child(S.editor().schemaType('homePage').documentId('homePage')),
+      S.listItem()
+        .title('Orders Page')
+        .icon(IoMdDocument)
+        .child(S.editor().schemaType('ordersPage').documentId('ordersPage')),
+      S.listItem()
+        .title('Region Page')
+        .icon(IoMdDocument)
+        .child(S.editor().schemaType('regionPage').documentId('regionPage')),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (listItem) => !['settings', 'homePage'].includes(listItem.getId())
+        (listItem) =>
+          !['settings', 'homePage', 'ordersPage', 'regionPage'].includes(
+            listItem.getId()
+          )
       ),
     ]);
