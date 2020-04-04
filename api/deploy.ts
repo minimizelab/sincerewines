@@ -19,7 +19,6 @@ const deploy: Deploy = async (req, res) => {
     const isActive =
       JSON.parse(body).deployments.filter(item => item.state === 'QUEUED')
         .length > 0;
-    console.log(isActive);
     if (!isActive) {
       await got(deployUrl as string);
     }
