@@ -87,4 +87,32 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
   });
+
+  const postsQuery = await graphql(`
+    {
+      allSanityPost {
+        edges {
+          node {
+            path {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (postsQuery.errors) {
+    throw new Error(postsQuery.errors);
+  }
+
+  postsQuery.data.allSanityPost.edges.forEach(({ node }) => {
+    createPage({
+      path: `/posts/${node.path.current}`,
+      component: path.resolve('src/templates/Post.tsx'),
+      context: {
+        slug: node.path.current,
+      },
+    });
+  });
 };

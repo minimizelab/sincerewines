@@ -38,7 +38,7 @@ const Nyheter: FunctionComponent = () => {
         <H1 className="text-center">Nyheter</H1>
       </Section>
       <Section className="flex mb-6 flex-col items-center px-8">
-        <div /* className="sm:w-8/12 xl:w-2/5 flex flex-col pt-3 mt-6 mb-6" */>
+        <div>
           <H3>Nyhetsbrev</H3>
           <TextLarge>
             Vill du hålla dig uppdaterad på vad som händer kring Sincere Wines?
