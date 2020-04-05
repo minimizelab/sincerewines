@@ -15,6 +15,10 @@ export default () =>
         .icon(IoMdHome)
         .child(S.editor().schemaType('homePage').documentId('homePage')),
       S.listItem()
+        .title('About Us Page')
+        .icon(IoMdDocument)
+        .child(S.editor().schemaType('aboutUsPage').documentId('aboutUsPage')),
+      S.listItem()
         .title('Orders Page')
         .icon(IoMdDocument)
         .child(S.editor().schemaType('ordersPage').documentId('ordersPage')),
@@ -25,8 +29,12 @@ export default () =>
       S.divider(),
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !['settings', 'homePage', 'ordersPage', 'regionPage'].includes(
-            listItem.getId()
-          )
+          ![
+            'settings',
+            'homePage',
+            'ordersPage',
+            'regionPage',
+            'aboutUsPage',
+          ].includes(listItem.getId())
       ),
     ]);
