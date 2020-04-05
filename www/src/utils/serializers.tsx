@@ -6,6 +6,7 @@ import ArrowLink from '../atoms/ArrowLink';
 // import { useSanityImage, Image } from '@minimizelab/mini_ui-react';
 // import { getImageUrl } from '@sanity/block-content-to-react';
 import H4 from '../atoms/H4';
+import BigLink from '../molecules/BigLink';
 
 export const wineSerializers = {
   types: {
@@ -24,11 +25,14 @@ export const pageSerializers = {
         <TextLarge className="my-2">{props.children}</TextLarge>
       );
     },
-    link: (props: any): ReactNode => (
-      <ArrowLink className="my-2" to={props.node.link}>
-        {props.node.title}
-      </ArrowLink>
-    ),
+    link: (props: any): ReactNode =>
+      props.node.size === 'Big' ? (
+        <BigLink to={props.node.link} title={props.node.title} />
+      ) : (
+        <ArrowLink className="my-2" to={props.node.link}>
+          {props.node.title}
+        </ArrowLink>
+      ),
     // TODO: Use custom image component here
     // image: (props: any): ReactNode => {
     //   const imgProps = useSanityImage({
@@ -47,11 +51,14 @@ export const greetingSerializer = {
     block: (props: any): ReactNode => (
       <TextLarge className="py-2">{props.children}</TextLarge>
     ),
-    link: (props: any): ReactNode => (
-      <ArrowLink className="my-4" to={props.node.link}>
-        {props.node.title}
-      </ArrowLink>
-    ),
+    link: (props: any): ReactNode =>
+      props.node.size === 'Big' ? (
+        <BigLink to={props.node.link} title={props.node.title} />
+      ) : (
+        <ArrowLink className="my-4" to={props.node.link}>
+          {props.node.title}
+        </ArrowLink>
+      ),
   },
 };
 

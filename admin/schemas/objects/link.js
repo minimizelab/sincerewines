@@ -17,5 +17,15 @@ export default {
       description: 'A link to somewhere',
       validate: (R) => R.required(),
     },
+    {
+      title: 'Size',
+      name: 'size',
+      type: 'string',
+      description: 'The size of the link when displayed on the site',
+      validate: (R) => R.required(),
+      options: {
+        list: ['Default', 'Big'],
+      },
+    },
   ],
 };
