@@ -84,16 +84,10 @@ export const postFragment = graphql`
     id
     title
     intro
+    date
     path {
       current
     }
     _rawContent
-    featureImage {
-      asset {
-        fluid(maxWidth: 720, maxHeight: 400) {
-          ...GatsbySanityImageFluid
-        }
-      }
-    }
   }
 `;

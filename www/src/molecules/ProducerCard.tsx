@@ -15,38 +15,32 @@ interface Props {
 const ContentCard: FunctionComponent<Props> = ({ content }) => {
   return (
     <div>
-      {content
-        // .sort(
-        //   (a, b) =>
-        //     a.node.childMarkdownRemark.frontmatter.order -
-        //     b.node.childMarkdownRemark.frontmatter.order
-        // )
-        .map(({ node }) => (
-          <div
-            key={node.id}
-            className="flex flex-row flex-wrap w-full rounded shadow bg-white my-4 md:my-6 "
-          >
-            <div className="p-8 w-full lg:w-7/12 flex flex-col">
-              <H4 className="mb-4">{node.name}</H4>
-              <Text className="my-4">{node.intro}</Text>
-              <TextUppercase>Druvor</TextUppercase>
-              <Text>
-                {createArrayString(node.grapes.map((item) => item.name))}
-              </Text>
-              <div className="flex flex-row flex-grow items-end mt-2 justify-end">
-                <ArrowLink to={`/producenter/${node.path.current}`}>
-                  Läs mer om producenten
-                </ArrowLink>
-              </div>
-            </div>
-            <div className="w-full lg:w-5/12 max-h-400">
-              <Img
-                className="h-full w-full"
-                fluid={node.mainImg.asset.fluid}
-              ></Img>
+      {content.map(({ node }) => (
+        <div
+          key={node.id}
+          className="flex flex-row flex-wrap w-full rounded shadow bg-white my-4 md:my-6 "
+        >
+          <div className="p-8 w-full lg:w-7/12 flex flex-col">
+            <H4 className="mb-4">{node.name}</H4>
+            <Text className="my-4">{node.intro}</Text>
+            <TextUppercase>Druvor</TextUppercase>
+            <Text>
+              {createArrayString(node.grapes.map((item) => item.name))}
+            </Text>
+            <div className="flex flex-row flex-grow items-end mt-2 justify-end">
+              <ArrowLink to={`/producenter/${node.path.current}`}>
+                Läs mer om producenten
+              </ArrowLink>
             </div>
           </div>
-        ))}
+          <div className="w-full lg:w-5/12 max-h-400">
+            <Img
+              className="h-full w-full"
+              fluid={node.mainImg.asset.fluid}
+            ></Img>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

@@ -90,7 +90,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const postsQuery = await graphql(`
     {
-      allSanityPosts {
+      allSanityPost {
         edges {
           node {
             path {
@@ -106,7 +106,7 @@ exports.createPages = async ({ actions, graphql }) => {
     throw new Error(postsQuery.errors);
   }
 
-  postsQuery.data.allSanityPosts.edges.forEach(({ node }) => {
+  postsQuery.data.allSanityPost.edges.forEach(({ node }) => {
     createPage({
       path: `/posts/${node.path.current}`,
       component: path.resolve('src/templates/Post.tsx'),
