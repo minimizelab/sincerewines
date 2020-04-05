@@ -15,6 +15,14 @@ export default {
       validation: (R) => R.required(),
     },
     {
+      title: 'Intro',
+      name: 'intro',
+      type: 'text',
+      rows: 5,
+      description: 'The intro or subtitle of the post',
+      validation: (R) => R.required(),
+    },
+    {
       title: 'Publish Date',
       name: 'date',
       type: 'date',
