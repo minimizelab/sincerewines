@@ -15,8 +15,7 @@ import settings from './documents/settings';
 import homePage from './documents/homePage';
 import ordersPage from './documents/ordersPage';
 import regionPage from './documents/regionPage';
-// import post from './types/post';
-import page from './documents/page';
+import post from './documents/post';
 
 // Import object types
 import wineQuantity from './objects/wineQuantity';
@@ -32,7 +31,7 @@ export default createSchema({
   types: schemaTypes.concat([
     ordersPage,
     regionPage,
-    page,
+    post,
     wine,
     settings,
     homePage,
