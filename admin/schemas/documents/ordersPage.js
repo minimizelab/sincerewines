@@ -1,21 +1,22 @@
 import { IoMdDocument } from 'react-icons/io';
 
 export default {
-  title: 'Page',
-  name: 'page',
+  title: 'Orders Page',
+  name: 'ordersPage',
   type: 'document',
   icon: IoMdDocument,
-  description: 'A Page',
+  __experimental_actions: [/* 'create', 'delete', */ 'update', 'publish'],
+  description: 'Beställningar',
   fieldsets: [
-    { title: 'Default content', name: 'consumer' },
-    { title: 'Restaurant', name: 'restaurant' },
+    { name: 'consumer', title: 'Consumer' },
+    { name: 'restaurant', title: 'Restaurant' },
   ],
   fields: [
     {
       title: 'Title',
       name: 'consumerTitle',
       type: 'string',
-      description: 'The title of the page',
+      description: 'The title of the consumer version of the page',
       validation: (R) => R.required(),
       fieldset: 'consumer',
     },
@@ -23,43 +24,32 @@ export default {
       title: 'Content',
       name: 'consumerContent',
       type: 'array',
-      description: 'Content of the page',
+      description: 'The content of the consumer version of the page',
       of: [{ type: 'block' }, { type: 'link' }, { type: 'image' }],
       validation: (R) => R.required(),
       fieldset: 'consumer',
     },
     {
-      title: 'Enabled',
-      name: 'restaurant',
-      type: 'boolean',
-      description: 'Enable restaurant content',
-      fieldset: 'restaurant',
-    },
-    {
       title: 'Title',
       name: 'restaurantTitle',
       type: 'string',
-      description: 'The title of the page',
+      description: 'The title of the restaurant version of the page',
+      validation: (R) => R.required(),
       fieldset: 'restaurant',
     },
     {
       title: 'Content',
       name: 'restaurantContent',
       type: 'array',
-      description: 'Content of the page',
+      description: 'The content of the restaurant version of the page',
       of: [{ type: 'block' }, { type: 'link' }, { type: 'image' }],
+      validation: (R) => R.required(),
       fieldset: 'restaurant',
     },
-    {
-      Title: 'Path',
-      name: 'path',
-      type: 'slug',
-      description:
-        'The unique url name for the page, click "Genereate" and only edit if needed.',
-      validation: (R) => R.required(),
-      options: {
-        source: (doc) => doc.consumerTitle,
-      },
-    },
   ],
+  preview: {
+    select: {
+      title: 'restaurant',
+    },
+  },
 };

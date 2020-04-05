@@ -16,12 +16,6 @@ export default {
       validation: (R) => R.required(),
     },
     {
-      title: 'Menu items',
-      name: 'menuItems',
-      type: 'array',
-      of: [{ type: 'link' }],
-    },
-    {
       title: 'Facebook',
       name: 'facebook',
       type: 'string',

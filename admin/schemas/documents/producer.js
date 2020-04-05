@@ -68,6 +68,7 @@ export default {
       title: 'Intro',
       name: 'intro',
       type: 'text',
+      rows: 5,
     },
     {
       title: 'Description',

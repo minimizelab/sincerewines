@@ -6,7 +6,6 @@ import { State, AppDispatch } from '../store';
 import { actions } from '../store/ui';
 import Section from '../atoms/Section';
 import menuIcon from '../assets/menu.png';
-import { useStaticQuery, graphql } from 'gatsby';
 
 const navList = [
   { path: '/sortiment', text: 'Sortiment' },
@@ -16,15 +15,6 @@ const navList = [
   { path: '/om-oss', text: 'Om Oss' },
   { path: '/nyheter', text: 'Nyheter' },
 ];
-
-interface Data {
-  sanitySettings: {
-    menuItems: {
-      title: string;
-      link: string;
-    }[];
-  };
-}
 
 const Header: FunctionComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
