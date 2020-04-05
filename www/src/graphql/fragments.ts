@@ -78,3 +78,22 @@ export const producerFragment = graphql`
     }
   }
 `;
+
+export const postFragment = graphql`
+  fragment Post on SanityPost {
+    id
+    title
+    intro
+    path {
+      current
+    }
+    _rawContent
+    featureImage {
+      asset {
+        fluid(maxWidth: 720, maxHeight: 400) {
+          ...GatsbySanityImageFluid
+        }
+      }
+    }
+  }
+`;
