@@ -39,14 +39,6 @@ interface CaseWines {
   quantity: number;
   wine: Wine;
 }
-export interface Page {
-  consumerTitle: string;
-  path: Slug;
-  _rawConsumerContent: unknown;
-  restaurant: boolean;
-  restaurantTitle: string;
-  _rawRestaurantContent: unknown;
-}
 
 export interface Producer {
   name: string;
