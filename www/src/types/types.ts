@@ -60,6 +60,16 @@ export interface Producer {
   mainImg: Image;
 }
 
+export interface Post {
+  title: string;
+  id: string;
+  date: string;
+  intro: string;
+  featureImage: Image;
+  _rawContent: unknown;
+  path: Slug;
+}
+
 export interface Maker {
   name: string;
   id: string;

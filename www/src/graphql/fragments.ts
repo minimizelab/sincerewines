@@ -53,19 +53,6 @@ export const wineCaseFragment = graphql`
   }
 `;
 
-export const pageFragment = graphql`
-  fragment PageFragment on SanityPage {
-    consumerTitle
-    path {
-      current
-    }
-    _rawConsumerContent
-    restaurant
-    restaurantTitle
-    _rawRestaurantContent
-  }
-`;
-
 export const producerFragment = graphql`
   fragment Producer on SanityProducer {
     id
@@ -86,6 +73,25 @@ export const producerFragment = graphql`
           fluid(maxWidth: 640, maxHeight: 800) {
             ...GatsbySanityImageFluid
           }
+        }
+      }
+    }
+  }
+`;
+
+export const postFragment = graphql`
+  fragment Post on SanityPost {
+    id
+    title
+    intro
+    path {
+      current
+    }
+    _rawContent
+    featureImage {
+      asset {
+        fluid(maxWidth: 720, maxHeight: 400) {
+          ...GatsbySanityImageFluid
         }
       }
     }
