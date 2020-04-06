@@ -50,7 +50,7 @@ const Nyheter: FunctionComponent = () => {
             to="mailto:info@sincerewines.com"
             title="info@sincerewines.com"
           />
-          <H3 className="mt-12">Event</H3>
+          <H3 className="mt-12">Inlägg</H3>
           <PostCard content={data.allSanityPost.edges} />
         </div>
       </Section>

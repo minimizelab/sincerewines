@@ -8,6 +8,8 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { Post } from '../types/types';
 import { pageSerializers } from '../utils/serializers';
+import TextUppercase from '../atoms/TextUppercase';
+import ArrowLink from '../atoms/ArrowLink';
 
 interface Props {
   data: {
@@ -24,6 +26,7 @@ const PostTemplate: FunctionComponent<Props> = ({
       <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">
         <div className="flex flex-col justify-center">
           <H1 className="text-center">{post.title}</H1>
+          <TextUppercase className="text-center">Publicerades</TextUppercase>
           <H5 className="text-center">{post.date}</H5>
         </div>
       </Section>
@@ -34,6 +37,11 @@ const PostTemplate: FunctionComponent<Props> = ({
           </div>
           <div className="flex flex-row w-full p-4">
             <Content blocks={post._rawContent} serializers={pageSerializers} />
+          </div>
+          <div className="flex flex-row w-full p-4">
+            <ArrowLink left to="/nyheter">
+              ALLA NYHETER
+            </ArrowLink>
           </div>
         </div>
       </Section>

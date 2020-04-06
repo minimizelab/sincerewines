@@ -1,12 +1,13 @@
 import React, { FunctionComponent, useState } from 'react';
 import Link from './Link';
-import ArrowRightGreen from './ArrowRight';
+import Arrow from './Arrow';
 import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   to: string;
   lowercase?: boolean;
   className?: string;
+  left?: boolean;
 }
 
 const ArrowLink: FunctionComponent<Props> = ({
@@ -14,6 +15,7 @@ const ArrowLink: FunctionComponent<Props> = ({
   to,
   lowercase = false,
   className = '',
+  left = false,
 }) => {
   const [hover, setHover] = useState(false);
   return (
@@ -23,7 +25,7 @@ const ArrowLink: FunctionComponent<Props> = ({
       onMouseEnter={(): void => setHover(true)}
       onMouseLeave={(): void => setHover(false)}
     >
-      <ArrowRightGreen hover={hover} />
+      <Arrow left={left} hover={hover} />
       <span
         className={combineClasses([
           'ml-2 tracking-wide font-sans text-sm sm:text-base',
