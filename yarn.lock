@@ -1335,15 +1335,18 @@
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@mikaelkristiansson/domready/-/domready-1.0.10.tgz#f6d69866c0857664e70690d7a0bfedb72143adb5"
 
-"@minimizelab/mini_ui-react@^1.2.4":
-  version "1.2.4"
-  resolved "https://npm.pkg.github.com/download/@minimizelab/mini_ui-react/1.2.4/20fc2fb8bdc15a4f6450608f3c5572869fc6e5e81f43e0a03eeee1df1174f3be#c7c8080e32daa9576023ba5a916abf2a34d3e360"
+"@minimizelab/mini_ui-react@^1.3.0":
+  version "1.3.0"
+  resolved "https://npm.pkg.github.com/download/@minimizelab/mini_ui-react/1.3.0/f4418af108e3d4495f7c3ae22178032afa500f2840b5747fa4181918905a27e6#c249a6f8a4ce6e1938e1c57b51e1fd8ca03170b4"
+  integrity sha512-zbXJKil84ZevNiM2OraRWCgyVv+8D+Q275nwKw8moq2vGee0LGzsSi90HM0nHXeT0kweVcIOhF0rQDiSyQYPNQ==
   dependencies:
-    "@minimizelab/mini_utils" "^1.2.4"
+    "@minimizelab/mini_utils" "^1.3.0"
+    object-fit-images "^3.2.4"
 
-"@minimizelab/mini_utils@^1.2.4":
-  version "1.2.4"
-  resolved "https://npm.pkg.github.com/download/@minimizelab/mini_utils/1.2.4/135fbc8361f59ec2e1d581a9c4637825a634d70542404327a59578420360b0a4#3cca0e490d4dd2fc68063eb80445b346b1828340"
+"@minimizelab/mini_utils@^1.3.0":
+  version "1.3.0"
+  resolved "https://npm.pkg.github.com/download/@minimizelab/mini_utils/1.3.0/78f3c0b07d6dca74d6697a905e441a818b4b9ecf627bbfca497a9ea5e80ed45c#da4e432fc6450aac9e4c58a8b281eda05faa560d"
+  integrity sha512-M+lbIreGrjXbHMARz/W4u0xZso0mhKbHsyugt31n2yqnFiyoegzkb/ncPX9GKcQ5/nZ0+S63qqNG11xCxeVb6w==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -11996,9 +11999,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.2.tgz#1ba8f3eb92231e769b7fcd7cb73ae1b6b74ade08"
+prettier@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.3.tgz#9a06f0e94a51420e78b6925568b5bec72afe41ea"
+  integrity sha512-5qpBDBHO9fpE0zruKiTZm8Gxmz7kknO+WlQR/ivV+RMwgDw/WjOgmxLDn66MPrxq/WZPx/EgEZzh87xJO5E6Fw==
 
 pretty-bytes@^5.1.0, pretty-bytes@^5.3.0:
   version "5.3.0"
