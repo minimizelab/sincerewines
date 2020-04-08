@@ -104,3 +104,12 @@ export interface Image {
     fixed: FixedObject;
   };
 }
+
+export interface SortBy {
+  value: string;
+  text: string;
+}
+
+export interface WineData {
+  node: Wine | WineCase;
+}
