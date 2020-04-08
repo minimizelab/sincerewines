@@ -12,8 +12,8 @@ import TabButtons from '../organisms/TabButtons';
 import SortDropdown from '../molecules/SortDropdown';
 
 const sortByList = [
-  { value: 'name', text: 'namn' },
-  { value: 'type', text: 'typ' },
+  { value: 'name', text: 'vinets namn' },
+  { value: 'type', text: 'vinets typ' },
   { value: 'producer', text: 'producent' },
 ];
 

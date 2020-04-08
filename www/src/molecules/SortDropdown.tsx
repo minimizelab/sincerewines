@@ -13,7 +13,7 @@ const SortDropdown: FunctionComponent<Props> = ({ sortByList, setSortBy }) => {
         Sortera på
       </label>
       <select
-        className="block cursor-pointer appearance-none rounded-none bg-transparent pl-1 pr-4 py-1 leading-tight focus:outline-none text-sincere-green"
+        className="block cursor-pointer appearance-none rounded-none bg-transparent pl-1 pr-6 py-1 leading-tight focus:outline-none text-sincere-green"
         onChange={(event) => {
           return setSortBy(event.target.value);
         }}
