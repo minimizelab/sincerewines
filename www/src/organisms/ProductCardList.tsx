@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import WineCard from '../molecules/WineCard';
 import WineCaseCard from '../molecules/WineCaseCard';
-import { Wine, WineCase } from '../types/types';
+import { Wine, WineCase, WineData } from '../types/types';
 
 interface Props {
   privateCustomer?: boolean;
-  data: { node: Wine | WineCase }[];
+  data: WineData[];
 }
 
 const ProductCardList: FunctionComponent<Props> = ({

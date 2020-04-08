@@ -21,7 +21,7 @@ const PostCard: FunctionComponent<Props> = ({ content }) => {
           <div className="p-8 w-full lg:w-7/12 flex flex-col">
             <H4 className="mb-4">{node.title}</H4>
             <Text className="my-4">{node.intro}</Text>
-            <TextUppercase>SKAPAT</TextUppercase>
+            <TextUppercase>Publicerades</TextUppercase>
             <Text>{node.date}</Text>
             <div className="flex flex-row flex-grow items-end mt-2 justify-end">
               <ArrowLink to={`/posts/${node.path.current}`}>Läs mer</ArrowLink>

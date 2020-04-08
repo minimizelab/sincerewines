@@ -1,14 +1,20 @@
 import React, { FunctionComponent, useState } from 'react';
 import Block from '../molecules/Block';
-import ArrowRightGreen from '../atoms/ArrowRight';
+import Arrow from '../atoms/Arrow';
 import { navigate } from 'gatsby';
 import Text from '../atoms/Text';
 
 interface Props {
   title: string;
   to: string;
+  left?: boolean;
 }
-const DetailedLink: FunctionComponent<Props> = ({ title, to, children }) => {
+const DetailedLink: FunctionComponent<Props> = ({
+  title,
+  to,
+  children,
+  left = false,
+}) => {
   const [hover, setHover] = useState(false);
   return (
     <Block
@@ -22,7 +28,7 @@ const DetailedLink: FunctionComponent<Props> = ({ title, to, children }) => {
       title={title}
     >
       <Text className="mb-4">{children}</Text>
-      <ArrowRightGreen hover={hover} />
+      <Arrow left={left} hover={hover} />
     </Block>
   );
 };
