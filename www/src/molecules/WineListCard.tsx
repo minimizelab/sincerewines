@@ -16,7 +16,7 @@ interface Props {
   item: Wine;
 }
 
-const WineCard: FunctionComponent<Props> = ({ item }) => {
+const WineListCard: FunctionComponent<Props> = ({ item }) => {
   const dispatch = useDispatch<AppDispatch>();
   const wineList = useSelector<State, { id: string; quantity: number }[]>(
     (state) => state.list.wineList
@@ -26,24 +26,13 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
     size: { height: 140 },
   });
 
-  const addToWineList = (): void => {
-    console.log('added to wine list');
-    dispatch(actions.addWine(item.id));
-  };
-
   const deleteFromWineList = (): void => {
     console.log('deleted from wine list');
     dispatch(actions.deleteWine(item.id));
   };
 
-  const isInWineList = (id: string): boolean => {
-    return Object.values(wineList)
-      .map((item) => item.id)
-      .includes(id);
-  };
-
   return (
-    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+    <div className="w-full sm:w-2/3">
       <div
         onClick={(): void => {
           navigate(`/sortiment/${item.path.current}`);
@@ -65,14 +54,24 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
               {createArrayString(item.grapes.map((item) => item.name))}
             </Text>
           </div>
+          <div className="flex flex-row">
+            <div>
+              <p>Antal</p>
+              <p>
+                {wineList.filter((wine) => wine.id === item.id)[0].quantity}
+              </p>
+            </div>
+            <div>
+              <p>Volym</p>
+              <p>{item.vol}</p>
+            </div>
+            <div>
+              <p>Pris</p>
+              <p>{item.price}</p>
+            </div>
+          </div>
           <div className="flex flex-col justify-end align-end p-2">
-            <button
-              onClick={
-                isInWineList(item.id) ? deleteFromWineList : addToWineList
-              }
-            >
-              {isInWineList(item.id) ? 'Delete from list' : 'Add to list'}
-            </button>
+            <button onClick={deleteFromWineList}>Delete from list</button>
             <TypeIndicator className="self-end" type={item.type} />
           </div>
         </div>
@@ -81,4 +80,4 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
   );
 };
 
-export default WineCard;
+export default WineListCard;

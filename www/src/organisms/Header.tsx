@@ -14,6 +14,7 @@ const navList = [
   { path: '/bestallningar', text: 'Beställningar' },
   { path: '/om-oss', text: 'Om Oss' },
   { path: '/nyheter', text: 'Nyheter' },
+  { path: '/vinlista', text: 'Vinlista' },
 ];
 
 const Header: FunctionComponent = () => {

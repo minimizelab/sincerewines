@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import ui from './ui';
+import list from './list';
 
 const reducer = combineReducers({
+  list,
   ui,
 });
 
