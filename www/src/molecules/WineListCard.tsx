@@ -11,6 +11,7 @@ import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
 import { navigate } from 'gatsby';
 import TypeIndicator from '../atoms/TypeIndicator';
 import { createArrayString } from '../utils/functions';
+import QuantityButton from '../atoms/QuantityButton';
 
 interface Props {
   item: Wine;
@@ -27,8 +28,15 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
   });
 
   const deleteFromWineList = (): void => {
-    console.log('deleted from wine list');
     dispatch(actions.deleteWine(item.id));
+  };
+
+  const increaseQuantity = (): void => {
+    dispatch(actions.increaseQuantity(item.id));
+  };
+
+  const decreaseQuantity = (): void => {
+    dispatch(actions.decreaseQuantity(item.id));
   };
 
   return (
@@ -57,9 +65,15 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
           <div className="flex flex-row">
             <div>
               <p>Antal</p>
-              <p>
-                {wineList.filter((wine) => wine.id === item.id)[0].quantity}
-              </p>
+              <div className="flex flex-row">
+                <p>
+                  {wineList.filter((wine) => wine.id === item.id)[0].quantity}
+                </p>
+                <QuantityButton
+                  onIncrease={increaseQuantity}
+                  onDecrease={decreaseQuantity}
+                />
+              </div>
             </div>
             <div>
               <p>Volym</p>

@@ -27,12 +27,10 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
   });
 
   const addToWineList = (): void => {
-    console.log('added to wine list');
     dispatch(actions.addWine(item.id));
   };
 
   const deleteFromWineList = (): void => {
-    console.log('deleted from wine list');
     dispatch(actions.deleteWine(item.id));
   };
 
