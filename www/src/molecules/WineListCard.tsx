@@ -42,8 +42,11 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
   return (
     <div className="w-full sm:w-2/3">
       <div
-        onClick={(): void => {
-          navigate(`/sortiment/${item.path.current}`);
+        onClick={(event): void => {
+          event.preventDefault();
+          if (event.target === event.currentTarget) {
+            navigate(`/sortiment/${item.path.current}`);
+          }
         }}
         className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
