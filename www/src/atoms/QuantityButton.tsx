@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
 interface Props {
-  onIncrease: () => void;
-  onDecrease: () => void;
+  onIncrease: (event: any) => void;
+  onDecrease: (event: any) => void;
 }
 
 const QuantityButton: FunctionComponent<Props> = ({

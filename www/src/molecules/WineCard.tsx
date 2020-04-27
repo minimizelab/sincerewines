@@ -10,6 +10,7 @@ import Text from '../atoms/Text';
 import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
 import { navigate } from 'gatsby';
 import TypeIndicator from '../atoms/TypeIndicator';
+import ListIndicator from '../atoms/ListIndicator';
 import { createArrayString } from '../utils/functions';
 
 interface Props {
@@ -41,42 +42,42 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
   };
 
   return (
-    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 relative">
       <div
-        onClick={(event): void => {
-          event.preventDefault();
-          if (event.target === event.currentTarget) {
-            navigate(`/sortiment/${item.path.current}`);
-          }
+        onClick={(): void => {
+          navigate(`/sortiment/${item.path.current}`);
         }}
-        className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
+        className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 flex flex-row cursor-pointer"
       >
-        <div className="flex flex-col w-16 justify-center items-center">
-          <Image
-            {...imageProps}
-            aspectRatio={item.image.asset.metadata.dimensions.aspectRatio}
-          />
-        </div>
-        <div className="flex flex-row flex-grow">
-          <div className="flex flex-col p-2 items-start flex-grow justify-around">
-            <Text>{item.producer.name}</Text>
-            <H5>{item.name}</H5>
-            <H5>{item.year}</H5>
-            <Text>
-              {createArrayString(item.grapes.map((item) => item.name))}
-            </Text>
+        <div className="m-6 flex flex-row">
+          <div className="flex flex-col w-16 justify-center items-center">
+            <Image
+              {...imageProps}
+              aspectRatio={item.image.asset.metadata.dimensions.aspectRatio}
+            />
           </div>
-          <div className="flex flex-col justify-end align-end p-2">
-            <button
-              onClick={
-                isInWineList(item.id) ? deleteFromWineList : addToWineList
-              }
-            >
-              {isInWineList(item.id) ? 'Delete from list' : 'Add to list'}
-            </button>
-            <TypeIndicator className="self-end" type={item.type} />
+          <div className="flex flex-row flex-grow">
+            <div className="flex flex-col p-2 items-start flex-grow justify-around">
+              <Text>{item.producer.name}</Text>
+              <H5>{item.name}</H5>
+              <H5>{item.year}</H5>
+              <Text>
+                {createArrayString(item.grapes.map((item) => item.name))}
+              </Text>
+            </div>
           </div>
         </div>
+
+        <ListIndicator
+          className="absolute m-10 top-0 right-0"
+          inList={isInWineList(item.id)}
+          deleteFromList={deleteFromWineList}
+          addToList={addToWineList}
+        />
+        <TypeIndicator
+          className="absolute m-10 bottom-0 right-0"
+          type={item.type}
+        />
       </div>
     </div>
   );

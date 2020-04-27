@@ -12,6 +12,7 @@ import { navigate } from 'gatsby';
 import TypeIndicator from '../atoms/TypeIndicator';
 import { createArrayString } from '../utils/functions';
 import QuantityButton from '../atoms/QuantityButton';
+import ListIndicator from '../atoms/ListIndicator';
 
 interface Props {
   item: Wine;
@@ -40,13 +41,10 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
   };
 
   return (
-    <div className="w-full sm:w-2/3">
+    <div className="w-full relative sm:w-2/3">
       <div
-        onClick={(event): void => {
-          event.preventDefault();
-          if (event.target === event.currentTarget) {
-            navigate(`/sortiment/${item.path.current}`);
-          }
+        onClick={(): void => {
+          navigate(`/sortiment/${item.path.current}`);
         }}
         className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
@@ -65,7 +63,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
               {createArrayString(item.grapes.map((item) => item.name))}
             </Text>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row w-1/3">
             <div>
               <p>Antal</p>
               <div className="flex flex-row">
@@ -87,10 +85,15 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
               <p>{item.price}</p>
             </div>
           </div>
-          <div className="flex flex-col justify-end align-end p-2">
-            <button onClick={deleteFromWineList}>Delete from list</button>
-            <TypeIndicator className="self-end" type={item.type} />
-          </div>
+          <ListIndicator
+            className="absolute m-10 top-0 right-0"
+            inList={true}
+            deleteFromList={deleteFromWineList}
+          />
+          <TypeIndicator
+            className="absolute m-10 bottom-0 right-0"
+            type={item.type}
+          />
         </div>
       </div>
     </div>

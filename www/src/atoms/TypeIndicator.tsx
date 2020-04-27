@@ -10,7 +10,7 @@ interface Props {
 const TypeIndicator: FunctionComponent<Props> = ({ className, type }) => (
   <div
     className={combineClasses([
-      'flex rounded-full w-6 h-6 m-1',
+      'flex rounded-full w-8 h-8',
       className,
       {
         'bg-sincere-wine': type === 'Red',
