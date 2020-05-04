@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { combineClasses } from '@minimizelab/mini_utils';
+import { IoIosAdd, IoIosRemove } from 'react-icons/io';
 
 interface Props {
   className?: string;
@@ -23,7 +24,7 @@ const ListIndicator: FunctionComponent<Props> = ({
       ])}
       onClick={inList ? deleteFromList : addToList}
     >
-      {inList ? '-' : '+'}
+      {inList ? <IoIosRemove /> : <IoIosAdd />}
     </button>
   </>
 );
