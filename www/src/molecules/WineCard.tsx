@@ -47,9 +47,9 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
         onClick={(): void => {
           navigate(`/sortiment/${item.path.current}`);
         }}
-        className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 flex flex-row cursor-pointer"
+        className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
-        <div className="m-6 flex flex-row">
+        <div className="flex flex-row">
           <div className="flex flex-col w-16 justify-center items-center">
             <Image
               {...imageProps}
@@ -57,7 +57,7 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
             />
           </div>
           <div className="flex flex-row flex-grow">
-            <div className="flex flex-col p-2 items-start flex-grow justify-around">
+            <div className="flex flex-col p-2 pr-4 items-start flex-grow justify-around">
               <Text>{item.producer.name}</Text>
               <H5>{item.name}</H5>
               <H5>{item.year}</H5>
