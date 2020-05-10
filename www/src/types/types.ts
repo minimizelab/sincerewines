@@ -113,3 +113,8 @@ export interface SortBy {
 export interface WineData {
   node: Wine | WineCase;
 }
+
+export interface WineListItem {
+  id: string;
+  quantity: number;
+}

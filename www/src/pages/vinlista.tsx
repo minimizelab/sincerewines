@@ -5,12 +5,12 @@ import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Wine, WineCase } from '../types/types';
+import { Wine, WineCase, WineListItem } from '../types/types';
 import ProductCardList from '../organisms/ProductCardList';
 import H3 from '../atoms/H3';
 
 const Vinlista: FunctionComponent = () => {
-  const wineList = useSelector<State, { id: string; quantity: number }[]>(
+  const wineList = useSelector<State, WineListItem[]>(
     (state) => state.list.wineList
   );
 
@@ -58,10 +58,7 @@ const Vinlista: FunctionComponent = () => {
       }
     }
   `);
-  // const wineData = () =>
-  //   allSanityWine.edges.filter((item) =>
-  //     wineList.map((wine) => wine.id).includes(item.node.id)
-  //   );
+
   const wineData = useMemo(() => {
     const wineListIds = wineList.map((wine) => wine.id);
     const wine = allSanityWine.edges.filter(({ node }) =>

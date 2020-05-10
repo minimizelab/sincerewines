@@ -1,10 +1,18 @@
 import { createSlice, CaseReducer, PayloadAction } from '@reduxjs/toolkit';
+import { WineListItem } from '../types/types';
 
 const initialState: WineListState = {
   wineList: [],
 };
 
-type WineListState = { wineList: { id: string; quantity: number }[] };
+type WineListState = { wineList: WineListItem[] };
+
+const setList: CaseReducer<WineListState, PayloadAction<WineListItem[]>> = (
+  state,
+  { payload }
+) => {
+  state.wineList = payload;
+};
 
 const addWine: CaseReducer<WineListState, PayloadAction<string>> = (
   state,
@@ -51,7 +59,13 @@ const decreaseQuantity: CaseReducer<WineListState, PayloadAction<string>> = (
 const wineList = createSlice({
   name: 'wineList',
   initialState,
-  reducers: { addWine, deleteWine, increaseQuantity, decreaseQuantity },
+  reducers: {
+    addWine,
+    deleteWine,
+    increaseQuantity,
+    decreaseQuantity,
+    setList,
+  },
 });
 
 export const { actions, reducer } = wineList;
