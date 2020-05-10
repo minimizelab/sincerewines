@@ -40,12 +40,15 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
     dispatch(actions.decreaseQuantity(item.id));
   };
 
+  const handleOnClick = (event: any) => {
+    event.preventDefault();
+    navigate(`/sortiment/${item.path.current}`);
+  };
+
   return (
     <div className="w-full relative sm:w-2/3">
       <div
-        onClick={(): void => {
-          navigate(`/sortiment/${item.path.current}`);
-        }}
+        onClick={handleOnClick}
         className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
         <div className="flex flex-col w-16 justify-center items-center">

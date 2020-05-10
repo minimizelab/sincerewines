@@ -1,18 +1,26 @@
 import React, { FunctionComponent } from 'react';
 
 interface Props {
-  onIncrease: (event: any) => void;
-  onDecrease: (event: any) => void;
+  onIncrease: () => void;
+  onDecrease: () => void;
 }
 
 const QuantityButton: FunctionComponent<Props> = ({
   onIncrease,
   onDecrease,
 }) => {
+  const handleIncrease = (event: any) => {
+    event.stopPropagation();
+    onIncrease();
+  };
+  const handleDecrease = (event: any) => {
+    event.stopPropagation();
+    onDecrease();
+  };
   return (
     <div>
       <svg
-        onClick={onIncrease}
+        onClick={handleIncrease}
         className="w-3 h-3"
         width="1em"
         height="1em"
@@ -27,7 +35,7 @@ const QuantityButton: FunctionComponent<Props> = ({
         />
       </svg>
       <svg
-        onClick={onDecrease}
+        onClick={handleDecrease}
         className="w-3 h-3"
         width="1em"
         height="1em"
