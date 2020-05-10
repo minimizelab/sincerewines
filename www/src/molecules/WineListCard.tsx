@@ -13,6 +13,7 @@ import TypeIndicator from '../atoms/TypeIndicator';
 import { createArrayString } from '../utils/functions';
 import QuantityButton from '../atoms/QuantityButton';
 import ListIndicator from '../atoms/ListIndicator';
+import WineListDetails from './WineListDetails';
 
 interface Props {
   item: Wine;
@@ -28,6 +29,9 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
     size: { height: 140 },
   });
 
+  const itemQuantity = (): number =>
+    wineList.filter((wine) => wine.id === item.id)[0].quantity;
+
   const deleteFromWineList = (): void => {
     dispatch(actions.deleteWine(item.id));
   };
@@ -40,7 +44,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
     dispatch(actions.decreaseQuantity(item.id));
   };
 
-  const handleOnClick = (event: any) => {
+  const handleOnClick = (event: any): void => {
     event.preventDefault();
     navigate(`/sortiment/${item.path.current}`);
   };
@@ -57,7 +61,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
             aspectRatio={item.image.asset.metadata.dimensions.aspectRatio}
           />
         </div>
-        <div className="flex flex-row flex-grow">
+        <div className="flex flex-row lg:flex-grow flex-wrap sm:pr-16">
           <div className="flex flex-col p-2 items-start flex-grow justify-around">
             <Text>{item.producer.name}</Text>
             <H5>{item.name}</H5>
@@ -66,27 +70,24 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
               {createArrayString(item.grapes.map((item) => item.name))}
             </Text>
           </div>
-          <div className="flex flex-row w-1/3">
-            <div>
-              <p>Antal</p>
-              <div className="flex flex-row">
-                <p>
-                  {wineList.filter((wine) => wine.id === item.id)[0].quantity}
-                </p>
+          <div className="flex flex-row lg:w-1/3 md:w-3/4 sm:w-full select-none">
+            <WineListDetails title="Antal">
+              <div className="flex flex-row justify-between">
+                <p>{itemQuantity()}</p>
                 <QuantityButton
                   onIncrease={increaseQuantity}
                   onDecrease={decreaseQuantity}
                 />
               </div>
-            </div>
-            <div>
-              <p>Volym</p>
-              <p>{item.vol}</p>
-            </div>
-            <div>
-              <p>Pris</p>
-              <p>{item.price}</p>
-            </div>
+            </WineListDetails>
+            <WineListDetails title="Volym">
+              <p>{item.vol * itemQuantity() + ' cl'}</p>
+            </WineListDetails>
+            <WineListDetails title="Pris">
+              <p className="whitespace-no-wrap">
+                {item.price * itemQuantity() + ' kr'}
+              </p>
+            </WineListDetails>
           </div>
           <ListIndicator
             className="absolute m-10 top-0 right-0"
