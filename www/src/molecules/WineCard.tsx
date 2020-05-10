@@ -41,12 +41,15 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
       .includes(id);
   };
 
+  const handleOnClick = (event: any) => {
+    event.preventDefault();
+    navigate(`/sortiment/${item.path.current}`);
+  };
+
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 relative">
       <div
-        onClick={(): void => {
-          navigate(`/sortiment/${item.path.current}`);
-        }}
+        onClick={handleOnClick}
         className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
         <div className="flex flex-row">
