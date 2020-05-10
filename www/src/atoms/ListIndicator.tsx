@@ -27,7 +27,7 @@ const ListIndicator: FunctionComponent<Props> = ({
     <>
       <button
         className={combineClasses([
-          'flex rounded-full w-8 h-8 text-xl border border-sincere-green justify-center items-center',
+          'flex rounded-full outline-none w-8 h-8 text-xl border border-sincere-green justify-center items-center',
           inList
             ? 'bg-sincere-green text-white'
             : 'bg-white border-sincere-green',
