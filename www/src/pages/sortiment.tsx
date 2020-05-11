@@ -7,9 +7,9 @@ import Layout from '../organisms/Layout';
 import ProductCardList from '../organisms/ProductCardList';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
-import H4 from '../atoms/H4';
 import TabButtons from '../organisms/TabButtons';
 import SortDropdown from '../molecules/SortDropdown';
+import AssortmentHeader from '../molecules/AssortmentHeader';
 
 const sortByList = [
   { value: 'name', text: 'vinets namn' },
@@ -95,11 +95,9 @@ const Sortiment: FunctionComponent = () => {
       </Section>
       {privateCustomer ? (
         <Section className="my-6 flex-col">
-          <div className="flex flex-row justify-between flex-wrap mx-6">
-            <H4>Sortiment för privata kunder</H4>
+          <AssortmentHeader privateCustomer={true}>
             <SortDropdown sortByList={sortByList} setSortBy={setSortBy} />
-          </div>
-
+          </AssortmentHeader>
           <ProductCardList
             data={sortEdges(allSanityWine.edges).concat(
               allSanityWineCase.edges
@@ -109,10 +107,9 @@ const Sortiment: FunctionComponent = () => {
         </Section>
       ) : (
         <Section className="my-6 flex-col">
-          <div className="flex flex-row justify-between flex-wrap mx-6">
-            <H4>Sortiment för restauranger</H4>
+          <AssortmentHeader privateCustomer={false}>
             <SortDropdown sortByList={sortByList} setSortBy={setSortBy} />
-          </div>
+          </AssortmentHeader>
           <ProductCardList data={sortEdges(allSanityWine.edges)} />
         </Section>
       )}
