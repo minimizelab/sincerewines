@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import TextUppercase from '../atoms/TextUppercase';
 
 interface Props {
   title: string;
@@ -7,7 +8,7 @@ interface Props {
 const WineListDetails: FunctionComponent<Props> = ({ title, children }) => {
   return (
     <div className="px-4">
-      <p>{title}</p>
+      <TextUppercase>{title}</TextUppercase>
       {children}
     </div>
   );
