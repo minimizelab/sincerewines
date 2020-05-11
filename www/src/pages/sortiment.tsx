@@ -109,8 +109,8 @@ const Sortiment: FunctionComponent = () => {
         </Section>
       ) : (
         <Section className="my-6 flex-col">
-          <div className="flex flex-row justify-between mx-6">
-            <H4 className="mx-6">Sortiment för restauranger</H4>
+          <div className="flex flex-row justify-between flex-wrap mx-6">
+            <H4>Sortiment för restauranger</H4>
             <SortDropdown sortByList={sortByList} setSortBy={setSortBy} />
           </div>
           <ProductCardList data={sortEdges(allSanityWine.edges)} />
