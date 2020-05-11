@@ -8,6 +8,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Wine, WineCase, WineListItem } from '../types/types';
 import ProductCardList from '../organisms/ProductCardList';
 import H3 from '../atoms/H3';
+import Button from '../molecules/Button';
 
 const Vinlista: FunctionComponent = () => {
   const wineList = useSelector<State, WineListItem[]>(
@@ -82,11 +83,14 @@ const Vinlista: FunctionComponent = () => {
       <Section className="flex-row justify-center pt-3 mt-12">
         <H1>Vinlista</H1>
       </Section>
-      <Section className="my-6 flex-col">
+      <Section className="mt-6 mb-2 flex-col">
         <ProductCardList wineList data={wineData} />
       </Section>
-      <Section className="flex-row justify-center pt-3 mb-12">
+      <Section className="flex-col items-center justify-center py-3 mb-12">
         <H3>Totalt: {totalPrice} kr</H3>
+        <div className="mt-8">
+          <Button onClick={() => window.print()}>Skriv ut lista</Button>
+        </div>
       </Section>
     </Layout>
   );
