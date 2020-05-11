@@ -30,7 +30,7 @@ const ListIndicator: FunctionComponent<Props> = ({
           'flex rounded-full focus:outline-none w-6 h-6 text-xl border border-sincere-green justify-center items-center',
           inList
             ? 'bg-sincere-green text-white'
-            : 'bg-white border-sincere-green',
+            : 'bg-white border-sincere-green hover:bg-sincere-green',
           className,
         ])}
         onClick={handleOnClick}
@@ -38,7 +38,7 @@ const ListIndicator: FunctionComponent<Props> = ({
         {inList ? (
           <IoIosRemove className="text-white" />
         ) : (
-          <IoIosAdd className="text-sincere-green" />
+          <IoIosAdd className="text-sincere-green hover:text-white" />
         )}
       </button>
     </>
