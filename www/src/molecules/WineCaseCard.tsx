@@ -1,11 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import { WineCase, Wine, Producer, Grape } from '../types/types';
+import { State } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions } from '../store/list';
+import { AppDispatch } from '../store';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
 import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
 import { navigate } from 'gatsby';
 import TypeIndicator from '../atoms/TypeIndicator';
 import { createArrayString } from '../utils/functions';
+import ListIndicator from '../atoms/ListIndicator';
 
 interface Props {
   item: WineCase;
@@ -16,14 +21,36 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
     baseUrl: item.image.asset.url,
     size: { height: 140 },
   }); */
+  const dispatch = useDispatch<AppDispatch>();
+  const wineList = useSelector<State, { id: string; quantity: number }[]>(
+    (state) => state.list.wineList
+  );
+
+  const addToWineList = (): void => {
+    dispatch(actions.addWine(item.id));
+  };
+
+  const deleteFromWineList = (): void => {
+    dispatch(actions.deleteWine(item.id));
+  };
+
+  const isInWineList = (id: string): boolean => {
+    return Object.values(wineList)
+      .map((item) => item.id)
+      .includes(id);
+  };
+
+  const handleOnClick = (event: any) => {
+    event.preventDefault();
+    navigate(`/sortiment/${item.path.current}`);
+  };
+
   const { caseWines } = item;
   const wineQuantity = caseWines.reduce((acc, item) => acc + item.quantity, 0);
   return (
-    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 relative">
       <div
-        onClick={(): void => {
-          navigate(`/sortiment/${item.path.current}`);
-        }}
+        onClick={handleOnClick}
         className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
         {/* {item.image && (
@@ -69,8 +96,15 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
               }
             }) */}
           </Text>
+
           {/* <TypeIndicator className="self-end" type={item.type} /> */}
         </div>
+        <ListIndicator
+          className="absolute m-10 top-0 right-0"
+          inList={isInWineList(item.id)}
+          deleteFromList={deleteFromWineList}
+          addToList={addToWineList}
+        />
       </div>
     </div>
   );

@@ -61,9 +61,10 @@ const Vinlista: FunctionComponent = () => {
 
   const wineData = useMemo(() => {
     const wineListIds = wineList.map((wine) => wine.id);
-    const wine = allSanityWine.edges.filter(({ node }) =>
-      wineListIds.includes(node.id)
-    );
+    const wine = allSanityWineCase.edges
+      .concat(allSanityWine.edges)
+      .filter(({ node }) => wineListIds.includes(node.id));
+
     return wine;
   }, [wineList]);
   const totalPrice = useMemo(() => {
