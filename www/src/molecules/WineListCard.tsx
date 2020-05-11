@@ -68,6 +68,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
 
   return (
     <div className="w-full relative sm:w-2/3">
+      {console.log(item)}
       <div className="bg-white h-270 lg:h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row">
         {isItemWine ? (
           <div className="flex flex-col w-16 justify-center items-center">
@@ -78,7 +79,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
           </div>
         ) : null}
 
-        <div className="flex flex-row flex-wrap w-full pr-10 md:pr-16">
+        <div className="flex flex-row flex-wrap w-full pr-6 sm:pr-10 md:pr-14">
           <div className="flex flex-col p-2 items-start lg:flex-grow justify-around">
             {isItemWine ? (
               <Text>{item.producer.name}</Text>
@@ -117,11 +118,11 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
               )
             )}
           </div>
-          <div className="flex flex-col justify-between lg:w-1/3 w-full">
+          <div className="flex flex-col justify-between lg:w-5/12 xl:w-1/3 w-full">
             <div className="flex flex-row w-full select-none p-2">
               <WineListDetails title="Antal">
-                <div className="flex flex-row justify-between">
-                  <p>{itemQuantity()}</p>
+                <div className="flex flex-row">
+                  <p className="pr-4">{itemQuantity()}</p>
                   <QuantityButton
                     onIncrease={increaseQuantity}
                     onDecrease={decreaseQuantity}
@@ -137,6 +138,10 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
               </WineListDetails>
               <WineListDetails title="Pris">
                 <p>{item.price * itemQuantity() + ' kr'}</p>
+              </WineListDetails>
+
+              <WineListDetails title="Artikel#">
+                {item.articleNumber ? <p>{item.articleNumber}</p> : <p>-</p>}
               </WineListDetails>
             </div>
             <div className="self-end">

@@ -7,7 +7,7 @@ interface Props {
 
 const WineListDetails: FunctionComponent<Props> = ({ title, children }) => {
   return (
-    <div className="pr-6 lg:px-4 whitespace-no-wrap">
+    <div className="flex flex-col w-full justify-between lg:px-0 sm:px-2 whitespace-no-wrap">
       <TextUppercase>{title}</TextUppercase>
       {children}
     </div>
