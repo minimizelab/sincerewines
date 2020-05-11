@@ -24,7 +24,7 @@ const Header: FunctionComponent = () => {
     dispatch(actions.menuToggled(!open));
   };
   return (
-    <header className="bg-white z-10">
+    <header className="bg-white z-10 print:invisible">
       <Section className="flex-col">
         <div className="bg-white flex flex-row justify-between w-full p-4 lg:p-6 flex-wrap">
           <div className="flex flex-col items-start justify-center p-2">

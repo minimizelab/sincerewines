@@ -13,7 +13,7 @@ const Footer: FunctionComponent = () => {
     (state) => state.ui.privateCustomer
   );
   return (
-    <footer className="bg-white">
+    <footer className="bg-white print:invisible">
       <Section className="flex-row items-end justify-between py-6 flex-wrap bg-white">
         <div className="flex flex-row items-start lg:w-auto w-full flex-wrap">
           <Block title="Kontakt">

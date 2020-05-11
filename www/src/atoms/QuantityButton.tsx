@@ -18,7 +18,7 @@ const QuantityButton: FunctionComponent<Props> = ({
     onDecrease();
   };
   return (
-    <div>
+    <div className="print:invisible">
       <svg
         onClick={handleIncrease}
         className="w-3 h-3"

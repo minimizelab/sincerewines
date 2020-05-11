@@ -144,7 +144,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
                 {item.articleNumber ? <p>{item.articleNumber}</p> : <p>-</p>}
               </WineListDetails>
             </div>
-            <div className="self-end">
+            <div className="self-end print:invisible">
               <ArrowLink to={`/sortiment/${item.path.current}`}>
                 Läs mer om vinet
               </ArrowLink>

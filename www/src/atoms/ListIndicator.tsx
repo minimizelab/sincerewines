@@ -24,24 +24,22 @@ const ListIndicator: FunctionComponent<Props> = ({
     }
   };
   return (
-    <>
-      <button
-        className={combineClasses([
-          'flex rounded-full focus:outline-none w-6 h-6 text-xl border border-sincere-green justify-center items-center',
-          inList
-            ? 'bg-sincere-green text-white'
-            : 'bg-white border-sincere-green hover:bg-sincere-green',
-          className,
-        ])}
-        onClick={handleOnClick}
-      >
-        {inList ? (
-          <IoIosRemove className="text-white" />
-        ) : (
-          <IoIosAdd className="text-sincere-green hover:text-white" />
-        )}
-      </button>
-    </>
+    <button
+      className={combineClasses([
+        'flex rounded-full focus:outline-none w-6 h-6 text-xl border border-sincere-green justify-center items-center print:invisible',
+        inList
+          ? 'bg-sincere-green text-white'
+          : 'bg-white border-sincere-green hover:bg-sincere-green',
+        className,
+      ])}
+      onClick={handleOnClick}
+    >
+      {inList ? (
+        <IoIosRemove className="text-white" />
+      ) : (
+        <IoIosAdd className="text-sincere-green hover:text-white" />
+      )}
+    </button>
   );
 };
 
