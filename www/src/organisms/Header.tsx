@@ -58,7 +58,7 @@ const Header: FunctionComponent = () => {
           </div>
         </div>
         {open && (
-          <nav className="flex flex-col px-1 -mt-2 pb-6 lg:hidden">
+          <nav className="flex flex-col px-1 -mt-2 mb-2 pb-12 lg:hidden">
             {navList.map((item) => (
               <NavLink
                 onClick={toggleMenu}
@@ -67,6 +67,16 @@ const Header: FunctionComponent = () => {
                 text={item.text}
               />
             ))}
+            <span className="relative">
+              <span className="absolute">
+                <NavLink to={'/vinlista'} key={'Vinlista'} text={'Vinlista'} />
+                {wineList.length > 0 && (
+                  <p className="absolute rounded-full top-0 right-0 bg-sincere-rose shadow text-white text-sm w-6 h-6 flex justify-center items-center -mt-2 -ml-1">
+                    {wineQuantity}
+                  </p>
+                )}
+              </span>
+            </span>
           </nav>
         )}
       </Section>
