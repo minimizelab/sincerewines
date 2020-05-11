@@ -6,6 +6,7 @@ import { State, AppDispatch } from '../store';
 import { actions } from '../store/ui';
 import Section from '../atoms/Section';
 import menuIcon from '../assets/menu.png';
+import { WineListItem } from '../types/types';
 
 const navList = [
   { path: '/sortiment', text: 'Sortiment' },
@@ -14,15 +15,21 @@ const navList = [
   { path: '/bestallningar', text: 'Beställningar' },
   { path: '/om-oss', text: 'Om Oss' },
   { path: '/nyheter', text: 'Nyheter' },
-  { path: '/vinlista', text: 'Vinlista' },
+  /* { path: '/vinlista', text: 'Vinlista' }, */
 ];
 
 const Header: FunctionComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
   const open = useSelector<State, boolean>((state) => state.ui.menuOpen);
+  const wineList = useSelector<State, WineListItem[]>(
+    (state) => state.list.wineList
+  );
   const toggleMenu = (): void => {
     dispatch(actions.menuToggled(!open));
   };
+
+  const wineQuantity = wineList.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <header className="bg-white z-10 print:invisible">
       <Section className="flex-col">
@@ -34,6 +41,14 @@ const Header: FunctionComponent = () => {
             {navList.map((item) => (
               <NavLink to={item.path} key={item.text} text={item.text} />
             ))}
+            <span className="relative">
+              <NavLink to={'/vinlista'} key={'Vinlista'} text={'Vinlista'} />
+            </span>
+            {wineList.length > 0 && (
+              <p className="absolute rounded-full bg-sincere-rose shadow text-white text-sm w-6 h-6 flex justify-center items-center -mt-3 -ml-1">
+                {wineQuantity}
+              </p>
+            )}
           </nav>
           <div
             onClick={toggleMenu}

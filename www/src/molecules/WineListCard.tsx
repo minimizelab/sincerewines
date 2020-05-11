@@ -45,15 +45,6 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
   const decreaseQuantity = (): void => {
     dispatch(actions.decreaseQuantity(item.id));
   };
-
-  /*   const isItemWine = (): boolean => {
-    if (item._type === 'wine') {
-      return true;
-    } else {
-      return false;
-    }
-  }; */
-
   const isItemWine = useMemo(() => {
     if (item._type === 'wine') {
       return true;
