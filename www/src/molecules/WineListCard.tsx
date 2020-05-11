@@ -132,7 +132,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
                 {isItemWine ? (
                   <p>{item.vol * itemQuantity() + ' cl'}</p>
                 ) : (
-                  <p>{caseQuantity * caseVol + ' cl'}</p>
+                  <p>{caseQuantity * caseVol * itemQuantity() + ' cl'}</p>
                 )}
               </WineListDetails>
               <WineListDetails title="Pris">
