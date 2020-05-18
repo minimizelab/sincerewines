@@ -5,6 +5,9 @@ module.exports = {
       sans: ['Source Sans Pro', 'sans-serif'],
     },
     extend: {
+      screens: {
+        print: { raw: 'print' },
+      },
       spacing: {
         '72': '18rem',
         '84': '21rem',
@@ -21,6 +24,7 @@ module.exports = {
       height: {
         '140': '140px',
         '208': '208px',
+        '270': '270px',
         '400': '400px',
         '500': '500px',
         '800': '800px',

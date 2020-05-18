@@ -4,6 +4,7 @@ import Footer from './Footer';
 import { combineClasses } from '@minimizelab/mini_utils';
 import CookieDialog from './CookieDialog';
 import Header from './Header';
+import usePersistStore from '../hooks/usePersistStore';
 
 interface Props {
   title: string;
@@ -23,6 +24,7 @@ const Layout: FunctionComponent<Props> = ({
   const rootClassName = className
     ? combineClasses([defaultClassNames, className])
     : defaultClassNames;
+  const initialized = usePersistStore();
   return (
     <div className={rootClassName}>
       <Helmet>
@@ -30,10 +32,14 @@ const Layout: FunctionComponent<Props> = ({
         {description && <meta name="description" content={description} />}
         <title>{title}</title>
       </Helmet>
-      <Header />
-      <main className="flex-grow">{children}</main>
-      <Footer />
-      <CookieDialog />
+      {initialized && (
+        <>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <CookieDialog />
+        </>
+      )}
     </div>
   );
 };
