@@ -21,7 +21,7 @@ const QuantityButton: FunctionComponent<Props> = ({
     <div className="print:invisible">
       <svg
         onClick={handleIncrease}
-        className="w-3 h-3"
+        className="w-3 h-3 hover:text-sincere-grape cursor-pointer"
         width="1em"
         height="1em"
         viewBox="0 0 16 16"
@@ -36,7 +36,7 @@ const QuantityButton: FunctionComponent<Props> = ({
       </svg>
       <svg
         onClick={handleDecrease}
-        className="w-3 h-3"
+        className="w-3 h-3 hover:text-sincere-grape cursor-pointer"
         width="1em"
         height="1em"
         viewBox="0 0 16 16"
