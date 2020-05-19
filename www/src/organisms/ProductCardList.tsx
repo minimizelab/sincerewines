@@ -2,14 +2,18 @@ import React, { FunctionComponent } from 'react';
 import WineCard from '../molecules/WineCard';
 import WineCaseCard from '../molecules/WineCaseCard';
 import { Wine, WineCase, WineData } from '../types/types';
+import WineListCard from '../molecules/WineListCard';
+import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   privateCustomer?: boolean;
   data: WineData[];
+  wineList?: boolean;
 }
 
 const ProductCardList: FunctionComponent<Props> = ({
   privateCustomer,
+  wineList,
   data,
 }) => {
   const privateCustomerTypes = [
@@ -21,10 +25,15 @@ const ProductCardList: FunctionComponent<Props> = ({
   ];
 
   return (
-    <div className="flex flex-row flex-wrap w-full justify-start self-center">
+    <div
+      className={combineClasses([
+        'flex flex-row flex-wrap w-full self-center',
+        wineList ? 'justify-center' : 'justify-start',
+      ])}
+    >
       {data &&
         data.map((edge) => {
-          if (privateCustomer) {
+          if (privateCustomer && !wineList) {
             return privateCustomerTypes.includes(edge.node.assortment) ? (
               edge.node._type === 'wine' ? (
                 <WineCard key={edge.node.id} item={edge.node as Wine} />
@@ -32,6 +41,14 @@ const ProductCardList: FunctionComponent<Props> = ({
                 <WineCaseCard key={edge.node.id} item={edge.node as WineCase} />
               )
             ) : null;
+          } else if (wineList) {
+            return (
+              <WineListCard
+                privateCustomer={privateCustomer}
+                key={edge.node.id}
+                item={edge.node as Wine}
+              />
+            );
           } else {
             return <WineCard key={edge.node.id} item={edge.node as Wine} />;
           }
