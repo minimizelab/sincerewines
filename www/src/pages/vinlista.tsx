@@ -12,7 +12,6 @@ import ProductCardList from '../organisms/ProductCardList';
 import H3 from '../atoms/H3';
 import H4 from '../atoms/H4';
 import Button from '../molecules/Button';
-import TextUppercase from '../atoms/TextUppercase';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
 import ArrowLink from '../atoms/ArrowLink';
@@ -98,14 +97,10 @@ const Vinlista: FunctionComponent = () => {
         <H1 className="mb-6">Vinlista</H1>
         {wineList.length !== 0 ? (
           <div className="flex-row flex justify-between items-end w-full px-6">
-            {privateCustomer ? (
-              <H4>Privatimport</H4>
-            ) : (
-              <H4>Restaurangsortiment</H4>
-            )}
+            {privateCustomer ? <H4>Privat</H4> : <H4>Restaurang</H4>}
             <p
               className="cursor-pointer uppercase tracking-wider text-xs font-sans"
-              onClick={() => deleteAllWines()}
+              onClick={(): void => deleteAllWines()}
             >
               Återställ
             </p>
@@ -135,7 +130,7 @@ const Vinlista: FunctionComponent = () => {
         <Section className="sm:w-3/5 w-full flex-col items-center justify-center py-3 mb-12">
           {privateCustomer && <H3>Totalt: {totalPrice} kr</H3>}
           <div className="mt-8">
-            <Button onClick={() => window.print()}>
+            <Button onClick={(): void => window.print()}>
               {privateCustomer ? 'Skriv ut lista' : 'Skriv ut lista för offert'}
             </Button>
           </div>
