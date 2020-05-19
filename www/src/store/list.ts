@@ -28,6 +28,10 @@ const deleteWine: CaseReducer<WineListState, PayloadAction<string>> = (
   state.wineList = state.wineList.filter((wine) => wine.id !== payload);
 };
 
+const deleteAll: CaseReducer<WineListState> = (state) => {
+  state.wineList = [];
+};
+
 const increaseQuantity: CaseReducer<WineListState, PayloadAction<string>> = (
   state,
   { payload }
@@ -62,6 +66,7 @@ const wineList = createSlice({
   reducers: {
     addWine,
     deleteWine,
+    deleteAll,
     increaseQuantity,
     decreaseQuantity,
     setList,
