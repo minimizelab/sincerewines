@@ -97,7 +97,7 @@ const Vinlista: FunctionComponent = () => {
         <H1 className="mb-6">Vinlista</H1>
         {wineList.length !== 0 ? (
           <div className="flex-row flex justify-between items-end w-full px-6">
-            {privateCustomer ? <H4>Privat</H4> : <H4>Restaurang</H4>}
+            {privateCustomer ? <H4>Privatkund</H4> : <H4>Restaurangkund</H4>}
             <p
               className="cursor-pointer uppercase tracking-wider text-xs font-sans"
               onClick={(): void => deleteAllWines()}
