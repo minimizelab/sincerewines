@@ -17,9 +17,10 @@ import ArrowLink from '../atoms/ArrowLink';
 
 interface Props {
   item: Wine;
+  privateCustomer?: boolean;
 }
 
-const WineListCard: FunctionComponent<Props> = ({ item }) => {
+const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
   const [caseQuantity, setCaseQuantity] = useState(0);
   const [caseVol, setCaseVol] = useState(0);
   const dispatch = useDispatch<AppDispatch>();
@@ -58,8 +59,7 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
   }, [item]);
 
   return (
-    <div className="w-full relative sm:w-2/3">
-      {console.log(item)}
+    <div className="w-full relative">
       <div className="bg-white h-270 lg:h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row">
         {isItemWine ? (
           <div className="flex flex-col w-16 justify-center items-center">
@@ -128,11 +128,15 @@ const WineListCard: FunctionComponent<Props> = ({ item }) => {
                 )}
               </WineListDetails>
               <WineListDetails title="Pris">
-                <p>{item.price * itemQuantity() + ' kr'}</p>
+                {privateCustomer ? (
+                  <p>{item.price * itemQuantity() + ' kr'}</p>
+                ) : (
+                  <p>Kontakta oss</p>
+                )}
               </WineListDetails>
 
               <WineListDetails title="Artikel#">
-                {item.articleNumber ? <p>{item.articleNumber}</p> : <p>-</p>}
+                {item.articleNumber ? <p>{item.articleNumber}</p> : <p> </p>}
               </WineListDetails>
             </div>
             <div className="self-end print:invisible">

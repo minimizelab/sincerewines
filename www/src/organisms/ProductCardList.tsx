@@ -33,7 +33,7 @@ const ProductCardList: FunctionComponent<Props> = ({
     >
       {data &&
         data.map((edge) => {
-          if (privateCustomer) {
+          if (privateCustomer && !wineList) {
             return privateCustomerTypes.includes(edge.node.assortment) ? (
               edge.node._type === 'wine' ? (
                 <WineCard key={edge.node.id} item={edge.node as Wine} />
@@ -42,7 +42,13 @@ const ProductCardList: FunctionComponent<Props> = ({
               )
             ) : null;
           } else if (wineList) {
-            return <WineListCard key={edge.node.id} item={edge.node as Wine} />;
+            return (
+              <WineListCard
+                privateCustomer={privateCustomer}
+                key={edge.node.id}
+                item={edge.node as Wine}
+              />
+            );
           } else {
             return <WineCard key={edge.node.id} item={edge.node as Wine} />;
           }
