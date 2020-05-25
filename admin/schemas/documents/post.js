@@ -67,6 +67,6 @@ export default {
     },
   ],
   initialValue: {
-    date: new Date().toISOString(),
+    date: new Date().toISOString().substring(0, 10),
   },
 };
