@@ -16,7 +16,7 @@ const Nyheter: FunctionComponent = () => {
     };
   } = useStaticQuery(graphql`
     query postsQuery {
-      allSanityPost {
+      allSanityPost(sort: { fields: date, order: DESC }) {
         edges {
           node {
             ...Post
