@@ -3,5 +3,6 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "tailwindCSS.emmetCompletions": true
+  "tailwindCSS.emmetCompletions": true,
+  "cSpell.language": "en ,sv"
 }
