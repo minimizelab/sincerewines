@@ -9,11 +9,11 @@ const QuantityButton: FunctionComponent<Props> = ({
   onIncrease,
   onDecrease,
 }) => {
-  const handleIncrease = (event: any) => {
+  const handleIncrease = (event: any): void => {
     event.stopPropagation();
     onIncrease();
   };
-  const handleDecrease = (event: any) => {
+  const handleDecrease = (event: any): void => {
     event.stopPropagation();
     onDecrease();
   };

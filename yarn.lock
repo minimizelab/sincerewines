@@ -1101,7 +1101,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.3.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.3.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.11.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
   dependencies:
@@ -1956,7 +1956,7 @@
   version "1.150.1"
   resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-1.150.1.tgz#397c43fa3cf61ead7c006e74b687d9f323e5afce"
 
-"@sanity/client@1.150.1", "@sanity/client@^1.149.13":
+"@sanity/client@1.150.1", "@sanity/client@^1.149.13", "@sanity/client@^1.149.16":
   version "1.150.1"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-1.150.1.tgz#052ba267d9e8bba21576fbe5a69aa2aeaa0caf22"
   dependencies:
@@ -1965,18 +1965,6 @@
     "@sanity/observable" "1.150.1"
     deep-assign "^2.0.0"
     get-it "^5.0.3"
-    make-error "^1.3.0"
-    object-assign "^4.1.1"
-
-"@sanity/client@^0.144.0":
-  version "0.144.0"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-0.144.0.tgz#193e7401658e0cede6e60076923c30832244a802"
-  dependencies:
-    "@sanity/eventsource" "0.144.0"
-    "@sanity/generate-help-url" "0.144.0"
-    "@sanity/observable" "0.144.0"
-    deep-assign "^2.0.0"
-    get-it "^5.0.0"
     make-error "^1.3.0"
     object-assign "^4.1.1"
 
@@ -2187,13 +2175,6 @@
     shallow-equals "^1.0.0"
     use-onclickoutside "^0.3.1"
 
-"@sanity/eventsource@0.144.0":
-  version "0.144.0"
-  resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-0.144.0.tgz#d84de7b686cb210d5c798e9347880e06b22180ef"
-  dependencies:
-    eventsource "^1.0.6"
-    eventsource-polyfill "^0.9.6"
-
 "@sanity/eventsource@1.150.1":
   version "1.150.1"
   resolved "https://registry.npmjs.org/@sanity/eventsource/-/eventsource-1.150.1.tgz#4ccfbbe3936f411c7f15b65674446f46e31cba2a"
@@ -2331,7 +2312,7 @@
     memoize-one "^3.1.1"
     oneline "^1.0.3"
 
-"@sanity/mutator@1.150.1":
+"@sanity/mutator@1.150.1", "@sanity/mutator@^1.149.16":
   version "1.150.1"
   resolved "https://registry.npmjs.org/@sanity/mutator/-/mutator-1.150.1.tgz#3b66136fd5d2d24dc8de07cd68f668fe68c1d1ae"
   dependencies:
@@ -2339,22 +2320,6 @@
     debug "^4.1.1"
     diff-match-patch "^1.0.0"
     lodash "^4.17.15"
-
-"@sanity/mutator@^0.144.0":
-  version "0.144.0"
-  resolved "https://registry.yarnpkg.com/@sanity/mutator/-/mutator-0.144.0.tgz#620a4bb5c413d038836cc820ec0ec4567ba2d925"
-  dependencies:
-    "@types/diff-match-patch" "^1.0.32"
-    debug "^4.1.1"
-    diff-match-patch "^1.0.0"
-    lodash "^4.17.4"
-
-"@sanity/observable@0.144.0":
-  version "0.144.0"
-  resolved "https://registry.yarnpkg.com/@sanity/observable/-/observable-0.144.0.tgz#6cb6a5ebe7d4fdfef70c88218710afc8a0753064"
-  dependencies:
-    object-assign "^4.1.1"
-    rxjs "^6.5.2"
 
 "@sanity/observable@1.150.1":
   version "1.150.1"
@@ -7684,6 +7649,16 @@ fs-extra@^9.0.0:
     jsonfile "^6.0.1"
     universalify "^1.0.0"
 
+fs-extra@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.1.tgz#910da0062437ba4c39fedd863f1675ccfefcb9fc"
+  integrity sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
+  dependencies:
+    at-least-node "^1.0.0"
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^1.0.0"
+
 fs-minipass@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fs-minipass/-/fs-minipass-2.1.0.tgz#7f5036fdbf12c63c169190cbe4199c852271f9fb"
@@ -7888,6 +7863,15 @@ gatsby-plugin-page-creator@^2.3.23:
     lodash "^4.17.15"
     slugify "^1.4.4"
 
+gatsby-plugin-plausible@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-plausible/-/gatsby-plugin-plausible-0.0.6.tgz#97f0ab4e1185af83a2c0317cdfe2a3b23690e26d"
+  integrity sha512-qUdPQ3haeX2DIywGZ2boMpmFAnSbWzqS9cG9/OO0mWLigA0sDLWwGkpHIAvrfepgbB9U/roLtXflctBwOIxtcQ==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    minimatch "3.0.4"
+    react "^16.13.1"
+
 gatsby-plugin-postcss@^2.2.1:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-postcss/-/gatsby-plugin-postcss-2.3.11.tgz#e02e3e00f37192263b3c5eb290b1d856771e57d4"
@@ -7943,10 +7927,6 @@ gatsby-plugin-typescript@^2.3.1, gatsby-plugin-typescript@^2.4.18:
     "@babel/preset-typescript" "^7.10.1"
     "@babel/runtime" "^7.10.3"
     babel-plugin-remove-graphql-queries "^2.9.17"
-
-gatsby-plugin-zeit-now@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-zeit-now/-/gatsby-plugin-zeit-now-0.2.0.tgz#1ec1052fd94788df12f2fc469ff0587046627454"
 
 gatsby-react-router-scroll@^3.0.12:
   version "3.0.12"
@@ -8078,22 +8058,23 @@ gatsby-source-filesystem@^2.2.2:
     valid-url "^1.0.9"
     xstate "^4.11.0"
 
-gatsby-source-sanity@^5.0.5:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/gatsby-source-sanity/-/gatsby-source-sanity-5.0.6.tgz#d1d7285774d29677258e2d22723f2c50a810a403"
+gatsby-source-sanity@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-source-sanity/-/gatsby-source-sanity-6.0.4.tgz#5b3ff7f872edde10df6ae8ccc3d4c0dad86ae847"
+  integrity sha512-Nq8te8ZDIQpBabduZmbWQUX9eEATHQEk5YrgMO5RnpMKUJJTohiyi6K+NfjjDmacf9pI9fWbspAYOj2G7Huvzg==
   dependencies:
-    "@sanity/client" "^0.144.0"
-    "@sanity/image-url" "^0.140.15"
-    "@sanity/mutator" "^0.144.0"
+    "@sanity/client" "^1.149.16"
+    "@sanity/image-url" "^0.140.19"
+    "@sanity/mutator" "^1.149.16"
     "@types/url-parse" "^1.4.3"
-    axios "^0.19.0"
+    axios "^0.19.2"
     debug "^4.1.0"
-    fs-extra "^8.1.0"
+    fs-extra "^9.0.1"
     get-stream "^5.1.0"
     lodash "^4.17.15"
     oneline "^1.0.2"
     pump "^3.0.0"
-    rxjs "^6.5.3"
+    rxjs "^6.5.5"
     split2 "^3.1.1"
     through2 "^3.0.1"
     url-parse "^1.4.4"
@@ -8345,30 +8326,6 @@ get-caller-file@^2.0.1:
 get-document@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/get-document/-/get-document-1.0.0.tgz#4821bce66f1c24cb0331602be6cb6b12c4f01c4b"
-
-get-it@^5.0.0:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/get-it/-/get-it-5.0.2.tgz#4839e7160d206fbd1353950ebce721b47292eb9c"
-  dependencies:
-    "@sanity/timed-out" "^4.0.2"
-    create-error-class "^3.0.2"
-    debug "^2.6.8"
-    decompress-response "^3.3.0"
-    follow-redirects "^1.2.4"
-    form-urlencoded "^2.0.7"
-    in-publish "^2.0.0"
-    into-stream "^3.1.0"
-    is-plain-object "^2.0.4"
-    is-retry-allowed "^1.1.0"
-    is-stream "^1.1.0"
-    nano-pubsub "^1.0.2"
-    object-assign "^4.1.1"
-    parse-headers "^2.0.1"
-    progress-stream "^2.0.0"
-    same-origin "^0.1.1"
-    simple-concat "^1.0.0"
-    tunnel-agent "^0.6.0"
-    url-parse "^1.1.9"
 
 get-it@^5.0.3:
   version "5.0.3"
@@ -11301,7 +11258,7 @@ minimatch@3.0.3:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimatch@^3.0.3, minimatch@^3.0.4:
+minimatch@3.0.4, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   dependencies:
@@ -14059,7 +14016,7 @@ react-window@1.8.5:
     "@babel/runtime" "^7.0.0"
     memoize-one ">=3.1.1 <6"
 
-react@^16.10.1, react@^16.12.0, react@^16.8.0:
+react@^16.10.1, react@^16.12.0, react@^16.13.1, react@^16.8.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   dependencies:
@@ -14779,7 +14736,7 @@ rxjs@6.5.3:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.6.0:
+rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.5.5, rxjs@^6.6.0:
   version "6.6.2"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.2.tgz#8096a7ac03f2cc4fe5860ef6e572810d9e01c0d2"
   dependencies:

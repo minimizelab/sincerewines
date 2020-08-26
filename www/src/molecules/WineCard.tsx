@@ -41,7 +41,7 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
       .includes(id);
   };
 
-  const handleOnClick = (event: any) => {
+  const handleOnClick = (event: any): void => {
     event.preventDefault();
     navigate(`/sortiment/${item.path.current}`);
   };

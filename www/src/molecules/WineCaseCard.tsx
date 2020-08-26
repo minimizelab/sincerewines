@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { WineCase, Wine, Producer, Grape } from '../types/types';
+import { WineCase, Producer, Grape } from '../types/types';
 import { State } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/list';
 import { AppDispatch } from '../store';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
-import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
 import { navigate } from 'gatsby';
-import TypeIndicator from '../atoms/TypeIndicator';
 import { createArrayString } from '../utils/functions';
 import ListIndicator from '../atoms/ListIndicator';
 
@@ -40,7 +38,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
       .includes(id);
   };
 
-  const handleOnClick = (event: any) => {
+  const handleOnClick = (event: any): void => {
     event.preventDefault();
     navigate(`/sortiment/${item.path.current}`);
   };

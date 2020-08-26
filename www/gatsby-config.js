@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 const config = require('./src/config/siteConfig');
 const path = require(`path`);
 
@@ -9,7 +8,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
-    'gatsby-plugin-zeit-now',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -28,6 +26,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
+    {
+      resolve: 'gatsby-plugin-plausible',
+      options: {
+        domain: 'sincerewines.com',
+      },
+    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {

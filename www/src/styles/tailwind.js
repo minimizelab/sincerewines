@@ -1,4 +1,7 @@
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
   theme: {
     fontFamily: {
       serif: ['DM Serif Display', 'serif'],
@@ -9,9 +12,9 @@ module.exports = {
         print: { raw: 'print' },
       },
       spacing: {
-        '72': '18rem',
-        '84': '21rem',
-        '96': '24rem',
+        72: '18rem',
+        84: '21rem',
+        96: '24rem',
       },
       colors: {
         'sincere-green': '#153621',
@@ -22,30 +25,30 @@ module.exports = {
         'sincere-background': '#F3F4ED',
       },
       height: {
-        '140': '140px',
-        '208': '208px',
-        '270': '270px',
-        '400': '400px',
-        '500': '500px',
-        '800': '800px',
+        140: '140px',
+        208: '208px',
+        270: '270px',
+        400: '400px',
+        500: '500px',
+        800: '800px',
       },
       width: {
-        '300': '300px',
-        '400': '400px',
-        '500': '500px',
+        300: '300px',
+        400: '400px',
+        500: '500px',
       },
       minWidth: {
-        '150': '150px',
-        '250': '250px',
+        150: '150px',
+        250: '250px',
         card: '300px',
       },
       maxWidth: {
         content: '1440px',
       },
       maxHeight: {
-        '800': '800px',
-        '400': '400px',
-        '500': '500px',
+        800: '800px',
+        400: '400px',
+        500: '500px',
       },
       minHeight: {
         half: '50vh',
