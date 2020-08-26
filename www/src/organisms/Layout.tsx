@@ -31,6 +31,7 @@ const Layout: FunctionComponent<Props> = ({
         <meta charSet="utf-8" />
         {description && <meta name="description" content={description} />}
         <title>{title}</title>
+        <html lang="sv" />
       </Helmet>
       {initialized && (
         <>
