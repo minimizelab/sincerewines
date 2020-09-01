@@ -23,9 +23,6 @@
       "dest": "/www/$1"
     }
   ],
-  "env": {
-    "API_TOKEN": "@nowtoken"
-  },
   "build": {
     "env": {
       "NPM_RC": "@npmrc"

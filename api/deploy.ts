@@ -14,7 +14,7 @@ const deploy: Deploy = async (req, res) => {
   const { projectId, teamId, deployUrl } = req.query;
   try {
     const { body } = await nowAPI(
-      `https://zeit.co/api/v5/now/deployments?projectId=${projectId}&limit=10&teamId=${teamId}`
+      `https://api.vercel.com/v5/now/deployments?projectId=${projectId}&limit=10&teamId=${teamId}`
     );
     const isActive =
       JSON.parse(body).deployments.filter(item => item.state === 'QUEUED')
@@ -26,6 +26,7 @@ const deploy: Deploy = async (req, res) => {
       .status(200)
       .send(isActive ? 'Build already in progress' : 'Build started or queued');
   } catch (error) {
+    console.log('Error:', error)
     res.status(503).send(`Error: ${error}`);
   }
 };
