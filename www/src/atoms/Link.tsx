@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
 import { combineClasses } from '@minimizelab/mini_utils';
 
-interface Props extends GatsbyLinkProps<{}> {
+interface Props extends GatsbyLinkProps<unknown> {
   defaultStyling?: boolean;
 }
 

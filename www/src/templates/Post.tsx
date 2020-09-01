@@ -20,7 +20,6 @@ interface Props {
 const PostTemplate: FunctionComponent<Props> = ({
   data: { sanityPost: post },
 }) => {
-  console.log(post.featureImage);
   return (
     <Layout title={post.title} description={post.intro}>
       <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">

@@ -11,7 +11,7 @@
     "api"
   ],
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "scripts": {
     "dev": "now dev --listen 3333"
