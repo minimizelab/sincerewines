@@ -3,7 +3,7 @@ import got from 'got';
 
 const nowAPI = got.extend({
   headers: {
-    Authorization: `bearer ${process.env.NOW_TOKEN}`,
+    Authorization: `bearer ${process.env.API_TOKEN}`,
     'Content-Type': 'application/json',
   },
 });

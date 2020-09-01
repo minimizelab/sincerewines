@@ -24,7 +24,7 @@
     }
   ],
   "env": {
-    "NOW_TOKEN": "@nowtoken"
+    "API_TOKEN": "@nowtoken"
   },
   "build": {
     "env": {
