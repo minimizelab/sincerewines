@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { State, AppDispatch } from '../store';
 import { actions } from '../store/ui';
 import Section from '../atoms/Section';
-import menuIcon from '../assets/menu.png';
 import { WineListItem } from '../types/types';
 
 const navList = [
@@ -54,7 +53,7 @@ const Header: FunctionComponent = () => {
             onClick={toggleMenu}
             className="flex flex-col lg:hidden m-2 justify-center"
           >
-            <img className="w-5" src={menuIcon} />
+            <img className="w-5" src="/assets/menu.png" />
           </div>
         </div>
         {open && (
