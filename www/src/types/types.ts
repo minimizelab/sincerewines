@@ -1,4 +1,5 @@
 import { FluidObject, FixedObject } from 'gatsby-image';
+import { ReactElement } from 'react';
 
 export interface Wine {
   name: string;
@@ -118,3 +119,7 @@ export interface WineListItem {
   id: string;
   quantity: number;
 }
+
+export type C<Props = undefined> = Props extends undefined
+  ? () => ReactElement | null
+  : (props: Props) => ReactElement | null;

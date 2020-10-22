@@ -1,12 +1,13 @@
-import React, { FunctionComponent } from 'react';
-import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
+import React from 'react';
+import * as NextLink from 'next/link';
 import { combineClasses } from '@minimizelab/mini_utils';
+import { C } from '../types/types';
 
-interface Props extends GatsbyLinkProps<unknown> {
+interface Props {
   defaultStyling?: boolean;
 }
 
-const Link: FunctionComponent<Props> = ({
+const Link: C<Props> = ({
   children,
   to,
   defaultStyling = true,
@@ -32,19 +33,19 @@ const Link: FunctionComponent<Props> = ({
       );
     } else {
       return (
-        <GatsbyLink
+        <NextLink
           className={combinedClassName}
           to={to}
           activeClassName={activeClassName}
           {...other}
         >
           {children}
-        </GatsbyLink>
+        </NextLink>
       );
     }
   } else {
     return (
-      <a
+      <NextLink
         className={combinedClassName}
         href={to}
         ref={ref}
@@ -53,7 +54,7 @@ const Link: FunctionComponent<Props> = ({
         {...other}
       >
         {children}
-      </a>
+      </NextLink>
     );
   }
 };

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import Footer from './Footer';
 import { combineClasses } from '@minimizelab/mini_utils';
 import CookieDialog from './CookieDialog';
@@ -27,12 +27,12 @@ const Layout: FunctionComponent<Props> = ({
   const initialized = usePersistStore();
   return (
     <div className={rootClassName}>
-      <Helmet>
+      <Head>
         <meta charSet="utf-8" />
         {description && <meta name="description" content={description} />}
         <title>{title}</title>
         <html lang="sv" />
-      </Helmet>
+      </Head>
       {initialized && (
         <>
           <Header />
