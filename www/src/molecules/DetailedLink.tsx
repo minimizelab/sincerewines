@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useState } from 'react';
 import Block from '../molecules/Block';
 import Arrow from '../atoms/Arrow';
-import { navigate } from 'gatsby';
 import Text from '../atoms/Text';
+import { useRouter } from 'next/router';
 
 interface Props {
   title: string;
@@ -15,12 +15,13 @@ const DetailedLink: FunctionComponent<Props> = ({
   children,
   left = false,
 }) => {
+  const router = useRouter();
   const [hover, setHover] = useState(false);
   return (
     <Block
       className="cursor-pointer"
       onClick={(): void => {
-        navigate(to);
+        router.push(to);
       }}
       onMouseEnter={(): void => setHover(true)}
       onMouseLeave={(): void => setHover(false)}

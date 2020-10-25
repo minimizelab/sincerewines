@@ -8,10 +8,10 @@ import { Wine } from '../types/types';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
 import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
-import { navigate } from 'gatsby';
 import TypeIndicator from '../atoms/TypeIndicator';
 import ListIndicator from '../atoms/ListIndicator';
 import { createArrayString } from '../utils/functions';
+import { useRouter } from 'next/router';
 
 interface Props {
   item: Wine;
@@ -19,6 +19,7 @@ interface Props {
 
 const WineCard: FunctionComponent<Props> = ({ item }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
   const wineList = useSelector<State, { id: string; quantity: number }[]>(
     (state) => state.list.wineList
   );
@@ -43,7 +44,7 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
 
   const handleOnClick = (event: any): void => {
     event.preventDefault();
-    navigate(`/sortiment/${item.path.current}`);
+    router.push(`/sortiment/${item.path.current}`);
   };
 
   return (

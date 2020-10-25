@@ -6,9 +6,9 @@ import { actions } from '../store/list';
 import { AppDispatch } from '../store';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
-import { navigate } from 'gatsby';
 import { createArrayString } from '../utils/functions';
 import ListIndicator from '../atoms/ListIndicator';
+import { useRouter } from 'next/router';
 
 interface Props {
   item: WineCase;
@@ -19,6 +19,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
     baseUrl: item.image.asset.url,
     size: { height: 140 },
   }); */
+  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const wineList = useSelector<State, { id: string; quantity: number }[]>(
     (state) => state.list.wineList
@@ -40,7 +41,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
 
   const handleOnClick = (event: any): void => {
     event.preventDefault();
-    navigate(`/sortiment/${item.path.current}`);
+    router.push(`/sortiment/${item.path.current}`);
   };
 
   const { caseWines } = item;
