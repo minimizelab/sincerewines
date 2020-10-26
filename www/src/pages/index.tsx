@@ -1,6 +1,5 @@
 import groq from 'groq';
 import { GetStaticProps } from 'next';
-import React from 'react';
 import ArrowLink from '../atoms/ArrowLink';
 import H3 from '../atoms/H3';
 import Section from '../atoms/Section';
@@ -22,7 +21,7 @@ interface HomePage {
   headerTitle: string;
   headerSubTitle: string;
   headerAction: Link;
-  _rawGreetingContent: unknown;
+  greetingContent: unknown;
   greetingTitle: string;
   quote: string;
   quoteAction: Link;
@@ -41,7 +40,7 @@ const Index: C<Props> = ({
     quote,
     quoteAction,
     greetingTitle,
-    _rawGreetingContent,
+    greetingContent,
   },
 }) => (
   <Layout
@@ -61,17 +60,14 @@ const Index: C<Props> = ({
     </Section>
     <Section className="flex-col mb-10 mt-8">
       <H3 className="mb-4 mx-6">Våra senaste viner</H3>
-      <ProductCardList
-        privateCustomer
-        data={wines.map((wine) => ({ node: wine }))}
-      />
+      <ProductCardList privateCustomer data={wines} />
       <div className="self-end mr-6">
         <ArrowLink to="/sortiment">Våra viner</ArrowLink>
       </div>
     </Section>
     <QuoteImage text={quote} link={quoteAction} />
     <Section>
-      <Greeting title={greetingTitle} body={_rawGreetingContent} />
+      <Greeting title={greetingTitle} body={greetingContent} />
     </Section>
   </Layout>
 );

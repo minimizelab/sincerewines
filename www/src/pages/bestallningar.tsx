@@ -1,50 +1,45 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import { useMemo } from 'react';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import Content from '@sanity/block-content-to-react';
 import H1 from '../atoms/H1';
-import { graphql, useStaticQuery } from 'gatsby';
 import { pageSerializers } from '../utils/serializers';
 import { useSelector } from 'react-redux';
 import { State } from '../store';
 import TabButtons from '../organisms/TabButtons';
 import { projectId, dataset } from '../config/siteConfig.js';
+import { C } from '../types/types';
+import { GetStaticProps } from 'next';
+import groq from 'groq';
+import { client } from '../services/sanity';
 
-interface Data {
-  sanityOrdersPage: {
-    consumerTitle: string;
-    restaurantTitle: string;
-    _rawRestaurantContent: unknown;
-    _rawConsumerContent: unknown;
-  };
+interface OrdersPage {
+  consumerTitle: string;
+  restaurantTitle: string;
+  restaurantContent: unknown;
+  consumerContent: unknown;
 }
 
-const Bestallningar: FunctionComponent = () => {
+interface Props {
+  page: OrdersPage;
+}
+
+const Orders: C<Props> = ({ page }) => {
   const privateCustomer = useSelector<State, boolean>(
     (state) => state.ui.privateCustomer
   );
-  const { sanityOrdersPage } = useStaticQuery<Data>(graphql`
-    query ordersPageQuery {
-      sanityOrdersPage {
-        consumerTitle
-        restaurantTitle
-        _rawRestaurantContent
-        _rawConsumerContent
-      }
-    }
-  `);
-  const { title, _rawContent } = useMemo(
+  const { title, content } = useMemo(
     () =>
       !privateCustomer
         ? {
-            title: sanityOrdersPage.restaurantTitle,
-            _rawContent: sanityOrdersPage._rawRestaurantContent,
+            title: page.restaurantTitle,
+            content: page.restaurantContent,
           }
         : {
-            title: sanityOrdersPage.consumerTitle,
-            _rawContent: sanityOrdersPage._rawConsumerContent,
+            title: page.consumerTitle,
+            content: page.consumerContent,
           },
-    [sanityOrdersPage, privateCustomer]
+    [page, privateCustomer]
   );
   return (
     <Layout title={title}>
@@ -57,7 +52,7 @@ const Bestallningar: FunctionComponent = () => {
       <Section className="justify-center p-6">
         <div className="sm:w-10/12 xl:w-1/2 flex flex-col pt-3 mb-6">
           <Content
-            blocks={_rawContent}
+            blocks={content}
             serializers={pageSerializers}
             projectId={projectId}
             dataset={dataset}
@@ -68,4 +63,19 @@ const Bestallningar: FunctionComponent = () => {
   );
 };
 
-export default Bestallningar;
+export default Orders;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const ordersPageQuery = groq`*[_type == "ordersPage"]`;
+  let props: Props;
+  try {
+    const [page] = await client.fetch<Array<OrdersPage>>(ordersPageQuery);
+    props = { page };
+  } catch (error) {
+    throw Error(error);
+  }
+  return {
+    props,
+    revalidate: 120,
+  };
+};

@@ -1,4 +1,3 @@
-import React from 'react';
 import type { AppProps } from 'next/app';
 import type { C } from '../types/types';
 import { Provider } from 'react-redux';

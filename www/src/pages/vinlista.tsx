@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../store/list';
 import { AppDispatch } from '../store';
@@ -6,8 +6,7 @@ import { State } from '../store';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
-import { graphql, useStaticQuery } from 'gatsby';
-import { Wine, WineCase, WineListItem } from '../types/types';
+import { C, Wine, WineCase, WineListItem } from '../types/types';
 import ProductCardList from '../organisms/ProductCardList';
 import H3 from '../atoms/H3';
 import H4 from '../atoms/H4';
@@ -15,8 +14,16 @@ import Button from '../molecules/Button';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
 import ArrowLink from '../atoms/ArrowLink';
+import { GetStaticProps } from 'next';
+import groq from 'groq';
+import { client } from '../services/sanity';
 
-const Vinlista: FunctionComponent = () => {
+interface Props {
+  wines: Array<Wine>;
+  wineCases: Array<WineCase>;
+}
+
+const Vinlista: C<Props> = ({ wines, wineCases }) => {
   const dispatch = useDispatch<AppDispatch>();
   const wineList = useSelector<State, WineListItem[]>(
     (state) => state.list.wineList
@@ -28,65 +35,19 @@ const Vinlista: FunctionComponent = () => {
     dispatch(actions.deleteAll());
   };
 
-  const {
-    allSanityWine,
-    allSanityWineCase,
-  }: {
-    allSanityWine: { edges: Array<{ node: Wine }> };
-    allSanityWineCase: { edges: Array<{ node: WineCase | Wine }> };
-  } = useStaticQuery(graphql`
-    query WineItemsQuery {
-      allSanityWine {
-        edges {
-          node {
-            ...Wine
-            image {
-              asset {
-                url
-                metadata {
-                  dimensions {
-                    aspectRatio
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      allSanityWineCase {
-        edges {
-          node {
-            ...WineCase
-            image {
-              asset {
-                url
-                metadata {
-                  dimensions {
-                    aspectRatio
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
   const wineData = useMemo(() => {
     const wineListIds = wineList.map((wine) => wine.id);
-    const wine = allSanityWineCase.edges
-      .concat(allSanityWine.edges)
-      .filter(({ node }) => wineListIds.includes(node.id));
+    const wine: Array<Wine | WineCase> = [];
 
-    return wine;
+    return wine
+      .concat(wines)
+      .concat(wineCases)
+      .filter(({ _id }) => wineListIds.includes(_id));
   }, [wineList]);
   const totalPrice = useMemo(() => {
     let total = 0;
     wineList.forEach((wine) => {
-      const price = wineData
-        .filter(({ node }) => node.id === wine.id)
-        .map((edge) => edge.node)[0].price;
+      const price = wineData.filter((node) => node._id === wine.id)[0].price;
       total += wine.quantity * price;
     });
     return total;
@@ -141,3 +102,21 @@ const Vinlista: FunctionComponent = () => {
 };
 
 export default Vinlista;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const wineQuery = groq`*[_type == "wine"]`;
+  const wineCaseQuery = groq`*[_type == "wineCase"]`;
+  let props: Props;
+  try {
+    const wines = await client.fetch<Array<Wine>>(wineQuery);
+    const wineCases = await client.fetch<Array<WineCase>>(wineCaseQuery);
+    props = { wineCases, wines };
+  } catch (error) {
+    throw Error(error);
+  }
+  console.log(props);
+  return {
+    props,
+    revalidate: 120,
+  };
+};

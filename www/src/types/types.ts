@@ -1,19 +1,18 @@
-import { FluidObject, FixedObject } from 'gatsby-image';
 import { ReactElement } from 'react';
 
 export interface Wine {
   name: string;
   producer: Producer;
-  _rawDesc: unknown;
+  desc: unknown;
   _type: string;
   year: string;
   grapes: Array<Grape>;
   district: District;
   type: WineType;
-  price: number;
+  price?: number;
   alc: number;
   vol: number;
-  id: string;
+  _id: string;
   link?: string;
   assortment: string;
   image: Image;
@@ -24,11 +23,11 @@ export interface Wine {
 
 export interface WineCase {
   name: string;
-  _rawDesc: unknown;
+  desc: unknown;
   _type: string;
   caseWines: Array<CaseWines>;
   price: number;
-  id: string;
+  _id: string;
   link?: string;
   assortment: string;
   image?: Image;
@@ -101,8 +100,6 @@ export interface Image {
         aspectRatio: number;
       };
     };
-    fluid: FluidObject;
-    fixed: FixedObject;
   };
 }
 
@@ -111,9 +108,7 @@ export interface SortBy {
   text: string;
 }
 
-export interface WineData {
-  node: Wine | WineCase;
-}
+export type WineData = Wine | WineCase;
 
 export interface WineListItem {
   id: string;
