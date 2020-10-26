@@ -10,7 +10,7 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: '17.0.1',
+      version: 'detect',
     },
     'import/resolver': {
       node: {
@@ -28,7 +28,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
   },
   rules: {
