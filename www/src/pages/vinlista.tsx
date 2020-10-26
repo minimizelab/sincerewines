@@ -114,7 +114,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   } catch (error) {
     throw Error(error);
   }
-  console.log(props);
   return {
     props,
     revalidate: 120,
