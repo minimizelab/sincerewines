@@ -10,7 +10,7 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: '16.10',
+      version: '17.0.1',
     },
     'import/resolver': {
       node: {
