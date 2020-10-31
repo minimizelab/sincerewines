@@ -1,4 +1,3 @@
-import React from 'react';
 import Content from '@sanity/block-content-to-react';
 import H4 from '../atoms/H4';
 import { greetingSerializer } from '../utils/serializers';
@@ -16,7 +15,10 @@ const Greeting: C<Props> = ({ title, body }) => (
       <Content blocks={body} serializers={greetingSerializer} />
     </div>
     <div className="w-full md:w-1/3 max-h-800">
-      <img className="h-full w-full" src="/images/greeting.jpg" />
+      <img
+        className="h-full w-full object-cover center"
+        src="/images/greeting.jpg"
+      />
     </div>
   </div>
 );

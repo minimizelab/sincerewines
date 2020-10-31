@@ -54,11 +54,11 @@ export interface Producer {
 
 export interface Post {
   title: string;
-  id: string;
+  _id: string;
   date: string;
   intro: string;
-  featureImage: Image;
-  _rawContent: unknown;
+  image: string;
+  content: unknown;
   path: Slug;
 }
 
