@@ -33,7 +33,9 @@ const Nyheter: C<Props> = ({ posts }) => (
           title="info@sincerewines.com"
         />
         <H3 className="mt-12">Inlägg</H3>
-        <PostCard content={posts} />
+        {posts.map((post) => (
+          <PostCard key={post._id} post={post} />
+        ))}
       </div>
     </Section>
   </Layout>
