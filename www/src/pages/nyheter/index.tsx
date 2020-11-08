@@ -1,14 +1,14 @@
-import Layout from '../organisms/Layout';
-import Section from '../atoms/Section';
-import H1 from '../atoms/H1';
-import H3 from '../atoms/H3';
-import TextLarge from '../atoms/TextLarge';
-import BigLink from '../molecules/BigLink';
-import PostCard from '../molecules/PostCard';
-import { Post, C } from '../types/types';
+import Layout from '../../organisms/Layout';
+import Section from '../../atoms/Section';
+import H1 from '../../atoms/H1';
+import H3 from '../../atoms/H3';
+import TextLarge from '../../atoms/TextLarge';
+import BigLink from '../../molecules/BigLink';
+import PostCard from '../../molecules/PostCard';
+import { Post, C } from '../../types/types';
 import { GetStaticProps } from 'next';
 import groq from 'groq';
-import { client } from '../services/sanity';
+import { client } from '../../services/sanity';
 
 interface Props {
   posts: Array<Post>;

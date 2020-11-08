@@ -30,7 +30,7 @@ const PostTemplate: C<Props> = ({ post }) => (
       <div className="flex flex-col w-full lg:w-10/12 xl:w-7/12 bg-white rounded shadow p-4">
         <div className="flex flex-row w-full p-4 justify-center max-h-500">
           <Image
-            // layout="responsive"
+            priority
             width={post.image.metadata.dimensions.width}
             height={post.image.metadata.dimensions.height}
             className="w-full object-contain object-center"

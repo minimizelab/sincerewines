@@ -17,7 +17,7 @@ const PostCard: C<Props> = ({ post: { title, intro, date, slug, image } }) => (
       <TextUppercase>Publicerades</TextUppercase>
       <Text>{date}</Text>
       <div className="flex flex-row flex-grow items-end mt-2 justify-end">
-        <ArrowLink to={`/posts/${slug}`}>Läs mer</ArrowLink>
+        <ArrowLink to={`/nyheter/${slug}`}>Läs mer</ArrowLink>
       </div>
     </div>
     <div className="w-full lg:w-5/12 max-h-400 overflow-hidden relative h-270 lg:h-auto">
