@@ -3,6 +3,7 @@ import Section from '../atoms/Section';
 import Quote from '../atoms/Quote';
 import { Link, C } from '../types/types';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 interface Props {
   text: string;
@@ -12,9 +13,10 @@ interface Props {
 const QuoteImage: C<Props> = ({ text, link }) => {
   const router = useRouter();
   return (
-    <div className="flex flex-col justify-end items-start relative">
-      <img
-        className="w-full min-h-half object-center object-cover"
+    <div className="flex flex-col h-half justify-end items-start relative">
+      <Image
+        layout="fill"
+        className="w-full object-center object-cover"
         src="/images/quoteimage.png"
       />
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">

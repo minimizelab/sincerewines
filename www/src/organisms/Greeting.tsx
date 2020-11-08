@@ -2,6 +2,7 @@ import Content from '@sanity/block-content-to-react';
 import H4 from '../atoms/H4';
 import { greetingSerializer } from '../utils/serializers';
 import { C } from '../types/types';
+import Image from 'next/image';
 
 interface Props {
   title: string;
@@ -14,8 +15,9 @@ const Greeting: C<Props> = ({ title, body }) => (
       <H4 className="mb-4">{title}</H4>
       <Content blocks={body} serializers={greetingSerializer} />
     </div>
-    <div className="w-full md:w-1/3 max-h-800">
-      <img
+    <div className="w-full md:w-1/3 min-h-400 max-h-800 relative">
+      <Image
+        layout="fill"
         className="h-full w-full object-cover center"
         src="/images/greeting.jpg"
       />

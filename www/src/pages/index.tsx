@@ -25,7 +25,7 @@ interface HomePage {
   greetingTitle: string;
   quote: string;
   quoteAction: Link;
-  wines: Wine[];
+  wines: Array<Wine>;
   links: { title: string; subTitle: string; link: string }[];
 }
 
@@ -56,7 +56,7 @@ const Index: C<Props> = ({
       link={headerAction}
     />
     <Section>
-      <DetailedLinks links={links} />{' '}
+      <DetailedLinks links={links} />
     </Section>
     <Section className="flex-col mb-10 mt-8">
       <H3 className="mb-4 mx-6">Våra senaste viner</H3>
@@ -75,14 +75,42 @@ const Index: C<Props> = ({
 export default Index;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const settingsQuery = groq`*[_type == "settings"] {title}`;
-  const homePageQuery = groq`*[_type == "homePage"]`;
+  const settingsQuery = groq`*[_type == "settings"] {title}[0]`;
+  const homePageQuery = groq`*[_type == "homePage"] {
+    headerTitle,
+    headerSubTitle,
+    headerAction,
+    links,
+    wines[]->{
+      _id,
+      _type,
+      name,
+      year,
+      type,
+      caseWines[]{"wine": wine-> {producer->, grapes[]->}, quantity},
+      "path": path.current,
+      grapes[]->,
+      district->,
+      desc,
+      "image": image.asset->,
+      producer->,
+      articleNumber,
+      vol,
+      packageRequirement,
+      alc,
+      assortment,
+      price,
+      link,
+    },
+    quote,
+    quoteAction,
+    greetingTitle,
+    greetingContent,
+  }[0]`;
   let props: Props;
   try {
-    const [settings] = await client.fetch<Array<{ title: string }>>(
-      settingsQuery
-    );
-    const [homePage] = await client.fetch<Array<HomePage>>(homePageQuery);
+    const settings = await client.fetch<{ title: string }>(settingsQuery);
+    const homePage = await client.fetch<HomePage>(homePageQuery);
     props = { title: settings.title, homePage };
   } catch (error) {
     throw Error(error);

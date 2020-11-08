@@ -32,6 +32,8 @@ module.exports = {
         400: '400px',
         500: '500px',
         800: '800px',
+        half: '50vh',
+        '3/4': '75vh',
       },
       width: {
         300: '300px',
@@ -52,6 +54,7 @@ module.exports = {
         500: '500px',
       },
       minHeight: {
+        400: '400px',
         half: '50vh',
       },
     },

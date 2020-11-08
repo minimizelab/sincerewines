@@ -4,6 +4,7 @@ import Section from '../atoms/Section';
 import TextLarge from '../atoms/TextLarge';
 import { C, Link } from '../types/types';
 import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 
 interface Props {
   title: string;
@@ -14,9 +15,11 @@ interface Props {
 const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
   const router = useRouter();
   return (
-    <div className="flex flex-col justify-end items-start relative">
-      <img
-        className="w-full min-h-half object-cover object-center"
+    <div className="flex flex-col h-half xl:h-3/4 justify-end items-start relative">
+      <Image
+        priority
+        layout="fill"
+        className="w-full object-cover object-center"
         src="/images/headerimg.png"
       />
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">

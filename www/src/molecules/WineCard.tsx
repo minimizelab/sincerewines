@@ -20,7 +20,7 @@ interface Props {
 const WineCard: FunctionComponent<Props> = ({ item }) => {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const wineList = useSelector<State, { id: string; quantity: number }[]>(
+  const wineList = useSelector<State, Array<{ id: string; quantity: number }>>(
     (state) => state.list.wineList
   );
   const imageProps = useSanityImage({
