@@ -16,7 +16,7 @@ export interface Wine {
   link?: string;
   assortment: string;
   image: Image;
-  path: Slug;
+  path: string;
   articleNumber: string;
   packageRequirement: boolean;
 }
@@ -31,7 +31,7 @@ export interface WineCase {
   link?: string;
   assortment: string;
   image?: Image;
-  path: Slug;
+  path: string;
   articleNumber?: string;
 }
 
@@ -48,7 +48,7 @@ export interface Producer {
   makers: Array<Maker>;
   images: Array<Image>;
   _rawDesc: unknown;
-  path: Slug;
+  slug: string;
   mainImg: Image;
 }
 
@@ -57,9 +57,9 @@ export interface Post {
   _id: string;
   date: string;
   intro: string;
-  image: string;
+  image: Image;
   content: unknown;
-  path: Slug;
+  slug: string;
 }
 
 export interface Maker {
@@ -82,23 +82,19 @@ export interface District {
   country: string;
 }
 
-export interface Slug {
-  current: string;
-}
-
 export interface Link {
   title: string;
   link: string;
 }
 
 export interface Image {
-  asset: {
-    id: string;
-    url: string;
-    metadata: {
-      dimensions: {
-        aspectRatio: number;
-      };
+  _id: string;
+  url: string;
+  metadata: {
+    dimensions: {
+      aspectRatio: number;
+      height: number;
+      width: number;
     };
   };
 }

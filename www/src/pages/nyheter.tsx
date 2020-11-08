@@ -49,9 +49,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     title,
     date,
     intro,
-    path,
+    "slug": path.current,
     content,
-    "image": featureImage.asset-> url,
+    "image": featureImage.asset->,
   }`;
   let props: Props;
   try {
