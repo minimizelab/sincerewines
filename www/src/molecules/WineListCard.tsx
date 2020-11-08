@@ -1,10 +1,9 @@
-import React, { FunctionComponent, useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { State } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/list';
 import { AppDispatch } from '../store';
-
-import { Wine, Grape, Producer } from '../types/types';
+import { Grape, Producer, C, WineData } from '../types/types';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
 import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
@@ -16,11 +15,11 @@ import WineListDetails from './WineListDetails';
 import ArrowLink from '../atoms/ArrowLink';
 
 interface Props {
-  item: Wine;
+  item: WineData;
   privateCustomer?: boolean;
 }
 
-const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
+const WineListCard: C<Props> = ({ item, privateCustomer }) => {
   const [caseQuantity, setCaseQuantity] = useState(0);
   const [caseVol, setCaseVol] = useState(0);
   const dispatch = useDispatch<AppDispatch>();
@@ -28,23 +27,23 @@ const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
     (state) => state.list.wineList
   );
   const imageProps = useSanityImage({
-    baseUrl: item.image.asset.url,
+    baseUrl: item.image.url,
     size: { height: 140 },
   });
 
   const itemQuantity = (): number =>
-    wineList.filter((wine) => wine.id === item.id)[0].quantity;
+    wineList.filter((wine) => wine.id === item._id)[0].quantity;
 
   const deleteFromWineList = (): void => {
-    dispatch(actions.deleteWine(item.id));
+    dispatch(actions.deleteWine(item._id));
   };
 
   const increaseQuantity = (): void => {
-    dispatch(actions.increaseQuantity(item.id));
+    dispatch(actions.increaseQuantity(item._id));
   };
 
   const decreaseQuantity = (): void => {
-    dispatch(actions.decreaseQuantity(item.id));
+    dispatch(actions.decreaseQuantity(item._id));
   };
   const isItemWine = useMemo(() => {
     if (item._type === 'wine') {
@@ -65,19 +64,19 @@ const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
           <div className="flex flex-col w-16 justify-center items-center">
             <Image
               {...imageProps}
-              aspectRatio={item.image.asset.metadata.dimensions.aspectRatio}
+              aspectRatio={item.image.metadata.dimensions.aspectRatio}
             />
           </div>
         ) : null}
 
         <div className="flex flex-row flex-wrap w-full pr-6 sm:pr-10 md:pr-14">
           <div className="flex flex-col p-2 items-start lg:flex-grow justify-around">
-            {isItemWine ? (
+            {item._type === 'wine' ? (
               <Text>{item.producer.name}</Text>
             ) : (
               createArrayString(
                 item.caseWines
-                  .map((item: any) => item.wine.producer)
+                  .map(({ wine }) => wine.producer)
                   .reduce((unique: Array<string>, item: Producer) => {
                     return unique.includes(item.name)
                       ? unique
@@ -86,21 +85,21 @@ const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
               )
             )}
             <H5>{item.name}</H5>
-            {isItemWine ? (
+            {item._type === 'wine' ? (
               <H5>{item.year}</H5>
             ) : (
               <H5>{caseQuantity + ' x ' + caseVol + ' cl'}</H5>
             )}
 
-            {isItemWine ? (
+            {item._type === 'wine' ? (
               <Text>
                 {createArrayString(item.grapes.map((item) => item.name))}
               </Text>
             ) : (
               createArrayString(
                 item.caseWines
-                  .map((item: any) => item.wine.grapes)
-                  .reduce((prev: any, current: any) => prev.concat(current))
+                  .map(({ wine }) => wine.grapes)
+                  .reduce((prev, current) => prev.concat(current))
                   .reduce((unique: Array<string>, item: Grape) => {
                     return unique.includes(item.name)
                       ? unique
@@ -121,7 +120,7 @@ const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
                 </div>
               </WineListDetails>
               <WineListDetails title="Volym">
-                {isItemWine ? (
+                {item._type === 'wine' ? (
                   <p>{item.vol * itemQuantity() + ' cl'}</p>
                 ) : (
                   <p>{caseQuantity * caseVol * itemQuantity() + ' cl'}</p>
@@ -140,7 +139,7 @@ const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
               </WineListDetails>
             </div>
             <div className="self-end print:invisible">
-              <ArrowLink to={`/sortiment/${item.path.current}`}>
+              <ArrowLink to={`/sortiment/${item.path}`}>
                 Läs mer om vinet
               </ArrowLink>
             </div>
@@ -151,10 +150,12 @@ const WineListCard: FunctionComponent<Props> = ({ item, privateCustomer }) => {
             inList={true}
             deleteFromList={deleteFromWineList}
           />
-          <TypeIndicator
-            className="absolute m-10 bottom-0 right-0"
-            type={item.type}
-          />
+          {item._type === 'wine' && (
+            <TypeIndicator
+              className="absolute m-10 bottom-0 right-0"
+              type={item.type}
+            />
+          )}
         </div>
       </div>
     </div>

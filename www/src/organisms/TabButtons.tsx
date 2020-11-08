@@ -10,7 +10,10 @@ interface Props {
   privateCustomer: boolean;
 }
 
-const Button: FunctionComponent<Props> = ({ className, privateCustomer }) => {
+const TabButtons: FunctionComponent<Props> = ({
+  className,
+  privateCustomer,
+}) => {
   const dispatch = useDispatch<AppDispatch>();
   return (
     <div className="flex flex-wrap">
@@ -46,4 +49,4 @@ const Button: FunctionComponent<Props> = ({ className, privateCustomer }) => {
   );
 };
 
-export default Button;
+export default TabButtons;

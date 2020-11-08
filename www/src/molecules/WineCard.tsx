@@ -24,16 +24,16 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
     (state) => state.list.wineList
   );
   const imageProps = useSanityImage({
-    baseUrl: item.image.asset.url,
+    baseUrl: item.image.url,
     size: { height: 140 },
   });
 
   const addToWineList = (): void => {
-    dispatch(actions.addWine(item.id));
+    dispatch(actions.addWine(item._id));
   };
 
   const deleteFromWineList = (): void => {
-    dispatch(actions.deleteWine(item.id));
+    dispatch(actions.deleteWine(item._id));
   };
 
   const isInWineList = (id: string): boolean => {
@@ -44,7 +44,7 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
 
   const handleOnClick = (event: any): void => {
     event.preventDefault();
-    router.push(`/sortiment/${item.path.current}`);
+    router.push(`/sortiment/${item.path}`);
   };
 
   return (
@@ -57,7 +57,7 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
           <div className="flex flex-col w-16 justify-center items-center">
             <Image
               {...imageProps}
-              aspectRatio={item.image.asset.metadata.dimensions.aspectRatio}
+              aspectRatio={item.image.metadata.dimensions.aspectRatio}
             />
           </div>
           <div className="flex flex-row flex-grow">
@@ -74,7 +74,7 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
 
         <ListIndicator
           className="absolute m-10 top-0 right-0"
-          inList={isInWineList(item.id)}
+          inList={isInWineList(item._id)}
           deleteFromList={deleteFromWineList}
           addToList={addToWineList}
         />
