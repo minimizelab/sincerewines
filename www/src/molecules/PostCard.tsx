@@ -3,6 +3,7 @@ import Text from '../atoms/Text';
 import TextUppercase from '../atoms/TextUppercase';
 import ArrowLink from '../atoms/ArrowLink';
 import { Post, C } from '../types/types';
+import Image from 'next/image';
 
 interface Props {
   post: Post;
@@ -19,8 +20,12 @@ const PostCard: C<Props> = ({ post: { title, intro, date, path, image } }) => (
         <ArrowLink to={`/posts/${path.current}`}>Läs mer</ArrowLink>
       </div>
     </div>
-    <div className="w-full lg:w-5/12 max-h-400">
-      <img className="h-full w-full object-cover object-center" src={image} />
+    <div className="w-full lg:w-5/12 max-h-400 overflow-hidden relative h-270 lg:h-auto">
+      <Image
+        layout="fill"
+        className="h-full w-full object-cover object-center"
+        src={image}
+      />
     </div>
   </div>
 );
