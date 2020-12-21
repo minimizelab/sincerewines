@@ -34,7 +34,7 @@ const Nyheter: C<Props> = ({ posts }) => (
         />
         <H3 className="mt-12">Inlägg</H3>
         {posts.map((post) => (
-          <PostCard key={post._id} post={post} />
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </Section>
@@ -45,11 +45,11 @@ export default Nyheter;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const postsQuery = groq`*[_type == "post"] {
-    _id,
+    "id": _id,
     title,
     date,
     intro,
-    "slug": path.current,
+    "path": path.current,
     content,
     "image": featureImage.asset->,
   }`;

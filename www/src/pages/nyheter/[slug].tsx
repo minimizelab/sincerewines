@@ -57,13 +57,13 @@ const PostTemplate: C<Props> = ({ post }) => (
 export default PostTemplate;
 
 type PostParams = {
-  slug: string;
+  path: string;
 };
 
 export const getStaticProps: GetStaticProps<Props, PostParams> = async ({
   params,
 }) => {
-  const postQuery = groq`*[_type == "post" && path.current == $slug ] {
+  const postQuery = groq`*[_type == "post" && path.current == $path ] {
     _id,
     title,
     date,
@@ -74,7 +74,7 @@ export const getStaticProps: GetStaticProps<Props, PostParams> = async ({
   }[0]`;
   let props: Props;
   try {
-    const post = await client.fetch<Post>(postQuery, { slug: params.slug });
+    const post = await client.fetch<Post>(postQuery, params);
     props = { post };
   } catch (error) {
     throw Error(error);
@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps<Props, PostParams> = async ({
 
 export const getStaticPaths: GetStaticPaths<PostParams> = async () => {
   const postsQuery = groq`*[_type == "post"] {
-    "slug": path.current,
+    "path": path.current,
   }`;
   let paths: Array<{ params: PostParams }>;
   try {

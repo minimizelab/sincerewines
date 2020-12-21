@@ -48,18 +48,18 @@ export interface Producer {
   makers: Array<Maker>;
   images: Array<Image>;
   desc: unknown;
-  slug: string;
-  mainImg: Image;
+  path: string;
+  image: Image;
 }
 
 export interface Post {
   title: string;
-  _id: string;
+  id: string;
   date: string;
   intro: string;
   image: Image;
   content: unknown;
-  slug: string;
+  path: string;
 }
 
 export interface Maker {

@@ -9,7 +9,7 @@ interface Props {
   post: Post;
 }
 
-const PostCard: C<Props> = ({ post: { title, intro, date, slug, image } }) => (
+const PostCard: C<Props> = ({ post: { title, intro, date, path, image } }) => (
   <div className="flex flex-row flex-wrap w-full rounded shadow bg-white my-4 md:my-6 ">
     <div className="p-8 w-full lg:w-7/12 flex flex-col">
       <H4 className="mb-4">{title}</H4>
@@ -17,7 +17,7 @@ const PostCard: C<Props> = ({ post: { title, intro, date, slug, image } }) => (
       <TextUppercase>Publicerades</TextUppercase>
       <Text>{date}</Text>
       <div className="flex flex-row flex-grow items-end mt-2 justify-end">
-        <ArrowLink to={`/nyheter/${slug}`}>Läs mer</ArrowLink>
+        <ArrowLink to={`/nyheter/${path}`}>Läs mer</ArrowLink>
       </div>
     </div>
     <div className="w-full lg:w-5/12 max-h-400 overflow-hidden relative h-270 lg:h-auto">
