@@ -16,7 +16,8 @@ const QuoteImage: C<Props> = ({ text, link }) => {
     <div className="flex flex-col h-half justify-end items-start relative">
       <Image
         layout="fill"
-        className="w-full object-center object-cover"
+        objectFit="cover"
+        objectPosition="center"
         src="/images/quoteimage.png"
       />
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">

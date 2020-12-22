@@ -14,7 +14,7 @@ interface Props {
   posts: Array<Post>;
 }
 
-const Nyheter: C<Props> = ({ posts }) => (
+const News: C<Props> = ({ posts }) => (
   <Layout title="Nyheter">
     <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">
       <H1 className="text-center">Nyheter</H1>
@@ -41,7 +41,7 @@ const Nyheter: C<Props> = ({ posts }) => (
   </Layout>
 );
 
-export default Nyheter;
+export default News;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const postsQuery = groq`*[_type == "post"] {
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     "path": path.current,
     content,
     "image": featureImage.asset->,
-  }`;
+  } | order(date desc)`;
   let props: Props;
   try {
     const posts = await client.fetch<Array<Post>>(postsQuery);

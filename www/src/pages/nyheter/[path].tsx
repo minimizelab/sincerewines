@@ -17,7 +17,7 @@ interface Props {
   post: Post;
 }
 
-const PostTemplate: C<Props> = ({ post }) => (
+const NewsPost: C<Props> = ({ post }) => (
   <Layout title={post.title} description={post.intro}>
     <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">
       <div className="flex flex-col justify-center">
@@ -33,7 +33,8 @@ const PostTemplate: C<Props> = ({ post }) => (
             priority
             width={post.image.metadata.dimensions.width}
             height={post.image.metadata.dimensions.height}
-            className="w-full object-contain object-center"
+            objectFit="cover"
+            objectPosition="center"
             src={post.image.url}
           />
         </div>
@@ -54,7 +55,7 @@ const PostTemplate: C<Props> = ({ post }) => (
   </Layout>
 );
 
-export default PostTemplate;
+export default NewsPost;
 
 type PostParams = {
   path: string;

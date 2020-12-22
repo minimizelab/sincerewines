@@ -19,7 +19,8 @@ const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
       <Image
         priority
         layout="fill"
-        className="w-full object-cover object-center"
+        objectFit="cover"
+        objectPosition="center"
         src="/images/headerimg.png"
       />
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">

@@ -18,7 +18,8 @@ const Greeting: C<Props> = ({ title, body }) => (
     <div className="w-full md:w-1/3 min-h-400 max-h-800 relative">
       <Image
         layout="fill"
-        className="h-full w-full object-cover center"
+        objectFit="cover"
+        objectPosition="center"
         src="/images/greeting.jpg"
       />
     </div>
