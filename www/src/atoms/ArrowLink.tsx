@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import Link from './Link';
 import Arrow from './Arrow';
-import { combineClasses } from '@minimizelab/mini_utils';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   to: string;

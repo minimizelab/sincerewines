@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import Head from 'next/head';
 import Footer from './Footer';
-import { combineClasses } from '@minimizelab/mini_utils';
 import CookieDialog from './CookieDialog';
 import Header from './Header';
 import usePersistStore from '../hooks/usePersistStore';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   title: string;

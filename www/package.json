@@ -13,8 +13,6 @@
     "node": "12.x"
   },
   "dependencies": {
-    "@minimizelab/mini_ui-react": "^1.3.0",
-    "@minimizelab/mini_utils": "^1.3.0",
     "@reduxjs/toolkit": "^1.3.4",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^2.0.9",

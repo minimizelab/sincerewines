@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { combineClasses } from '@minimizelab/mini_utils';
 import { WineType } from '../types/types';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   className?: string;

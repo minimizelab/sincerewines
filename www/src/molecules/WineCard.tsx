@@ -7,7 +7,7 @@ import { AppDispatch } from '../store';
 import { Wine } from '../types/types';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
-import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
+import Image from 'next/image';
 import TypeIndicator from '../atoms/TypeIndicator';
 import ListIndicator from '../atoms/ListIndicator';
 import { createArrayString } from '../utils/functions';
@@ -23,10 +23,6 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
   const wineList = useSelector<State, Array<{ id: string; quantity: number }>>(
     (state) => state.list.wineList
   );
-  const imageProps = useSanityImage({
-    baseUrl: item.image.url,
-    size: { height: 140 },
-  });
 
   const addToWineList = (): void => {
     dispatch(actions.addWine(item._id));
@@ -54,10 +50,12 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
         className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
         <div className="flex flex-row">
-          <div className="flex flex-col w-16 justify-center items-center">
+          <div className="flex flex-col w-16 justify-center items-center relative">
             <Image
-              {...imageProps}
-              aspectRatio={item.image.metadata.dimensions.aspectRatio}
+              src={item.image.url}
+              layout="fill"
+              objectFit="contain"
+              objectPosition="center"
             />
           </div>
           <div className="flex flex-row flex-grow">

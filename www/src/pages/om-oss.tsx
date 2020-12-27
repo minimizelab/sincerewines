@@ -69,10 +69,10 @@ const About: C<Props> = ({ page }) => (
 export default About;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const aboutUsQuery = groq`*[_type == "aboutUsPage"]`;
+  const aboutUsQuery = groq`*[_type == "aboutUsPage"][0]`;
   let props: Props;
   try {
-    const [page] = await client.fetch<Array<AboutUsPage>>(aboutUsQuery);
+    const page = await client.fetch<AboutUsPage>(aboutUsQuery);
 
     props = { page };
   } catch (error) {

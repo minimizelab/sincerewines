@@ -1,7 +1,7 @@
 import React, { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import NextLink from 'next/link';
-import { combineClasses } from '@minimizelab/mini_utils';
 import { C } from '../types/types';
+import { combineClasses } from '../utils/functions';
 
 interface Props
   extends DetailedHTMLProps<

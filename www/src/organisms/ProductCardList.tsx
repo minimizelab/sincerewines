@@ -3,7 +3,7 @@ import WineCard from '../molecules/WineCard';
 import WineCaseCard from '../molecules/WineCaseCard';
 import { Wine, WineItem } from '../types/types';
 import WineListCard from '../molecules/WineListCard';
-import { combineClasses } from '@minimizelab/mini_utils';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   privateCustomer?: boolean;

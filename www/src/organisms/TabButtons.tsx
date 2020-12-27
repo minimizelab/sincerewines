@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { combineClasses } from '@minimizelab/mini_utils';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store';
 import { actions } from '../store/ui';
 import TextUppercase from '../atoms/TextUppercase';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   className?: string | { [key: string]: boolean };

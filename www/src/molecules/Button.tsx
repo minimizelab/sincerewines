@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { combineClasses } from '@minimizelab/mini_utils';
 import TextUppercase from '../atoms/TextUppercase';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   white?: boolean;

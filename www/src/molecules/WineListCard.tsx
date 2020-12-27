@@ -6,7 +6,7 @@ import { AppDispatch } from '../store';
 import { Grape, Producer, C, WineItem } from '../types/types';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
-import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
+import Image from 'next/image';
 import TypeIndicator from '../atoms/TypeIndicator';
 import { createArrayString } from '../utils/functions';
 import QuantityButton from '../atoms/QuantityButton';
@@ -26,10 +26,6 @@ const WineListCard: C<Props> = ({ item, privateCustomer }) => {
   const wineList = useSelector<State, { id: string; quantity: number }[]>(
     (state) => state.list.wineList
   );
-  const imageProps = useSanityImage({
-    baseUrl: item.image.url,
-    size: { height: 140 },
-  });
 
   const itemQuantity = (): number =>
     wineList.filter((wine) => wine.id === item._id)[0].quantity;
@@ -61,10 +57,12 @@ const WineListCard: C<Props> = ({ item, privateCustomer }) => {
     <div className="w-full relative">
       <div className="bg-white h-270 lg:h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row">
         {isItemWine ? (
-          <div className="flex flex-col w-16 justify-center items-center">
+          <div className="flex flex-col w-16 justify-center items-center relative">
             <Image
-              {...imageProps}
-              aspectRatio={item.image.metadata.dimensions.aspectRatio}
+              src={item.image.url}
+              layout="fill"
+              objectFit="contain"
+              objectPosition="center"
             />
           </div>
         ) : null}
