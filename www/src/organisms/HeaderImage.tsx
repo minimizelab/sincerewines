@@ -5,6 +5,7 @@ import TextLarge from '../atoms/TextLarge';
 import { C, Link } from '../types/types';
 import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
+import useTrackEvent from '../hooks/useTrackEvent';
 
 interface Props {
   title: string;
@@ -14,6 +15,7 @@ interface Props {
 
 const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
   const router = useRouter();
+  const trackEvent = useTrackEvent();
   return (
     <div className="flex flex-col h-half xl:h-3/4 justify-end items-start relative">
       <Image
@@ -34,6 +36,7 @@ const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
           <Button
             white
             onClick={(): void => {
+              trackEvent('Header call to action');
               router.push(link.link);
             }}
           >

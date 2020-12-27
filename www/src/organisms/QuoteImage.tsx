@@ -4,6 +4,7 @@ import Quote from '../atoms/Quote';
 import { Link, C } from '../types/types';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import useTrackEvent from '../hooks/useTrackEvent';
 
 interface Props {
   text: string;
@@ -12,6 +13,7 @@ interface Props {
 
 const QuoteImage: C<Props> = ({ text, link }) => {
   const router = useRouter();
+  const trackEvent = useTrackEvent();
   return (
     <div className="flex flex-col h-half justify-end items-start relative">
       <Image
@@ -29,6 +31,7 @@ const QuoteImage: C<Props> = ({ text, link }) => {
             className="m-2"
             white
             onClick={(): void => {
+              trackEvent('Quote section call to action');
               router.push(link.link);
             }}
           >
