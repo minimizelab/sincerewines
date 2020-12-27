@@ -30,8 +30,9 @@ const Layout: FunctionComponent<Props> = ({
       <Head>
         <meta charSet="utf-8" />
         {description && <meta name="description" content={description} />}
+        <link rel="shortcut icon" href="/assets/icon.png" />
         <title>{title}</title>
-        <html lang="sv" />
+        {/* <html lang="sv" /> TODO: Add this back once the bug related to this is gone */}
       </Head>
       {initialized && (
         <>
