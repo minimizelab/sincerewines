@@ -15,7 +15,7 @@ interface Props {
   producer: Producer;
 }
 
-const Producer: C<Props> = ({ producer }) => (
+const ProducerPage: C<Props> = ({ producer }) => (
   <Layout title={producer.name} description={producer.intro}>
     <Section className="flex-row justify-center mx-3 pt-3 mt-12 mb-6">
       <H1 className="text-center">{producer.name}</H1>
@@ -60,7 +60,7 @@ const Producer: C<Props> = ({ producer }) => (
   </Layout>
 );
 
-export default Producer;
+export default ProducerPage;
 
 type ProducerParams = {
   path: string;
