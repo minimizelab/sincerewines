@@ -10,6 +10,7 @@ interface Props {
   title: string;
   className?: string;
   description?: string;
+  disableTracking?: boolean;
 }
 
 const defaultClassNames =
@@ -20,6 +21,7 @@ const Layout: FunctionComponent<Props> = ({
   children,
   className,
   description,
+  disableTracking = false,
 }) => {
   const rootClassName = className
     ? combineClasses([defaultClassNames, className])
@@ -29,6 +31,14 @@ const Layout: FunctionComponent<Props> = ({
     <div className={rootClassName}>
       <Head>
         <meta charSet="utf-8" />
+        {process.env.NODE_ENV === 'production' && !disableTracking && (
+          <script
+            async
+            defer
+            data-domain="sincerewines.com"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
+        )}
         {description && <meta name="description" content={description} />}
         <link rel="shortcut icon" href="/assets/icon.png" />
         <title>{title}</title>
