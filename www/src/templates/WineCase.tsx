@@ -1,26 +1,20 @@
-import React, { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { State } from '../store';
 import Content from '@sanity/block-content-to-react';
-import { graphql } from 'gatsby';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
 import WineRow from '../molecules/WineRow';
 import ArrowLink from '../atoms/ArrowLink';
-import { WineCase, Grape, Producer } from '../types/types';
+import { WineCase, Grape, Producer, C } from '../types/types';
 import { createArrayString } from '../utils/functions';
 import { wineSerializers } from '../utils/serializers';
 
 interface Props {
-  data: {
-    sanityWineCase: WineCase;
-  };
+  wineCase: WineCase;
 }
 
-const WineCaseTemplate: FunctionComponent<Props> = ({
-  data: { sanityWineCase: wineCase },
-}) => {
+const WineCaseTemplate: C<Props> = ({ wineCase }) => {
   const privateCustomer = useSelector<State, boolean>(
     (state) => state.ui.privateCustomer
   );
@@ -118,7 +112,7 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
               <div className="flex flex-col"></div>
             </div>
             <hr className="my-4"></hr>
-            <Content blocks={wineCase._rawDesc} serializers={wineSerializers} />
+            <Content blocks={wineCase.desc} serializers={wineSerializers} />
             {wineCase.link && (
               <ArrowLink to={wineCase.link}>
                 BESTÄLL FRÅN SYSTEMBOLAGET
@@ -132,11 +126,3 @@ const WineCaseTemplate: FunctionComponent<Props> = ({
 };
 
 export default WineCaseTemplate;
-
-export const pageQuery = graphql`
-  query WineCasePage($slug: String!) {
-    sanityWineCase(path: { current: { eq: $slug } }) {
-      ...WineCase
-    }
-  }
-`;

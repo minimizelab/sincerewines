@@ -3,7 +3,7 @@ import { State } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/list';
 import { AppDispatch } from '../store';
-import { Grape, Producer, C, WineData } from '../types/types';
+import { Grape, Producer, C, WineItem } from '../types/types';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
 import { Image, useSanityImage } from '@minimizelab/mini_ui-react';
@@ -15,7 +15,7 @@ import WineListDetails from './WineListDetails';
 import ArrowLink from '../atoms/ArrowLink';
 
 interface Props {
-  item: WineData;
+  item: WineItem;
   privateCustomer?: boolean;
 }
 

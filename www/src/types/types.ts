@@ -104,7 +104,7 @@ export interface SortBy {
   text: string;
 }
 
-export type WineData = Wine | WineCase;
+export type WineItem = Wine | WineCase;
 
 export interface WineListItem {
   id: string;

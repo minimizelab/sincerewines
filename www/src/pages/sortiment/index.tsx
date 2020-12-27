@@ -11,7 +11,7 @@ import ProductCardList from '../../organisms/ProductCardList';
 import TabButtons from '../../organisms/TabButtons';
 import { client } from '../../services/sanity';
 import { State } from '../../store';
-import { WineData, C } from '../../types/types';
+import { WineItem, C } from '../../types/types';
 
 const sortByList = [
   { value: 'name', text: 'vinets namn' },
@@ -20,7 +20,7 @@ const sortByList = [
 ];
 
 interface Props {
-  wines: Array<WineData>;
+  wines: Array<WineItem>;
 }
 
 const Sortiment: C<Props> = ({ wines }) => {
@@ -29,7 +29,7 @@ const Sortiment: C<Props> = ({ wines }) => {
     (state) => state.ui.privateCustomer
   );
 
-  const sortEdges = (data: Array<WineData>): Array<WineData> => {
+  const sortEdges = (data: Array<WineItem>): Array<WineItem> => {
     return data.sort((a, b) => {
       if (sortBy === 'producer') {
         if (a._type === 'wineCase' || b._type === 'wineCase') return 0;
@@ -98,7 +98,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   }`;
   let props: Props;
   try {
-    const wines = await client.fetch<Array<WineData>>(winesQuery);
+    const wines = await client.fetch<Array<WineItem>>(winesQuery);
     props = { wines };
   } catch (error) {
     throw Error(error);

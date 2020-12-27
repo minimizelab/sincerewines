@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import WineCard from '../molecules/WineCard';
 import WineCaseCard from '../molecules/WineCaseCard';
-import { Wine, WineData } from '../types/types';
+import { Wine, WineItem } from '../types/types';
 import WineListCard from '../molecules/WineListCard';
 import { combineClasses } from '@minimizelab/mini_utils';
 
 interface Props {
   privateCustomer?: boolean;
-  data: WineData[];
+  data: WineItem[];
   wineList?: boolean;
 }
 
