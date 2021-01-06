@@ -81,7 +81,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     name,
     year,
     type,
-    caseWines[]{"wine": wine-> {producer->, grapes[]->}, quantity},
+    caseWines[]{"wine": wine-> {producer->, grapes[]->, vol}, quantity},
     "path": path.current,
     grapes[]->,
     district->,
