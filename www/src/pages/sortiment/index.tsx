@@ -31,15 +31,18 @@ const Sortiment: C<Props> = ({ wines }) => {
 
   const sortEdges = (data: Array<WineItem>): Array<WineItem> => {
     return data.sort((a, b) => {
-      if (sortBy === 'producer') {
-        if (a._type === 'wineCase' || b._type === 'wineCase') return 0;
-        return a.producer.name > b.producer.name
-          ? 1
-          : b.producer.name > a.producer.name
-          ? -1
-          : 0;
+      if (a._type === 'wineCase' || b._type === 'wineCase') {
+        return 0;
       } else {
-        return a[sortBy] > b[sortBy] ? 1 : b[sortBy] > a[sortBy] ? -1 : 0;
+        if (sortBy === 'producer') {
+          return a.producer.name > b.producer.name
+            ? 1
+            : b.producer.name > a.producer.name
+            ? -1
+            : 0;
+        } else {
+          return a[sortBy] > b[sortBy] ? 1 : b[sortBy] > a[sortBy] ? -1 : 0;
+        }
       }
     });
   };
