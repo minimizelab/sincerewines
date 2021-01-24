@@ -27,6 +27,7 @@ const ProducerPage: C<Props> = ({ producer }) => (
             <div key={maker.id} className="flex flex-col w-full mb-6">
               <div className="mb-2 w-full h-500 md:h-400 relative">
                 <Image
+                  priority
                   layout="fill"
                   objectFit="cover"
                   objectPosition="center"

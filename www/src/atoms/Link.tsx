@@ -2,6 +2,7 @@ import React, { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import NextLink from 'next/link';
 import { C } from '../types/types';
 import { combineClasses } from '../utils/functions';
+import { useRouter } from 'next/router';
 
 interface Props
   extends DetailedHTMLProps<
@@ -18,17 +19,19 @@ const Link: C<Props> = ({
   defaultStyling = true,
   activeClassName,
   className,
-  ref,
   ...other
 }) => {
+  const { asPath } = useRouter();
+  const active = asPath === to;
   const combinedClassName = combineClasses([
     { 'font-sans text-base text-sincere-green': defaultStyling },
     className,
+    { [activeClassName]: active },
   ]);
 
   return (
-    <NextLink href={to}>
-      <a ref={ref} className={combinedClassName} {...other} />
+    <NextLink passHref href={to}>
+      <a className={combinedClassName} {...other} />
     </NextLink>
   );
 };

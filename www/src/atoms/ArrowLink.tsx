@@ -19,24 +19,24 @@ const ArrowLink: FunctionComponent<Props> = ({
 }) => {
   const [hover, setHover] = useState(false);
   return (
-    <Link
-      className="flex flex-row items-center whitespace-no-wrap"
-      to={to}
+    <span
       onMouseEnter={(): void => setHover(true)}
       onMouseLeave={(): void => setHover(false)}
     >
-      <Arrow left={left} hover={hover} />
-      <span
-        className={combineClasses([
-          'ml-2 tracking-wide font-sans text-sm sm:text-base',
-          className,
-          { 'text-sincere-grape': hover, 'text-sincere-green': !hover },
-          { lowercase: lowercase, uppercase: !lowercase },
-        ])}
-      >
-        {children}
-      </span>
-    </Link>
+      <Link className="flex flex-row items-center whitespace-no-wrap" to={to}>
+        <Arrow left={left} hover={hover} />
+        <span
+          className={combineClasses([
+            'ml-2 tracking-wide font-sans text-sm sm:text-base',
+            className,
+            { 'text-sincere-grape': hover, 'text-sincere-green': !hover },
+            { lowercase: lowercase, uppercase: !lowercase },
+          ])}
+        >
+          {children}
+        </span>
+      </Link>
+    </span>
   );
 };
 

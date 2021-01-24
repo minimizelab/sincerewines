@@ -29,6 +29,7 @@ const WineTemplate: C<Props> = ({ wine }) => {
           <div className="flex flex-col w-full lg:w-1/3 sm:pr-4 mb-4 lg:mb-0">
             <div className="w-full h-400 lg:h-500 items-center justify-center flex relative">
               <Image
+                priority
                 layout="fill"
                 src={wine.image.url}
                 objectFit="contain"

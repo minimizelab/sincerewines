@@ -36,7 +36,7 @@ const Header: FunctionComponent = () => {
           <div className="flex flex-col items-start justify-center p-2">
             <Logotype />
           </div>
-          <nav className="flex flex-row items-center justify-end hidden lg:flex">
+          <nav className="flex-row items-center justify-end hidden lg:flex">
             {navList.map((item) => (
               <NavLink to={item.path} key={item.text} text={item.text} />
             ))}
