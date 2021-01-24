@@ -1,37 +1,37 @@
-import { FluidObject, FixedObject } from 'gatsby-image';
+import { ReactElement } from 'react';
 
 export interface Wine {
   name: string;
   producer: Producer;
-  _rawDesc: unknown;
-  _type: string;
+  desc: unknown;
+  _type: 'wine';
   year: string;
   grapes: Array<Grape>;
   district: District;
   type: WineType;
-  price: number;
+  price?: number;
   alc: number;
   vol: number;
-  id: string;
+  _id: string;
   link?: string;
   assortment: string;
   image: Image;
-  path: Slug;
+  path: string;
   articleNumber: string;
   packageRequirement: boolean;
 }
 
 export interface WineCase {
   name: string;
-  _rawDesc: unknown;
-  _type: string;
+  desc: unknown;
+  _type: 'wineCase';
   caseWines: Array<CaseWines>;
   price: number;
-  id: string;
+  _id: string;
   link?: string;
   assortment: string;
   image?: Image;
-  path: Slug;
+  path: string;
   articleNumber?: string;
 }
 
@@ -47,9 +47,9 @@ export interface Producer {
   intro: string;
   makers: Array<Maker>;
   images: Array<Image>;
-  _rawDesc: unknown;
-  path: Slug;
-  mainImg: Image;
+  desc: unknown;
+  path: string;
+  image: Image;
 }
 
 export interface Post {
@@ -57,9 +57,9 @@ export interface Post {
   id: string;
   date: string;
   intro: string;
-  featureImage: Image;
-  _rawContent: unknown;
-  path: Slug;
+  image: Image;
+  content: unknown;
+  path: string;
 }
 
 export interface Maker {
@@ -82,26 +82,20 @@ export interface District {
   country: string;
 }
 
-export interface Slug {
-  current: string;
-}
-
 export interface Link {
   title: string;
   link: string;
 }
 
 export interface Image {
-  asset: {
-    id: string;
-    url: string;
-    metadata: {
-      dimensions: {
-        aspectRatio: number;
-      };
+  _id: string;
+  url: string;
+  metadata: {
+    dimensions: {
+      aspectRatio: number;
+      height: number;
+      width: number;
     };
-    fluid: FluidObject;
-    fixed: FixedObject;
   };
 }
 
@@ -110,11 +104,13 @@ export interface SortBy {
   text: string;
 }
 
-export interface WineData {
-  node: Wine | WineCase;
-}
+export type WineItem = Wine | WineCase;
 
 export interface WineListItem {
   id: string;
   quantity: number;
 }
+
+export type C<Props = undefined> = Props extends undefined
+  ? () => ReactElement | null
+  : (props: Props) => ReactElement | null;

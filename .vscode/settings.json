@@ -4,5 +4,9 @@
     "typescript": "typescriptreact"
   },
   "tailwindCSS.emmetCompletions": true,
-  "cSpell.language": "en ,sv"
+  "cSpell.language": "en ,sv",
+  "cSpell.words": [
+    "Producenter",
+    "groq"
+  ]
 }

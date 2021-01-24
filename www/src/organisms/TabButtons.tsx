@@ -1,16 +1,19 @@
 import React, { FunctionComponent } from 'react';
-import { combineClasses } from '@minimizelab/mini_utils';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store';
 import { actions } from '../store/ui';
 import TextUppercase from '../atoms/TextUppercase';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   className?: string | { [key: string]: boolean };
   privateCustomer: boolean;
 }
 
-const Button: FunctionComponent<Props> = ({ className, privateCustomer }) => {
+const TabButtons: FunctionComponent<Props> = ({
+  className,
+  privateCustomer,
+}) => {
   const dispatch = useDispatch<AppDispatch>();
   return (
     <div className="flex flex-wrap">
@@ -46,4 +49,4 @@ const Button: FunctionComponent<Props> = ({ className, privateCustomer }) => {
   );
 };
 
-export default Button;
+export default TabButtons;

@@ -1,4 +1,18 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-module.exports = () => ({
-  plugins: [require('tailwindcss'), require('autoprefixer')],
-});
+module.exports = {
+  plugins: [
+    'tailwindcss',
+    'autoprefixer',
+    [
+      'postcss-preset-env',
+      {
+        autoprefixer: {
+          flexbox: 'no-2009',
+        },
+        stage: 3,
+        features: {
+          'custom-properties': false,
+        },
+      },
+    ],
+  ],
+};

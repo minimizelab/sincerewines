@@ -1,60 +1,39 @@
-import React, { FunctionComponent } from 'react';
-import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
-import { combineClasses } from '@minimizelab/mini_utils';
+import React, { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
+import NextLink from 'next/link';
+import { C } from '../types/types';
+import { combineClasses } from '../utils/functions';
+import { useRouter } from 'next/router';
 
-interface Props extends GatsbyLinkProps<unknown> {
+interface Props
+  extends DetailedHTMLProps<
+    AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > {
   defaultStyling?: boolean;
+  to: string;
+  activeClassName?: string;
 }
 
-const Link: FunctionComponent<Props> = ({
-  children,
+const Link: C<Props> = ({
   to,
   defaultStyling = true,
   activeClassName,
   className,
-  ref,
   ...other
 }) => {
-  const internal = /^\/(?!\/)/.test(to);
-  const file = /\.[0-9a-z]+$/i.test(to);
-
+  const { asPath } = useRouter();
+  const active = asPath === to;
   const combinedClassName = combineClasses([
     { 'font-sans text-base text-sincere-green': defaultStyling },
     className,
+    { [activeClassName]: active },
   ]);
 
-  if (internal) {
-    if (file) {
-      return (
-        <a className={combinedClassName} href={to} ref={ref} {...other}>
-          {children}
-        </a>
-      );
-    } else {
-      return (
-        <GatsbyLink
-          className={combinedClassName}
-          to={to}
-          activeClassName={activeClassName}
-          {...other}
-        >
-          {children}
-        </GatsbyLink>
-      );
-    }
-  } else {
-    return (
-      <a
-        className={combinedClassName}
-        href={to}
-        ref={ref}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...other}
-      >
-        {children}
-      </a>
-    );
-  }
+  return (
+    <NextLink passHref href={to}>
+      <a className={combinedClassName} {...other} />
+    </NextLink>
+  );
 };
+
 export default Link;

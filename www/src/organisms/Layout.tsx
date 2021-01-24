@@ -1,15 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import Footer from './Footer';
-import { combineClasses } from '@minimizelab/mini_utils';
 import CookieDialog from './CookieDialog';
 import Header from './Header';
 import usePersistStore from '../hooks/usePersistStore';
+import { combineClasses } from '../utils/functions';
 
 interface Props {
   title: string;
   className?: string;
   description?: string;
+  disableTracking?: boolean;
 }
 
 const defaultClassNames =
@@ -20,6 +21,7 @@ const Layout: FunctionComponent<Props> = ({
   children,
   className,
   description,
+  disableTracking = false,
 }) => {
   const rootClassName = className
     ? combineClasses([defaultClassNames, className])
@@ -27,12 +29,21 @@ const Layout: FunctionComponent<Props> = ({
   const initialized = usePersistStore();
   return (
     <div className={rootClassName}>
-      <Helmet>
+      <Head>
         <meta charSet="utf-8" />
+        {process.env.NODE_ENV === 'production' && !disableTracking && (
+          <script
+            async
+            defer
+            data-domain="sincerewines.com"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
+        )}
         {description && <meta name="description" content={description} />}
+        <link rel="shortcut icon" href="/assets/icon.png" />
         <title>{title}</title>
-        <html lang="sv" />
-      </Helmet>
+        {/* <html lang="sv" /> TODO: Add this back once the bug related to this is gone */}
+      </Head>
       {initialized && (
         <>
           <Header />

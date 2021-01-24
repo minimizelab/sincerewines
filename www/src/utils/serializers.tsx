@@ -3,8 +3,6 @@ import React, { ReactNode } from 'react';
 import Text from '../atoms/Text';
 import TextLarge from '../atoms/TextLarge';
 import ArrowLink from '../atoms/ArrowLink';
-// import { useSanityImage, Image } from '@minimizelab/mini_ui-react';
-// import { getImageUrl } from '@sanity/block-content-to-react';
 import H4 from '../atoms/H4';
 import BigLink from '../molecules/BigLink';
 

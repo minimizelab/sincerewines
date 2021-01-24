@@ -1,35 +1,31 @@
-import React, { FunctionComponent } from 'react';
-import { WineCase, Producer, Grape } from '../types/types';
+import { MouseEvent } from 'react';
+import { WineCase, Producer, Grape, C } from '../types/types';
 import { State } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/list';
 import { AppDispatch } from '../store';
 import H5 from '../atoms/H5';
 import Text from '../atoms/Text';
-import { navigate } from 'gatsby';
 import { createArrayString } from '../utils/functions';
 import ListIndicator from '../atoms/ListIndicator';
+import { useRouter } from 'next/router';
 
 interface Props {
   item: WineCase;
 }
 
-const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
-  /* const imageProps = useSanityImage({
-    baseUrl: item.image.asset.url,
-    size: { height: 140 },
-  }); */
+const WineCaseCard: C<Props> = ({ item }) => {
+  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const wineList = useSelector<State, { id: string; quantity: number }[]>(
     (state) => state.list.wineList
   );
-
   const addToWineList = (): void => {
-    dispatch(actions.addWine(item.id));
+    dispatch(actions.addWine(item._id));
   };
 
   const deleteFromWineList = (): void => {
-    dispatch(actions.deleteWine(item.id));
+    dispatch(actions.deleteWine(item._id));
   };
 
   const isInWineList = (id: string): boolean => {
@@ -38,9 +34,9 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
       .includes(id);
   };
 
-  const handleOnClick = (event: any): void => {
+  const handleOnClick = (event: MouseEvent): void => {
     event.preventDefault();
-    navigate(`/sortiment/${item.path.current}`);
+    router.push(`/sortiment/${item.path}`);
   };
 
   const { caseWines } = item;
@@ -51,16 +47,7 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
         onClick={handleOnClick}
         className="bg-white h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row cursor-pointer"
       >
-        {/* {item.image && (
-          <div className="flex flex-col w-16 justify-center items-center">
-            <Image
-              {...imageProps}
-              aspectRatio={item.image.asset.metadata.dimensions.aspectRatio}
-            />
-          </div>
-        )} */}
         <div className="flex flex-col p-2 items-start flex-grow justify-around">
-          {/* <Text>{item.producer.name}</Text> */}
           <Text>
             {createArrayString(
               caseWines
@@ -85,21 +72,11 @@ const WineCaseCard: FunctionComponent<Props> = ({ item }) => {
                     : [...unique, item.name];
                 }, [])
             )}
-            {/* createGrapeString(caseWines.map(item => item.wine.grapes))
-            caseWines.map((item, i, arr) => {
-              if (arr.length - 1 === i) {
-                return createGrapeString(item.wine.grapes);
-              } else {
-                return createGrapeString(item.wine.grapes) + ', ';
-              }
-            }) */}
           </Text>
-
-          {/* <TypeIndicator className="self-end" type={item.type} /> */}
         </div>
         <ListIndicator
           className="absolute m-10 top-0 right-0"
-          inList={isInWineList(item.id)}
+          inList={isInWineList(item._id)}
           deleteFromList={deleteFromWineList}
           addToList={addToWineList}
         />

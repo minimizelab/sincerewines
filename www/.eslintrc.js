@@ -6,10 +6,11 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
+    'plugin:@asbjorn/groq/recommended',
   ],
   settings: {
     react: {
-      version: '16.10',
+      version: 'detect',
     },
     'import/resolver': {
       node: {
@@ -27,10 +28,11 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
   },
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': [
       'warn',
