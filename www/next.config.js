@@ -7,7 +7,7 @@ module.exports = {
     return [
       {
         source: '/admin/:slug',
-        destination: 'https://sw-admin.minimize.se/admin/:slug',
+        destination: 'https://sw-admin.minimize.se/:slug',
       },
     ];
   },
