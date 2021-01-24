@@ -3,11 +3,12 @@ module.exports = {
   images: {
     domains: ['cdn.sanity.io'],
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: '/admin/:slug',
-        destination: 'https://sw-admin.minimize.se/:slug',
+        source: '/admin/:p*',
+        destination: 'https://sw-admin.minimize.se/',
+        permanent: true,
       },
     ];
   },
