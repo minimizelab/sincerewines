@@ -32,6 +32,7 @@ const WineTemplate: C<Props> = ({ wine }) => {
                 priority
                 layout="fill"
                 src={wine.image.url}
+                alt={wine.name}
                 objectFit="contain"
                 objectPosition="center"
               />

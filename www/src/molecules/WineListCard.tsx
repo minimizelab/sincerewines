@@ -59,6 +59,7 @@ const WineListCard: C<Props> = ({ item, privateCustomer }) => {
         {isItemWine ? (
           <div className="flex flex-col w-16 justify-center items-center relative">
             <Image
+              alt={item.name}
               src={item.image.url}
               layout="fill"
               objectFit="contain"

@@ -18,6 +18,7 @@ const QuoteImage: C<Props> = ({ text, link }) => {
     <div className="flex flex-col h-half justify-end items-start relative">
       <Image
         layout="fill"
+        alt="dusty wine bottle"
         objectFit="cover"
         objectPosition="center"
         src="/images/quoteimage.png"

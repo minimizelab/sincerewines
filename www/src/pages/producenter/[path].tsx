@@ -28,6 +28,7 @@ const ProducerPage: C<Props> = ({ producer }) => (
               <div className="mb-2 w-full h-500 md:h-400 relative">
                 <Image
                   priority
+                  alt={maker.name}
                   layout="fill"
                   objectFit="cover"
                   objectPosition="center"
@@ -45,10 +46,11 @@ const ProducerPage: C<Props> = ({ producer }) => (
       </div>
     </Section>
     <Section className="px-2 pt-2 pb-10 flex-wrap">
-      {producer.images.map((img) => (
+      {producer.images.map((img, i) => (
         <div key={img._id} className="w-full md:w-1/3 p-6 max-h-500 h-270">
           <div className="w-full h-full relative rounded shadow overflow-hidden">
             <Image
+              alt={producer.name + ' area image ' + (i + 1).toString()}
               layout="fill"
               objectFit="cover"
               objectPosition="center"

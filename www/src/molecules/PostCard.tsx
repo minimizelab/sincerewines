@@ -22,6 +22,7 @@ const PostCard: C<Props> = ({ post: { title, intro, date, path, image } }) => (
     </div>
     <div className="w-full lg:w-5/12 max-h-400 overflow-hidden relative h-270 lg:h-auto">
       <Image
+        alt={title}
         layout="fill"
         objectFit="cover"
         objectPosition="center"

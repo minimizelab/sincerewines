@@ -23,6 +23,7 @@ const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
         layout="fill"
         objectFit="cover"
         objectPosition="center"
+        alt="field with grapes"
         src="/images/headerimg.png"
       />
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
