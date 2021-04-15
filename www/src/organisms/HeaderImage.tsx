@@ -17,7 +17,7 @@ const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
   const router = useRouter();
   const trackEvent = useTrackEvent();
   return (
-    <div className="flex flex-col h-half xl:h-3/4 justify-end items-start relative">
+    <div className="flex flex-col h-half min-h-400 xl:h-3/4 justify-end items-start relative">
       <Image
         priority
         layout="fill"

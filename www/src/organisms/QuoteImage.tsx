@@ -15,8 +15,9 @@ const QuoteImage: C<Props> = ({ text, link }) => {
   const router = useRouter();
   const trackEvent = useTrackEvent();
   return (
-    <div className="flex flex-col h-half justify-end items-start relative">
+    <div className="flex flex-col h-half min-h-400 justify-end items-start relative">
       <Image
+        priority
         layout="fill"
         objectFit="cover"
         objectPosition="center"

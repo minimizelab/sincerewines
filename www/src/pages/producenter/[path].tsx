@@ -28,6 +28,7 @@ const ProducerPage: C<Props> = ({ producer }) => (
               <div className="mb-2 w-full h-500 md:h-400 relative">
                 <Image
                   priority
+                  sizes="(min-width: 0px) 640px"
                   layout="fill"
                   objectFit="cover"
                   objectPosition="center"
@@ -50,6 +51,7 @@ const ProducerPage: C<Props> = ({ producer }) => (
           <div className="w-full h-full relative rounded shadow overflow-hidden">
             <Image
               layout="fill"
+              sizes="(min-width: 0px) 640px"
               objectFit="cover"
               objectPosition="center"
               src={img.url}
