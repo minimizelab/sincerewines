@@ -27,6 +27,7 @@ const ProducerCard: C<Props> = ({
     </div>
     <div className="w-full lg:w-5/12 max-h-400 overflow-hidden relative h-270 lg:h-auto">
       <Image
+        sizes="(min-width: 0px) 500px"
         layout="fill"
         objectFit="cover"
         objectPosition="center"
