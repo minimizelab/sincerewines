@@ -1,3 +1,3 @@
-import MediaAssetSource from 'part:sanity-plugin-media/asset-source';
+import Default from 'part:@sanity/form-builder/input/image/asset-source-default';
 
-export default [MediaAssetSource];
+export default [Default];
