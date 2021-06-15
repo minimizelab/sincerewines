@@ -6,6 +6,7 @@ import { C, Link } from '../types/types';
 import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
 import useTrackEvent from '../hooks/useTrackEvent';
+import HeaderImageSrc from '../assets/images/headerimg.png';
 
 interface Props {
   title: string;
@@ -19,11 +20,12 @@ const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
   return (
     <div className="flex flex-col h-half min-h-400 xl:h-3/4 justify-end items-start relative">
       <Image
+        placeholder="blur"
         priority
         layout="fill"
         objectFit="cover"
         objectPosition="center"
-        src="/images/headerimg.png"
+        src={HeaderImageSrc}
       />
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
         <div className="p-6 mb-10 xl:mb-32">

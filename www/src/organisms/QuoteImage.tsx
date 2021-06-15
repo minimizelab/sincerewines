@@ -5,6 +5,7 @@ import { Link, C } from '../types/types';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import useTrackEvent from '../hooks/useTrackEvent';
+import QuoteImageSrc from '../assets/images/quoteimage.png';
 
 interface Props {
   text: string;
@@ -17,11 +18,12 @@ const QuoteImage: C<Props> = ({ text, link }) => {
   return (
     <div className="flex flex-col h-half min-h-400 justify-end items-start relative">
       <Image
+        placeholder="blur"
         priority
         layout="fill"
         objectFit="cover"
         objectPosition="center"
-        src="/images/quoteimage.png"
+        src={QuoteImageSrc}
       />
       <Section className="top-0 w-full h-full absolute flex flex-row justify-start items-end">
         <div className="p-4 sm:p-6 mb-10 sm:mb-20 xl:mb-24">

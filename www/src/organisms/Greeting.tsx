@@ -3,6 +3,7 @@ import H4 from '../atoms/H4';
 import { greetingSerializer } from '../utils/serializers';
 import { C } from '../types/types';
 import Image from 'next/image';
+import GreetingImageSrc from '../assets/images/greeting.jpg';
 
 interface Props {
   title: string;
@@ -17,11 +18,12 @@ const Greeting: C<Props> = ({ title, body }) => (
     </div>
     <div className="w-full md:w-1/3 min-h-400 max-h-800 relative">
       <Image
+        placeholder="blur"
         sizes="(min-width: 0px) 500px"
         layout="fill"
         objectFit="cover"
         objectPosition="center"
-        src="/images/greeting.jpg"
+        src={GreetingImageSrc}
       />
     </div>
   </div>

@@ -7,8 +7,7 @@
   "private": true,
   "workspaces": [
     "www",
-    "admin",
-    "api"
+    "admin"
   ],
   "engines": {
     "node": "14.x"
