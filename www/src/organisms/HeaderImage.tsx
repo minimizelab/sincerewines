@@ -20,7 +20,6 @@ const HeaderImage: C<Props> = ({ title, subTitle, link }) => {
   return (
     <div className="flex flex-col h-half min-h-400 xl:h-3/4 justify-end items-start relative">
       <Image
-        placeholder="blur"
         priority
         layout="fill"
         objectFit="cover"

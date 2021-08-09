@@ -18,7 +18,6 @@ const QuoteImage: C<Props> = ({ text, link }) => {
   return (
     <div className="flex flex-col h-half min-h-400 justify-end items-start relative">
       <Image
-        placeholder="blur"
         priority
         layout="fill"
         objectFit="cover"
