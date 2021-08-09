@@ -5,7 +5,7 @@ import TextLarge from '../atoms/TextLarge';
 import Content from '@sanity/block-content-to-react';
 import Partner from '../molecules/Partner';
 import { pageSerializers } from '../utils/serializers';
-import { projectId, dataset } from '../config/siteConfig';
+import siteConfig from '../config/siteConfig';
 import { GetStaticProps } from 'next';
 import { C } from '../types/types';
 import groq from 'groq';
@@ -43,8 +43,8 @@ const About: C<Props> = ({ page }) => (
               <Content
                 blocks={page.content}
                 serializers={pageSerializers}
-                projectId={projectId}
-                dataset={dataset}
+                projectId={siteConfig.projectId}
+                dataset={siteConfig.dataset}
               />
             </div>
           </div>

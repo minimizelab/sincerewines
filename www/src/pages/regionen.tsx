@@ -3,7 +3,7 @@ import Section from '../atoms/Section';
 import Content from '@sanity/block-content-to-react';
 import H1 from '../atoms/H1';
 import { pageSerializers } from '../utils/serializers';
-import { projectId, dataset } from '../config/siteConfig.js';
+import siteConfig from '../config/siteConfig';
 import { C } from '../types/types';
 import { GetStaticProps } from 'next';
 import { client } from '../services/sanity';
@@ -28,8 +28,8 @@ const TheRegion: C<Props> = ({ page }) => (
         <Content
           blocks={page.content}
           serializers={pageSerializers}
-          projectId={projectId}
-          dataset={dataset}
+          projectId={siteConfig.projectId}
+          dataset={siteConfig.dataset}
         />
       </div>
     </Section>

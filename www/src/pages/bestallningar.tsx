@@ -7,7 +7,7 @@ import { pageSerializers } from '../utils/serializers';
 import { useSelector } from 'react-redux';
 import { State } from '../store';
 import TabButtons from '../organisms/TabButtons';
-import { projectId, dataset } from '../config/siteConfig.js';
+import siteConfig from '../config/siteConfig';
 import { C } from '../types/types';
 import { GetStaticProps } from 'next';
 import groq from 'groq';
@@ -54,8 +54,8 @@ const Orders: C<Props> = ({ page }) => {
           <Content
             blocks={content}
             serializers={pageSerializers}
-            projectId={projectId}
-            dataset={dataset}
+            projectId={siteConfig.projectId}
+            dataset={siteConfig.dataset}
           />
         </div>
       </Section>
