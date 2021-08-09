@@ -31,12 +31,12 @@
     "sanity-plugin-media-library": "^1.0.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.15.0",
     "@sanity/cli": "^2.13.1",
-    "eslint": "^7.28.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
-    "prettier": "^2.3.1"
+    "prettier": "^2.3.2"
   }
 }
