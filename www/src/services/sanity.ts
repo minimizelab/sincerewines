@@ -5,5 +5,5 @@ export const client = sanityClient({
   projectId: siteConfig.projectId,
   dataset: siteConfig.dataset,
   useCdn: true,
-  apiVersion: '2021-06-06'
+  apiVersion: '2021-06-06',
 });
