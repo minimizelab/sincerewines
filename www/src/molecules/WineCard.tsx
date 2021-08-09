@@ -38,7 +38,9 @@ const WineCard: FunctionComponent<Props> = ({ item }) => {
       .includes(id);
   };
 
-  const handleOnClick = (event: any): void => {
+  const handleOnClick: React.MouseEventHandler<HTMLDivElement> = (
+    event
+  ): void => {
     event.preventDefault();
     router.push(`/sortiment/${item.path}`);
   };
