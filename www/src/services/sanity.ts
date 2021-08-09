@@ -4,6 +4,6 @@ import siteConfig from '../config/siteConfig';
 export const client = sanityClient({
   projectId: siteConfig.projectId,
   dataset: siteConfig.dataset,
-  useCdn: true,
-  apiVersion: '2021-06-06'
+  useCdn: siteConfig.useCDN,
+  apiVersion: '2021-06-06',
 });
