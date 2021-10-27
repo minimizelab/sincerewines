@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { State } from '../store';
-import Content from '@sanity/block-content-to-react';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
@@ -9,6 +8,7 @@ import ArrowLink from '../atoms/ArrowLink';
 import { WineCase, Grape, Producer, C } from '../types/types';
 import { createArrayString } from '../utils/functions';
 import { wineSerializers } from '../utils/serializers';
+import { PortableText } from '../lib/sanity.client';
 
 interface Props {
   wineCase: WineCase;
@@ -112,7 +112,10 @@ const WineCaseTemplate: C<Props> = ({ wineCase }) => {
               <div className="flex flex-col"></div>
             </div>
             <hr className="my-4"></hr>
-            <Content blocks={wineCase.desc} serializers={wineSerializers} />
+            <PortableText
+              blocks={wineCase.desc}
+              serializers={wineSerializers}
+            />
             {wineCase.link && (
               <ArrowLink to={wineCase.link}>
                 BESTÄLL FRÅN SYSTEMBOLAGET

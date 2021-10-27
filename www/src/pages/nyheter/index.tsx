@@ -8,7 +8,7 @@ import PostCard from '../../molecules/PostCard';
 import { Post, C } from '../../types/types';
 import { GetStaticProps } from 'next';
 import groq from 'groq';
-import { client } from '../../services/sanity';
+import { getClient } from '../../lib/sanity.server';
 
 interface Props {
   posts: Array<Post>;
@@ -44,6 +44,7 @@ const News: C<Props> = ({ posts }) => (
 export default News;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = getClient();
   const postsQuery = groq`*[_type == "post"] {
     "id": _id,
     title,

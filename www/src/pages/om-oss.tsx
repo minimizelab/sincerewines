@@ -2,14 +2,14 @@ import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
 import TextLarge from '../atoms/TextLarge';
-import Content from '@sanity/block-content-to-react';
 import Partner from '../molecules/Partner';
 import { pageSerializers } from '../utils/serializers';
 import siteConfig from '../config/siteConfig';
 import { GetStaticProps } from 'next';
 import { C } from '../types/types';
 import groq from 'groq';
-import { client } from '../services/sanity';
+import { getClient } from '../lib/sanity.server';
+import { PortableText } from '../lib/sanity.client';
 
 interface Props {
   page: AboutUsPage;
@@ -40,7 +40,7 @@ const About: C<Props> = ({ page }) => (
         <div className="flex flex-row w-full justify-between flex-wrap">
           <div className="lg:w-1/2">
             <div className="lg:mr-8">
-              <Content
+              <PortableText
                 blocks={page.content}
                 serializers={pageSerializers}
                 projectId={siteConfig.projectId}
@@ -69,6 +69,7 @@ const About: C<Props> = ({ page }) => (
 export default About;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = getClient();
   const aboutUsQuery = groq`*[_type == "aboutUsPage"][0]`;
   let props: Props;
   try {

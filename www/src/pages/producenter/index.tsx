@@ -2,9 +2,9 @@ import groq from 'groq';
 import { GetStaticProps } from 'next';
 import H1 from '../../atoms/H1';
 import Section from '../../atoms/Section';
+import { getClient } from '../../lib/sanity.server';
 import ProducerCard from '../../molecules/ProducerCard';
 import Layout from '../../organisms/Layout';
-import { client } from '../../services/sanity';
 import { C, Producer } from '../../types/types';
 
 interface Props {
@@ -27,6 +27,7 @@ const Producenter: C<Props> = ({ producers }) => (
 export default Producenter;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = getClient();
   const producersQuery = groq`*[_type == "producer"] {
     "id": _id,
     name,

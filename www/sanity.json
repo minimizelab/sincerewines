@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "project": {
+    "name": "Sincere Wines",
+    "basePath": "/"
+  },
+  "api": {
+    "projectId": "49w8mf8m",
+    "dataset": "staging"
+  }
+}

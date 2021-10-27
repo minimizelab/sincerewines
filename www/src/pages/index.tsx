@@ -3,13 +3,13 @@ import { GetStaticProps } from 'next';
 import ArrowLink from '../atoms/ArrowLink';
 import H3 from '../atoms/H3';
 import Section from '../atoms/Section';
+import { getClient } from '../lib/sanity.server';
 import DetailedLinks from '../organisms/DetailedLinks';
 import Greeting from '../organisms/Greeting';
 import HeaderImage from '../organisms/HeaderImage';
 import Layout from '../organisms/Layout';
 import ProductCardList from '../organisms/ProductCardList';
 import QuoteImage from '../organisms/QuoteImage';
-import { client } from '../services/sanity';
 import { C, Link, Wine } from '../types/types';
 
 interface Props {
@@ -75,6 +75,7 @@ const Index: C<Props> = ({
 export default Index;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = getClient();
   const settingsQuery = groq`*[_type == "settings"] {title}[0]`;
   const homePageQuery = groq`*[_type == "homePage"] {
     headerTitle,

@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { State } from '../store';
 import Image from 'next/image';
-import Content from '@sanity/block-content-to-react';
 import H3 from '../atoms/H3';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
@@ -13,6 +12,7 @@ import ArrowLink from '../atoms/ArrowLink';
 import { C, Wine } from '../types/types';
 import { wineType, createArrayString } from '../utils/functions';
 import { wineSerializers } from '../utils/serializers';
+import { PortableText } from '../lib/sanity.client';
 
 interface Props {
   wine: Wine;
@@ -119,7 +119,7 @@ const WineTemplate: C<Props> = ({ wine }) => {
               <div className="flex flex-col"></div>
             </div>
             <hr className="my-4"></hr>
-            <Content blocks={wine.desc} serializers={wineSerializers} />
+            <PortableText blocks={wine.desc} serializers={wineSerializers} />
             {wine.link && (
               <ArrowLink to={wine.link}>
                 {wine.assortment === 'Beställningssortiment'

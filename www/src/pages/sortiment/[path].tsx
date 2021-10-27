@@ -1,6 +1,6 @@
 import groq from 'groq';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { client } from '../../services/sanity';
+import { getClient } from '../../lib/sanity.server';
 import WineTemplate from '../../templates/Wine';
 import WineCaseTemplate from '../../templates/WineCase';
 import { C, WineItem } from '../../types/types';
@@ -25,6 +25,7 @@ type ItemParams = {
 export const getStaticProps: GetStaticProps<Props, ItemParams> = async ({
   params,
 }) => {
+  const client = getClient();
   const itemQuery = groq`*[_type in ["wine", "wineCase"] && path.current == $path ] {
     _id,
     _type,
@@ -60,6 +61,7 @@ export const getStaticProps: GetStaticProps<Props, ItemParams> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<ItemParams> = async () => {
+  const client = getClient();
   const itemsQuery = groq`*[_type in ["wine", "wineCase"]] {
     "path": path.current,
   }`;

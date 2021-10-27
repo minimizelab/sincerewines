@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
-import Content from '@sanity/block-content-to-react';
 import H1 from '../atoms/H1';
 import { pageSerializers } from '../utils/serializers';
 import { useSelector } from 'react-redux';
@@ -11,7 +10,8 @@ import siteConfig from '../config/siteConfig';
 import { C } from '../types/types';
 import { GetStaticProps } from 'next';
 import groq from 'groq';
-import { client } from '../services/sanity';
+import { getClient } from '../lib/sanity.server';
+import { PortableText } from '../lib/sanity.client';
 
 interface OrdersPage {
   consumerTitle: string;
@@ -51,7 +51,7 @@ const Orders: C<Props> = ({ page }) => {
       </Section>
       <Section className="justify-center p-6">
         <div className="sm:w-10/12 xl:w-1/2 flex flex-col pt-3 mb-6">
-          <Content
+          <PortableText
             blocks={content}
             serializers={pageSerializers}
             projectId={siteConfig.projectId}
@@ -66,6 +66,7 @@ const Orders: C<Props> = ({ page }) => {
 export default Orders;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = getClient();
   const ordersPageQuery = groq`*[_type == "ordersPage"]`;
   let props: Props;
   try {

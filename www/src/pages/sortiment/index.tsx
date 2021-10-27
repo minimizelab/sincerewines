@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import H1 from '../../atoms/H1';
 import Section from '../../atoms/Section';
+import { getClient } from '../../lib/sanity.server';
 import AssortmentHeader from '../../molecules/AssortmentHeader';
 import SortDropdown from '../../molecules/SortDropdown';
 import Layout from '../../organisms/Layout';
 import ProductCardList from '../../organisms/ProductCardList';
 import TabButtons from '../../organisms/TabButtons';
-import { client } from '../../services/sanity';
 import { State } from '../../store';
 import { WineItem, C } from '../../types/types';
 
@@ -78,6 +78,7 @@ const Sortiment: C<Props> = ({ wines }) => {
 export default Sortiment;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = getClient();
   const winesQuery = groq`*[_type in ["wine", "wineCase"]] {
     _id,
     _type,

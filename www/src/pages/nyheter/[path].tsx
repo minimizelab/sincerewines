@@ -1,4 +1,3 @@
-import Content from '@sanity/block-content-to-react';
 import { C, Post } from '../../types/types';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
@@ -11,7 +10,8 @@ import H5 from '../../atoms/H5';
 import Section from '../../atoms/Section';
 import TextUppercase from '../../atoms/TextUppercase';
 import Layout from '../../organisms/Layout';
-import { client } from '../../services/sanity';
+import { getClient } from '../../lib/sanity.server';
+import { PortableText } from '../../lib/sanity.client';
 
 interface Props {
   post: Post;
@@ -39,7 +39,7 @@ const NewsPost: C<Props> = ({ post }) => (
           />
         </div>
         <div className="flex flex-row w-full p-4">
-          <Content
+          <PortableText
             className="max-w-full"
             blocks={post.content}
             serializers={pageSerializers}
@@ -64,6 +64,7 @@ type PostParams = {
 export const getStaticProps: GetStaticProps<Props, PostParams> = async ({
   params,
 }) => {
+  const client = getClient();
   const postQuery = groq`*[_type == "post" && path.current == $path ] {
     _id,
     title,
@@ -87,6 +88,7 @@ export const getStaticProps: GetStaticProps<Props, PostParams> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<PostParams> = async () => {
+  const client = getClient();
   const postsQuery = groq`*[_type == "post"] {
     "path": path.current,
   }`;

@@ -1,15 +1,15 @@
 import groq from 'groq';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
-import Content from '@sanity/block-content-to-react';
 import React from 'react';
 import H1 from '../../atoms/H1';
 import H4 from '../../atoms/H4';
 import Section from '../../atoms/Section';
 import Layout from '../../organisms/Layout';
-import { client } from '../../services/sanity';
 import { Producer, C } from '../../types/types';
 import { producerSerializers } from '../../utils/serializers';
+import { getClient } from '../../lib/sanity.server';
+import { PortableText } from '../../lib/sanity.client';
 
 interface Props {
   producer: Producer;
@@ -41,7 +41,10 @@ const ProducerPage: C<Props> = ({ producer }) => (
         </div>
         <div className="flex flex-col w-full md:w-3/5 lg:w-3/4 p-4">
           <H4 className="pb-4">Om Producenten</H4>
-          <Content blocks={producer.desc} serializers={producerSerializers} />
+          <PortableText
+            blocks={producer.desc}
+            serializers={producerSerializers}
+          />
         </div>
       </div>
     </Section>
@@ -72,6 +75,7 @@ type ProducerParams = {
 export const getStaticProps: GetStaticProps<Props, ProducerParams> = async ({
   params,
 }) => {
+  const client = getClient();
   const producerQuery = groq`*[_type == "producer" && path.current == $path ] {
      "id": _id,
     name,
@@ -101,6 +105,7 @@ export const getStaticProps: GetStaticProps<Props, ProducerParams> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<ProducerParams> = async () => {
+  const client = getClient();
   const producersQuery = groq`*[_type == "producer"] {
     "path": path.current,
   }`;

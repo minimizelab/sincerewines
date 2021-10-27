@@ -16,7 +16,7 @@ import Text from '../atoms/Text';
 import ArrowLink from '../atoms/ArrowLink';
 import { GetStaticProps } from 'next';
 import groq from 'groq';
-import { client } from '../services/sanity';
+import { getClient } from '../lib/sanity.server';
 
 interface Props {
   wines: Array<Wine>;
@@ -104,6 +104,7 @@ const Vinlista: C<Props> = ({ wines, wineCases }) => {
 export default Vinlista;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = getClient();
   const wineQuery = groq`*[_type == "wine"]`;
   const wineCaseQuery = groq`*[_type == "wineCase"]`;
   let props: Props;
