@@ -43,7 +43,7 @@ const Vinlista: C<Props> = ({ wines, wineCases }) => {
       .concat(wines)
       .concat(wineCases)
       .filter(({ _id }) => wineListIds.includes(_id));
-  }, [wineList]);
+  }, [wineList, wineCases, wines]);
   const totalPrice = useMemo(() => {
     let total = 0;
     wineList.forEach((wine) => {

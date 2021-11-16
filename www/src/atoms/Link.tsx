@@ -1,8 +1,8 @@
 import React, { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import NextLink from 'next/link';
 import { C } from '../types/types';
-import { combineClasses } from '../utils/functions';
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
 
 interface Props
   extends DetailedHTMLProps<
@@ -23,10 +23,10 @@ const Link: C<Props> = ({
 }) => {
   const { asPath } = useRouter();
   const active = asPath === to;
-  const combinedClassName = combineClasses([
+  const combinedClassName = classNames([
     { 'font-sans text-base text-sincere-green': defaultStyling },
     className,
-    { [activeClassName]: active },
+    active ?? activeClassName,
   ]);
 
   return (

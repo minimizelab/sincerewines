@@ -56,7 +56,7 @@ const WineListCard: C<Props> = ({ item, privateCustomer }) => {
   return (
     <div className="w-full relative">
       <div className="bg-white h-270 lg:h-208 rounded shadow mx-6 my-3 md:my-6 p-6 flex flex-row">
-        {isItemWine ? (
+        {item.image ? (
           <div className="flex flex-col w-16 justify-center items-center relative">
             <Image
               src={item.image.url}
@@ -126,7 +126,7 @@ const WineListCard: C<Props> = ({ item, privateCustomer }) => {
                 )}
               </WineListDetails>
               <WineListDetails title="Pris">
-                {privateCustomer ? (
+                {privateCustomer && item.price ? (
                   <p>{item.price * itemQuantity() + ' kr'}</p>
                 ) : (
                   <p>Kontakta oss</p>

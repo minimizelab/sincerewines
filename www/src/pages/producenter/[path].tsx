@@ -27,6 +27,7 @@ const ProducerPage: C<Props> = ({ producer }) => (
             <div key={maker.id} className="flex flex-col w-full mb-6">
               <div className="mb-2 w-full h-500 md:h-400 relative">
                 <Image
+                  alt=""
                   priority
                   sizes="(min-width: 0px) 640px"
                   layout="fill"
@@ -53,6 +54,7 @@ const ProducerPage: C<Props> = ({ producer }) => (
         <div key={img._id} className="w-full md:w-1/3 p-6 max-h-500 h-270">
           <div className="w-full h-full relative rounded shadow overflow-hidden">
             <Image
+              alt=""
               layout="fill"
               sizes="(min-width: 0px) 640px"
               objectFit="cover"

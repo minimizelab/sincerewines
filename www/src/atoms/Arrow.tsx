@@ -8,6 +8,7 @@ interface Props {
 const ArrowGreen: FunctionComponent<Props> = ({ hover, left = false }) => {
   return left ? (
     <img
+      alt=""
       className="w-12"
       src={
         hover ? '/assets/arrow-left-grape.svg' : '/assets/arrow-left-green.svg'
@@ -15,6 +16,7 @@ const ArrowGreen: FunctionComponent<Props> = ({ hover, left = false }) => {
     />
   ) : (
     <img
+      alt=""
       className="w-12"
       src={
         hover

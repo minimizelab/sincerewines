@@ -16,7 +16,7 @@ const usePersistStore = (): boolean => {
     if (window && initialized) {
       window.localStorage.setItem(key, JSON.stringify(wineList));
     }
-  }, [wineList]);
+  }, [wineList, initialized]);
   useEffect(() => {
     if (window) {
       const localStorageData = window.localStorage.getItem(key);

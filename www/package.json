@@ -17,6 +17,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.21.10",
     "autoprefixer": "^10.4.0",
+    "classnames": "^2.3.1",
     "groq": "^2.15.0",
     "next": "^12.0.4",
     "next-sanity": "^0.4.0",
@@ -32,9 +33,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc",
-    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
-    "lint:fix": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx --fix"
+    "lint": "next lint"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -43,15 +42,13 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-helmet": "^6.1.4",
     "@types/react-redux": "^7.1.20",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^7.23.0",
     "eslint-config-next": "^12.0.4",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.0",
     "prettier": "^2.4.1",
     "tailwindcss": "^2.2.19",
+    "tslib": "^2.3.1",
     "typescript": "^4.4.4"
   }
 }
