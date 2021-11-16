@@ -47,8 +47,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const producers = await client.fetch<Array<Producer>>(producersQuery);
     props = { producers };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch producers');
   }
   return {
     props,

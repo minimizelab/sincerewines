@@ -25,6 +25,7 @@ type ItemParams = {
 export const getStaticProps: GetStaticProps<Props, ItemParams> = async ({
   params,
 }) => {
+  if (!params) throw Error('Missing params');
   const client = getClient();
   const itemQuery = groq`*[_type in ["wine", "wineCase"] && path.current == $path ] {
     _id,
@@ -51,8 +52,8 @@ export const getStaticProps: GetStaticProps<Props, ItemParams> = async ({
   try {
     const item = await client.fetch<WineItem>(itemQuery, params);
     props = { item };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch wine item: ' + params.path);
   }
   return {
     props,
@@ -68,9 +69,9 @@ export const getStaticPaths: GetStaticPaths<ItemParams> = async () => {
   let paths: Array<{ params: ItemParams }>;
   try {
     const items = await client.fetch<Array<ItemParams>>(itemsQuery);
-    paths = items.map((item) => ({ params: item }));
-  } catch (error) {
-    throw Error(error);
+    paths = items.map((item: ItemParams) => ({ params: item }));
+  } catch (_) {
+    throw Error('Failed to fetch wine items');
   }
 
   return { paths, fallback: false };

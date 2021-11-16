@@ -75,6 +75,7 @@ type ProducerParams = {
 export const getStaticProps: GetStaticProps<Props, ProducerParams> = async ({
   params,
 }) => {
+  if (!params) throw Error('Missing params');
   const client = getClient();
   const producerQuery = groq`*[_type == "producer" && path.current == $path ] {
      "id": _id,
@@ -95,8 +96,8 @@ export const getStaticProps: GetStaticProps<Props, ProducerParams> = async ({
   try {
     const producer = await client.fetch<Producer>(producerQuery, params);
     props = { producer };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch producer: ' + params.path);
   }
   return {
     props,
@@ -112,9 +113,9 @@ export const getStaticPaths: GetStaticPaths<ProducerParams> = async () => {
   let paths: Array<{ params: ProducerParams }>;
   try {
     const producers = await client.fetch<Array<ProducerParams>>(producersQuery);
-    paths = producers.map((producer) => ({ params: producer }));
-  } catch (error) {
-    throw Error(error);
+    paths = producers.map((producer: ProducerParams) => ({ params: producer }));
+  } catch (_) {
+    throw Error('Failed to fetch producers');
   }
 
   return { paths, fallback: false };

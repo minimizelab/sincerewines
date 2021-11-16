@@ -64,6 +64,7 @@ type PostParams = {
 export const getStaticProps: GetStaticProps<Props, PostParams> = async ({
   params,
 }) => {
+  if (!params) throw Error('missing params');
   const client = getClient();
   const postQuery = groq`*[_type == "post" && path.current == $path ] {
     _id,
@@ -78,8 +79,8 @@ export const getStaticProps: GetStaticProps<Props, PostParams> = async ({
   try {
     const post = await client.fetch<Post>(postQuery, params);
     props = { post };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch post: ' + params.path);
   }
   return {
     props,
@@ -96,8 +97,8 @@ export const getStaticPaths: GetStaticPaths<PostParams> = async () => {
   try {
     const posts = await client.fetch<Array<PostParams>>(postsQuery);
     paths = posts.map((post) => ({ params: post }));
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch posts');
   }
 
   return { paths, fallback: false };

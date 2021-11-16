@@ -47,7 +47,8 @@ const Vinlista: C<Props> = ({ wines, wineCases }) => {
   const totalPrice = useMemo(() => {
     let total = 0;
     wineList.forEach((wine) => {
-      const price = wineData.filter((node) => node._id === wine.id)[0].price;
+      const price: number =
+        wineData.filter((node) => node._id === wine.id)[0].price ?? 0;
       total += wine.quantity * price;
     });
     return total;
@@ -112,8 +113,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     const wines = await client.fetch<Array<Wine>>(wineQuery);
     const wineCases = await client.fetch<Array<WineCase>>(wineCaseQuery);
     props = { wineCases, wines };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch wines for wine list page');
   }
   return {
     props,

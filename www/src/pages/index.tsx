@@ -113,8 +113,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     const settings = await client.fetch<{ title: string }>(settingsQuery);
     const homePage = await client.fetch<HomePage>(homePageQuery);
     props = { title: settings.title, homePage };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch home page');
   }
   return {
     props,

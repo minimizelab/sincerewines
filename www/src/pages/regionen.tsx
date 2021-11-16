@@ -2,7 +2,6 @@ import Layout from '../organisms/Layout';
 import Section from '../atoms/Section';
 import H1 from '../atoms/H1';
 import { pageSerializers } from '../utils/serializers';
-import siteConfig from '../config/siteConfig';
 import { C } from '../types/types';
 import { GetStaticProps } from 'next';
 import groq from 'groq';
@@ -25,12 +24,7 @@ const TheRegion: C<Props> = ({ page }) => (
     </Section>
     <Section className="justify-center p-6">
       <div className="sm:w-10/12 xl:w-1/2 flex flex-col pt-3 mb-6">
-        <PortableText
-          blocks={page.content}
-          serializers={pageSerializers}
-          projectId={siteConfig.projectId}
-          dataset={siteConfig.dataset}
-        />
+        <PortableText blocks={page.content} serializers={pageSerializers} />
       </div>
     </Section>
   </Layout>
@@ -46,8 +40,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     const page = await client.fetch<RegionPage>(theRegionQuery);
 
     props = { page };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch region page');
   }
   return {
     props,

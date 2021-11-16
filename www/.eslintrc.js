@@ -5,6 +5,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'next',
+    'next/core-web-vitals',
   ],
   settings: {
     react: {

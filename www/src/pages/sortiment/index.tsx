@@ -30,7 +30,7 @@ const Sortiment: C<Props> = ({ wines }) => {
   );
 
   const sortEdges = (data: Array<WineItem>): Array<WineItem> => {
-    return data.sort((a, b) => {
+    return data.sort((a: Record<string, any>, b: Record<string, any>) => {
       if (a._type === 'wineCase' || b._type === 'wineCase') {
         return 0;
       } else {
@@ -104,8 +104,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const wines = await client.fetch<Array<WineItem>>(winesQuery);
     props = { wines };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch wines');
   }
   return {
     props,

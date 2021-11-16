@@ -6,7 +6,6 @@ import { pageSerializers } from '../utils/serializers';
 import { useSelector } from 'react-redux';
 import { State } from '../store';
 import TabButtons from '../organisms/TabButtons';
-import siteConfig from '../config/siteConfig';
 import { C } from '../types/types';
 import { GetStaticProps } from 'next';
 import groq from 'groq';
@@ -51,12 +50,7 @@ const Orders: C<Props> = ({ page }) => {
       </Section>
       <Section className="justify-center p-6">
         <div className="sm:w-10/12 xl:w-1/2 flex flex-col pt-3 mb-6">
-          <PortableText
-            blocks={content}
-            serializers={pageSerializers}
-            projectId={siteConfig.projectId}
-            dataset={siteConfig.dataset}
-          />
+          <PortableText blocks={content} serializers={pageSerializers} />
         </div>
       </Section>
     </Layout>
@@ -72,8 +66,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const [page] = await client.fetch<Array<OrdersPage>>(ordersPageQuery);
     props = { page };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch orders page');
   }
   return {
     props,

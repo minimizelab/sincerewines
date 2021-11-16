@@ -4,7 +4,6 @@ import H1 from '../atoms/H1';
 import TextLarge from '../atoms/TextLarge';
 import Partner from '../molecules/Partner';
 import { pageSerializers } from '../utils/serializers';
-import siteConfig from '../config/siteConfig';
 import { GetStaticProps } from 'next';
 import { C } from '../types/types';
 import groq from 'groq';
@@ -43,8 +42,6 @@ const About: C<Props> = ({ page }) => (
               <PortableText
                 blocks={page.content}
                 serializers={pageSerializers}
-                projectId={siteConfig.projectId}
-                dataset={siteConfig.dataset}
               />
             </div>
           </div>
@@ -76,8 +73,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     const page = await client.fetch<AboutUsPage>(aboutUsQuery);
 
     props = { page };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch about us page');
   }
   return {
     props,

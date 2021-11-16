@@ -25,7 +25,6 @@ export const PortableText = createPortableTextComponent({
   ...config.sanity,
   // Serializers passed to @sanity/block-content-to-react
   // (https://github.com/sanity-io/block-content-to-react)
-  serializers: {},
 });
 
 // Helper function for using the current logged in user account

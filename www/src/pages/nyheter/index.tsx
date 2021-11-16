@@ -58,8 +58,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const posts = await client.fetch<Array<Post>>(postsQuery);
     props = { posts };
-  } catch (error) {
-    throw Error(error);
+  } catch (_) {
+    throw Error('Failed to fetch posts');
   }
   return {
     props,
